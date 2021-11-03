@@ -205,6 +205,7 @@ private slots:
 
 private:
     void initUis();
+    void initVector();
     void initMap();
     void initconections();
     void initRviz();
