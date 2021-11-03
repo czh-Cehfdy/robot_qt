@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>户外移动机器人</title>
+    <style>
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+        .amap-icon img {
+            width: 25px;
+            height: 34px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script
+        src="https://webapi.amap.com/maps?v=1.4.15&key=578227a70aeea0837df2615de1eac91e&plugin=AMap.Walking"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script src="./qwebchannel.js"></script>
+</head>
+
+
+<body>
+    <!-- <p>起点和终点经纬度为： <input type="text" id="np"></p> -->
+    <div id="container"></div>
+    <div class="info" id="text">
+        户外移动机器人
+    </div>
+
+    <!-- <div class="input-card" style="width:28rem">
+        <h4>——————————功能栏——————————</h4>
+        <div id="login">
+            <div class="input-item">
+                <button id="clickOn" class="btn" style="margin-right:0.5rem;">拾取</button>
+                       <button id="conte" class="btn" style="margin-right:0.5rem;">显示</button>-->
+                           <!-- <button id="stop" class="btn" style="margin-right:0.5rem;">停止显示</button>-->
+                <!-- <button id="globalNav" class="btn" style="margin-right:0.5rem;">规划</button> -->
+                <!-- <button id="clearAll" class="btn" style="margin-right:0.5rem;">清除</button> -->
+                <!-- <button id="trackMission" class="btn" style="margin-right:0.5rem;">任务下发</button> -->
+                <!-- <button id="draw_route" class="btn" style="margin-right:0.5rem;">画线</button> -->
+                <!-- <button id="read_txt" class="btn" style="margin-right:0.5rem;">读取</button> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> --> -->
+
+    <script type="text/javascript">
+        var contextMenu = new AMap.ContextMenu();
+        var count = 0; 
+        var startMarker, endMarker;
+        var startlng,startlat,endlng, endlat;
+        var startlng_true,startlat_true,endlng_true, endlat_true;
+        var pos_temp, posicon, result_global;
+        var lineArr;
+        var path = [];
+        var path_section = [];
+        var path_end;
+        let path_new_1 = [];
+        var kkk = [];
+        let smArray = [];
+        var Start_liat = [];
+    
+        //获取轨迹点
+        function get_points() { 
+            var np = startlng + ',' + startlat + ';' + endlng + ',' + endlat;
+            for (var i = 0; i < path.length; i++) {
+                np  =   np +";"+path[i];
+                 }
+            
+            // 返回关键点经纬度信息，用于小车路径规划
+            var temp_1 = 0;
+            var temp_2 = 0;
+            var path_points = temp_1+ ',' + temp_2
+            for (var j = 0; j < path_section.length; j++) {
+                path_points =  path_points + ";"+path_section[j];
+                 }
+            path_points =  path_points + ";"+path[path.length-1];    //加上终点经纬度坐标
+                 
+        // alert("起点和终点" + np);
+        // alert("path" + typeof(path[0])); 
+        new QWebChannel(qt.webChannelTransport, function (channel) {
+	            var qGetPoints = channel.objects.qGetPoints;
+                //  qGetPoints.recieveJsMessage(startlng,startlat,endlng,endlat);
+                 qGetPoints.recieveJsMessage(np,path_points);
+                //qGetPoints.recieveJsMessage(path_end);
+        })
+    }
+        
+
+        //接收起点
+        //function getPC(x,y) {  
+          //  alert('经度是' + x + "\n" + '纬度是' + y)
+            //startlng = x
+            //startlat = y
+            //Start_liat = []
+        //}
+        //拾取终点
+        // function pitchTP() {      
+        //     get_PCMap();
+        // }
+
+        //拾取起点和终点
+        function pitch() {      
+            clickOn();
+        }
+        //规划
+        function plan() {      
+            globalNav();
+        }
+        //清除
+        function clear() {      
+            clearAll();
+        }
+         //画线
+        // function draw() {    
+        //     draw_route();
+        // }
+
+        function transport_1(value) {      //Pyqt中调用，可以在qwebchannel中定义多个此函数，然后在pyqt5中把函数名字改一下，就可以传数据了
+
+            try {
+                path_new_1 = value.split(';')   //得到的是字符串数据，但高德地图要求是数组类型：[[],[],[]]这样，所以需要进行转化和解析
+                if (value === "") throw "请输入坐标值！";
+                //这里将字符串转化为数组，用“；”分隔，已经转化为一个数组了，但是还不行！
+
+                for (var i = 0; i < path_new_1.length; i++) {
+                    var temp = [];            //这里定义一个两元数组
+                    temp = path_new_1[i].split(",");   //用来存储经纬度成单独的数组[]
+                    if (temp.length === 1) {
+                        throw "输入坐标值出现错误！请检查无误后重新输入！";
+                    }
+                    smArray[i] = temp;                 //然后将其加入到一个空白数组中，就可以得到[[]]这样的形式了
+                    temp = []                          //用完后清空，进入下一次循环
+                }
+                alert("我是第二个传值列表：" + smArray)
+            }
+            catch (err) {
+                alert("错误信息：" + err);  
+            }
+        }
+
+        // function draw_route() {
+            // var smArray = [[121.421918,31.145334],[121.421832,31.145556],[121.421832,31.145638],[121.421827,31.145638],[121.422452,31.145842],[121.422582,31.145868],[121.422582,31.145868],[121.423316,31.146072],[121.423359,31.146107],[121.423359,31.146107],[121.423407,31.146137],[121.42408,31.146332]]
+            // alert("我是绘画的列表："+smArray)
+            // try {
+            //     var startMarker = new AMap.Marker({
+
+            //         position: smArray[0],
+            //         icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+            //         map: map
+            //     })
+            //     // alert("我是绘画的起点："+smArray[0])
+            //     var endMarker = new AMap.Marker({
+            //         position: smArray[smArray.length - 1],
+            //         // position: smArray[smArray.length - 1],
+            //         icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+            //         map: map
+            //     })
+            //     // alert("我是绘画的起点："+smArray[smArray.length - 1])
+            //     var routeLine = new AMap.Polyline({
+            //         path: smArray,
+            //         isOutline: true,
+            //         outlineColor: '#ffeeee',
+            //         borderWeight: 1,
+            //         strokeWeight: 2,
+            //         strokeColor: '#0091ff',
+            //         lineJoin: 'round'
+            //     })
+            //     routeLine.setMap(map)
+            //     // 调整视野达到最佳显示区域
+            //     map.setFitView([startMarker, endMarker, routeLine])
+            //     log.success("路径已经为您绘制完成！");
+            // }
+            // catch (err) {
+            //     alert("错误信息：" + err);
+            // }
+
+        // }
+
+
+
+        //以下为使用自动定位技术，无需给出中心点的经纬度
+        var map = new AMap.Map('container', {
+            resizeEnable: true,
+            expandZoomRange: true,
+            zoom:20,
+            // zooms:[3,20],
+            center: [121.426923,31.144922]
+        });
+        // AMap.plugin('AMap.Geolocation', function () {
+        //     var geolocation = new AMap.Geolocation({
+        //         enableHighAccuracy: true,//是否使用高精度定位，默认:true
+        //         timeout: 10000,          //超过10秒后停止定位，默认：5s
+        //         buttonPosition: 'RB',    //定位按钮的停靠位置
+        //         buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+        //         zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+
+        //     });
+        //     map.addControl(geolocation);
+        //     geolocation.getCurrentPosition(function (status, result) {
+        //         if (status == 'complete') {
+        //             onComplete(result)
+        //         } else {
+        //             onError(result)
+        //         }
+        //     });
+        // });
+
+        // //解析定位结果
+        // function onComplete(data) {
+        //     document.getElementById('status').innerHTML = '定位成功'
+        //     var str = [];
+        //     str.push('定位结果：' + data.position);
+        //     str.push('定位类别：' + data.location_type);
+        //     if (data.accuracy) {
+        //         str.push('精度：' + data.accuracy + ' 米');
+        //     }//如为IP精确定位结果则没有精度信息
+        //     str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        //     document.getElementById('result').innerHTML = str.join('<br>');
+        // }
+        // //解析定位错误信息
+        // function onError(data) {
+        //     document.getElementById('status').innerHTML = '定位失败'
+        //     document.getElementById('result').innerHTML = '失败原因排查信息:' + data.message;
+        // }
+
+
+
+
+        var walking = new AMap.Walking({
+            map: map,
+            panel: "panel"
+        });
+
+        function load(name) {
+            let xhr = new XMLHttpRequest(),
+                okStatus = document.location.protocol === "file:" ? 0 : 200;
+            xhr.open('GET', name, false);
+            xhr.overrideMimeType("text/html;charset=utf-8");//默认为utf-8
+            xhr.send(null);
+            return xhr.status === okStatus ? xhr.responseText : null;
+        }
+
+        function display_location() {
+            let text = load("location.txt");
+            console.log(text);  //输出到浏览器控制器中
+        }
+
+        var passedPolyline = new AMap.Polyline({
+            map: map,
+            // path: lineArr,
+            strokeColor: "#AF5",  //线颜色
+            // strokeOpacity: 1,     //线透明度
+            strokeWeight: 1,      //线宽
+            // strokeStyle: "solid"  //线样式
+        });
+
+        function pitchTP_fun(e) {
+            lineArr = [];
+            if (count == 0) {
+            // 起点
+            var text = '选取 [ ' + startlng + ',' + startlat + ' ] 的位置为起点！'
+            document.querySelector("#text").innerText = text;
+            var startMarker_2 = new AMap.Marker({
+                    position: new AMap.LngLat(startlng, startlat),
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+                    map: map
+                });
+
+            count = 1;
+            map.add(startMarker_2);
+            map.setFitView(startMarker_2);
+            }
+            //////////////////////////////////////////终点
+            else if (count == 1) {
+                var text = '选取 [ ' + e.lnglat.getLng() + ',' + e.lnglat.getLat() + ' ] 的位置为终点！'
+                endlng = e.lnglat.getLng(), endlat = e.lnglat.getLat();
+                document.querySelector("#text").innerText = text;
+                var endMarker_2= new AMap.Marker({
+                    position: new AMap.LngLat(endlng, endlat),
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+                    map: map
+                })
+            count = 2
+            map.add(endMarker_2);
+            map.setFitView(startMarker_2,endMarker_2);
+            }
+            else {
+                log.success("始末位置已经选取，请点击【规划】");
+            }
+        }
+
+        function showInfoClick(e){
+        lineArr = [];
+        //////////////////////////////////////////起点
+        if(count == 0){
+            var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为起点！'
+            startlng = e.lnglat.getLng(),startlat = e.lnglat.getLat();
+            document.querySelector("#text").innerText = text;
+            var startMarker_1 = new AMap.Marker({
+                    position: new AMap.LngLat(startlng, startlat),
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+                    map: map
+                });
+
+            count = 1;
+            map.setFitView(startMarker_1);
+        }
+        //////////////////////////////////////////终点
+        else if (count == 1){
+            var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为终点！'
+            endlng = e.lnglat.getLng(), endlat = e.lnglat.getLat();
+            document.querySelector("#text").innerText = text;
+            var endMarker_1= new AMap.Marker({
+                    position: new AMap.LngLat(endlng, endlat),
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+                    map: map
+                })
+            count = 2
+            map.add(endMarker_1);
+            map.setFitView(startMarker_1,endMarker_1);
+        }
+        else{
+            log.success("始末位置已经选取，请点击【规划】");
+        }
+    }
+
+        function showInfoMove() {
+            var text = ' 户外移动机器人 '
+            document.querySelector("#text").innerText = text;
+        }
+
+        // 事件绑定
+        function get_PCMap() {
+            map.clearMap();
+            count = 0;
+            log.success("指针监控");
+            map.on('click', pitchTP_fun);
+            // map.on('dblclick', showInfoDbClick);
+            map.on('mousemove', showInfoMove);
+        }
+
+        function clickOn() {
+            map.clearMap();
+            count = 0;
+            log.success("指针监控");
+            map.on('click', showInfoClick);
+            // map.on('dblclick', showInfoDbClick);
+            map.on('mousemove', showInfoMove);
+        }
+
+
+        // 当前示例的目标是展示如何根据规划结果绘制路线，因此walkOption为空对象
+        var walkingOption = {}
+
+        // 步行导航
+        var walking = new AMap.Walking(walkingOption)
+
+        function globalNav() {
+            // 判断始末经纬度是否为空，为空则不进行规划，发出错误提示后return
+            if(typeof(startlng)=="undefined" || startlng=='' || startlng==null||typeof(startlat)=="undefined" || startlat=='' || startlat==null||
+            typeof(endlng)=="undefined" || endlng=='' || endlng==null||typeof(endlat)=="undefined" || endlat=='' || endlat==null){
+                log.error("请选择始末位置后，再点击【规划】！");
+                return
+            }
+            // 清除掉上次的轨迹，重新规划
+            map.clearMap();
+            path = [];
+            lineArr = [];
+
+            // 开始规划
+            log.success("规划路径…………");
+            walking.search(new AMap.LngLat(startlng, startlat), new AMap.LngLat(endlng, endlat), function (status, result) {
+                //根据起终点坐标规划步行路线
+                if (status === 'complete') {
+                    if (result.routes && result.routes.length) {
+                        drawRoute(result.routes[0])
+                        log.success('绘制步行路线完成')
+                    }
+                } else {
+                    log.error('步行路线数据查询失败' + result)
+                }
+            });
+
+            startlng_true = path_end[0];
+            // endlng_true = JSON.stringify(path_end[path_end.length - 1]);
+            function drawRoute(route) {
+                var path_end = parseRouteToPath(route)
+                var startMarker = new AMap.Marker({
+                    position: path_end[0],
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+                    map: map
+                })
+                var endMarker = new AMap.Marker({
+                    position: path_end[path_end.length - 1],
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+                    map: map
+                })
+                var routeLine = new AMap.Polyline({
+                    path: path_end,
+                    isOutline: true,
+                    outlineColor: '#ffeeee',
+                    borderWeight: 0.1,
+                    strokeWeight: 5,
+                    strokeColor: '#0091ff',
+                    lineJoin: 'round'
+                })
+                routeLine.setMap(map)
+                // 调整视野达到最佳显示区域
+                map.setFitView([startMarker, endMarker, routeLine])
+            }
+
+            // 解析WalkRoute对象，构造成AMap.Polyline的path参数需要的格式
+            // WalkRoute对象的结构文档 https://lbs.amap.com/api/javascript-api/reference/route-search#m_WalkRoute
+            function parseRouteToPath(route) {
+                path_section = [];
+                for (var i = 0, l = route.steps.length; i < l; i++) {
+                    var step = route.steps[i]
+                    for (var j = 0, n = step.path.length; j < n; j++) {
+                        //取高德规划后的每一段路径的第一个经纬度作为关键点经纬度信息
+                        if(j == 0){
+                            path_section.push(step.path[j])
+                        }
+                        path.push(step.path[j])
+                    }
+                }
+                return path
+            }
+        }
+
+
+
+
+
+
+        console.log(lineArr);
+
+
+        function clearAll() {
+            map.clearMap();
+            path = [];
+            startlng =0;
+            startlat=0;
+            endlng=0;
+            endlat=0;
+            count = 0;
+            lineArr = [];
+            log.success("清除始末位置标签,请重新选取始末位置");
+        }
+
+        // 给按钮绑定事件
+        // document.getElementById("Tcp_connect").onclick = connect;
+        // document.getElementById("draw_route").onclick = draw_route;
+        // document.getElementById("clickOn").onclick = clickOn;
+        // document.getElementById("globalNav").onclick = globalNav;
+        // document.getElementById("clearAll").onclick = clearAll;
+        // document.getElementById("read_txt").onclick = display_location;
+
+    </script>
+</body>
+
+</html>

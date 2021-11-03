@@ -1,0 +1,2 @@
+robot_hmi
+-DCATKIN_DEVEL_PREFIX=/home/czh/study_code/QT_study/catkin_qt/devel -DCMAKE_INSTALL_PREFIX=/home/czh/study_code/QT_study/catkin_qt/install -G Unix Makefiles

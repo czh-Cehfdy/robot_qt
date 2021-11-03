@@ -1,0 +1,8 @@
+prefix=/home/czh/study_code/QT_study/catkin_qt/install
+
+Name: robot_hmi
+Description: Description of robot_hmi
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
