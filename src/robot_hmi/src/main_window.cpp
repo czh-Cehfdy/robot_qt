@@ -214,6 +214,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 
 
 }
+//初始化速度控制相关槽函数
 void MainWindow::initVector(){
     connect(ui.horizontalSlider_raw,SIGNAL(valueChanged(int)),this,SLOT(slot_raw_value_change(int)));
     connect(ui.horizontalSlider_linera,SIGNAL(valueChanged(int)),this,SLOT(slot_linera_value_change(int)));
