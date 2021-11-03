@@ -241,10 +241,10 @@ GTEST_MAIN_LIBRARY:FILEPATH=GTEST_MAIN_LIBRARY-NOTFOUND
 GTEST_MAIN_LIBRARY_DEBUG:FILEPATH=GTEST_MAIN_LIBRARY_DEBUG-NOTFOUND
 
 //Value Computed by CMake
-GeographicLib_BINARY_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/build/robot_hmi/ThirdParty/GeographicLib
+GeographicLib_BINARY_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib
 
 //Value Computed by CMake
-GeographicLib_SOURCE_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/src/robot_hmi/ThirdParty/GeographicLib
+GeographicLib_SOURCE_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/ThirdParty/GeographicLib
 
 //lsb_release executable was found
 LSB_FOUND:BOOL=TRUE
@@ -458,10 +458,10 @@ pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
 resource_retriever_DIR:PATH=/opt/ros/melodic/share/resource_retriever/cmake
 
 //Value Computed by CMake
-robot_hmi_BINARY_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/build/robot_hmi
+robot_qt_BINARY_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/build/robot_qt
 
 //Value Computed by CMake
-robot_hmi_SOURCE_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/src/robot_hmi
+robot_qt_SOURCE_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/src/robot_qt
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
