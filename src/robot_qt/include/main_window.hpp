@@ -120,6 +120,7 @@ public:
     int btn_pitchFlag = 0;
     double xyz[3] = {0,0,0};
     double m_xyz[3] ={0,0,0};
+    bool g_gpsAquire = false ;
 
 
 public Q_SLOTS:

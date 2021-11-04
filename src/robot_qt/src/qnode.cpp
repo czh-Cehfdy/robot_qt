@@ -51,7 +51,8 @@ bool CQNode::init() {
     if ( ! ros::master::check() ) {  //如果rosmaster没有启动，返回false
         return false;
     }
-    ROS_ERROR("init  000");
+    log(Info,"CQNode::init()");
+    m_qnodeStart = true ;
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
 	start();
 	return true;
@@ -65,19 +66,11 @@ bool CQNode::init(const std::string &master_url, const std::string &host_url) {
     if ( ! ros::master::check() ) {
         return false;
     }
+    m_qnodeStart = true ;
+    log(Info,"CQNode::init(const std::string &master_url, const std::string &host_url)");
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
 	start();
 	return true;
-}
-void CQNode::disinit()
-{
-//    if(ros::isStarted())
-//    {
-//        ROS_INFO("ROS will shutdown");
-//        ros::shutdown();
-//        ros::waitForShutdown();
-//    }
-//    this->exit();
 }
 
 void CQNode::RawImageCallback(const sensor_msgs::ImageConstPtr& msg) {
@@ -285,5 +278,38 @@ void CQNode::run() {
     }
 //	Q_EMIT rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
 }
-
+void CQNode::log( const LogLevel &level, const std::string &msg) {
+    logging_model.insertRows(logging_model.rowCount(),1);
+    std::stringstream logging_model_msg;
+    switch ( level ) {
+        case(Debug) : {
+                ROS_DEBUG_STREAM(msg);
+                logging_model_msg << "[DEBUG] [" << ros::Time::now() << "]: " << msg;
+                break;
+        }
+        case(Info) : {
+                ROS_INFO_STREAM(msg);
+                logging_model_msg << "[INFO] [" << ros::Time::now() << "]: " << msg;
+                break;
+        }
+        case(Warn) : {
+                ROS_WARN_STREAM(msg);
+                logging_model_msg << "[INFO] [" << ros::Time::now() << "]: " << msg;
+                break;
+        }
+        case(Error) : {
+                ROS_ERROR_STREAM(msg);
+                logging_model_msg << "[ERROR] [" << ros::Time::now() << "]: " << msg;
+                break;
+        }
+        case(Fatal) : {
+                ROS_FATAL_STREAM(msg);
+                logging_model_msg << "[FATAL] [" << ros::Time::now() << "]: " << msg;
+                break;
+        }
+    }
+    QVariant new_row(QString(logging_model_msg.str().c_str()));
+    logging_model.setData(logging_model.index(logging_model.rowCount()-1),new_row);
+    Q_EMIT loggingUpdated(); // used to readjust the scrollbar
+}
 }  // namespace robot_qt

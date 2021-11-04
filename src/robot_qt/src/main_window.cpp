@@ -298,12 +298,18 @@ void MainWindow::initMap()
     connect(ui.btn_savegps,SIGNAL(clicked()),this,SLOT(slot_save_gps()));
     connect(ui.btn_display_data,SIGNAL(clicked()),this,SLOT(slot_dispaly_gpsdata()));
     connect(ui.btn_display_gps, &QPushButton::pressed, this, [=]() {
-          qnode_Get_gps.init();
+          g_gpsAquire = true ;
+          if(!qnode_Get_gps.m_qnodeStart){
 
-          ui.btn_DisplayPCLImage->setDisabled(true);
+              qnode_Get_gps.init();
+          }
+          ui.btn_close->setDisabled(false);
+          ui.btn_display_gps->setDisabled(true);
       });
     connect(ui.btn_close, &QPushButton::pressed, this, [=]() {
-           qnode_Get_gps.disinit();
+          g_gpsAquire = false ;
+          ui.btn_close->setDisabled(true);
+          ui.btn_display_gps->setDisabled(false);
 
       });
 
@@ -392,6 +398,9 @@ void MainWindow::initMap()
         ui.btn_develop->setDisabled(true);
         ui.btn_project->setDisabled(true);
       });
+
+    //获取GPS
+    connect(&qnode_Get_gps, &CQNode::updateGetgps, this,&MainWindow::DisplayGetgps);
 }
 
 
@@ -496,8 +505,7 @@ void MainWindow::initconections()
                                    "</font>");
       });
 
-    //获取GPS
-    connect(&qnode_Get_gps, &CQNode::updateGetgps, this,&MainWindow::DisplayGetgps);
+
 
 }
 void MainWindow::initRviz()
@@ -1275,42 +1283,44 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 ** 采集GPS点信息
 *****************************************************************************/
 void MainWindow::DisplayGetgps(const QString& longitude,const QString& latitude){
-    ui.get_longitude->setText(longitude);
-    ui.get_latitude->setText(latitude);
+    if(g_gpsAquire){
+        ui.get_longitude->setText(longitude);
+        ui.get_latitude->setText(latitude);
+    }
+    QString time_str = "gps_data_";
+    QDir *DataFile = new QDir;
+    bool exist = DataFile->exists("DataFile");
+    if(!exist)
+    {
+        bool isok = DataFile->mkdir("DataFile"); // 新建文件夹
+        if(!isok)
+        QMessageBox::warning(this,"sdf","can't mkdir",QMessageBox::Yes);
+    }
+    QString fileName = "DataFile/"+time_str+"datafile.txt";
+    QFile file(fileName);
+    if(!file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append))
+
+    {
+      QMessageBox::warning(this,"sdf","can't open",QMessageBox::Yes);
+    }
     if(save_gps_flag){
-        save_longitude.append(longitude.toDouble());
-        save_latitude.append(latitude.toDouble());
+        if(g_gpsAquire){
+            save_longitude.append(longitude.toDouble());
+            save_latitude.append(latitude.toDouble());
+            QTextStream stream(&file);
+            stream.setCodec("utf-8");
+            stream <<longitude<<","<<latitude<<"\n";
+            file.close();
+            count_gps+=1;
+        }
+        else{
+            QTextStream stream(&file);
+            stream.setCodec("utf-8");
+            stream <<save_longitude.back()<<","<<save_latitude.back()<<"\n";
+            file.close();
+            count_gps+=1;
+        }
         save_gps_flag = 0;
-        QString time_str = "gps_data_";
-        QDir *DataFile = new QDir;
-        bool exist = DataFile->exists("DataFile");
-        if(!exist)
-        {
-            bool isok = DataFile->mkdir("DataFile"); // 新建文件夹
-            if(!isok)
-            QMessageBox::warning(this,"sdf","can't mkdir",QMessageBox::Yes);
-        }
-
-        QString fileName = "DataFile/"+time_str+"datafile.txt";
-
-        QString str = "this is testing for save data to txt file by Qt programming.";
-
-        QFile file(fileName);
-
-        if(!file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append))
-
-        {
-
-            QMessageBox::warning(this,"sdf","can't open",QMessageBox::Yes);
-
-        }
-
-        QTextStream stream(&file);
-        stream.setCodec("utf-8");
-//        stream<<tr("手动采集的第")<<count_gps <<tr("个GPS经纬度信息为:")<<longitude<<","<<latitude<<"\n";
-        stream <<longitude<<","<<latitude<<"\n";
-        file.close();
-        count_gps+=1;
     }
 }
 /*****************************************************************************

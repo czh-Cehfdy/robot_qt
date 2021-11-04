@@ -1686,6 +1686,9 @@ public:
         get_longitude->setObjectName(QStringLiteral("get_longitude"));
         get_longitude->setMinimumSize(QSize(0, 60));
         get_longitude->setMaximumSize(QSize(16777215, 60));
+        QFont font3;
+        font3.setPointSize(14);
+        get_longitude->setFont(font3);
 
         verticalLayout_43->addWidget(get_longitude);
 
@@ -1705,6 +1708,7 @@ public:
         get_latitude->setObjectName(QStringLiteral("get_latitude"));
         get_latitude->setMinimumSize(QSize(0, 60));
         get_latitude->setMaximumSize(QSize(16777215, 60));
+        get_latitude->setFont(font3);
 
         verticalLayout_44->addWidget(get_latitude);
 
@@ -2139,9 +2143,9 @@ public:
 
         label_22 = new QLabel(widget);
         label_22->setObjectName(QStringLiteral("label_22"));
-        QFont font3;
-        font3.setPointSize(18);
-        label_22->setFont(font3);
+        QFont font4;
+        font4.setPointSize(18);
+        label_22->setFont(font4);
         label_22->setStyleSheet(QStringLiteral("color: rgb(32, 74, 135);"));
 
         verticalLayout_36->addWidget(label_22);
@@ -2187,9 +2191,9 @@ public:
         textEdit_obstacle->setObjectName(QStringLiteral("textEdit_obstacle"));
         textEdit_obstacle->setMinimumSize(QSize(0, 80));
         textEdit_obstacle->setMaximumSize(QSize(16777215, 80));
-        QFont font4;
-        font4.setPointSize(20);
-        textEdit_obstacle->setFont(font4);
+        QFont font5;
+        font5.setPointSize(20);
+        textEdit_obstacle->setFont(font5);
 
         verticalLayout_35->addWidget(textEdit_obstacle);
 
@@ -2271,9 +2275,7 @@ public:
 
         label_28 = new QLabel(frame_5);
         label_28->setObjectName(QStringLiteral("label_28"));
-        QFont font5;
-        font5.setPointSize(14);
-        label_28->setFont(font5);
+        label_28->setFont(font3);
         label_28->setStyleSheet(QStringLiteral("color: rgb(32, 74, 135);"));
 
         verticalLayout_31->addWidget(label_28);
@@ -2300,7 +2302,7 @@ public:
         textEdit_tip->setObjectName(QStringLiteral("textEdit_tip"));
         textEdit_tip->setMinimumSize(QSize(0, 0));
         textEdit_tip->setMaximumSize(QSize(16777215, 300));
-        textEdit_tip->setFont(font4);
+        textEdit_tip->setFont(font5);
 
         verticalLayout_31->addWidget(textEdit_tip);
 
@@ -2308,7 +2310,7 @@ public:
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setMinimumSize(QSize(0, 50));
         label_18->setMaximumSize(QSize(16777215, 50));
-        label_18->setFont(font4);
+        label_18->setFont(font5);
 
         verticalLayout_31->addWidget(label_18);
 

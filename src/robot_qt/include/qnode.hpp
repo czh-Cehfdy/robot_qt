@@ -77,6 +77,7 @@ public:
     int count =0;
     int judge_count = 0;
     int judge_count_sonar = 0;
+    bool m_qnodeStart = false ;
 
 Q_SIGNALS:
 	void loggingUpdated();
