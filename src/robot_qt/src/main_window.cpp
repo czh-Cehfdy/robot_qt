@@ -1283,45 +1283,56 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 ** 采集GPS点信息
 *****************************************************************************/
 void MainWindow::DisplayGetgps(const QString& longitude,const QString& latitude){
+    //当按下显示获取的GPS按钮时，标志位g_gpsAquire为true，才开始显示内容，点击暂停按钮时不显示
     if(g_gpsAquire){
         ui.get_longitude->setText(longitude);
         ui.get_latitude->setText(latitude);
     }
-    QString time_str = "gps_data_";
-    QDir *DataFile = new QDir;
-    bool exist = DataFile->exists("DataFile");
-    if(!exist)
-    {
-        bool isok = DataFile->mkdir("DataFile"); // 新建文件夹
-        if(!isok)
-        QMessageBox::warning(this,"sdf","can't mkdir",QMessageBox::Yes);
-    }
-    QString fileName = "DataFile/"+time_str+"datafile.txt";
-    QFile file(fileName);
-    if(!file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append))
 
-    {
-      QMessageBox::warning(this,"sdf","can't open",QMessageBox::Yes);
-    }
+    //文件保存标志位
     if(save_gps_flag){
+        //文件读取操作初始化
+        QString time_str = "gps_data_";
+        QDir *DataFile = new QDir;
+        bool exist = DataFile->exists("DataFile");
+        if(!exist)
+        {
+            bool isok = DataFile->mkdir("DataFile"); // 新建文件夹
+            if(!isok)
+            QMessageBox::warning(this,"sdf","can't mkdir",QMessageBox::Yes);
+        }
+        QString fileName = "DataFile/"+time_str+"datafile.txt";
+        QFile file(fileName);
+        if(!file.open(QIODevice::WriteOnly|QIODevice::Text|QIODevice::Append))
+
+        {
+          QMessageBox::warning(this,"sdf","can't open",QMessageBox::Yes);
+        }
+
+
+        //当按下显示获取的GPS按钮时，标志位g_gpsAquire为true，此时点击保存数据，才执行保存数据功能，由于具有滞后性，故保存上一次数据
         if(g_gpsAquire){
-            save_longitude.append(longitude.toDouble());
-            save_latitude.append(latitude.toDouble());
+            save_longitude.append(g_longitudeLast.toDouble());
+            save_latitude.append(g_latitudeLast.toDouble());
             QTextStream stream(&file);
             stream.setCodec("utf-8");
-            stream <<longitude<<","<<latitude<<"\n";
+            stream <<g_longitudeLast<<","<<g_latitudeLast<<"\n";
             file.close();
-            count_gps+=1;
         }
         else{
             QTextStream stream(&file);
             stream.setCodec("utf-8");
-            stream <<save_longitude.back()<<","<<save_latitude.back()<<"\n";
+            QString longitude_temp = ui.get_longitude->text();
+            QString latitude_temp = ui.get_latitude->text();
+            save_longitude.append(longitude_temp.toDouble());
+            save_latitude.append(latitude_temp.toDouble());
+            stream <<longitude_temp<<","<<latitude_temp<<"\n";
             file.close();
-            count_gps+=1;
         }
         save_gps_flag = 0;
     }
+    g_longitudeLast = longitude;
+    g_latitudeLast = latitude;
 }
 /*****************************************************************************
 ** 匹配目标GPS点，发送导航任务
