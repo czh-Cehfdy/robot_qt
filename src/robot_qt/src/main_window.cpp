@@ -35,7 +35,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	: QMainWindow(parent)
     , qnode_main(argc,argv),
       rostopic_list(argc,argv),
-    qnode_getStartPoint(argc, argv, "qnode_SP", "gps_data/rtk", 3),
+    qnode_getStartPoint(argc, argv, "qnode_SP", "fix", 3),
     qnode_raw_image(argc, argv, "qnode_raw_image", "camera/image", 0),
     qnode_fusion_image(argc, argv, "qnode_fusion_image", "fusion/image", 2),
     qnode_pcl_image(argc, argv, "qnode_mask", "fusion/mask", 1),
@@ -215,7 +215,7 @@ void MainWindow::initMap()
     connect(ui.btn_getSP, &QPushButton::clicked, [&]()
     {
         qnode_getStartPoint.init();
-        ui.btn_getSP->setDisabled(true);
+//        ui.btn_getSP->setDisabled(true);
         ui.btn_pitch->setDisabled(true);
         ui.btn_getTP->setDisabled(false);
     });
@@ -1190,10 +1190,11 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::GetStartPoint(QString longitude,QString latitude) {
-
-//    QString jsStr= QString("getPC(%0,%1)").arg(longitude).arg(latitude);
-//    g_mapView->page()->runJavaScript(jsStr);
+    qDebug() << "longitude:" << longitude<<",latitude:"<<latitude;
+    QString jsStr= QString("getPC(%0,%1)").arg(longitude).arg(latitude);
+    g_mapView->page()->runJavaScript(jsStr);
 }
+
 
 /*****************************************************************************
 ** 单目图像

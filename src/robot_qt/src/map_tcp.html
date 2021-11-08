@@ -51,6 +51,7 @@
         var count = 0; 
         var startMarker, endMarker;
         var startlng,startlat,endlng, endlat;
+        var p_startlng,p_startlat,p_endlng, p_endlat;  //project_mode
         var startlng_true,startlat_true,endlng_true, endlat_true;
         var pos_temp, posicon, result_global;
         var lineArr;
@@ -61,6 +62,7 @@
         var kkk = [];
         let smArray = [];
         var Start_liat = [];
+        var g_modeProject = false ; 
     
         //获取轨迹点
         function get_points() { 
@@ -89,13 +91,7 @@
     }
         
 
-        //接收起点
-        //function getPC(x,y) {  
-          //  alert('经度是' + x + "\n" + '纬度是' + y)
-            //startlng = x
-            //startlat = y
-            //Start_liat = []
-        //}
+        
         //拾取终点
         // function pitchTP() {      
         //     get_PCMap();
@@ -189,6 +185,41 @@
             // zooms:[3,20],
             center: [121.426923,31.144922]
         });
+
+
+       //接收起点  项目模式时，接收机器人起点，终点程序两种模式共用
+       function getPC(x,y) {  
+           map.clearMap();
+           var temp = []
+           var GPSlist = []
+           var gps_trans = []
+           gps_trans[0] = x
+           gps_trans[1] = y 
+           g_modeProject = true
+           
+           var lnglats
+           //转换为高德坐标
+           AMap.convertFrom(gps_trans, 'gps', function (status, result) {
+            if (result.info === 'ok') {
+                  lnglats = result.locations; // Array.<LngLat>
+                  var temp_ln = lnglats[0].split(",")
+                  alert('经度是' + temp_ln[0]+ "\n" + '纬度是' + temp_ln[1])
+            }
+            });
+           
+           p_startlng = temp_ln[0]
+           p_startlat =  temp_ln[1]
+
+           var p_startMarker = new AMap.Marker({
+                    position: new AMap.LngLat(p_startlng, p_startlat),
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+                    map: map
+                });
+            map.add(p_startMarker);
+            map.setFitView(p_startMarker);
+        //    Start_liat = []
+        }
+
         // AMap.plugin('AMap.Geolocation', function () {
         //     var geolocation = new AMap.Geolocation({
         //         enableHighAccuracy: true,//是否使用高精度定位，默认:true
@@ -295,7 +326,7 @@
         function showInfoClick(e){
         lineArr = [];
         //////////////////////////////////////////起点
-        if(count == 0){
+        if(count == 1){
             var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为起点！'
             startlng = e.lnglat.getLng(),startlat = e.lnglat.getLat();
             document.querySelector("#text").innerText = text;
@@ -305,11 +336,11 @@
                     map: map
                 });
 
-            count = 1;
+            count = 2;
             map.setFitView(startMarker_1);
         }
         //////////////////////////////////////////终点
-        else if (count == 1){
+        else if (count == 2){
             var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为终点！'
             endlng = e.lnglat.getLng(), endlat = e.lnglat.getLat();
             document.querySelector("#text").innerText = text;
@@ -318,7 +349,7 @@
                     icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
                     map: map
                 })
-            count = 2
+            count = 3
             map.add(endMarker_1);
             map.setFitView(startMarker_1,endMarker_1);
         }
@@ -343,8 +374,13 @@
         }
 
         function clickOn() {
-            map.clearMap();
-            count = 0;
+            if(!g_modeProject){
+                map.clearMap();
+                count = 1;
+            }
+            else{
+                count = 2;
+            } 
             log.success("指针监控");
             map.on('click', showInfoClick);
             // map.on('dblclick', showInfoDbClick);
@@ -436,6 +472,25 @@
 
 
         console.log(lineArr);
+
+       
+        // function Trans_GPS(longitude, latitude){
+        //     var url = 'https://restapi.amap.com/v3/assistant/coordinate/convert'
+        //     var params = {
+        //         'key': '0ffc32271a59522e174b5eefcbd25e5e',
+        //         'locations': longitude.toString()+","+latitude.toString(),
+        //         'coordsys': 'gps',
+        //     }
+        //     var res = requests.get(url, params)
+        //     //要转换为json格式，否则出现TypeError: 'Response'object is not subscriptable的错误
+        //     var jd_status = res.json()['locations']
+        //     return format(jd_status.encode('raw_unicode_escape'), '.6f')
+        // }
+    
+    
+    
+    
+    
 
 
         function clearAll() {

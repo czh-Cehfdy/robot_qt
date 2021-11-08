@@ -126,7 +126,7 @@ void CQNode::MapStartPoint_Callback(const sensor_msgs::NavSatFix &msg) {
           emit update_StartPoint(QString::number(msg.longitude,'f',7),QString::number(msg.latitude,'f',7));
         }
  }catch (...) {
-    ROS_ERROR("我接受了 divide的异常 但是我没有处理 我向上抛出");
+    ROS_ERROR("接收移动机器人起点GPS坐标信息失败！");
     throw;   //接收了异常之后继续往外抛
   }
 }
