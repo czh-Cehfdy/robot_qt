@@ -1398,7 +1398,7 @@ void MainWindow::slot_chooseGoalGPS(){
     }
     if(g_key_longitude.empty()||g_key_latitude.empty())
     {
-        ui.Pace_rostopic_display->setText("数据库为空，请存储好采样点后再试！");
+        ui.Pace_rostopic_display->setText("未存储关键目标点，请存储后再试！");
     }
     else{
       //开始匹配
@@ -2018,32 +2018,42 @@ QString robot_qt::MainWindow::getJsRetString()
 
 void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& path_points)
 {
+    //将容器内容释放
     QVector<double>().swap(g_key_longitude);
     QVector<double>().swap(g_key_latitude);
     QVector<double>().swap(test_longitude);
     QVector<double>().swap(test_latitude);
 
+    /*获取起点和终点：
+     *项目模式下是：接收到的起点->转换为高德坐标+拾取的终点  start_GPS，start_GPS
+     *开发模式下是：拾取的起点和终点(本身就是高德坐标)  start_GPS，start_GPS
+     *高德规划后，会得到有效的起点和终点高德坐标start_GPS_true和end_GPS_true
+    */
     QString start_GPS,end_GPS,start_GPS_true,end_GPS_true;
     start_GPS = np.section(';', 0, 0);
-    end_GPS = np.section(';', 1, 1);
+    start_GPS = np.section(';', 1, 1);
     start_GPS_true = np.section(';', 2, 2);
     end_GPS_true = np.section(';', -1, -1);
 
-    QString Raw_GPS = "起点经纬度为："+start_GPS+";   "+"--------------------------------终点经纬度为："+end_GPS ;
-    QString Raw_GPS_true = "真实规划的起点经纬度为："+start_GPS_true+";   "+"--------------终点经纬度为："+end_GPS_true;
-    ui.ST_GPS_display->append("<font color=\"#FF00FF\">" + Raw_GPS +
-                             "</font>");
-    ui.ST_GPS_display->append("<font color=\"#00BF00\">" + Raw_GPS_true +
-                             "</font>");
+    //显示拾取的起点终点和高德规划的起点终点
+    QString Raw_GPS = "起点经纬度为："+start_GPS+";   "+"-----------------终点经纬度为："+end_GPS ;
+    QString Raw_GPS_true = "真实规划的起点经纬度为："+start_GPS_true+";   "+"---终点经纬度为："+end_GPS_true;
+    ui.ST_GPS_display->append("<font color=\"#FF00FF\">" + Raw_GPS +"</font>");
+    ui.ST_GPS_display->append("<font color=\"#00BF00\">" + Raw_GPS_true + "</font>");
 
+
+    /*显示规划的所有点的高德坐标和转换后的GPS坐标：
+     *区分i的取值的目的是为了让显示时更好区分起始点、中间点和终点，便于可视化
+     *Raw_list[i]为高德规划后的系列点
+     *test_longitude，test_latitude保存了获取的所有GPS点
+    */
     QStringList Raw_list = np.split(";");
     QList<QString>::Iterator it = Raw_list.begin(),itend = Raw_list.end();
       int i = 0;
       for (;it != itend; it++,i++){
           if(i==2){
               QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（起点）的经纬度坐标为："+Raw_list[i];
-              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +
-                                 "</font>");
+              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +"</font>");
               QString new1 = Raw_list[i].section(',', 0, 0);
               QString new2 = Raw_list[i].section(',', 1, 1);
               double * pnew = gcj02towgs84(new1.toDouble(),new2.toDouble());
@@ -2088,14 +2098,20 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
 
           }
       }
+
+      /*显示规划的关键点的高德坐标和转换后的GPS坐标：
+       *关键点的选取原则：取高德规划后的每一段路径的第一个经纬度作为关键点经纬度信息，在js代码里map_tcp中设置
+       *区分i的取值的目的是为了让显示时更好区分起始关键点、中间关键点和终点关键点，便于可视化
+       *Key_Raw_list[i]为高德规划后的系列关键点
+       *g_key_longitude，g_key_latitude为转换为GPS坐标后的系列关键点
+      */
       QStringList Key_Raw_list = path_points.split(";");
       QList<QString>::Iterator it_start = Key_Raw_list.begin(),itend_end = Key_Raw_list.end();
         int j = 0;
         for (;it_start != itend_end; it_start++,j++){
             if(j==1){
                 QString Key_Raw_Pace_display = "第"+QString::number(j-1)+"个关键点（起点）的经纬度坐标为："+Key_Raw_list[j];
-                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +
-                                   "</font>");
+                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
                 QString new1_key = Key_Raw_list[j].section(',', 0, 0);
                 QString new2_key = Key_Raw_list[j].section(',', 1, 1);
                 double * pnew_key = gcj02towgs84(new1_key.toDouble(),new2_key.toDouble());
@@ -2104,13 +2120,11 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
                 g_key_longitude.append(str1_key.toDouble());
                 g_key_latitude.append(str2_key.toDouble());
                 QString change_Key_Pace_display = "第"+QString::number(j-1)+"个关键点（起点）的经纬度坐标为："+str1_key+""+","+""+str2_key;
-                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +
-                                   "</font>");
+                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
             }
             else if(j>1&&it_start != itend_end-1){
                 QString Key_Raw_Pace_display = "第"+QString::number(j-1)+"个关键点（中间点）的经纬度坐标为："+Key_Raw_list[j];
-                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +
-                                   "</font>");
+                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
                 QString new1_key = Key_Raw_list[j].section(',', 0, 0);
                 QString new2_key = Key_Raw_list[j].section(',', 1, 1);
                 double * pnew_key = gcj02towgs84(new1_key.toDouble(),new2_key.toDouble());
@@ -2119,13 +2133,11 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
                 g_key_longitude.append(str1_key.toDouble());
                 g_key_latitude.append(str2_key.toDouble());
                 QString change_Key_Pace_display = "第"+QString::number(j-1)+"个关键点（中间点）的经纬度坐标为："+str1_key+""+","+""+str2_key;
-                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +
-                                   "</font>");
+                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
             }
             else if(it_start == itend_end-1){
                 QString Key_Raw_Pace_display = "第"+QString::number(j-1)+"个关键点（终点）的经纬度坐标为："+Key_Raw_list[j];
-                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +
-                                   "</font>");
+                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
                 QString new1_key = Key_Raw_list[j].section(',', 0, 0);
                 QString new2_key = Key_Raw_list[j].section(',', 1, 1);
                 double * pnew_key = gcj02towgs84(new1_key.toDouble(),new2_key.toDouble());
@@ -2134,8 +2146,7 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
                 g_key_longitude.append(str1_key.toDouble());
                 g_key_latitude.append(str2_key.toDouble());
                 QString change_Key_Pace_display = "第"+QString::number(j-1)+"个关键点（终点）的经纬度坐标为："+str1_key+""+","+""+str2_key;
-                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +
-                                   "</font>");
+                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
             }
         }
 
