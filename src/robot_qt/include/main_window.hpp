@@ -44,12 +44,16 @@
 #include <math.h>
 #include <QVector>
 #include "LocalCartesian.hpp"
+#include <Eigen/Eigen>
 /*****************************************************************************
 ** Namespace
 *****************************************************************************/
 
 namespace robot_qt {
 
+using namespace std;
+/* Eigen是一个高层次的C ++库，有效支持得到的线性代数，矩阵和矢量运算，数值分析及其相关的算法。 */
+using namespace Eigen;
 /*****************************************************************************
 ** Interface [MainWindow]
 *****************************************************************************/
@@ -76,7 +80,9 @@ public:
     void DisplaySonar2Distance(const QString& Dis2);
     void DisplaySonarError(const QString& Error);
     void DisplayObs(const QString& obstacle_range,const QString& obstacle_state);
-
+    void compareDis(Eigen::Vector3d &p);
+    void getMiddlePoint(const double& s_longitude,const double& s_latitude,const double& end_longitude,const double& end_latitude,const int& _radius);
+    double getDistance(double x1, double y1, double x2, double y2);
     //gps
     void DisplayGetgps(const QString& longitude,const QString& latitude,const QString& status);
     //gps_distance
@@ -109,17 +115,25 @@ public:
     QVector<double> g_key_latitude;
     QVector<double> compare_longitude;
     QVector<double> compare_latitude;
+    double g_carStartLontitude;
+    double g_carStartLatitude;
+    QVector<double> trueX;
+    QVector<double> trueY;
+    vector<Eigen::Vector3d> trueLocation;
+
 
     QVector<double> test_longitude;
     QVector<double> test_latitude;
 
-    GeographicLib::LocalCartesian geoConverter;
-    GeographicLib::LocalCartesian test_geoConverter;
+    GeographicLib::LocalCartesian g_locationConverter;
+    GeographicLib::LocalCartesian test_g_locationConverter;
+
     
     int count_gps = 0 ;
     int test_flag = 1 ;
     int btn_pitchFlag = 0;
     double xyz[3] = {0,0,0};
+    double xyz_get[3] = {0,0,0};
     double m_xyz[3] ={0,0,0};
     bool g_gpsAquire = false ;
     //由于是在订阅者回调函数里更新时，通过标志位来执行保存数据，在另一个槽函数里赋值标志位，存在数据滞后一个的问题，故用此变量保存上一次数据

@@ -1194,6 +1194,8 @@ MainWindow::~MainWindow() {
 
 void MainWindow::GetStartPoint(QString longitude,QString latitude) {
     qDebug() << "longitude:" << longitude<<",latitude:"<<latitude;
+    g_carStartLontitude =longitude.toDouble();
+    g_carStartLatitude =latitude.toDouble();
     QString jsStr= QString("getPC(%0,%1)").arg(longitude).arg(latitude);
     g_mapView->page()->runJavaScript(jsStr);
 }
@@ -1367,15 +1369,11 @@ void MainWindow::DisplayGetgps(const QString& longitude,const QString& latitude,
     g_longitudeLast = longitude;
     g_latitudeLast = latitude;
 }
-/*****************************************************************************
-** 匹配目标GPS点，发送导航任务
-*****************************************************************************/
-void MainWindow::slot_chooseGoalGPS(){
-
+void MainWindow::compareDis(Eigen::Vector3d &p){
     QVector<double> temp_vector;
-    QVector<double> goal_longitude;
-    QVector<double> goal_latitude;
-    ui.textEdit->clear();
+    vector<Eigen::Vector3d> compareLngLat;
+    Eigen::Vector3d LngLat;
+    Eigen::Vector3d Point;
     QFile file("DataFile/gps_data_datafile.txt");
     if(! file.open(QIODevice::ReadOnly|QIODevice::Text)){
         QString  error_log= "数据库文件读取失败！"+file.errorString();
@@ -1387,27 +1385,120 @@ void MainWindow::slot_chooseGoalGPS(){
         ui.Pace_rostopic_display->setText("数据库文件读取成功！");
         file.seek(0);  //重新定位在文件的第0位及开始位置
         QTextStream stream_gps(&file);
-        while(! stream_gps.atEnd())
+        while(!stream_gps.atEnd())
         {
           QString line=stream_gps.readLine();
           QStringList strlist=line.split(",");
-          compare_longitude.append(strlist[0].toDouble());
-          compare_latitude.append(strlist[1].toDouble());
+          LngLat << strlist[0].toDouble(),strlist[1].toDouble(),0;
+          compareLngLat.push_back(LngLat);
         }
         file.close();
     }
+    for (size_t i = 0;i<compareLngLat.size();++i) {
+        //计算这个点相对于初始点的坐标
+        g_locationConverter.Forward(compareLngLat[i][1], compareLngLat[i][0], 0, xyz[0], xyz[1], xyz[2]);
+        double dis = getDistance(p(0),p(1),xyz[0], xyz[1]);
+        temp_vector.append(dis);
+    }
+    auto min = std::min_element(std::begin(temp_vector), std::end(temp_vector));
+    //找到最小值的索引
+    auto positionmin = std::distance(std::begin(temp_vector),min);
+
+    p<<compareLngLat[positionmin][0],compareLngLat[positionmin][1],0;
+}
+
+double MainWindow::getDistance(double x1, double y1, double x2, double y2){
+     return sqrt(pow(x2-x1,2)+pow(y2-y1,2));
+}
+void MainWindow::getMiddlePoint(const double& s_longitude,const double& s_latitude,const double& end_longitude,const double& end_latitude,const int& _radius){
+    //这里的起点和终点一定是先在数据库中进行匹配后的，才可进行下面的操作，这样才准确
+
+    vector<Eigen::Vector3d> trueLocation_temp;
+    Eigen::Vector3d waypoint;
+    Eigen::Vector3d firstPointLocation;
+    Eigen::Vector3d endPointLocation;
+    bool judgeFlag = false;
+    waypoint << 0, 0, 0;
+    //首先获取输入中第一个点在起点全局坐标系下的坐标
+    g_locationConverter.Forward(s_latitude, s_longitude, 0, xyz[0], xyz[1], xyz[2]);
+    firstPointLocation << xyz[0],xyz[1],0;
+    //将第一个点加入到临时比较的容器中，用来比较  -- 后面处理时需要把第一个点去掉，后面加入的才是中间点！
+    trueLocation_temp.push_back(firstPointLocation);
+    //再获取输入中第二个点在起点全局坐标系下的坐标
+    g_locationConverter.Forward(end_latitude, end_longitude, 0, xyz[0], xyz[1], xyz[2]);
+    endPointLocation << xyz[0],xyz[1],0;
+    //计算两点之间的距离
+    double dis = getDistance(trueLocation_temp.back()[0],trueLocation_temp.back()[1],endPointLocation(0),endPointLocation(1));
+    //一旦进入while循环，说明必有中间点，这里会将中间点添加好，最后还需要将终点也添加进来
+    while(dis >1.5*_radius){  //设置1.5的目的就是为了让中间点分配较均匀
+        judgeFlag = true;
+        double index = _radius/dis;
+        double middlePoint_x =trueLocation_temp.back()[0]+(endPointLocation(0)-trueLocation_temp.back()[0])*index;  //中学里的相似三角形原理，边之比为一定值，计算中间点坐标
+        double middlePoint_y =trueLocation_temp.back()[1]+(endPointLocation(1)-trueLocation_temp.back()[1])*index;
+        waypoint << middlePoint_x, middlePoint_y, 0;
+        trueLocation_temp.push_back(waypoint);
+        dis = getDistance(trueLocation_temp.back()[0],trueLocation_temp.back()[1],endPointLocation(0),endPointLocation(1));
+    }
+    if(!judgeFlag){
+        waypoint << endPointLocation[0], endPointLocation[1], 0;
+        trueLocation_temp.push_back(waypoint);
+    }
+    else{
+        waypoint << endPointLocation[0], endPointLocation[1], 0;
+        trueLocation_temp.push_back(waypoint);
+    }
+
+    //现需要提取这一段路径中保存的所有中间点（含终点），而后进行数据库匹配，寻找真实的点发送给小车运动
+    for(size_t i = 1;i < trueLocation_temp.size();++i){
+        Eigen::Vector3d findPoint = {trueLocation_temp[i][0],trueLocation_temp[i][1],0};
+        compareDis(findPoint);
+    }
+}
+/*****************************************************************************
+** 匹配目标GPS点，发送导航任务
+*****************************************************************************/
+void MainWindow::slot_chooseGoalGPS(){
+
+    QVector<double> temp_vector;
+    QVector<double> goal_longitude;
+    QVector<double> goal_latitude;
+    ui.textEdit->clear();
+
     if(g_key_longitude.empty()||g_key_latitude.empty())
     {
         ui.Pace_rostopic_display->setText("未存储关键目标点，请存储后再试！");
     }
     else{
-      //开始匹配
+      if(fabs(g_carStartLontitude)<1e-15||fabs(g_carStartLatitude)<1e-15){
+        ui.Pace_rostopic_display->setText("未成功接收到起点坐标，请检查后再匹配！");
+      }
+      else{
+        //固定住起点坐标，以map坐标系为参考，来计算分段目标点在map坐标系下的位置
+        g_locationConverter.Reset(g_carStartLatitude, g_carStartLontitude, 0);
+      }
+      //开始匹配和计算
+
       for (int i = 1; i < g_key_longitude.size(); ++i){
           QVector<double>().swap(temp_vector);  //每次使用前先清除元素并回收内存
+          //计算每个关键点到
+          if(i == 1){//说明是第一个关键点，这时直接和起点进行距离比较，来划分
+           g_locationConverter.Forward(g_key_latitude[1], g_key_longitude[1], 0, xyz[0], xyz[1], xyz[2]);
+           //计算距离
+           double dis_two = sqrt(xyz[0]*xyz[0]+xyz[1]*xyz[1]);
+           if(dis_two<5){
+               trueX.append(xyz[0]);
+               trueY.append(xyz[1]);
+           }
+           else{
+
+           }
+
+
+          }
 
           for (int j = 0; j < compare_longitude.size(); ++j){
-             geoConverter.Reset(g_key_latitude[i], g_key_longitude[i], 0);
-             geoConverter.Forward(compare_latitude[j], compare_longitude[j], 0, xyz[0], xyz[1], xyz[2]);
+
+             g_locationConverter.Forward(compare_latitude[j], compare_longitude[j], 0, xyz[0], xyz[1], xyz[2]);
 
              double dis_=sqrt(xyz[0]*xyz[0]+xyz[1]*xyz[1]);
              qDebug()<< dis_;
@@ -1451,8 +1542,8 @@ void MainWindow::slot_testgpsdata()
       for (int i = 0; i < test_longitude.size(); ++i){
 //          qDebug()<<"test_flag:"<<test_flag;    每次一启动，就会以第一次的规划起点确定起点坐标系，后面再次规划都是相对于这里，只进来一次
           if(test_flag==1){
-              test_geoConverter.Reset(compare_longitude[0], compare_latitude[0], 0);
-              test_geoConverter.Forward(compare_longitude[0], compare_latitude[0], 0, m_xyz[0], m_xyz[1], m_xyz[2]);
+              test_g_locationConverter.Reset(compare_longitude[0], compare_latitude[0], 0);
+              test_g_locationConverter.Forward(compare_longitude[0], compare_latitude[0], 0, m_xyz[0], m_xyz[1], m_xyz[2]);
               //用于匹配，计算实际偏差
               std::ofstream foutC_GPS("/home/czh/gaoDeGPS.csv", ios::app);
               foutC_GPS.setf(ios::fixed, ios::floatfield);
@@ -1476,7 +1567,7 @@ void MainWindow::slot_testgpsdata()
               m_xyz[1] = 0;
               m_xyz[2] = 0;
               qDebug()<<"进来了:i是"<<i<<"经纬度是"<<test_latitude[i]<<","<<test_longitude[i];
-              test_geoConverter.Forward(test_latitude[i], test_longitude[i], 0, m_xyz[0], m_xyz[1], m_xyz[2]);
+              test_g_locationConverter.Forward(test_latitude[i], test_longitude[i], 0, m_xyz[0], m_xyz[1], m_xyz[2]);
               qDebug()<<"m_xyz[0]是："<<m_xyz[0]<<"m_xyz[1]是"<<m_xyz[1];
               //用于匹配，计算实际偏差
               std::ofstream foutC_GPS("/home/czh/gaoDeGPS.csv", ios::app);
