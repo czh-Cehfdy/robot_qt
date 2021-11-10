@@ -78,7 +78,7 @@ public:
     void DisplayObs(const QString& obstacle_range,const QString& obstacle_state);
 
     //gps
-    void DisplayGetgps(const QString& longitude,const QString& latitude);
+    void DisplayGetgps(const QString& longitude,const QString& latitude,const QString& status);
     //gps_distance
     static double distanceGPS(const double& longitude1,const double& latitude1,const double& longitude2,const double& latitude2);
 
@@ -102,6 +102,7 @@ public:
     QString obstacle_tip;
     QString sonar_tip;
     int save_gps_flag = 0;
+    int gpsStatus_flag = 0;
     QVector<double> save_longitude;
     QVector<double> save_latitude;
     QVector<double> g_key_longitude;

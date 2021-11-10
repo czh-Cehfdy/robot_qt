@@ -150,9 +150,10 @@ void CQNode::points_callback(const std_msgs::String &msg)
 }
 
 void CQNode::Get_gps_callback(const sensor_msgs::NavSatFix &msg){
-    QString get_longitude = QString("%1").arg(msg.longitude, 0, 'f',7);
-    QString get_latitude = QString("%1").arg(msg.latitude, 0, 'f',7);
-    emit updateGetgps(get_longitude,get_latitude);
+    QString get_longitude = QString("%1").arg(msg.longitude, 0, 'f',9);
+    QString get_latitude = QString("%1").arg(msg.latitude, 0, 'f',9);
+    QString get_status = QString("%1").arg(msg.status.status);
+    emit updateGetgps(get_longitude,get_latitude,get_status);
 
 }
 void CQNode::sonar_callback(const geometry_msgs::Twist &msg)

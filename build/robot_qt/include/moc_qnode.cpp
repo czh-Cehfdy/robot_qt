@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_robot_qt__CQNode_t {
-    QByteArrayData data[24];
-    char stringdata0[296];
+    QByteArrayData data[25];
+    char stringdata0[303];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -54,7 +54,8 @@ QT_MOC_LITERAL(19, 233, 17), // "update_StartPoint"
 QT_MOC_LITERAL(20, 251, 9), // "longitude"
 QT_MOC_LITERAL(21, 261, 8), // "latitude"
 QT_MOC_LITERAL(22, 270, 12), // "updatepoints"
-QT_MOC_LITERAL(23, 283, 12) // "updateGetgps"
+QT_MOC_LITERAL(23, 283, 12), // "updateGetgps"
+QT_MOC_LITERAL(24, 296, 6) // "status"
 
     },
     "robot_qt::CQNode\0loggingUpdated\0\0"
@@ -65,7 +66,7 @@ QT_MOC_LITERAL(23, 283, 12) // "updateGetgps"
     "Error\0updateObstacleState\0obstacle_range\0"
     "obstacle_state\0update_StartPoint\0"
     "longitude\0latitude\0updatepoints\0"
-    "updateGetgps"
+    "updateGetgps\0status"
 };
 #undef QT_MOC_LITERAL
 
@@ -96,7 +97,7 @@ static const uint qt_meta_data_robot_qt__CQNode[] = {
       16,    2,  112,    2, 0x06 /* Public */,
       19,    2,  117,    2, 0x06 /* Public */,
       22,    1,  122,    2, 0x06 /* Public */,
-      23,    2,  125,    2, 0x06 /* Public */,
+      23,    3,  125,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -112,7 +113,7 @@ static const uint qt_meta_data_robot_qt__CQNode[] = {
     QMetaType::Void, QMetaType::QString, QMetaType::QString,   17,   18,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,   20,   21,
     QMetaType::Void, QMetaType::QString,    2,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   20,   21,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,   20,   21,   24,
 
        0        // eod
 };
@@ -136,7 +137,7 @@ void robot_qt::CQNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 10: _t->updateObstacleState((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
         case 11: _t->update_StartPoint((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 12: _t->updatepoints((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 13: _t->updateGetgps((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 13: _t->updateGetgps((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -233,7 +234,7 @@ void robot_qt::CQNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
             }
         }
         {
-            typedef void (CQNode::*_t)(QString , QString );
+            typedef void (CQNode::*_t)(QString , QString , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CQNode::updateGetgps)) {
                 *result = 13;
                 return;
@@ -368,9 +369,9 @@ void robot_qt::CQNode::updatepoints(QString _t1)
 }
 
 // SIGNAL 13
-void robot_qt::CQNode::updateGetgps(QString _t1, QString _t2)
+void robot_qt::CQNode::updateGetgps(QString _t1, QString _t2, QString _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
     QMetaObject::activate(this, &staticMetaObject, 13, _a);
 }
 QT_WARNING_POP

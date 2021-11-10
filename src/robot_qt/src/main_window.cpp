@@ -1283,15 +1283,44 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 /*****************************************************************************
 ** 采集GPS点信息
 *****************************************************************************/
-void MainWindow::DisplayGetgps(const QString& longitude,const QString& latitude){
+void MainWindow::DisplayGetgps(const QString& longitude,const QString& latitude,const QString& status){
     //当按下显示获取的GPS按钮时，标志位g_gpsAquire为true，才开始显示内容，点击暂停按钮时不显示
     if(g_gpsAquire){
-        ui.get_longitude->setText(longitude);
-        ui.get_latitude->setText(latitude);
+        if(status.toInt()!=4){
+            gpsStatus_flag = 0;
+            ui.btn_savegps->setDisabled(true);
+            ui.get_longitude->setStyleSheet("color:rgb(211, 76, 76)");
+            ui.get_longitude->setText(longitude);
+
+            ui.get_latitude->setStyleSheet("color:rgb(211, 76, 76)");
+            ui.get_latitude->setText(latitude);
+
+            ui.get_status->setStyleSheet("color:rgb(211, 76, 76)");
+            ui.get_status->setText(status);
+
+            ui.textEdit_gpsMsg->setStyleSheet("color:rgb(211, 76, 76)");
+            ui.textEdit_gpsMsg->setText("当前为浮动解，请测试其它位置，暂不提供采集服务！");
+        }
+        else{
+            gpsStatus_flag = 1;
+            ui.btn_savegps->setDisabled(false);
+            ui.get_longitude->setStyleSheet("color:rgb(39, 211, 15)");
+            ui.get_longitude->setText(longitude);
+
+            ui.get_latitude->setStyleSheet("color:rgb(39, 211, 15)");
+            ui.get_latitude->setText(latitude);
+
+            ui.get_status->setStyleSheet("color:rgb(39, 211, 15)");
+            ui.get_status->setText(status);
+
+            ui.textEdit_gpsMsg->setStyleSheet("color:rgb(39, 211, 15)");
+            ui.textEdit_gpsMsg->setText("当前为固定解，可保存数据！");
+        }
+
     }
 
     //文件保存标志位
-    if(save_gps_flag){
+    if(save_gps_flag == 1 && gpsStatus_flag ==1){
         //文件读取操作初始化
         QString time_str = "gps_data_";
         QDir *DataFile = new QDir;

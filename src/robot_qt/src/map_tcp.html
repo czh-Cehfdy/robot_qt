@@ -197,26 +197,34 @@
            gps_trans[1] = y 
            g_modeProject = true
            
-           var lnglats
+           var lnglats_new= []
+           
            //转换为高德坐标
            AMap.convertFrom(gps_trans, 'gps', function (status, result) {
             if (result.info === 'ok') {
-                  lnglats = result.locations; // Array.<LngLat>
-                  var temp_ln = lnglats[0].split(",")
-                  alert('经度是' + temp_ln[0]+ "\n" + '纬度是' + temp_ln[1])
+                //   lnglats = result.locations; // Array.<LngLat>
+                 var lnglat =JSON.stringify(result['locations'][0]);
+
+                 lnglats_new.push(result['locations'][0])
+                //   var lnglat = result['locations'][0];
+                //   var newstr = lnglat.replace(","); 
+                //   var temp_ln = lnglats[0].split(';')
+                //   console.log("a:"+typeof(a));
+                  alert('lnglat是:' + lnglats_new+ "\n" + 'lnglat类型是:' + typeof(lnglats_new))
+                //   alert('经度是' + temp_ln[0]+ "\n" + '纬度是' + temp_ln[1])
             }
             });
            
-           p_startlng = temp_ln[0]
-           p_startlat =  temp_ln[1]
+        //    p_startlng = temp_ln[0]
+        //    p_startlat =  temp_ln[1]
 
-           var p_startMarker = new AMap.Marker({
-                    position: new AMap.LngLat(p_startlng, p_startlat),
-                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
-                    map: map
-                });
-            map.add(p_startMarker);
-            map.setFitView(p_startMarker);
+        //    var p_startMarker = new AMap.Marker({
+        //             position: new AMap.LngLat(p_startlng, p_startlat),
+        //             icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+        //             map: map
+        //         });
+        //     map.add(p_startMarker);
+        //     map.setFitView(p_startMarker);
         //    Start_liat = []
         }
 

@@ -94,7 +94,7 @@ Q_SIGNALS:
 
     void update_StartPoint(QString longitude,QString latitude);
     void updatepoints(QString);
-    void updateGetgps(QString longitude,QString latitude);
+    void updateGetgps(QString longitude,QString latitude,QString status);
 private:
 	int init_argc;
 	char** init_argv;
