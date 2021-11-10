@@ -51,23 +51,26 @@
         var count = 0; 
         var startMarker, endMarker;
         var startlng,startlat,endlng, endlat;
-        var p_startlng,p_startlat,p_endlng, p_endlat;  //project_mode
-        var startlng_true,startlat_true,endlng_true, endlat_true;
         var pos_temp, posicon, result_global;
         var lineArr;
         var path = [];
         var path_section = [];
         var path_end;
         let path_new_1 = [];
-        var kkk = [];
         let smArray = [];
-        var Start_liat = [];
+        //模式切换
         var g_modeProject = false ; 
         var g_projectLnglat ;
     
         //获取轨迹点
         function get_points() { 
-            var np = startlng + ',' + startlat + ';' + endlng + ',' + endlat;
+            if(!g_modeProject){
+                var np = startlng + ',' + startlat + ';' + endlng + ',' + endlat;
+            }
+            else{
+                var np = g_projectLnglat + ';' + endlng + ',' + endlat;
+            }
+            
             for (var i = 0; i < path.length; i++) {
                 np  =   np +";"+path[i];
                  }
@@ -90,30 +93,6 @@
                 //qGetPoints.recieveJsMessage(path_end);
         })
     }
-        
-
-        
-        //拾取终点
-        // function pitchTP() {      
-        //     get_PCMap();
-        // }
-
-        //拾取起点和终点
-        function pitch() {      
-            clickOn();
-        }
-        //规划
-        function plan() {      
-            globalNav();
-        }
-        //清除
-        function clear() {      
-            clearAll();
-        }
-         //画线
-        // function draw() {    
-        //     draw_route();
-        // }
 
         function transport_1(value) {      //Pyqt中调用，可以在qwebchannel中定义多个此函数，然后在pyqt5中把函数名字改一下，就可以传数据了
 
@@ -187,13 +166,14 @@
             center: [121.426923,31.144922]
         });
 
-
-       //接收起点  项目模式时，接收机器人起点，终点程序两种模式共用
+/**
+ * 接收起点经纬度     项目模式时，接收机器人起点，终点程序两种模式共用
+ * 通过标志位： g_modeProject = true 来判断是否是项目模式
+ * 
+*/    
        function getPC(x,y) {  
            map.clearMap();
            g_projectLnglat = []
-           var temp = []
-           var GPSlist = []
            var gps_trans = []
            gps_trans[0] = x
            gps_trans[1] = y 
@@ -201,23 +181,44 @@
            
            //转换为高德坐标
            AMap.convertFrom(gps_trans, 'gps', function (status, result) {
-            if (result.info === 'ok') {
-                //   lnglats = result.locations; 
-                g_projectLnglat =result['locations'][0];  // Array.<LngLat>
-                    var p_startMarker = new AMap.Marker({
+            if (result.info === 'ok') {  
+                g_projectLnglat =result['locations'][0];  // Array.<LngLat>  //   lnglats = result.locations; 
+                var p_startMarker = new AMap.Marker({
                     position: g_projectLnglat,
                     icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
                     map: map
                 });
-            map.add(p_startMarker);
-            map.setFitView(p_startMarker);
-                // log.success('gps经度是' + x + ',纬度是' + y+"\n"+'转换后的高德经纬度是' +g_projectLnglat )
+                map.add(p_startMarker);
+                map.setFitView(p_startMarker);
+                log.success('gps经度是' + x + ',纬度是' + y+"\n"+'转换后的高德经纬度是' +g_projectLnglat )
+            }
+            else{
+                log.error('GPS转高德坐标失败，请检查网络连接！')
             }
             });
-
-           
-        //    Start_liat = []
         }
+
+        // 拾取终点
+        function pitchTP() {      
+            clickOn();
+        }
+
+        //拾取起点和终点
+        function pitch() {      
+            clickOn();
+        }
+        //规划
+        function plan() {      
+            globalNav();
+        }
+        //清除
+        function clear() {      
+            clearAll();
+        }
+         //画线
+        // function draw() {    
+        //     draw_route();
+        // }
 
         // AMap.plugin('AMap.Geolocation', function () {
         //     var geolocation = new AMap.Geolocation({
@@ -287,89 +288,53 @@
             // strokeStyle: "solid"  //线样式
         });
 
-        function pitchTP_fun(e) {
+        function showInfoClick(e){
+            // endlng = 0;
+            // endlat = 0 ;
+            // map.remove(endMarker);
+           
             lineArr = [];
-            if (count == 0) {
-            // 起点
-            var text = '选取 [ ' + startlng + ',' + startlat + ' ] 的位置为起点！'
-            document.querySelector("#text").innerText = text;
-            var startMarker_2 = new AMap.Marker({
-                    position: new AMap.LngLat(startlng, startlat),
-                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
-                    map: map
-                });
-
-            count = 1;
-            map.add(startMarker_2);
-            map.setFitView(startMarker_2);
+            //开发模式下为拾取起点，项目模式跳过
+            if(count == 1){
+                var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为起点！'
+                startlng = e.lnglat.getLng(),startlat = e.lnglat.getLat();
+                document.querySelector("#text").innerText = text;
+                var startMarker_1 = new AMap.Marker({
+                        position: new AMap.LngLat(startlng, startlat),
+                        icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+                        map: map
+                    });
+                count = 2;
+                map.setFitView(startMarker_1);
             }
-            //////////////////////////////////////////终点
-            else if (count == 1) {
-                var text = '选取 [ ' + e.lnglat.getLng() + ',' + e.lnglat.getLat() + ' ] 的位置为终点！'
+            //无论是项目模式还是开发模式，都是拾取终点
+            else if (count == 2){
+                var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为终点！'
                 endlng = e.lnglat.getLng(), endlat = e.lnglat.getLat();
                 document.querySelector("#text").innerText = text;
-                var endMarker_2= new AMap.Marker({
-                    position: new AMap.LngLat(endlng, endlat),
-                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
-                    map: map
-                })
-            count = 2
-            map.add(endMarker_2);
-            map.setFitView(startMarker_2,endMarker_2);
+                var endMarker= new AMap.Marker({
+                        position: new AMap.LngLat(endlng, endlat),
+                        icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+                        map: map
+                    })
+                count = 3
+                map.add(endMarker);
+                if(!g_modeProject){   //开发模式
+                    map.setFitView(startMarker_1,endMarker);
+                }
+                else{                                  //项目模式
+                    map.setFitView(p_startMarker,endMarker);
+                }
+                
             }
-            else {
+            else{
                 log.success("始末位置已经选取，请点击【规划】");
             }
-        }
-
-        function showInfoClick(e){
-        lineArr = [];
-        //////////////////////////////////////////起点
-        if(count == 1){
-            var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为起点！'
-            startlng = e.lnglat.getLng(),startlat = e.lnglat.getLat();
-            document.querySelector("#text").innerText = text;
-            var startMarker_1 = new AMap.Marker({
-                    position: new AMap.LngLat(startlng, startlat),
-                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
-                    map: map
-                });
-
-            count = 2;
-            map.setFitView(startMarker_1);
-        }
-        //////////////////////////////////////////终点
-        else if (count == 2){
-            var text = '选取 [ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ] 的位置为终点！'
-            endlng = e.lnglat.getLng(), endlat = e.lnglat.getLat();
-            document.querySelector("#text").innerText = text;
-            var endMarker_1= new AMap.Marker({
-                    position: new AMap.LngLat(endlng, endlat),
-                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
-                    map: map
-                })
-            count = 3
-            map.add(endMarker_1);
-            map.setFitView(startMarker_1,endMarker_1);
-        }
-        else{
-            log.success("始末位置已经选取，请点击【规划】");
-        }
     }
 
         function showInfoMove() {
             var text = ' 户外移动机器人 '
             document.querySelector("#text").innerText = text;
-        }
-
-        // 事件绑定
-        function get_PCMap() {
-            map.clearMap();
-            count = 0;
-            log.success("指针监控");
-            map.on('click', pitchTP_fun);
-            // map.on('dblclick', showInfoDbClick);
-            map.on('mousemove', showInfoMove);
         }
 
         function clickOn() {
@@ -394,12 +359,25 @@
         var walking = new AMap.Walking(walkingOption)
 
         function globalNav() {
-            // 判断始末经纬度是否为空，为空则不进行规划，发出错误提示后return
-            if(typeof(startlng)=="undefined" || startlng=='' || startlng==null||typeof(startlat)=="undefined" || startlat=='' || startlat==null||
-            typeof(endlng)=="undefined" || endlng=='' || endlng==null||typeof(endlat)=="undefined" || endlat=='' || endlat==null){
+            if(!g_modeProject){      //开发模式
+                // 判断始末经纬度是否为空，为空则不进行规划，发出错误提示后return
+                if(typeof(startlng)=="undefined" || startlng=='' || startlng==null||typeof(startlat)=="undefined" || startlat=='' || startlat==null||
+                      typeof(endlng)=="undefined" || endlng=='' || endlng==null||typeof(endlat)=="undefined" || endlat=='' || endlat==null){
                 log.error("请选择始末位置后，再点击【规划】！");
                 return
+                }
+                var start_LngLat = new AMap.LngLat(startlng, startlat)
             }
+            else{                                   //项目模式
+                // 判断始末经纬度是否为空，为空则不进行规划，发出错误提示后return
+                if(typeof(g_projectLnglat)=="undefined" || g_projectLnglat=='' || g_projectLnglat==null||
+                      typeof(endlng)=="undefined" || endlng=='' || endlng==null||typeof(endlat)=="undefined" || endlat=='' || endlat==null){
+                log.error("请选择始末位置后，再点击【规划】！");
+                return
+                }
+                var start_LngLat = g_projectLnglat
+            }
+
             // 清除掉上次的轨迹，重新规划
             map.clearMap();
             path = [];
@@ -407,7 +385,7 @@
 
             // 开始规划
             log.success("规划路径…………");
-            walking.search(new AMap.LngLat(startlng, startlat), new AMap.LngLat(endlng, endlat), function (status, result) {
+            walking.search(start_LngLat, new AMap.LngLat(endlng, endlat), function (status, result) {
                 //根据起终点坐标规划步行路线
                 if (status === 'complete') {
                     if (result.routes && result.routes.length) {
@@ -428,7 +406,7 @@
                     icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
                     map: map
                 })
-                var endMarker = new AMap.Marker({
+                var endMarker_route = new AMap.Marker({
                     position: path_end[path_end.length - 1],
                     icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
                     map: map
@@ -444,7 +422,7 @@
                 })
                 routeLine.setMap(map)
                 // 调整视野达到最佳显示区域
-                map.setFitView([startMarker, endMarker, routeLine])
+                map.setFitView([startMarker, endMarker_route, routeLine])
             }
 
             // 解析WalkRoute对象，构造成AMap.Polyline的path参数需要的格式
@@ -465,35 +443,12 @@
             }
         }
 
-
-
-
-
-
         console.log(lineArr);
 
-       
-        // function Trans_GPS(longitude, latitude){
-        //     var url = 'https://restapi.amap.com/v3/assistant/coordinate/convert'
-        //     var params = {
-        //         'key': '0ffc32271a59522e174b5eefcbd25e5e',
-        //         'locations': longitude.toString()+","+latitude.toString(),
-        //         'coordsys': 'gps',
-        //     }
-        //     var res = requests.get(url, params)
-        //     //要转换为json格式，否则出现TypeError: 'Response'object is not subscriptable的错误
-        //     var jd_status = res.json()['locations']
-        //     return format(jd_status.encode('raw_unicode_escape'), '.6f')
-        // }
     
-    
-    
-    
-    
-
-
         function clearAll() {
             map.clearMap();
+            g_modeProject = false ;
             path = [];
             startlng =0;
             startlat=0;

@@ -219,17 +219,16 @@ void MainWindow::initMap()
 
             qnode_getStartPoint.init();
         }
-//        ui.btn_getSP->setDisabled(true);
-        ui.btn_pitch->setDisabled(true);
+//        ui.btn_pitch->setDisabled(true);
         ui.btn_getTP->setDisabled(false);
     });
 
-//    //拾取终点
-//    connect(ui.btn_getTP, &QPushButton::clicked, [&]()
-//    {
-//        QString pitch_tp = QString("pitchTP()");
-//        g_mapView->page()->runJavaScript(pitch_tp);
-//    });
+    //拾取终点
+    connect(ui.btn_getTP, &QPushButton::clicked, [&]()
+    {
+        QString pitch_tp = QString("pitchTP()");
+        g_mapView->page()->runJavaScript(pitch_tp);
+    });
 
     //拾取起点终点
     connect(ui.btn_pitch, &QPushButton::clicked, [&]()
