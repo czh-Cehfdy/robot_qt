@@ -63,6 +63,7 @@
         let smArray = [];
         var Start_liat = [];
         var g_modeProject = false ; 
+        var g_projectLnglat ;
     
         //获取轨迹点
         function get_points() { 
@@ -190,6 +191,7 @@
        //接收起点  项目模式时，接收机器人起点，终点程序两种模式共用
        function getPC(x,y) {  
            map.clearMap();
+           g_projectLnglat = []
            var temp = []
            var GPSlist = []
            var gps_trans = []
@@ -197,34 +199,23 @@
            gps_trans[1] = y 
            g_modeProject = true
            
-           var lnglats_new= []
-           
            //转换为高德坐标
            AMap.convertFrom(gps_trans, 'gps', function (status, result) {
             if (result.info === 'ok') {
-                //   lnglats = result.locations; // Array.<LngLat>
-                 var lnglat =JSON.stringify(result['locations'][0]);
-
-                 lnglats_new.push(result['locations'][0])
-                //   var lnglat = result['locations'][0];
-                //   var newstr = lnglat.replace(","); 
-                //   var temp_ln = lnglats[0].split(';')
-                //   console.log("a:"+typeof(a));
-                  alert('lnglat是:' + lnglats_new+ "\n" + 'lnglat类型是:' + typeof(lnglats_new))
-                //   alert('经度是' + temp_ln[0]+ "\n" + '纬度是' + temp_ln[1])
+                //   lnglats = result.locations; 
+                g_projectLnglat =result['locations'][0];  // Array.<LngLat>
+                    var p_startMarker = new AMap.Marker({
+                    position: g_projectLnglat,
+                    icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
+                    map: map
+                });
+            map.add(p_startMarker);
+            map.setFitView(p_startMarker);
+                // log.success('gps经度是' + x + ',纬度是' + y+"\n"+'转换后的高德经纬度是' +g_projectLnglat )
             }
             });
-           
-        //    p_startlng = temp_ln[0]
-        //    p_startlat =  temp_ln[1]
 
-        //    var p_startMarker = new AMap.Marker({
-        //             position: new AMap.LngLat(p_startlng, p_startlat),
-        //             icon: 'https://webapi.amap.com/theme/v1.3/markers/n/start.png',
-        //             map: map
-        //         });
-        //     map.add(p_startMarker);
-        //     map.setFitView(p_startMarker);
+           
         //    Start_liat = []
         }
 

@@ -214,7 +214,11 @@ void MainWindow::initMap()
     //接收起点
     connect(ui.btn_getSP, &QPushButton::clicked, [&]()
     {
-        qnode_getStartPoint.init();
+        qnode_getStartPoint.count = 0;
+        if(!qnode_getStartPoint.m_qnodeStart){
+
+            qnode_getStartPoint.init();
+        }
 //        ui.btn_getSP->setDisabled(true);
         ui.btn_pitch->setDisabled(true);
         ui.btn_getTP->setDisabled(false);
