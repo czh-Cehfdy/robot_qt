@@ -1307,7 +1307,13 @@
             <property name="minimumSize">
              <size>
               <width>900</width>
-              <height>550</height>
+              <height>400</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>400</height>
              </size>
             </property>
             <property name="text">
@@ -1708,7 +1714,7 @@ QPushButton:pressed{
             <property name="maximumSize">
              <size>
               <width>2000</width>
-              <height>300</height>
+              <height>600</height>
              </size>
             </property>
             <property name="currentIndex">
@@ -1718,192 +1724,129 @@ QPushButton:pressed{
              <attribute name="title">
               <string>手动规划</string>
              </attribute>
-             <layout class="QHBoxLayout" name="horizontalLayout_29" stretch="3,1">
+             <layout class="QHBoxLayout" name="horizontalLayout_29">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_42">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_16">
-                  <item>
-                   <widget class="QLabel" name="label_14">
-                    <property name="minimumSize">
-                     <size>
-                      <width>250</width>
-                      <height>50</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>250</width>
-                      <height>50</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>起点、终点经纬度坐标：</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QTextEdit" name="ST_GPS_display">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>50</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>50</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_25">
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_20">
-                    <item>
-                     <widget class="QLabel" name="label_17">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>1000</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>高德坐标系下所有路径点经纬度坐标：</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QTextEdit" name="Pace_Raw_text_display"/>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_33">
-                    <item>
-                     <widget class="QLabel" name="label_25">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>1000</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>高德坐标系下关键路径点经纬度坐标：</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QTextEdit" name="Key_Pace_Raw_text_display"/>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_26">
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_29">
-                    <item>
-                     <widget class="QLabel" name="label_23">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>100000</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>GPS坐标系下的所有路径点经纬度坐标：</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QTextEdit" name="Pace_text_display">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>10000</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_41">
-                    <item>
-                     <widget class="QLabel" name="label_26">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>100000</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>GPS坐标系下关键路径点经纬度坐标：</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QTextEdit" name="Key_Pace_text_display"/>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_13">
-                  <item>
-                   <spacer name="horizontalSpacer_16">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="get_load_message">
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton { 
+               <widget class="QWidget" name="widget_7" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_33">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_13">
+                   <item>
+                    <widget class="QLabel" name="label_14">
+                     <property name="minimumSize">
+                      <size>
+                       <width>170</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>170</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>起点、终点经纬度坐标：</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="ST_GPS_display">
+                     <property name="minimumSize">
+                      <size>
+                       <width>450</width>
+                       <height>60</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>450</width>
+                       <height>60</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_26">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_20">
+                     <item>
+                      <widget class="QLabel" name="label_17">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>1000</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>高德坐标系下关键路径点经纬度坐标：</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QTextEdit" name="Key_Pace_display"/>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_23">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>100000</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>GPS坐标系下的关键路径点经纬度坐标：</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QTextEdit" name="change_Key_Pace_display">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>10000</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_16">
+                       <item>
+                        <spacer name="horizontalSpacer_16">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="get_load_message">
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
     font-size:13px;
     width:60px;
@@ -1918,29 +1861,29 @@ QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
 	background-color: rgb(170, 255, 0);
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>获取轨迹</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_17">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="btn_clear_path">
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton { 
+                         </property>
+                         <property name="text">
+                          <string>获取轨迹</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_17">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_clear_path">
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
     font-size:13px;
     width:60px;
@@ -1955,35 +1898,144 @@ QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
 	background-color: rgb(170, 255, 0);
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>清除显示</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_10">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
+                         </property>
+                         <property name="text">
+                          <string>清除显示</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_10">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_29">
+                     <item>
+                      <widget class="QTextBrowser" name="send_Pace_display"/>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_25">
+                       <item>
+                        <spacer name="horizontalSpacer_3">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_chooseGPS">
+                         <property name="minimumSize">
+                          <size>
+                           <width>80</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton { 
+    color: rgb(1, 84, 161) ;
+    font-size:13px;
+    width:60px;
+	height:30px;
+    border:none;
+}
+QPushButton:hover{
+     color: rgb(1, 84, 161) ;
+     font-size:14px;
+}
+QPushButton:pressed{
+	color: rgb(255, 26, 68) ;
+	background-color: rgb(170, 255, 0);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>匹配目标点</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_4">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btn_clear_path_2">
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton { 
+    color: rgb(1, 84, 161) ;
+    font-size:13px;
+    width:60px;
+	height:30px;
+    border:none;
+}
+QPushButton:hover{
+     color: rgb(1, 84, 161) ;
+     font-size:14px;
+}
+QPushButton:pressed{
+	color: rgb(255, 26, 68) ;
+	background-color: rgb(170, 255, 0);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>清除显示</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_21">
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="3">
                   <item>
-                   <widget class="QTextBrowser" name="Pace_rostopic_display">
+                   <widget class="QTextBrowser" name="send_Pace_display_send">
                     <property name="minimumSize">
                      <size>
                       <width>300</width>
@@ -2001,36 +2053,6 @@ QPushButton:pressed{
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_14">
-                  <item>
-                   <widget class="QPushButton" name="btn_chooseGPS">
-                    <property name="minimumSize">
-                     <size>
-                      <width>80</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton { 
-    color: rgb(1, 84, 161) ;
-    font-size:13px;
-    width:60px;
-	height:30px;
-    border:none;
-}
-QPushButton:hover{
-     color: rgb(1, 84, 161) ;
-     font-size:14px;
-}
-QPushButton:pressed{
-	color: rgb(255, 26, 68) ;
-	background-color: rgb(170, 255, 0);
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>匹配目标点</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item>
                    <spacer name="horizontalSpacer_18">
                     <property name="orientation">
@@ -2130,288 +2152,301 @@ QPushButton:pressed{
              </attribute>
              <layout class="QHBoxLayout" name="horizontalLayout_44">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_48">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_39">
-                  <item>
-                   <widget class="QPushButton" name="btn_display_gps">
-                    <property name="minimumSize">
-                     <size>
-                      <width>90</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>90</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton { 
+               <widget class="QWidget" name="widget_6" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>430</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>430</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_48">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_36">
+                   <item>
+                    <widget class="QPushButton" name="btn_display_gps">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>120</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
-    font-size:13px;
+    font-size:17px;
     width:60px;
 	height:30px;
     border:none;
 }
 QPushButton:hover{
      color: rgb(1, 84, 161) ;
-     font-size:14px;
+     font-size:19px;
 }
 QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
 	background-color: rgb(170, 255, 0);
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>显示经纬度</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="btn_close">
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton { 
+                     </property>
+                     <property name="text">
+                      <string>显示经纬度</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_close">
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
-    font-size:13px;
+    font-size:17px;
     width:60px;
 	height:30px;
     border:none;
 }
 QPushButton:hover{
      color: rgb(1, 84, 161) ;
-     font-size:14px;
+     font-size:19px;
 }
 QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
 	background-color: rgb(170, 255, 0);
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>停止</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_21">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_36">
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_43">
-                    <item>
-                     <widget class="QLabel" name="label_27">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>当前经度</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="get_longitude">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>60</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>60</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>16</pointsize>
-                       </font>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_44">
-                    <item>
-                     <widget class="QLabel" name="label_30">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>当前纬度</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="get_latitude">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>60</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>60</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>16</pointsize>
-                       </font>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QVBoxLayout" name="verticalLayout_45">
-                    <item>
-                     <widget class="QLabel" name="label_12">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>25</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>解的状态</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="get_status">
-                      <property name="minimumSize">
-                       <size>
-                        <width>70</width>
-                        <height>60</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>70</width>
-                        <height>60</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>20</pointsize>
-                       </font>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_40">
-                  <item>
-                   <widget class="QLabel" name="label_32">
-                    <property name="text">
-                     <string>消息提示框</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QTextEdit" name="textEdit_gpsMsg">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>13</pointsize>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_37">
-                  <item>
-                   <spacer name="horizontalSpacer_14">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="btn_savegps">
-                    <property name="minimumSize">
-                     <size>
-                      <width>180</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>180</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>-1</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton { 
+                     </property>
+                     <property name="text">
+                      <string>停止</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_21">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_40">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_43">
+                     <item>
+                      <widget class="QLabel" name="label_27">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>当前经度</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="get_longitude">
+                       <property name="minimumSize">
+                        <size>
+                         <width>170</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>170</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>16</pointsize>
+                        </font>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_44">
+                     <item>
+                      <widget class="QLabel" name="label_30">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>当前纬度</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="get_latitude">
+                       <property name="minimumSize">
+                        <size>
+                         <width>170</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>170</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>16</pointsize>
+                        </font>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_45">
+                     <item>
+                      <widget class="QLabel" name="label_12">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>解的状态</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="get_status">
+                       <property name="minimumSize">
+                        <size>
+                         <width>70</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>70</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>20</pointsize>
+                        </font>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_37">
+                   <item>
+                    <widget class="QLabel" name="label_32">
+                     <property name="text">
+                      <string>消息提示框</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="textEdit_gpsMsg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>13</pointsize>
+                      </font>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_39">
+                   <item>
+                    <spacer name="horizontalSpacer_14">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_savegps">
+                     <property name="minimumSize">
+                      <size>
+                       <width>180</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>180</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>-1</pointsize>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
     font-size:19px;
     width:60px;
@@ -2427,41 +2462,29 @@ QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
 	background-color: rgb(170, 255, 0);
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>保存至数据库</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_15">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer_3">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
+                     </property>
+                     <property name="text">
+                      <string>保存至数据库</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_15">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_47">
@@ -2498,27 +2521,27 @@ QPushButton:pressed{
                    <widget class="QPushButton" name="btn_display_data">
                     <property name="minimumSize">
                      <size>
-                      <width>100</width>
+                      <width>150</width>
                       <height>0</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>100</width>
+                      <width>150</width>
                       <height>16777215</height>
                      </size>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
-    font-size:13px;
+    font-size:17px;
     width:60px;
 	height:30px;
     border:none;
 }
 QPushButton:hover{
      color: rgb(1, 84, 161) ;
-     font-size:14px;
+     font-size:19px;
 }
 QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
@@ -3494,6 +3517,16 @@ QPushButton:pressed{
           </item>
          </layout>
         </widget>
+        <widget class="QWidget" name="tab_15">
+         <attribute name="title">
+          <string>页</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_52">
+          <item>
+           <widget class="QChartView" name="widget_goal" native="true"/>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </item>
      </layout>
@@ -3550,6 +3583,14 @@ QPushButton:pressed{
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QWidget</extends>
+   <header location="global">qchartview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/images.qrc"/>
   <include location="../resources/picture.qrc"/>

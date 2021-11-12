@@ -37,6 +37,7 @@
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <qchartview.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -197,35 +198,35 @@ public:
     QTabWidget *tabWidget_4;
     QWidget *tab_12;
     QHBoxLayout *horizontalLayout_29;
-    QVBoxLayout *verticalLayout_42;
-    QHBoxLayout *horizontalLayout_16;
+    QWidget *widget_7;
+    QVBoxLayout *verticalLayout_33;
+    QHBoxLayout *horizontalLayout_13;
     QLabel *label_14;
     QTextEdit *ST_GPS_display;
-    QHBoxLayout *horizontalLayout_25;
+    QHBoxLayout *horizontalLayout_26;
     QVBoxLayout *verticalLayout_20;
     QLabel *label_17;
-    QTextEdit *Pace_Raw_text_display;
-    QVBoxLayout *verticalLayout_33;
-    QLabel *label_25;
-    QTextEdit *Key_Pace_Raw_text_display;
-    QHBoxLayout *horizontalLayout_26;
-    QVBoxLayout *verticalLayout_29;
+    QTextEdit *Key_Pace_display;
     QLabel *label_23;
-    QTextEdit *Pace_text_display;
-    QVBoxLayout *verticalLayout_41;
-    QLabel *label_26;
-    QTextEdit *Key_Pace_text_display;
-    QHBoxLayout *horizontalLayout_13;
+    QTextEdit *change_Key_Pace_display;
+    QHBoxLayout *horizontalLayout_16;
     QSpacerItem *horizontalSpacer_16;
     QPushButton *get_load_message;
     QSpacerItem *horizontalSpacer_17;
     QPushButton *btn_clear_path;
     QSpacerItem *horizontalSpacer_10;
+    QVBoxLayout *verticalLayout_29;
+    QTextBrowser *send_Pace_display;
+    QHBoxLayout *horizontalLayout_25;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *btn_chooseGPS;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *btn_clear_path_2;
+    QSpacerItem *horizontalSpacer_7;
     QVBoxLayout *verticalLayout_21;
     QHBoxLayout *horizontalLayout_19;
-    QTextBrowser *Pace_rostopic_display;
+    QTextBrowser *send_Pace_display_send;
     QHBoxLayout *horizontalLayout_14;
-    QPushButton *btn_chooseGPS;
     QSpacerItem *horizontalSpacer_18;
     QPushButton *btn_send_path;
     QSpacerItem *horizontalSpacer_19;
@@ -233,12 +234,13 @@ public:
     QSpacerItem *horizontalSpacer_11;
     QWidget *tab_3;
     QHBoxLayout *horizontalLayout_44;
+    QWidget *widget_6;
     QVBoxLayout *verticalLayout_48;
-    QHBoxLayout *horizontalLayout_39;
+    QHBoxLayout *horizontalLayout_36;
     QPushButton *btn_display_gps;
     QPushButton *btn_close;
     QSpacerItem *horizontalSpacer_21;
-    QHBoxLayout *horizontalLayout_36;
+    QHBoxLayout *horizontalLayout_40;
     QVBoxLayout *verticalLayout_43;
     QLabel *label_27;
     QLineEdit *get_longitude;
@@ -248,14 +250,13 @@ public:
     QVBoxLayout *verticalLayout_45;
     QLabel *label_12;
     QLineEdit *get_status;
-    QHBoxLayout *horizontalLayout_40;
+    QHBoxLayout *horizontalLayout_37;
     QLabel *label_32;
     QTextEdit *textEdit_gpsMsg;
-    QHBoxLayout *horizontalLayout_37;
+    QHBoxLayout *horizontalLayout_39;
     QSpacerItem *horizontalSpacer_14;
     QPushButton *btn_savegps;
     QSpacerItem *horizontalSpacer_15;
-    QSpacerItem *verticalSpacer_3;
     QVBoxLayout *verticalLayout_47;
     QVBoxLayout *verticalLayout_46;
     QLabel *label_31;
@@ -353,6 +354,9 @@ public:
     QLabel *label_sonar_display;
     QTextEdit *textEdit_tip;
     QLabel *label_18;
+    QWidget *tab_15;
+    QVBoxLayout *verticalLayout_52;
+    QChartView *widget_goal;
     QMenuBar *menubar;
     QMenu *menu_File;
     QStatusBar *statusbar;
@@ -1055,7 +1059,8 @@ public:
         verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
         label_map = new QLabel(tab_map);
         label_map->setObjectName(QStringLiteral("label_map"));
-        label_map->setMinimumSize(QSize(900, 550));
+        label_map->setMinimumSize(QSize(900, 400));
+        label_map->setMaximumSize(QSize(16777215, 400));
 
         verticalLayout_22->addWidget(label_map);
 
@@ -1349,119 +1354,71 @@ public:
 
         tabWidget_4 = new QTabWidget(tab_map);
         tabWidget_4->setObjectName(QStringLiteral("tabWidget_4"));
-        tabWidget_4->setMaximumSize(QSize(2000, 300));
+        tabWidget_4->setMaximumSize(QSize(2000, 600));
         tab_12 = new QWidget();
         tab_12->setObjectName(QStringLiteral("tab_12"));
         horizontalLayout_29 = new QHBoxLayout(tab_12);
         horizontalLayout_29->setObjectName(QStringLiteral("horizontalLayout_29"));
-        verticalLayout_42 = new QVBoxLayout();
-        verticalLayout_42->setObjectName(QStringLiteral("verticalLayout_42"));
-        horizontalLayout_16 = new QHBoxLayout();
-        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
-        label_14 = new QLabel(tab_12);
+        widget_7 = new QWidget(tab_12);
+        widget_7->setObjectName(QStringLiteral("widget_7"));
+        verticalLayout_33 = new QVBoxLayout(widget_7);
+        verticalLayout_33->setObjectName(QStringLiteral("verticalLayout_33"));
+        horizontalLayout_13 = new QHBoxLayout();
+        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        label_14 = new QLabel(widget_7);
         label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setMinimumSize(QSize(250, 50));
-        label_14->setMaximumSize(QSize(250, 50));
+        label_14->setMinimumSize(QSize(170, 50));
+        label_14->setMaximumSize(QSize(170, 50));
 
-        horizontalLayout_16->addWidget(label_14);
+        horizontalLayout_13->addWidget(label_14);
 
-        ST_GPS_display = new QTextEdit(tab_12);
+        ST_GPS_display = new QTextEdit(widget_7);
         ST_GPS_display->setObjectName(QStringLiteral("ST_GPS_display"));
-        ST_GPS_display->setMinimumSize(QSize(0, 50));
-        ST_GPS_display->setMaximumSize(QSize(16777215, 50));
+        ST_GPS_display->setMinimumSize(QSize(450, 60));
+        ST_GPS_display->setMaximumSize(QSize(450, 60));
 
-        horizontalLayout_16->addWidget(ST_GPS_display);
+        horizontalLayout_13->addWidget(ST_GPS_display);
 
 
-        verticalLayout_42->addLayout(horizontalLayout_16);
+        verticalLayout_33->addLayout(horizontalLayout_13);
 
-        horizontalLayout_25 = new QHBoxLayout();
-        horizontalLayout_25->setObjectName(QStringLiteral("horizontalLayout_25"));
+        horizontalLayout_26 = new QHBoxLayout();
+        horizontalLayout_26->setObjectName(QStringLiteral("horizontalLayout_26"));
         verticalLayout_20 = new QVBoxLayout();
         verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
-        label_17 = new QLabel(tab_12);
+        label_17 = new QLabel(widget_7);
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setMinimumSize(QSize(0, 30));
         label_17->setMaximumSize(QSize(1000, 30));
 
         verticalLayout_20->addWidget(label_17);
 
-        Pace_Raw_text_display = new QTextEdit(tab_12);
-        Pace_Raw_text_display->setObjectName(QStringLiteral("Pace_Raw_text_display"));
+        Key_Pace_display = new QTextEdit(widget_7);
+        Key_Pace_display->setObjectName(QStringLiteral("Key_Pace_display"));
 
-        verticalLayout_20->addWidget(Pace_Raw_text_display);
+        verticalLayout_20->addWidget(Key_Pace_display);
 
-
-        horizontalLayout_25->addLayout(verticalLayout_20);
-
-        verticalLayout_33 = new QVBoxLayout();
-        verticalLayout_33->setObjectName(QStringLiteral("verticalLayout_33"));
-        label_25 = new QLabel(tab_12);
-        label_25->setObjectName(QStringLiteral("label_25"));
-        label_25->setMinimumSize(QSize(0, 30));
-        label_25->setMaximumSize(QSize(1000, 30));
-
-        verticalLayout_33->addWidget(label_25);
-
-        Key_Pace_Raw_text_display = new QTextEdit(tab_12);
-        Key_Pace_Raw_text_display->setObjectName(QStringLiteral("Key_Pace_Raw_text_display"));
-
-        verticalLayout_33->addWidget(Key_Pace_Raw_text_display);
-
-
-        horizontalLayout_25->addLayout(verticalLayout_33);
-
-
-        verticalLayout_42->addLayout(horizontalLayout_25);
-
-        horizontalLayout_26 = new QHBoxLayout();
-        horizontalLayout_26->setObjectName(QStringLiteral("horizontalLayout_26"));
-        verticalLayout_29 = new QVBoxLayout();
-        verticalLayout_29->setObjectName(QStringLiteral("verticalLayout_29"));
-        label_23 = new QLabel(tab_12);
+        label_23 = new QLabel(widget_7);
         label_23->setObjectName(QStringLiteral("label_23"));
         label_23->setMinimumSize(QSize(0, 30));
         label_23->setMaximumSize(QSize(100000, 30));
 
-        verticalLayout_29->addWidget(label_23);
+        verticalLayout_20->addWidget(label_23);
 
-        Pace_text_display = new QTextEdit(tab_12);
-        Pace_text_display->setObjectName(QStringLiteral("Pace_text_display"));
-        Pace_text_display->setMinimumSize(QSize(0, 0));
-        Pace_text_display->setMaximumSize(QSize(10000, 16777215));
+        change_Key_Pace_display = new QTextEdit(widget_7);
+        change_Key_Pace_display->setObjectName(QStringLiteral("change_Key_Pace_display"));
+        change_Key_Pace_display->setMinimumSize(QSize(0, 0));
+        change_Key_Pace_display->setMaximumSize(QSize(10000, 16777215));
 
-        verticalLayout_29->addWidget(Pace_text_display);
+        verticalLayout_20->addWidget(change_Key_Pace_display);
 
-
-        horizontalLayout_26->addLayout(verticalLayout_29);
-
-        verticalLayout_41 = new QVBoxLayout();
-        verticalLayout_41->setObjectName(QStringLiteral("verticalLayout_41"));
-        label_26 = new QLabel(tab_12);
-        label_26->setObjectName(QStringLiteral("label_26"));
-        label_26->setMinimumSize(QSize(0, 30));
-        label_26->setMaximumSize(QSize(100000, 30));
-
-        verticalLayout_41->addWidget(label_26);
-
-        Key_Pace_text_display = new QTextEdit(tab_12);
-        Key_Pace_text_display->setObjectName(QStringLiteral("Key_Pace_text_display"));
-
-        verticalLayout_41->addWidget(Key_Pace_text_display);
-
-
-        horizontalLayout_26->addLayout(verticalLayout_41);
-
-
-        verticalLayout_42->addLayout(horizontalLayout_26);
-
-        horizontalLayout_13 = new QHBoxLayout();
-        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
         horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_13->addItem(horizontalSpacer_16);
+        horizontalLayout_16->addItem(horizontalSpacer_16);
 
-        get_load_message = new QPushButton(tab_12);
+        get_load_message = new QPushButton(widget_7);
         get_load_message->setObjectName(QStringLiteral("get_load_message"));
         get_load_message->setStyleSheet(QLatin1String("QPushButton { \n"
 "    color: rgb(1, 84, 161) ;\n"
@@ -1479,13 +1436,13 @@ public:
 "	background-color: rgb(170, 255, 0);\n"
 "}"));
 
-        horizontalLayout_13->addWidget(get_load_message);
+        horizontalLayout_16->addWidget(get_load_message);
 
         horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_13->addItem(horizontalSpacer_17);
+        horizontalLayout_16->addItem(horizontalSpacer_17);
 
-        btn_clear_path = new QPushButton(tab_12);
+        btn_clear_path = new QPushButton(widget_7);
         btn_clear_path->setObjectName(QStringLiteral("btn_clear_path"));
         btn_clear_path->setStyleSheet(QLatin1String("QPushButton { \n"
 "    color: rgb(1, 84, 161) ;\n"
@@ -1503,38 +1460,32 @@ public:
 "	background-color: rgb(170, 255, 0);\n"
 "}"));
 
-        horizontalLayout_13->addWidget(btn_clear_path);
+        horizontalLayout_16->addWidget(btn_clear_path);
 
         horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_13->addItem(horizontalSpacer_10);
+        horizontalLayout_16->addItem(horizontalSpacer_10);
 
 
-        verticalLayout_42->addLayout(horizontalLayout_13);
+        verticalLayout_20->addLayout(horizontalLayout_16);
 
 
-        horizontalLayout_29->addLayout(verticalLayout_42);
+        horizontalLayout_26->addLayout(verticalLayout_20);
 
-        verticalLayout_21 = new QVBoxLayout();
-        verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
-        horizontalLayout_19 = new QHBoxLayout();
-        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
-        Pace_rostopic_display = new QTextBrowser(tab_12);
-        Pace_rostopic_display->setObjectName(QStringLiteral("Pace_rostopic_display"));
-        Pace_rostopic_display->setMinimumSize(QSize(300, 0));
-        QFont font2;
-        font2.setPointSize(12);
-        Pace_rostopic_display->setFont(font2);
+        verticalLayout_29 = new QVBoxLayout();
+        verticalLayout_29->setObjectName(QStringLiteral("verticalLayout_29"));
+        send_Pace_display = new QTextBrowser(widget_7);
+        send_Pace_display->setObjectName(QStringLiteral("send_Pace_display"));
 
-        horizontalLayout_19->addWidget(Pace_rostopic_display);
+        verticalLayout_29->addWidget(send_Pace_display);
 
-        horizontalLayout_19->setStretch(0, 3);
+        horizontalLayout_25 = new QHBoxLayout();
+        horizontalLayout_25->setObjectName(QStringLiteral("horizontalLayout_25"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_21->addLayout(horizontalLayout_19);
+        horizontalLayout_25->addItem(horizontalSpacer_3);
 
-        horizontalLayout_14 = new QHBoxLayout();
-        horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
-        btn_chooseGPS = new QPushButton(tab_12);
+        btn_chooseGPS = new QPushButton(widget_7);
         btn_chooseGPS->setObjectName(QStringLiteral("btn_chooseGPS"));
         btn_chooseGPS->setMinimumSize(QSize(80, 0));
         btn_chooseGPS->setStyleSheet(QLatin1String("QPushButton { \n"
@@ -1553,8 +1504,67 @@ public:
 "	background-color: rgb(170, 255, 0);\n"
 "}"));
 
-        horizontalLayout_14->addWidget(btn_chooseGPS);
+        horizontalLayout_25->addWidget(btn_chooseGPS);
 
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_25->addItem(horizontalSpacer_4);
+
+        btn_clear_path_2 = new QPushButton(widget_7);
+        btn_clear_path_2->setObjectName(QStringLiteral("btn_clear_path_2"));
+        btn_clear_path_2->setStyleSheet(QLatin1String("QPushButton { \n"
+"    color: rgb(1, 84, 161) ;\n"
+"    font-size:13px;\n"
+"    width:60px;\n"
+"	height:30px;\n"
+"    border:none;\n"
+"}\n"
+"QPushButton:hover{\n"
+"     color: rgb(1, 84, 161) ;\n"
+"     font-size:14px;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	color: rgb(255, 26, 68) ;\n"
+"	background-color: rgb(170, 255, 0);\n"
+"}"));
+
+        horizontalLayout_25->addWidget(btn_clear_path_2);
+
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_25->addItem(horizontalSpacer_7);
+
+
+        verticalLayout_29->addLayout(horizontalLayout_25);
+
+
+        horizontalLayout_26->addLayout(verticalLayout_29);
+
+
+        verticalLayout_33->addLayout(horizontalLayout_26);
+
+
+        horizontalLayout_29->addWidget(widget_7);
+
+        verticalLayout_21 = new QVBoxLayout();
+        verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        send_Pace_display_send = new QTextBrowser(tab_12);
+        send_Pace_display_send->setObjectName(QStringLiteral("send_Pace_display_send"));
+        send_Pace_display_send->setMinimumSize(QSize(300, 0));
+        QFont font2;
+        font2.setPointSize(12);
+        send_Pace_display_send->setFont(font2);
+
+        horizontalLayout_19->addWidget(send_Pace_display_send);
+
+        horizontalLayout_19->setStretch(0, 3);
+
+        verticalLayout_21->addLayout(horizontalLayout_19);
+
+        horizontalLayout_14 = new QHBoxLayout();
+        horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
         horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_14->addItem(horizontalSpacer_18);
@@ -1613,81 +1623,83 @@ public:
 
         horizontalLayout_29->addLayout(verticalLayout_21);
 
-        horizontalLayout_29->setStretch(0, 3);
-        horizontalLayout_29->setStretch(1, 1);
         tabWidget_4->addTab(tab_12, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         horizontalLayout_44 = new QHBoxLayout(tab_3);
         horizontalLayout_44->setObjectName(QStringLiteral("horizontalLayout_44"));
-        verticalLayout_48 = new QVBoxLayout();
+        widget_6 = new QWidget(tab_3);
+        widget_6->setObjectName(QStringLiteral("widget_6"));
+        widget_6->setMinimumSize(QSize(430, 0));
+        widget_6->setMaximumSize(QSize(430, 16777215));
+        verticalLayout_48 = new QVBoxLayout(widget_6);
         verticalLayout_48->setObjectName(QStringLiteral("verticalLayout_48"));
-        horizontalLayout_39 = new QHBoxLayout();
-        horizontalLayout_39->setObjectName(QStringLiteral("horizontalLayout_39"));
-        btn_display_gps = new QPushButton(tab_3);
+        horizontalLayout_36 = new QHBoxLayout();
+        horizontalLayout_36->setObjectName(QStringLiteral("horizontalLayout_36"));
+        btn_display_gps = new QPushButton(widget_6);
         btn_display_gps->setObjectName(QStringLiteral("btn_display_gps"));
-        btn_display_gps->setMinimumSize(QSize(90, 0));
-        btn_display_gps->setMaximumSize(QSize(90, 16777215));
+        btn_display_gps->setMinimumSize(QSize(120, 0));
+        btn_display_gps->setMaximumSize(QSize(120, 16777215));
         btn_display_gps->setStyleSheet(QLatin1String("QPushButton { \n"
 "    color: rgb(1, 84, 161) ;\n"
-"    font-size:13px;\n"
+"    font-size:17px;\n"
 "    width:60px;\n"
 "	height:30px;\n"
 "    border:none;\n"
 "}\n"
 "QPushButton:hover{\n"
 "     color: rgb(1, 84, 161) ;\n"
-"     font-size:14px;\n"
+"     font-size:19px;\n"
 "}\n"
 "QPushButton:pressed{\n"
 "	color: rgb(255, 26, 68) ;\n"
 "	background-color: rgb(170, 255, 0);\n"
 "}"));
 
-        horizontalLayout_39->addWidget(btn_display_gps);
+        horizontalLayout_36->addWidget(btn_display_gps);
 
-        btn_close = new QPushButton(tab_3);
+        btn_close = new QPushButton(widget_6);
         btn_close->setObjectName(QStringLiteral("btn_close"));
         btn_close->setStyleSheet(QLatin1String("QPushButton { \n"
 "    color: rgb(1, 84, 161) ;\n"
-"    font-size:13px;\n"
+"    font-size:17px;\n"
 "    width:60px;\n"
 "	height:30px;\n"
 "    border:none;\n"
 "}\n"
 "QPushButton:hover{\n"
 "     color: rgb(1, 84, 161) ;\n"
-"     font-size:14px;\n"
+"     font-size:19px;\n"
 "}\n"
 "QPushButton:pressed{\n"
 "	color: rgb(255, 26, 68) ;\n"
 "	background-color: rgb(170, 255, 0);\n"
 "}"));
 
-        horizontalLayout_39->addWidget(btn_close);
+        horizontalLayout_36->addWidget(btn_close);
 
         horizontalSpacer_21 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_39->addItem(horizontalSpacer_21);
+        horizontalLayout_36->addItem(horizontalSpacer_21);
 
 
-        verticalLayout_48->addLayout(horizontalLayout_39);
+        verticalLayout_48->addLayout(horizontalLayout_36);
 
-        horizontalLayout_36 = new QHBoxLayout();
-        horizontalLayout_36->setObjectName(QStringLiteral("horizontalLayout_36"));
+        horizontalLayout_40 = new QHBoxLayout();
+        horizontalLayout_40->setObjectName(QStringLiteral("horizontalLayout_40"));
         verticalLayout_43 = new QVBoxLayout();
         verticalLayout_43->setObjectName(QStringLiteral("verticalLayout_43"));
-        label_27 = new QLabel(tab_3);
+        label_27 = new QLabel(widget_6);
         label_27->setObjectName(QStringLiteral("label_27"));
         label_27->setMinimumSize(QSize(0, 25));
         label_27->setMaximumSize(QSize(16777215, 25));
 
         verticalLayout_43->addWidget(label_27);
 
-        get_longitude = new QLineEdit(tab_3);
+        get_longitude = new QLineEdit(widget_6);
         get_longitude->setObjectName(QStringLiteral("get_longitude"));
-        get_longitude->setMinimumSize(QSize(0, 60));
-        get_longitude->setMaximumSize(QSize(16777215, 60));
+        get_longitude->setMinimumSize(QSize(170, 60));
+        get_longitude->setMaximumSize(QSize(170, 60));
         QFont font3;
         font3.setPointSize(16);
         get_longitude->setFont(font3);
@@ -1695,38 +1707,38 @@ public:
         verticalLayout_43->addWidget(get_longitude);
 
 
-        horizontalLayout_36->addLayout(verticalLayout_43);
+        horizontalLayout_40->addLayout(verticalLayout_43);
 
         verticalLayout_44 = new QVBoxLayout();
         verticalLayout_44->setObjectName(QStringLiteral("verticalLayout_44"));
-        label_30 = new QLabel(tab_3);
+        label_30 = new QLabel(widget_6);
         label_30->setObjectName(QStringLiteral("label_30"));
         label_30->setMinimumSize(QSize(0, 25));
         label_30->setMaximumSize(QSize(16777215, 25));
 
         verticalLayout_44->addWidget(label_30);
 
-        get_latitude = new QLineEdit(tab_3);
+        get_latitude = new QLineEdit(widget_6);
         get_latitude->setObjectName(QStringLiteral("get_latitude"));
-        get_latitude->setMinimumSize(QSize(0, 60));
-        get_latitude->setMaximumSize(QSize(16777215, 60));
+        get_latitude->setMinimumSize(QSize(170, 60));
+        get_latitude->setMaximumSize(QSize(170, 60));
         get_latitude->setFont(font3);
 
         verticalLayout_44->addWidget(get_latitude);
 
 
-        horizontalLayout_36->addLayout(verticalLayout_44);
+        horizontalLayout_40->addLayout(verticalLayout_44);
 
         verticalLayout_45 = new QVBoxLayout();
         verticalLayout_45->setObjectName(QStringLiteral("verticalLayout_45"));
-        label_12 = new QLabel(tab_3);
+        label_12 = new QLabel(widget_6);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setMinimumSize(QSize(0, 25));
         label_12->setMaximumSize(QSize(16777215, 25));
 
         verticalLayout_45->addWidget(label_12);
 
-        get_status = new QLineEdit(tab_3);
+        get_status = new QLineEdit(widget_6);
         get_status->setObjectName(QStringLiteral("get_status"));
         get_status->setMinimumSize(QSize(70, 60));
         get_status->setMaximumSize(QSize(70, 60));
@@ -1737,19 +1749,19 @@ public:
         verticalLayout_45->addWidget(get_status);
 
 
-        horizontalLayout_36->addLayout(verticalLayout_45);
+        horizontalLayout_40->addLayout(verticalLayout_45);
 
 
-        verticalLayout_48->addLayout(horizontalLayout_36);
+        verticalLayout_48->addLayout(horizontalLayout_40);
 
-        horizontalLayout_40 = new QHBoxLayout();
-        horizontalLayout_40->setObjectName(QStringLiteral("horizontalLayout_40"));
-        label_32 = new QLabel(tab_3);
+        horizontalLayout_37 = new QHBoxLayout();
+        horizontalLayout_37->setObjectName(QStringLiteral("horizontalLayout_37"));
+        label_32 = new QLabel(widget_6);
         label_32->setObjectName(QStringLiteral("label_32"));
 
-        horizontalLayout_40->addWidget(label_32);
+        horizontalLayout_37->addWidget(label_32);
 
-        textEdit_gpsMsg = new QTextEdit(tab_3);
+        textEdit_gpsMsg = new QTextEdit(widget_6);
         textEdit_gpsMsg->setObjectName(QStringLiteral("textEdit_gpsMsg"));
         textEdit_gpsMsg->setMinimumSize(QSize(0, 40));
         textEdit_gpsMsg->setMaximumSize(QSize(16777215, 40));
@@ -1757,18 +1769,18 @@ public:
         font5.setPointSize(13);
         textEdit_gpsMsg->setFont(font5);
 
-        horizontalLayout_40->addWidget(textEdit_gpsMsg);
+        horizontalLayout_37->addWidget(textEdit_gpsMsg);
 
 
-        verticalLayout_48->addLayout(horizontalLayout_40);
+        verticalLayout_48->addLayout(horizontalLayout_37);
 
-        horizontalLayout_37 = new QHBoxLayout();
-        horizontalLayout_37->setObjectName(QStringLiteral("horizontalLayout_37"));
+        horizontalLayout_39 = new QHBoxLayout();
+        horizontalLayout_39->setObjectName(QStringLiteral("horizontalLayout_39"));
         horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_37->addItem(horizontalSpacer_14);
+        horizontalLayout_39->addItem(horizontalSpacer_14);
 
-        btn_savegps = new QPushButton(tab_3);
+        btn_savegps = new QPushButton(widget_6);
         btn_savegps->setObjectName(QStringLiteral("btn_savegps"));
         btn_savegps->setMinimumSize(QSize(180, 40));
         btn_savegps->setMaximumSize(QSize(180, 40));
@@ -1791,21 +1803,17 @@ public:
 "	background-color: rgb(170, 255, 0);\n"
 "}"));
 
-        horizontalLayout_37->addWidget(btn_savegps);
+        horizontalLayout_39->addWidget(btn_savegps);
 
         horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_37->addItem(horizontalSpacer_15);
+        horizontalLayout_39->addItem(horizontalSpacer_15);
 
 
-        verticalLayout_48->addLayout(horizontalLayout_37);
-
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_48->addItem(verticalSpacer_3);
+        verticalLayout_48->addLayout(horizontalLayout_39);
 
 
-        horizontalLayout_44->addLayout(verticalLayout_48);
+        horizontalLayout_44->addWidget(widget_6);
 
         verticalLayout_47 = new QVBoxLayout();
         verticalLayout_47->setObjectName(QStringLiteral("verticalLayout_47"));
@@ -1832,18 +1840,18 @@ public:
 
         btn_display_data = new QPushButton(tab_3);
         btn_display_data->setObjectName(QStringLiteral("btn_display_data"));
-        btn_display_data->setMinimumSize(QSize(100, 0));
-        btn_display_data->setMaximumSize(QSize(100, 16777215));
+        btn_display_data->setMinimumSize(QSize(150, 0));
+        btn_display_data->setMaximumSize(QSize(150, 16777215));
         btn_display_data->setStyleSheet(QLatin1String("QPushButton { \n"
 "    color: rgb(1, 84, 161) ;\n"
-"    font-size:13px;\n"
+"    font-size:17px;\n"
 "    width:60px;\n"
 "	height:30px;\n"
 "    border:none;\n"
 "}\n"
 "QPushButton:hover{\n"
 "     color: rgb(1, 84, 161) ;\n"
-"     font-size:14px;\n"
+"     font-size:19px;\n"
 "}\n"
 "QPushButton:pressed{\n"
 "	color: rgb(255, 26, 68) ;\n"
@@ -2363,6 +2371,16 @@ public:
         horizontalLayout_27->setStretch(0, 3);
         horizontalLayout_27->setStretch(1, 1);
         tab_manager->addTab(tab_5, QString());
+        tab_15 = new QWidget();
+        tab_15->setObjectName(QStringLiteral("tab_15"));
+        verticalLayout_52 = new QVBoxLayout(tab_15);
+        verticalLayout_52->setObjectName(QStringLiteral("verticalLayout_52"));
+        widget_goal = new QChartView(tab_15);
+        widget_goal->setObjectName(QStringLiteral("widget_goal"));
+
+        verticalLayout_52->addWidget(widget_goal);
+
+        tab_manager->addTab(tab_15, QString());
 
         gridLayout_2->addWidget(tab_manager, 0, 0, 2, 1);
 
@@ -2513,13 +2531,12 @@ public:
         btn_clear->setText(QApplication::translate("MainWindowDesign", "\346\270\205\351\231\244", Q_NULLPTR));
         btn_draw->setText(QApplication::translate("MainWindowDesign", "\347\224\273\347\272\277", Q_NULLPTR));
         label_14->setText(QApplication::translate("MainWindowDesign", "\350\265\267\347\202\271\343\200\201\347\273\210\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
-        label_17->setText(QApplication::translate("MainWindowDesign", "\351\253\230\345\276\267\345\235\220\346\240\207\347\263\273\344\270\213\346\211\200\346\234\211\350\267\257\345\276\204\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
-        label_25->setText(QApplication::translate("MainWindowDesign", "\351\253\230\345\276\267\345\235\220\346\240\207\347\263\273\344\270\213\345\205\263\351\224\256\350\267\257\345\276\204\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
-        label_23->setText(QApplication::translate("MainWindowDesign", "GPS\345\235\220\346\240\207\347\263\273\344\270\213\347\232\204\346\211\200\346\234\211\350\267\257\345\276\204\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
-        label_26->setText(QApplication::translate("MainWindowDesign", "GPS\345\235\220\346\240\207\347\263\273\344\270\213\345\205\263\351\224\256\350\267\257\345\276\204\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
+        label_17->setText(QApplication::translate("MainWindowDesign", "\351\253\230\345\276\267\345\235\220\346\240\207\347\263\273\344\270\213\345\205\263\351\224\256\350\267\257\345\276\204\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
+        label_23->setText(QApplication::translate("MainWindowDesign", "GPS\345\235\220\346\240\207\347\263\273\344\270\213\347\232\204\345\205\263\351\224\256\350\267\257\345\276\204\347\202\271\347\273\217\347\272\254\345\272\246\345\235\220\346\240\207\357\274\232", Q_NULLPTR));
         get_load_message->setText(QApplication::translate("MainWindowDesign", "\350\216\267\345\217\226\350\275\250\350\277\271", Q_NULLPTR));
         btn_clear_path->setText(QApplication::translate("MainWindowDesign", "\346\270\205\351\231\244\346\230\276\347\244\272", Q_NULLPTR));
         btn_chooseGPS->setText(QApplication::translate("MainWindowDesign", "\345\214\271\351\205\215\347\233\256\346\240\207\347\202\271", Q_NULLPTR));
+        btn_clear_path_2->setText(QApplication::translate("MainWindowDesign", "\346\270\205\351\231\244\346\230\276\347\244\272", Q_NULLPTR));
         btn_send_path->setText(QApplication::translate("MainWindowDesign", "\344\270\213\345\217\221\350\275\250\350\277\271", Q_NULLPTR));
         btn_clear_path_ros->setText(QApplication::translate("MainWindowDesign", "\346\270\205\351\231\244\346\230\276\347\244\272", Q_NULLPTR));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_12), QApplication::translate("MainWindowDesign", "\346\211\213\345\212\250\350\247\204\345\210\222", Q_NULLPTR));
@@ -2574,6 +2591,7 @@ public:
         label_sonar_display->setText(QString());
         label_18->setText(QApplication::translate("MainWindowDesign", "\351\242\204\350\255\246\346\217\220\347\244\272", Q_NULLPTR));
         tab_manager->setTabText(tab_manager->indexOf(tab_5), QApplication::translate("MainWindowDesign", "\351\242\204\350\255\246\346\217\220\347\244\272", Q_NULLPTR));
+        tab_manager->setTabText(tab_manager->indexOf(tab_15), QApplication::translate("MainWindowDesign", "\351\241\265", Q_NULLPTR));
         menu_File->setTitle(QApplication::translate("MainWindowDesign", "\347\247\273\345\212\250\346\234\272\345\231\250\344\272\272\345\217\257\350\247\206\345\214\226\346\216\247\345\210\266\347\273\210\347\253\257", Q_NULLPTR));
     } // retranslateUi
 

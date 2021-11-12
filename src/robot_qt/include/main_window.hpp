@@ -17,9 +17,18 @@
 *****************************************************************************/
 
 #include <QtWidgets/QMainWindow>
+/*
+ * 请注意，#include <QtCharts>和QT_CHARTS_USE_NAMESPACE  必须写在#include "ui_main_window.h"的前面，
+ * 因为"ui_main_window.h"头文件也需要用到这里的宏定义。
+ * 这两句代码的作用是包含QChart所需的一批头文件，并声明QTChats的命名空间。
+*/
+#include <QtCharts>
+QT_CHARTS_USE_NAMESPACE
+
 #include "ui_main_window.h"
 #include "qnode.hpp"
 #include "qnode_main.hpp"
+#include "movebasegoal.hpp"
 #include "CCtrlDashBoard.h"
 #include <QButtonGroup>
 #include <QLabel>
@@ -45,6 +54,8 @@
 #include <QVector>
 #include "LocalCartesian.hpp"
 #include <Eigen/Eigen>
+#include "QPaintEvent"
+
 /*****************************************************************************
 ** Namespace
 *****************************************************************************/
@@ -79,18 +90,20 @@ public:
     void DisplaySonar1Distance(const QString& Dis1);
     void DisplaySonar2Distance(const QString& Dis2);
     void DisplaySonarError(const QString& Error);
+    //GPS
     void DisplayObs(const QString& obstacle_range,const QString& obstacle_state);
-    void compareDis(Eigen::Vector3d &p);
-    void getMiddlePoint(const double& s_longitude,const double& s_latitude,const double& end_longitude,const double& end_latitude,const int& _radius);
+    void compareDis(Eigen::Vector3d &p,bool isBigScale);
+    void getMiddlePoint(Eigen::Vector3d s1,Eigen::Vector3d e1,const int& _radius,vector<Eigen::Vector3d> &p);
     double getDistance(double x1, double y1, double x2, double y2);
-    //gps
     void DisplayGetgps(const QString& longitude,const QString& latitude,const QString& status);
     //gps_distance
     static double distanceGPS(const double& longitude1,const double& latitude1,const double& longitude2,const double& latitude2);
-
+    void paintEvent(vector<Eigen::Vector3d> p);
     void mousePressEvent(QMouseEvent* event);
 //    bool eventFilter(QObject *obj, QEvent *event);
     void GetStartPoint(QString longitude,QString latitude);
+
+    void DisplayMBMsg(const QString& msg);
 
     void MyDrawNavPoint(QLabel* label);
     void MyDrawMeasureLine(QLabel* label);
@@ -120,6 +133,10 @@ public:
     QVector<double> trueX;
     QVector<double> trueY;
     vector<Eigen::Vector3d> trueLocation;
+    vector<Eigen::Vector3d> compareLngLat;
+    vector<Eigen::Vector3d> final_goals;
+    vector<Eigen::VectorXd> g_finalGoals;
+    bool compareLngLat_flag = false;
 
 
     QVector<double> test_longitude;
@@ -181,7 +198,7 @@ public Q_SLOTS:
 
     void on_readoutput();
     void slot_roscore();
-    void DisplayPoints(QString);
+//    void DisplayPoints(QString);
     void recieveJsMessage(const QString& np,const QString& path_points);
     void slot_treewidget_value_change(QString);
     void slot_display_grid(int);
@@ -228,6 +245,7 @@ private:
     void initRviz_obstacles();
     void initWeb();
     void initTopicList();
+    void initChart();
     // 获取js函数返回值
     QString getJsRetString();
     qrviz* myrviz;   //初始化rviz的对象
@@ -286,6 +304,7 @@ private:
     CQNode qnode_obstacle;
     CQNode rostopic_list;
     CQNode qnode_Get_gps;
+    movebasegoal mbgoal;
 
     CCtrlDashBoard* speed_x_dashBoard;
     CCtrlDashBoard* speed_y_dashBoard;
@@ -309,6 +328,10 @@ private:
     const double a = 6378245.0;
     const double ee = 0.00669342162296594323;
     const double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
+    QChart* pChart;
+    QScatterSeries *series1;
+    QLineSeries* pLineSeries;
+
 };
 
 }  // namespace robot_qt

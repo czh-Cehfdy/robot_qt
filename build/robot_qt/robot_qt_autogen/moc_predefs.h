@@ -100,6 +100,7 @@
 #define __STDC_ISO_10646__ 201706L
 #define __UINT16_C(c) c
 #define __PTRDIFF_WIDTH__ 64
+#define QT_CHARTS_LIB 1
 #define __DECIMAL_DIG__ 21
 #define __FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64
 #define __gnu_linux__ 1

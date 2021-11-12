@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_robot_qt__MainWindow_t {
-    QByteArrayData data[50];
-    char stringdata0[951];
+    QByteArrayData data[49];
+    char stringdata0[937];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -54,33 +54,32 @@ QT_MOC_LITERAL(19, 376, 20), // "slot_movebase_output"
 QT_MOC_LITERAL(20, 397, 16), // "slot_goal_output"
 QT_MOC_LITERAL(21, 414, 13), // "on_readoutput"
 QT_MOC_LITERAL(22, 428, 12), // "slot_roscore"
-QT_MOC_LITERAL(23, 441, 13), // "DisplayPoints"
-QT_MOC_LITERAL(24, 455, 16), // "recieveJsMessage"
-QT_MOC_LITERAL(25, 472, 2), // "np"
-QT_MOC_LITERAL(26, 475, 11), // "path_points"
-QT_MOC_LITERAL(27, 487, 28), // "slot_treewidget_value_change"
-QT_MOC_LITERAL(28, 516, 17), // "slot_display_grid"
-QT_MOC_LITERAL(29, 534, 15), // "slot_display_tf"
-QT_MOC_LITERAL(30, 550, 18), // "slot_display_laser"
-QT_MOC_LITERAL(31, 569, 16), // "slot_display_PCL"
-QT_MOC_LITERAL(32, 586, 17), // "slot_display_PCL2"
-QT_MOC_LITERAL(33, 604, 19), // "slot_display_PCL2_2"
-QT_MOC_LITERAL(34, 624, 16), // "slot_display_Map"
-QT_MOC_LITERAL(35, 641, 17), // "slot_display_Path"
-QT_MOC_LITERAL(36, 659, 23), // "slot_display_Path_small"
-QT_MOC_LITERAL(37, 683, 21), // "slot_display_Path_big"
-QT_MOC_LITERAL(38, 705, 32), // "slot_treewidget_value_change_obs"
-QT_MOC_LITERAL(39, 738, 21), // "slot_display_grid_obs"
-QT_MOC_LITERAL(40, 760, 21), // "slot_display_Axes_obs"
-QT_MOC_LITERAL(41, 782, 21), // "slot_display_PCL2_obs"
-QT_MOC_LITERAL(42, 804, 23), // "slot_display_PCL2_2_obs"
-QT_MOC_LITERAL(43, 828, 13), // "slot_interact"
-QT_MOC_LITERAL(44, 842, 14), // "slot_start_tip"
-QT_MOC_LITERAL(45, 857, 13), // "slot_save_gps"
-QT_MOC_LITERAL(46, 871, 20), // "slot_dispaly_gpsdata"
-QT_MOC_LITERAL(47, 892, 18), // "slot_chooseGoalGPS"
-QT_MOC_LITERAL(48, 911, 16), // "slot_testgpsdata"
-QT_MOC_LITERAL(49, 928, 22) // "on_btn_loadmap_clicked"
+QT_MOC_LITERAL(23, 441, 16), // "recieveJsMessage"
+QT_MOC_LITERAL(24, 458, 2), // "np"
+QT_MOC_LITERAL(25, 461, 11), // "path_points"
+QT_MOC_LITERAL(26, 473, 28), // "slot_treewidget_value_change"
+QT_MOC_LITERAL(27, 502, 17), // "slot_display_grid"
+QT_MOC_LITERAL(28, 520, 15), // "slot_display_tf"
+QT_MOC_LITERAL(29, 536, 18), // "slot_display_laser"
+QT_MOC_LITERAL(30, 555, 16), // "slot_display_PCL"
+QT_MOC_LITERAL(31, 572, 17), // "slot_display_PCL2"
+QT_MOC_LITERAL(32, 590, 19), // "slot_display_PCL2_2"
+QT_MOC_LITERAL(33, 610, 16), // "slot_display_Map"
+QT_MOC_LITERAL(34, 627, 17), // "slot_display_Path"
+QT_MOC_LITERAL(35, 645, 23), // "slot_display_Path_small"
+QT_MOC_LITERAL(36, 669, 21), // "slot_display_Path_big"
+QT_MOC_LITERAL(37, 691, 32), // "slot_treewidget_value_change_obs"
+QT_MOC_LITERAL(38, 724, 21), // "slot_display_grid_obs"
+QT_MOC_LITERAL(39, 746, 21), // "slot_display_Axes_obs"
+QT_MOC_LITERAL(40, 768, 21), // "slot_display_PCL2_obs"
+QT_MOC_LITERAL(41, 790, 23), // "slot_display_PCL2_2_obs"
+QT_MOC_LITERAL(42, 814, 13), // "slot_interact"
+QT_MOC_LITERAL(43, 828, 14), // "slot_start_tip"
+QT_MOC_LITERAL(44, 843, 13), // "slot_save_gps"
+QT_MOC_LITERAL(45, 857, 20), // "slot_dispaly_gpsdata"
+QT_MOC_LITERAL(46, 878, 18), // "slot_chooseGoalGPS"
+QT_MOC_LITERAL(47, 897, 16), // "slot_testgpsdata"
+QT_MOC_LITERAL(48, 914, 22) // "on_btn_loadmap_clicked"
 
     },
     "robot_qt::MainWindow\0on_actionAbout_triggered\0"
@@ -94,9 +93,8 @@ QT_MOC_LITERAL(49, 928, 22) // "on_btn_loadmap_clicked"
     "slot_movebase_start\0slot_goal_start\0"
     "slot_Qudong_output\0slot_location_output\0"
     "slot_movebase_output\0slot_goal_output\0"
-    "on_readoutput\0slot_roscore\0DisplayPoints\0"
-    "recieveJsMessage\0np\0path_points\0"
-    "slot_treewidget_value_change\0"
+    "on_readoutput\0slot_roscore\0recieveJsMessage\0"
+    "np\0path_points\0slot_treewidget_value_change\0"
     "slot_display_grid\0slot_display_tf\0"
     "slot_display_laser\0slot_display_PCL\0"
     "slot_display_PCL2\0slot_display_PCL2_2\0"
@@ -117,7 +115,7 @@ static const uint qt_meta_data_robot_qt__MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      45,   14, // methods
+      44,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -125,51 +123,50 @@ static const uint qt_meta_data_robot_qt__MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  239,    2, 0x0a /* Public */,
-       3,    0,  240,    2, 0x0a /* Public */,
-       4,    1,  241,    2, 0x0a /* Public */,
-       6,    0,  244,    2, 0x0a /* Public */,
-       7,    1,  245,    2, 0x0a /* Public */,
-       8,    1,  248,    2, 0x0a /* Public */,
-       9,    0,  251,    2, 0x0a /* Public */,
-      10,    0,  252,    2, 0x0a /* Public */,
-      11,    0,  253,    2, 0x0a /* Public */,
-      12,    0,  254,    2, 0x0a /* Public */,
-      13,    0,  255,    2, 0x0a /* Public */,
-      14,    0,  256,    2, 0x0a /* Public */,
-      15,    0,  257,    2, 0x0a /* Public */,
-      16,    0,  258,    2, 0x0a /* Public */,
-      17,    0,  259,    2, 0x0a /* Public */,
-      18,    0,  260,    2, 0x0a /* Public */,
-      19,    0,  261,    2, 0x0a /* Public */,
-      20,    0,  262,    2, 0x0a /* Public */,
-      21,    0,  263,    2, 0x0a /* Public */,
-      22,    0,  264,    2, 0x0a /* Public */,
-      23,    1,  265,    2, 0x0a /* Public */,
-      24,    2,  268,    2, 0x0a /* Public */,
-      27,    1,  273,    2, 0x0a /* Public */,
-      28,    1,  276,    2, 0x0a /* Public */,
-      29,    1,  279,    2, 0x0a /* Public */,
-      30,    1,  282,    2, 0x0a /* Public */,
-      31,    1,  285,    2, 0x0a /* Public */,
-      32,    1,  288,    2, 0x0a /* Public */,
-      33,    1,  291,    2, 0x0a /* Public */,
-      34,    1,  294,    2, 0x0a /* Public */,
-      35,    1,  297,    2, 0x0a /* Public */,
-      36,    1,  300,    2, 0x0a /* Public */,
-      37,    1,  303,    2, 0x0a /* Public */,
-      38,    1,  306,    2, 0x0a /* Public */,
-      39,    1,  309,    2, 0x0a /* Public */,
-      40,    1,  312,    2, 0x0a /* Public */,
-      41,    1,  315,    2, 0x0a /* Public */,
-      42,    1,  318,    2, 0x0a /* Public */,
-      43,    0,  321,    2, 0x0a /* Public */,
-      44,    1,  322,    2, 0x0a /* Public */,
-      45,    0,  325,    2, 0x0a /* Public */,
-      46,    0,  326,    2, 0x0a /* Public */,
-      47,    0,  327,    2, 0x0a /* Public */,
-      48,    0,  328,    2, 0x0a /* Public */,
-      49,    0,  329,    2, 0x08 /* Private */,
+       1,    0,  234,    2, 0x0a /* Public */,
+       3,    0,  235,    2, 0x0a /* Public */,
+       4,    1,  236,    2, 0x0a /* Public */,
+       6,    0,  239,    2, 0x0a /* Public */,
+       7,    1,  240,    2, 0x0a /* Public */,
+       8,    1,  243,    2, 0x0a /* Public */,
+       9,    0,  246,    2, 0x0a /* Public */,
+      10,    0,  247,    2, 0x0a /* Public */,
+      11,    0,  248,    2, 0x0a /* Public */,
+      12,    0,  249,    2, 0x0a /* Public */,
+      13,    0,  250,    2, 0x0a /* Public */,
+      14,    0,  251,    2, 0x0a /* Public */,
+      15,    0,  252,    2, 0x0a /* Public */,
+      16,    0,  253,    2, 0x0a /* Public */,
+      17,    0,  254,    2, 0x0a /* Public */,
+      18,    0,  255,    2, 0x0a /* Public */,
+      19,    0,  256,    2, 0x0a /* Public */,
+      20,    0,  257,    2, 0x0a /* Public */,
+      21,    0,  258,    2, 0x0a /* Public */,
+      22,    0,  259,    2, 0x0a /* Public */,
+      23,    2,  260,    2, 0x0a /* Public */,
+      26,    1,  265,    2, 0x0a /* Public */,
+      27,    1,  268,    2, 0x0a /* Public */,
+      28,    1,  271,    2, 0x0a /* Public */,
+      29,    1,  274,    2, 0x0a /* Public */,
+      30,    1,  277,    2, 0x0a /* Public */,
+      31,    1,  280,    2, 0x0a /* Public */,
+      32,    1,  283,    2, 0x0a /* Public */,
+      33,    1,  286,    2, 0x0a /* Public */,
+      34,    1,  289,    2, 0x0a /* Public */,
+      35,    1,  292,    2, 0x0a /* Public */,
+      36,    1,  295,    2, 0x0a /* Public */,
+      37,    1,  298,    2, 0x0a /* Public */,
+      38,    1,  301,    2, 0x0a /* Public */,
+      39,    1,  304,    2, 0x0a /* Public */,
+      40,    1,  307,    2, 0x0a /* Public */,
+      41,    1,  310,    2, 0x0a /* Public */,
+      42,    0,  313,    2, 0x0a /* Public */,
+      43,    1,  314,    2, 0x0a /* Public */,
+      44,    0,  317,    2, 0x0a /* Public */,
+      45,    0,  318,    2, 0x0a /* Public */,
+      46,    0,  319,    2, 0x0a /* Public */,
+      47,    0,  320,    2, 0x0a /* Public */,
+      48,    0,  321,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -192,8 +189,7 @@ static const uint qt_meta_data_robot_qt__MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    2,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   25,   26,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   24,   25,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
@@ -247,31 +243,30 @@ void robot_qt::MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 17: _t->slot_goal_output(); break;
         case 18: _t->on_readoutput(); break;
         case 19: _t->slot_roscore(); break;
-        case 20: _t->DisplayPoints((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 21: _t->recieveJsMessage((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
-        case 22: _t->slot_treewidget_value_change((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 23: _t->slot_display_grid((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 24: _t->slot_display_tf((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 25: _t->slot_display_laser((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 26: _t->slot_display_PCL((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 27: _t->slot_display_PCL2((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 28: _t->slot_display_PCL2_2((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 29: _t->slot_display_Map((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 30: _t->slot_display_Path((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 31: _t->slot_display_Path_small((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 32: _t->slot_display_Path_big((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 33: _t->slot_treewidget_value_change_obs((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 34: _t->slot_display_grid_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 35: _t->slot_display_Axes_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 36: _t->slot_display_PCL2_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 37: _t->slot_display_PCL2_2_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 38: _t->slot_interact(); break;
-        case 39: _t->slot_start_tip((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 40: _t->slot_save_gps(); break;
-        case 41: _t->slot_dispaly_gpsdata(); break;
-        case 42: _t->slot_chooseGoalGPS(); break;
-        case 43: _t->slot_testgpsdata(); break;
-        case 44: _t->on_btn_loadmap_clicked(); break;
+        case 20: _t->recieveJsMessage((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
+        case 21: _t->slot_treewidget_value_change((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 22: _t->slot_display_grid((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 23: _t->slot_display_tf((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 24: _t->slot_display_laser((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 25: _t->slot_display_PCL((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 26: _t->slot_display_PCL2((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 27: _t->slot_display_PCL2_2((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 28: _t->slot_display_Map((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 29: _t->slot_display_Path((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 30: _t->slot_display_Path_small((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 31: _t->slot_display_Path_big((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 32: _t->slot_treewidget_value_change_obs((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 33: _t->slot_display_grid_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 34: _t->slot_display_Axes_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 35: _t->slot_display_PCL2_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 36: _t->slot_display_PCL2_2_obs((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 37: _t->slot_interact(); break;
+        case 38: _t->slot_start_tip((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 39: _t->slot_save_gps(); break;
+        case 40: _t->slot_dispaly_gpsdata(); break;
+        case 41: _t->slot_chooseGoalGPS(); break;
+        case 42: _t->slot_testgpsdata(); break;
+        case 43: _t->on_btn_loadmap_clicked(); break;
         default: ;
         }
     }
@@ -302,13 +297,13 @@ int robot_qt::MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 45)
+        if (_id < 44)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 45;
+        _id -= 44;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 45)
+        if (_id < 44)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 45;
+        _id -= 44;
     }
     return _id;
 }

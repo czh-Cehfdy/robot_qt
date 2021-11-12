@@ -32,9 +32,8 @@ using namespace Qt;
 *****************************************************************************/
 
 MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
-	: QMainWindow(parent)
-    , qnode_main(argc,argv),
-      rostopic_list(argc,argv),
+    : QMainWindow(parent),
+    qnode_main(argc,argv),
     qnode_getStartPoint(argc, argv, "qnode_SP", "fix", 3),
     qnode_raw_image(argc, argv, "qnode_raw_image", "camera/image", 0),
     qnode_fusion_image(argc, argv, "qnode_fusion_image", "fusion/image", 2),
@@ -42,7 +41,9 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     qnode_points(argc, argv, "qnode_Points", "points/location", 4),
     qnode_sonar(argc, argv, "qnode_Sonar", "sonar_pub", 5),
     qnode_obstacle(argc, argv, "qnode_Obstacle", "isObstacle_cloud", 6),
-    qnode_Get_gps(argc, argv, "qnode_Get_gps", "fix", 7)
+    rostopic_list(argc,argv),
+    qnode_Get_gps(argc, argv, "qnode_Get_gps", "fix", 7),
+    mbgoal(argc,argv,"g_MoveBaseNode")
 {
 	ui.setupUi(this); // Calling this incidentally connects all ui's triggers to on_...() callbacks in this class.
     initUis();
@@ -97,8 +98,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     initconections();
     initRviz();
     initRviz_obstacles();
-
-
+    initChart();
 }
 //初始化速度控制相关槽函数
 void MainWindow::initVector(){
@@ -122,8 +122,24 @@ void MainWindow::initUis()
     ui.tab_manager->setCurrentIndex(0);
     ui.tabWidget->setCurrentIndex(0);
     ui.btn_quit->setEnabled(false);
-
-
+}
+void MainWindow::initChart(){
+    //创建图表、构建系列
+    pChart = new QChart();
+    pChart->setTitle("移动机器人目标点曲线图");
+    ui.widget_goal->setChart(pChart);
+    //创建折线序列
+    pLineSeries = new QLineSeries;
+    //散点图(用于鼠标悬浮上显示的边框)
+    series1 = new QScatterSeries();
+    series1->setMarkerShape(QScatterSeries::MarkerShapeCircle);//圆形的点
+    QRadialGradient radialGrad(QPointF(100, 100), 100);
+    radialGrad.setColorAt(0, QColor(255, 255, 255));
+    radialGrad.setColorAt(0.9, QColor(255, 255, 255));
+    radialGrad.setColorAt(0.91, QColor(255, 0, 0));
+    radialGrad.setColorAt(1, QColor(212, 227, 255));
+    series1->setBrush(QBrush(radialGrad));//背景颜色
+    series1->setMarkerSize(18);          //点大小
 }
 void MainWindow::initTopicList()
 {
@@ -215,11 +231,7 @@ void MainWindow::initMap()
     connect(ui.btn_getSP, &QPushButton::clicked, [&]()
     {
         qnode_getStartPoint.count = 0;
-        if(!qnode_getStartPoint.m_qnodeStart){
-
-            qnode_getStartPoint.init();
-        }
-//        ui.btn_pitch->setDisabled(true);
+        qnode_getStartPoint.savegpsState = true;
         ui.btn_getTP->setDisabled(false);
     });
 
@@ -284,11 +296,9 @@ void MainWindow::initMap()
         if(btn_pitchFlag == 1){
             ui.get_load_message->setDisabled(false);
         }
-        ui.Pace_text_display->clear();
-        ui.Pace_Raw_text_display->clear();
+        ui.Key_Pace_display->clear();
         ui.ST_GPS_display->clear();
-        ui.Key_Pace_Raw_text_display->clear();
-        ui.Key_Pace_text_display->clear();
+        ui.change_Key_Pace_display->clear();
     });
 
     // 获取js返回值
@@ -477,8 +487,8 @@ void MainWindow::initconections()
     connect(&qnode_getStartPoint, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&qnode_getStartPoint, &CQNode::update_StartPoint, this,&MainWindow::GetStartPoint);
 
-    connect(&qnode_points, SIGNAL(rosShutdown()), this, SLOT(close()));
-    connect(&qnode_points, &CQNode::updatepoints, this,&MainWindow::DisplayPoints);
+//    connect(&qnode_points, SIGNAL(rosShutdown()), this, SLOT(close()));
+//    connect(&qnode_points, &CQNode::updatepoints, this,&MainWindow::DisplayPoints);
     //超声波
     connect(&qnode_sonar, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&qnode_sonar, &CQNode::updateSonar1Distance, this,&MainWindow::DisplaySonar1Distance);
@@ -507,6 +517,10 @@ void MainWindow::initconections()
           ui.textEdit_tip->setText("<font color=\"#00ff00\">" + str +
                                    "</font>");
       });
+
+    connect(&mbgoal, SIGNAL(rosShutdown()), this, SLOT(close()));
+    connect(&mbgoal, &movebasegoal::updateMBMsg, this,&MainWindow::DisplayMBMsg);
+
 
 
 
@@ -1058,15 +1072,18 @@ void MainWindow::slot_movebase_output()
 
 void MainWindow::slot_goal_start()
 {
+   QString display_status = "任务开始起动！";
+   ui.send_Pace_display->append("<font color=\"#00FF00\">"+display_status+"</font>");
    ui.btn_send_path->setDisabled(true);
-   QString display_status = "轨迹信息下发至机器人，开始自主导航！";
-   ui.Pace_rostopic_display->append("<font color=\"#00FF00\">"+display_status+"</font>");
+   mbgoal.getGoalPoints(g_finalGoals);
+   mbgoal.init();
+
 }
 
 void MainWindow::slot_goal_output()
 {
     ui.btn_send_path->setDisabled(false);
-    ui.Pace_rostopic_display->clear();
+    ui.send_Pace_display->clear();
 }
 
 void MainWindow::slot_quick_cmd_clicked()
@@ -1095,12 +1112,6 @@ void MainWindow::slot_roscore()
 void MainWindow::on_readoutput()
 {
 //  ui.textEdit->append(cmd->readAllStandardOutput().data()); //将输出信息读取到编辑框
-}
-
-void MainWindow::DisplayPoints(QString data)
-{
-  ui.Pace_text_display->setText(data);
-
 }
 
 void MainWindow::slot_pushbtn_click()
@@ -1198,6 +1209,7 @@ void MainWindow::GetStartPoint(QString longitude,QString latitude) {
     g_carStartLatitude =latitude.toDouble();
     QString jsStr= QString("getPC(%0,%1)").arg(longitude).arg(latitude);
     g_mapView->page()->runJavaScript(jsStr);
+    qnode_getStartPoint.savegpsState = false;
 }
 
 
@@ -1285,6 +1297,11 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 
   }
 }
+
+void MainWindow::DisplayMBMsg(const QString& msg){
+   ui.send_Pace_display_send->append("<font color=\"#4B0082\">" + msg +"</font>");
+
+}
 /*****************************************************************************
 ** 采集GPS点信息
 *****************************************************************************/
@@ -1369,64 +1386,124 @@ void MainWindow::DisplayGetgps(const QString& longitude,const QString& latitude,
     g_longitudeLast = longitude;
     g_latitudeLast = latitude;
 }
-void MainWindow::compareDis(Eigen::Vector3d &p){
+
+void MainWindow::paintEvent(vector<Eigen::Vector3d> p){
+
+   QChart *pChart = ui.widget_goal->chart();
+//   pLineSeries->setName("折线");
+   series1->append(0, 0);
+   pLineSeries->append(0, 0);
+   for (size_t i = 0; i < p.size(); ++i) {
+       series1->append(p[i][0], p[i][1]);
+       pLineSeries->append(p[i][0], p[i][1]);
+   }
+   pChart->addSeries(series1);
+   pChart->addSeries(pLineSeries);
+
+   pChart->createDefaultAxes();
+}
+
+/*************************************************
+**Function:       // MainWindow::compareDis(Eigen::Vector3d &p)
+**Description:    // 匹配数据库中距离它最近的点
+**Input:          // Eigen::Vector3d &p  需要进行匹配的坐标点（已经转换为相对于原点坐标系下的坐标了）
+**Output:         // 由于传的是引用，故对p重新进行了赋值，寻找到了数据库中离它距离最近的点
+**Return:         // void
+**Others:         // 无
+*************************************************/
+void MainWindow::compareDis(Eigen::Vector3d &p,bool isBigScale){
     QVector<double> temp_vector;
-    vector<Eigen::Vector3d> compareLngLat;
     Eigen::Vector3d LngLat;
     Eigen::Vector3d Point;
-    QFile file("DataFile/gps_data_datafile.txt");
-    if(! file.open(QIODevice::ReadOnly|QIODevice::Text)){
-        QString  error_log= "数据库文件读取失败！"+file.errorString();
-        ui.Pace_rostopic_display->setText(error_log);
-        return;
-    }
-    else
-    {
-        ui.Pace_rostopic_display->setText("数据库文件读取成功！");
-        file.seek(0);  //重新定位在文件的第0位及开始位置
-        QTextStream stream_gps(&file);
-        while(!stream_gps.atEnd())
-        {
-          QString line=stream_gps.readLine();
-          QStringList strlist=line.split(",");
-          LngLat << strlist[0].toDouble(),strlist[1].toDouble(),0;
-          compareLngLat.push_back(LngLat);
+
+    /*compareLngLat_flag原本初始化时为false，只要调用本函数，且读取数据库成功后，就将它设置为true，理论上只会进来一次
+    *只有当重新在数据库中写入新数据时，会将其重新赋值为false
+    */
+    if(!compareLngLat_flag){
+        QFile file("DataFile/gps_data_datafile.txt");
+        if(! file.open(QIODevice::ReadOnly|QIODevice::Text)){
+            QString  error_log= "数据库文件读取失败！"+file.errorString();
+            ui.send_Pace_display->setText(error_log);
+            return;
         }
-        file.close();
+        else
+        {
+            ui.send_Pace_display->setText("数据库文件读取成功！");
+            file.seek(0);  //重新定位在文件的第0位及开始位置
+            QTextStream stream_gps(&file);
+            while(!stream_gps.atEnd())
+            {
+              QString line=stream_gps.readLine();
+              QStringList strlist=line.split(",");
+              LngLat << strlist[0].toDouble(),strlist[1].toDouble(),0;
+              compareLngLat.push_back(LngLat);
+            }
+            file.close();
+        }
+        compareLngLat_flag = true;  //compareLngLat全局变量，当其赋值后，这里就将compareLngLat_flag = true，下次不用重复读取
     }
-    for (size_t i = 0;i<compareLngLat.size();++i) {
+
+
+    //遍历存储了数据库数据的容器compareLngLat
+    for (size_t i = 0;i < compareLngLat.size(); ++i) {
         //计算这个点相对于初始点的坐标
         g_locationConverter.Forward(compareLngLat[i][1], compareLngLat[i][0], 0, xyz[0], xyz[1], xyz[2]);
         double dis = getDistance(p(0),p(1),xyz[0], xyz[1]);
         temp_vector.append(dis);
     }
     auto min = std::min_element(std::begin(temp_vector), std::end(temp_vector));
-    //找到最小值的索引
-    auto positionmin = std::distance(std::begin(temp_vector),min);
 
-    p<<compareLngLat[positionmin][0],compareLngLat[positionmin][1],0;
+    /*
+     *判断是全局第一遍搜索核心关键点还是搜索两关键点中的中间点
+     * 全局第一遍搜索核心关键点 -->isBigScale = true 这是不用判断距离，只要取最小值即可
+     * 搜索两关键点中的中间点 -->isBigScale = false 需要判断距离，这时要精确
+    */
+    if(!isBigScale){
+        if(*min < 3){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
+            //找到最小值的索引
+            auto positionmin = std::distance(std::begin(temp_vector),min);
+            g_locationConverter.Forward(compareLngLat[positionmin][1], compareLngLat[positionmin][0], 0, xyz[0], xyz[1], xyz[2]);
+            p<<xyz[0],xyz[1],0;  //转换后的距离最近的点的坐标，相对于原点坐标系下
+        }
+        else{
+            p = p;  //没找到的话就获取的是自己，将自己作为点返回
+        }
+    }else{
+        if(*min < 4){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
+            //找到最小值的索引
+            auto positionmin = std::distance(std::begin(temp_vector),min);
+            g_locationConverter.Forward(compareLngLat[positionmin][1], compareLngLat[positionmin][0], 0, xyz[0], xyz[1], xyz[2]);
+            p<<xyz[0],xyz[1],0;  //转换后的距离最近的点的坐标，相对于原点坐标系下
+        }
+        else{
+            p = p;  //没找到的话就获取的是自己，将自己作为点返回
+        }
+    }
+
+
+
+
 }
 
 double MainWindow::getDistance(double x1, double y1, double x2, double y2){
      return sqrt(pow(x2-x1,2)+pow(y2-y1,2));
 }
-void MainWindow::getMiddlePoint(const double& s_longitude,const double& s_latitude,const double& end_longitude,const double& end_latitude,const int& _radius){
+void MainWindow::getMiddlePoint(Eigen::Vector3d s1,Eigen::Vector3d e1,const int& _radius,vector<Eigen::Vector3d> &p){
     //这里的起点和终点一定是先在数据库中进行匹配后的，才可进行下面的操作，这样才准确
 
     vector<Eigen::Vector3d> trueLocation_temp;
+    vector<Eigen::Vector3d> trueLocation_return;
     Eigen::Vector3d waypoint;
     Eigen::Vector3d firstPointLocation;
     Eigen::Vector3d endPointLocation;
     bool judgeFlag = false;
     waypoint << 0, 0, 0;
     //首先获取输入中第一个点在起点全局坐标系下的坐标
-    g_locationConverter.Forward(s_latitude, s_longitude, 0, xyz[0], xyz[1], xyz[2]);
-    firstPointLocation << xyz[0],xyz[1],0;
+    firstPointLocation << s1(0),s1(1),0;
     //将第一个点加入到临时比较的容器中，用来比较  -- 后面处理时需要把第一个点去掉，后面加入的才是中间点！
     trueLocation_temp.push_back(firstPointLocation);
     //再获取输入中第二个点在起点全局坐标系下的坐标
-    g_locationConverter.Forward(end_latitude, end_longitude, 0, xyz[0], xyz[1], xyz[2]);
-    endPointLocation << xyz[0],xyz[1],0;
+    endPointLocation << e1(0),e1(1),0;
     //计算两点之间的距离
     double dis = getDistance(trueLocation_temp.back()[0],trueLocation_temp.back()[1],endPointLocation(0),endPointLocation(1));
     //一旦进入while循环，说明必有中间点，这里会将中间点添加好，最后还需要将终点也添加进来
@@ -1441,18 +1518,21 @@ void MainWindow::getMiddlePoint(const double& s_longitude,const double& s_latitu
     }
     if(!judgeFlag){
         waypoint << endPointLocation[0], endPointLocation[1], 0;
-        trueLocation_temp.push_back(waypoint);
+        trueLocation_return.push_back(waypoint);
     }
     else{
+        //现需要提取这一段路径中保存的所有中间点（含终点），而后进行数据库匹配，寻找真实的点发送给小车运动
+        for(size_t i = 1;i < trueLocation_temp.size();++i){
+            Eigen::Vector3d findPoint = {trueLocation_temp[i][0],trueLocation_temp[i][1],0};
+            compareDis(findPoint,false);
+            trueLocation_return.push_back(findPoint);
+        }
         waypoint << endPointLocation[0], endPointLocation[1], 0;
-        trueLocation_temp.push_back(waypoint);
+        trueLocation_return.push_back(waypoint);
     }
 
-    //现需要提取这一段路径中保存的所有中间点（含终点），而后进行数据库匹配，寻找真实的点发送给小车运动
-    for(size_t i = 1;i < trueLocation_temp.size();++i){
-        Eigen::Vector3d findPoint = {trueLocation_temp[i][0],trueLocation_temp[i][1],0};
-        compareDis(findPoint);
-    }
+
+    p = trueLocation_return;
 }
 /*****************************************************************************
 ** 匹配目标GPS点，发送导航任务
@@ -1462,70 +1542,69 @@ void MainWindow::slot_chooseGoalGPS(){
     QVector<double> temp_vector;
     QVector<double> goal_longitude;
     QVector<double> goal_latitude;
+    vector<Eigen::Vector3d> keyPoint_temp;
     ui.textEdit->clear();
+//    ui.send_Pace_display->clear();
+    QString temp_v = "正在匹配中…………";
+    ui.send_Pace_display->append("<font color=\"#4B0082\">" + temp_v + "</font>");
 
     if(g_key_longitude.empty()||g_key_latitude.empty())
     {
-        ui.Pace_rostopic_display->setText("未存储关键目标点，请存储后再试！");
+        ui.send_Pace_display->append("未存储关键目标点，请存储后再试！");
     }
     else{
       if(fabs(g_carStartLontitude)<1e-15||fabs(g_carStartLatitude)<1e-15){
-        ui.Pace_rostopic_display->setText("未成功接收到起点坐标，请检查后再匹配！");
+        ui.send_Pace_display->append("未成功接收到起点坐标，请检查后再匹配！");
       }
       else{
         //固定住起点坐标，以map坐标系为参考，来计算分段目标点在map坐标系下的位置
         g_locationConverter.Reset(g_carStartLatitude, g_carStartLontitude, 0);
+        Eigen::Vector3d first_point ;
+        first_point << 0,0,0;
+        keyPoint_temp.push_back(first_point);  //keyPoint_temp首先把起点坐标（0，0，0）加入进来
       }
       //开始匹配和计算
 
       for (int i = 1; i < g_key_longitude.size(); ++i){
           QVector<double>().swap(temp_vector);  //每次使用前先清除元素并回收内存
-          //计算每个关键点到
-          if(i == 1){//说明是第一个关键点，这时直接和起点进行距离比较，来划分
-           g_locationConverter.Forward(g_key_latitude[1], g_key_longitude[1], 0, xyz[0], xyz[1], xyz[2]);
-           //计算距离
-           double dis_two = sqrt(xyz[0]*xyz[0]+xyz[1]*xyz[1]);
-           if(dis_two<5){
-               trueX.append(xyz[0]);
-               trueY.append(xyz[1]);
-           }
-           else{
+          //计算每个关键点附近数据库中最近的点
+          Eigen::Vector3d keyPoint;
+          g_locationConverter.Forward(g_key_latitude[i], g_key_longitude[i], 0, xyz[0], xyz[1], xyz[2]);
+          keyPoint <<xyz[0],xyz[1],0;
+          compareDis(keyPoint,true);           //传入的是坐标点，true是核心点标志位，传的是引用，故keyPoint会改变
+          keyPoint_temp.push_back(keyPoint);   //keyPoint_temp中第一个点是起点，而后按顺序存储了除起点以外的大的核心点的坐标，相对于起点位置
+       }
 
-           }
-
-
-          }
-
-          for (int j = 0; j < compare_longitude.size(); ++j){
-
-             g_locationConverter.Forward(compare_latitude[j], compare_longitude[j], 0, xyz[0], xyz[1], xyz[2]);
-
-             double dis_=sqrt(xyz[0]*xyz[0]+xyz[1]*xyz[1]);
-             qDebug()<< dis_;
-//             distanceGPS(g_key_longitude[i],g_key_latitude[i],compare_longitude[j],compare_latitude[j])
-             temp_vector.append(dis_);
-             QString temp_vector_value = "第"+QString::number(i)+"个关键点到第"+QString::number(j)+"个点数据库中的点距离为："+QString("%1").arg(temp_vector[j],0, 'r');
-             ui.textEdit->append("<font color=\"#4B0082\">" + temp_vector_value +
-                                "</font>");
-          }
-          auto min = std::min_element(std::begin(temp_vector), std::end(temp_vector));
-          QString gpsGoalData_ = "第"+QString::number(i)+"个点距离最近的点距离为："+QString("%1").arg(*min,0, 'r');
-          ui.textEdit->append("<font color=\"#4B0082\">" + gpsGoalData_ +
-                             "</font>");
-
-          auto positionmin = std::distance(std::begin(temp_vector),min);
-          goal_longitude.append(compare_longitude[positionmin]);
-          goal_latitude.append(compare_latitude[positionmin]);
-          }
-      ui.Pace_rostopic_display->clear();
-      for (int k = 0; k < goal_longitude.size(); ++k){
-          QString gpsGoalData = "第"+QString::number(k)+"个点导航目标点的经纬度坐标为："+QString("%1").arg(goal_longitude[k],0, 'f',9)+","+QString("%1").arg(goal_latitude[k],0, 'f',10);
-          ui.Pace_rostopic_display->append("<font color=\"#4B0082\">" + gpsGoalData +
-                             "</font>");
+      temp_v = "核心点计算完成，下面是核心点坐标位置…………";
+      ui.send_Pace_display->append("<font color=\"#4B0082\">" + temp_v + "</font>");
+      for (size_t i = 0; i < keyPoint_temp.size(); ++i){
+          temp_v = "第"+QString::number(i)+"个核心点坐标为："+QString("%0，%1").arg(keyPoint_temp[i][0]).arg(keyPoint_temp[i][1]);
+          ui.send_Pace_display->append("<font color=\"#4B0082\">" + temp_v + "</font>");
       }
+       //循环结束后，获取到了所有核心关键点（一定是数据库中有的点）[[0,0,0],[],[]……]
+       //接下来计算中间关键点
+      for (size_t i = 0; i < keyPoint_temp.size()-1; ++i){
+          const int _radius = 20;
+          vector<Eigen::Vector3d> p;
+          getMiddlePoint(keyPoint_temp[i],keyPoint_temp[i+1],_radius,p);
+          for (size_t i = 0; i < p.size(); ++i){
+              Eigen::Vector3d temp;
+              Eigen::VectorXd temp_global;
+              temp << p[i][0],p[i][1],0;
+              temp_global << p[i][0],p[i][1],0,0,0,0,1;    //这里可以指定四元素，便于子类中调用发送目标点
+              final_goals.push_back(temp);
+              g_finalGoals.push_back(temp_global);
+          }
+       }
+      //以上全部执行完后，就得到目标点的坐标了
+      for (size_t j = 0; j < final_goals.size(); ++j){
 
+         QString temp_vector_value = "第"+QString::number(j)+"个关键点坐标为："+QString("%0，%1").arg(final_goals[j][0]).arg(final_goals[j][1]);
+         ui.send_Pace_display->append("<font color=\"#4B0082\">" + temp_vector_value +
+                            "</font>");
+      }
+      paintEvent(final_goals);
     }
-
 }
 
 void MainWindow::slot_testgpsdata()
@@ -1915,6 +1994,7 @@ void MainWindow::on_button_connect_clicked()
             ui.treeWidget->setEnabled(true);     //连接上了master
             myrviz =new qrviz(ui.Layout_rviz);   //初始化rviz，通过传入rviz的布局，进行联系
             myrviz_ObstaclesDisplay = new qrviz(ui.verticalLayout_rviz_obs);
+
 		}
 	}
     ui.tab_manager->setTabEnabled(1,true);
@@ -1930,6 +2010,8 @@ void MainWindow::on_button_connect_clicked()
     ui.btn_loadmap->setDisabled(false);
     ui.label_11->setStyleSheet("color:rgb(115, 210, 22)");
     ui.label_11->setText("请加载地图");
+    qnode_getStartPoint.init();
+
 }
 
 
@@ -2122,14 +2204,18 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
     */
     QString start_GPS,end_GPS,start_GPS_true,end_GPS_true;
     start_GPS = np.section(';', 0, 0);
-    start_GPS = np.section(';', 1, 1);
+    end_GPS = np.section(';', 1, 1);
     start_GPS_true = np.section(';', 2, 2);
     end_GPS_true = np.section(';', -1, -1);
 
     //显示拾取的起点终点和高德规划的起点终点
-    QString Raw_GPS = "起点经纬度为："+start_GPS+";   "+"-----------------终点经纬度为："+end_GPS ;
-    QString Raw_GPS_true = "真实规划的起点经纬度为："+start_GPS_true+";   "+"---终点经纬度为："+end_GPS_true;
+    QString Raw_GPS = "起点经纬度为："+start_GPS;
     ui.ST_GPS_display->append("<font color=\"#FF00FF\">" + Raw_GPS +"</font>");
+    Raw_GPS = "终点经纬度为："+end_GPS;
+    ui.ST_GPS_display->append("<font color=\"#FF00FF\">" + Raw_GPS +"</font>");
+    QString Raw_GPS_true = "真实规划的起点经纬度为："+start_GPS_true;
+    ui.ST_GPS_display->append("<font color=\"#00BF00\">" + Raw_GPS_true + "</font>");
+    Raw_GPS_true = "真实规划的终点经纬度为："+end_GPS_true;
     ui.ST_GPS_display->append("<font color=\"#00BF00\">" + Raw_GPS_true + "</font>");
 
 
@@ -2143,8 +2229,8 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
       int i = 0;
       for (;it != itend; it++,i++){
           if(i==2){
-              QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（起点）的经纬度坐标为："+Raw_list[i];
-              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +"</font>");
+//              QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（起点）的经纬度坐标为："+Raw_list[i];
+//              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +"</font>");
               QString new1 = Raw_list[i].section(',', 0, 0);
               QString new2 = Raw_list[i].section(',', 1, 1);
               double * pnew = gcj02towgs84(new1.toDouble(),new2.toDouble());
@@ -2153,14 +2239,14 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
               test_longitude.append(str1.toDouble());
               test_latitude.append(str2.toDouble());
 
-              QString change_Pace_display = "第"+QString::number(i-2)+"个点（起点）的经纬度坐标为："+str1+""+","+""+str2;
-              ui.Pace_text_display->append("<font color=\"#0000FF\">" + change_Pace_display +
-                                 "</font>");
+//              QString change_Pace_display = "第"+QString::number(i-2)+"个点（起点）的经纬度坐标为："+str1+""+","+""+str2;
+//              ui.Pace_text_display->append("<font color=\"#0000FF\">" + change_Pace_display +
+//                                 "</font>");
           }
           else if(i>2&&it != itend-1){
-              QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（中间点）的经纬度坐标为："+Raw_list[i];
-              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +
-                                 "</font>");
+//              QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（中间点）的经纬度坐标为："+Raw_list[i];
+//              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +
+//                                 "</font>");
               QString new1 = Raw_list[i].section(',', 0, 0);
               QString new2 = Raw_list[i].section(',', 1, 1);
               double * pnew = gcj02towgs84(new1.toDouble(),new2.toDouble());
@@ -2168,14 +2254,14 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
               QString str2 = QString("%1").arg(QString::number(pnew[1],'f',6));
               test_longitude.append(str1.toDouble());
               test_latitude.append(str2.toDouble());
-              QString change_Pace_display = "第"+QString::number(i-2)+"个点（中间点）的经纬度坐标为："+str1+""+","+""+str2;
-              ui.Pace_text_display->append("<font color=\"#0000FF\">" + change_Pace_display +
-                                 "</font>");
+//              QString change_Pace_display = "第"+QString::number(i-2)+"个点（中间点）的经纬度坐标为："+str1+""+","+""+str2;
+//              ui.Pace_text_display->append("<font color=\"#0000FF\">" + change_Pace_display +
+//                                 "</font>");
           }
           else if(it == itend-1){
-              QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（终点）的经纬度坐标为："+Raw_list[i];
-              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +
-                                 "</font>");
+//              QString Raw_Pace_display = "第"+QString::number(i-2)+"个点（终点）的经纬度坐标为："+Raw_list[i];
+//              ui.Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Raw_Pace_display +
+//                                 "</font>");
               QString new1 = Raw_list[i].section(',', 0, 0);
               QString new2 = Raw_list[i].section(',', 1, 1);
               double * pnew = gcj02towgs84(new1.toDouble(),new2.toDouble());
@@ -2183,9 +2269,9 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
               QString str2 = QString("%1").arg(QString::number(pnew[1],'f',6));
               test_longitude.append(str1.toDouble());
               test_latitude.append(str2.toDouble());
-              QString change_Pace_display = "第"+QString::number(i-2)+"个点（终点）的经纬度坐标为："+str1+""+","+""+str2;
-              ui.Pace_text_display->append("<font color=\"#0000FF\">" + change_Pace_display +
-                                 "</font>");
+//              QString change_Pace_display = "第"+QString::number(i-2)+"个点（终点）的经纬度坐标为："+str1+""+","+""+str2;
+//              ui.Pace_text_display->append("<font color=\"#0000FF\">" + change_Pace_display +
+//                                 "</font>");
 
           }
       }
@@ -2202,7 +2288,7 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
         for (;it_start != itend_end; it_start++,j++){
             if(j==1){
                 QString Key_Raw_Pace_display = "第"+QString::number(j-1)+"个关键点（起点）的经纬度坐标为："+Key_Raw_list[j];
-                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
+                ui.Key_Pace_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
                 QString new1_key = Key_Raw_list[j].section(',', 0, 0);
                 QString new2_key = Key_Raw_list[j].section(',', 1, 1);
                 double * pnew_key = gcj02towgs84(new1_key.toDouble(),new2_key.toDouble());
@@ -2211,11 +2297,11 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
                 g_key_longitude.append(str1_key.toDouble());
                 g_key_latitude.append(str2_key.toDouble());
                 QString change_Key_Pace_display = "第"+QString::number(j-1)+"个关键点（起点）的经纬度坐标为："+str1_key+""+","+""+str2_key;
-                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
+                ui.change_Key_Pace_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
             }
             else if(j>1&&it_start != itend_end-1){
                 QString Key_Raw_Pace_display = "第"+QString::number(j-1)+"个关键点（中间点）的经纬度坐标为："+Key_Raw_list[j];
-                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
+                ui.Key_Pace_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
                 QString new1_key = Key_Raw_list[j].section(',', 0, 0);
                 QString new2_key = Key_Raw_list[j].section(',', 1, 1);
                 double * pnew_key = gcj02towgs84(new1_key.toDouble(),new2_key.toDouble());
@@ -2224,11 +2310,11 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
                 g_key_longitude.append(str1_key.toDouble());
                 g_key_latitude.append(str2_key.toDouble());
                 QString change_Key_Pace_display = "第"+QString::number(j-1)+"个关键点（中间点）的经纬度坐标为："+str1_key+""+","+""+str2_key;
-                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
+                ui.change_Key_Pace_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
             }
             else if(it_start == itend_end-1){
                 QString Key_Raw_Pace_display = "第"+QString::number(j-1)+"个关键点（终点）的经纬度坐标为："+Key_Raw_list[j];
-                ui.Key_Pace_Raw_text_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
+                ui.Key_Pace_display->append("<font color=\"#4B0082\">" + Key_Raw_Pace_display +"</font>");
                 QString new1_key = Key_Raw_list[j].section(',', 0, 0);
                 QString new2_key = Key_Raw_list[j].section(',', 1, 1);
                 double * pnew_key = gcj02towgs84(new1_key.toDouble(),new2_key.toDouble());
@@ -2237,7 +2323,7 @@ void robot_qt::MainWindow::recieveJsMessage(const QString& np,const QString& pat
                 g_key_longitude.append(str1_key.toDouble());
                 g_key_latitude.append(str2_key.toDouble());
                 QString change_Key_Pace_display = "第"+QString::number(j-1)+"个关键点（终点）的经纬度坐标为："+str1_key+""+","+""+str2_key;
-                ui.Key_Pace_text_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
+                ui.change_Key_Pace_display->append("<font color=\"#0000FF\">" + change_Key_Pace_display +"</font>");
             }
         }
 

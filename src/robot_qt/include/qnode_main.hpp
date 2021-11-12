@@ -51,7 +51,6 @@ public:
 	bool init();
 	bool init(const std::string &master_url, const std::string &host_url);
     void set_cmd_vel(char k,float linear,float angular);//共有设置速度的方法，方便在两个类中调用
-//    void pub_location_points(std_msgs::String x1,std_msgs::String y1,std_msgs::String x2,std_msgs::String y2);//方便在两个类中调用
     void pub_location_points(const QString& np);//方便在两个类中调用
     void sub_points(QString topic_name);
 	void run();

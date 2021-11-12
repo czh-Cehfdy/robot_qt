@@ -18,9 +18,8 @@ find_package(catkin REQUIRED COMPONENTS rviz roscpp rospy sensor_msgs
     std_msgs
     image_transport
     )
-
-find_package(Qt5 REQUIRED Core Widgets Multimedia WebEngineWidgets )
-set(QT_LIBRARIES Qt5::Widgets Qt5::Multimedia Qt5::WebEngineCore Qt5::WebEngineWidgets)
+find_package(Qt5 REQUIRED Core Widgets Multimedia WebEngineWidgets Charts)
+set(QT_LIBRARIES Qt5::Widgets Qt5::Multimedia Qt5::WebEngineCore Qt5::WebEngineWidgets Qt5::Charts)
 include_directories(
   ${catkin_INCLUDE_DIRS}
   ./ThirdParty/GeographicLib/include/

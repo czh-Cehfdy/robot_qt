@@ -1343,6 +1343,33 @@ include/moc_main_window.cpp.s:
 	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.s
 .PHONY : include/moc_main_window.cpp.s
 
+include/moc_movebasegoal.o: include/moc_movebasegoal.cpp.o
+
+.PHONY : include/moc_movebasegoal.o
+
+# target to build an object file
+include/moc_movebasegoal.cpp.o:
+	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o
+.PHONY : include/moc_movebasegoal.cpp.o
+
+include/moc_movebasegoal.i: include/moc_movebasegoal.cpp.i
+
+.PHONY : include/moc_movebasegoal.i
+
+# target to preprocess a source file
+include/moc_movebasegoal.cpp.i:
+	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.i
+.PHONY : include/moc_movebasegoal.cpp.i
+
+include/moc_movebasegoal.s: include/moc_movebasegoal.cpp.s
+
+.PHONY : include/moc_movebasegoal.s
+
+# target to generate assembly for a file
+include/moc_movebasegoal.cpp.s:
+	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.s
+.PHONY : include/moc_movebasegoal.cpp.s
+
 include/moc_qnode.o: include/moc_qnode.cpp.o
 
 .PHONY : include/moc_qnode.o
@@ -1613,6 +1640,33 @@ src/main_window.cpp.s:
 	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.s
 .PHONY : src/main_window.cpp.s
 
+src/movebasegoal.o: src/movebasegoal.cpp.o
+
+.PHONY : src/movebasegoal.o
+
+# target to build an object file
+src/movebasegoal.cpp.o:
+	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o
+.PHONY : src/movebasegoal.cpp.o
+
+src/movebasegoal.i: src/movebasegoal.cpp.i
+
+.PHONY : src/movebasegoal.i
+
+# target to preprocess a source file
+src/movebasegoal.cpp.i:
+	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.i
+.PHONY : src/movebasegoal.cpp.i
+
+src/movebasegoal.s: src/movebasegoal.cpp.s
+
+.PHONY : src/movebasegoal.s
+
+# target to generate assembly for a file
+src/movebasegoal.cpp.s:
+	cd /home/czh/study_code/QT_study/catkin_qt/build && $(MAKE) -f robot_qt/CMakeFiles/robot_qt.dir/build.make robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.s
+.PHONY : src/movebasegoal.cpp.s
+
 src/qnode.o: src/qnode.cpp.o
 
 .PHONY : src/qnode.o
@@ -1789,6 +1843,9 @@ help:
 	@echo "... include/moc_main_window.o"
 	@echo "... include/moc_main_window.i"
 	@echo "... include/moc_main_window.s"
+	@echo "... include/moc_movebasegoal.o"
+	@echo "... include/moc_movebasegoal.i"
+	@echo "... include/moc_movebasegoal.s"
 	@echo "... include/moc_qnode.o"
 	@echo "... include/moc_qnode.i"
 	@echo "... include/moc_qnode.s"
@@ -1819,6 +1876,9 @@ help:
 	@echo "... src/main_window.o"
 	@echo "... src/main_window.i"
 	@echo "... src/main_window.s"
+	@echo "... src/movebasegoal.o"
+	@echo "... src/movebasegoal.i"
+	@echo "... src/movebasegoal.s"
 	@echo "... src/qnode.o"
 	@echo "... src/qnode.i"
 	@echo "... src/qnode.s"

@@ -121,9 +121,15 @@ void CQNode::PCLImageCallback(const sensor_msgs::ImageConstPtr& msg) {
 
 void CQNode::MapStartPoint_Callback(const sensor_msgs::NavSatFix &msg) {
   try {
-      count +=1;
-      if(count ==2){
-          emit update_StartPoint(QString::number(msg.longitude,'f',7),QString::number(msg.latitude,'f',7));
+        if(msg.status.status == 4){
+            count +=1;
+            if(count==5){
+                gpsState = true;
+                count = 0;
+            }
+            if(gpsState==true && savegpsState ==true){
+               emit update_StartPoint(QString::number(msg.longitude,'f',7),QString::number(msg.latitude,'f',7));
+            }
         }
  }catch (...) {
     ROS_ERROR("接收移动机器人起点GPS坐标信息失败！");

@@ -267,6 +267,9 @@ Project_BINARY_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/build
 //Value Computed by CMake
 Project_SOURCE_DIR:STATIC=/home/czh/study_code/QT_study/catkin_qt/src
 
+//The directory containing a CMake configuration file for Qt5Charts.
+Qt5Charts_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Charts
+
 //The directory containing a CMake configuration file for Qt5Core.
 Qt5Core_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core
 
@@ -288,6 +291,9 @@ Qt5PrintSupport_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport
 //The directory containing a CMake configuration file for Qt5Qml.
 Qt5Qml_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Qml
 
+//The directory containing a CMake configuration file for Qt5Qt5Charts.
+Qt5Qt5Charts_DIR:PATH=Qt5Qt5Charts_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for Qt5Quick.
 Qt5Quick_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Quick
 
@@ -305,6 +311,9 @@ Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
 
 //The directory containing a CMake configuration file for Qt5.
 Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
+
+//The directory containing a CMake configuration file for Qt5charts.
+Qt5charts_DIR:PATH=Qt5charts_DIR-NOTFOUND
 
 //Path to a library.
 RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so

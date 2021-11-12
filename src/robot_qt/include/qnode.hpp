@@ -55,7 +55,6 @@ public:
     virtual ~CQNode();
 	bool init();
 	bool init(const std::string &master_url, const std::string &host_url);
-    void disinit();
     void set_cmd_vel(char k,float linear,float angular);//共有设置速度的方法，方便在两个类中调用
     void sub_image(QString topic_name);
     QMap<QString,QString> get_topic_list();
@@ -78,6 +77,8 @@ public:
     int judge_count = 0;
     int judge_count_sonar = 0;
     bool m_qnodeStart = false ;
+    bool gpsState = false;
+    bool savegpsState = false;
 
 Q_SIGNALS:
 	void loggingUpdated();
@@ -101,8 +102,6 @@ private:
     std::string init_node_name;
     std::string init_topic_name;
     int init_index;
-	ros::Publisher chatter_publisher;
-    ros::Publisher cmd_vel_pub;
     QStringListModel logging_model;
     ros::Subscriber chatter_sub;
     ros::Subscriber sonar_sub;

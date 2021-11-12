@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o"
+  "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o"
@@ -17,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o"
+  "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o"
   "/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp" "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o"
@@ -25,6 +27,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "QT_CHARTS_LIB"
   "QT_CORE_LIB"
   "QT_GUI_LIB"
   "QT_MULTIMEDIA_LIB"
@@ -69,6 +72,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/x86_64-linux-gnu/qt5/QtPositioning"
   "/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets"
   "/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport"
+  "/usr/include/x86_64-linux-gnu/qt5/QtCharts"
   )
 
 # Targets to which this target links.
