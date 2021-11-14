@@ -73,7 +73,6 @@ Q_SIGNALS:
     void rosShutdown();
     void speed_vel(float,float);
     void power_vel(float);
-    void image_val(QImage);
 
 private:
 	int init_argc;
@@ -87,10 +86,8 @@ private:
     QStringListModel logging_model;
     ros::Subscriber chatter_sub;
     ros::Subscriber odom_sub;
-    ros::Subscriber power_sub;
     image_transport::Subscriber image_sub;
     //主界面功能回调函数
-    void power_callback(const std_msgs::Float32 &msg);
     void chatter_callback(const std_msgs::String &msg);
     void odom_callback(const nav_msgs::Odometry &msg);
     QImage Mat2QImage(cv::Mat const& src);

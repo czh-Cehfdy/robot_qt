@@ -498,6 +498,9 @@ void MainWindow::initconections()
     connect(&qnode_obstacle, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&qnode_obstacle, &CQNode::updateObstacleState, this,&MainWindow::DisplayObs);
 
+    connect(&mbgoal, SIGNAL(rosShutdown()), this, SLOT(close()));
+    connect(&mbgoal, &movebasegoal::updateMBMsg, this,&MainWindow::DisplayMBMsg);
+
     ui.label_PCLImage->installEventFilter(this);
 
     //超声波按钮连接：
@@ -518,8 +521,7 @@ void MainWindow::initconections()
                                    "</font>");
       });
 
-    connect(&mbgoal, SIGNAL(rosShutdown()), this, SLOT(close()));
-    connect(&mbgoal, &movebasegoal::updateMBMsg, this,&MainWindow::DisplayMBMsg);
+
 
 
 
@@ -1073,8 +1075,24 @@ void MainWindow::slot_movebase_output()
 void MainWindow::slot_goal_start()
 {
    QString display_status = "任务开始起动！";
-   ui.send_Pace_display->append("<font color=\"#00FF00\">"+display_status+"</font>");
+   ui.goals_display->append("<font color=\"#00FF00\">"+display_status+"</font>");
    ui.btn_send_path->setDisabled(true);
+   Eigen::Vector4d temp;
+
+   temp << 5.36068630219,-4.66322612762,0.951935752241,-0.306297769509;
+   g_finalGoals.push_back(temp);
+   temp << -0.061714887619,-5.57947826385,0.950704406633,0.31009858305;
+   g_finalGoals.push_back(temp);
+   temp << -5.42925262451,-3.74939775467,0.801645173093,0.597800147589;
+   g_finalGoals.push_back(temp);
+   temp << -1.06587934494,0.49413511157,-0.0696341720227,0.997572594896;
+   g_finalGoals.push_back(temp);
+   for(size_t i =0;i<g_finalGoals.size();++i){
+       display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(g_finalGoals[i][0])
+               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3]);
+       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
+   }
+
    mbgoal.getGoalPoints(g_finalGoals);
    mbgoal.init();
 
@@ -1299,7 +1317,7 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 }
 
 void MainWindow::DisplayMBMsg(const QString& msg){
-   ui.send_Pace_display_send->append("<font color=\"#4B0082\">" + msg +"</font>");
+   ui.goals_display->append("<font color=\"#4B0082\">" + msg +"</font>");
 
 }
 /*****************************************************************************
@@ -1589,9 +1607,9 @@ void MainWindow::slot_chooseGoalGPS(){
           getMiddlePoint(keyPoint_temp[i],keyPoint_temp[i+1],_radius,p);
           for (size_t i = 0; i < p.size(); ++i){
               Eigen::Vector3d temp;
-              Eigen::VectorXd temp_global;
+              Eigen::Vector4d temp_global;
               temp << p[i][0],p[i][1],0;
-              temp_global << p[i][0],p[i][1],0,0,0,0,1;    //这里可以指定四元素，便于子类中调用发送目标点
+              temp_global << p[i][0],p[i][1],0,1;    //x,y,z,w这里可以指定四元素，便于子类中调用发送目标点
               final_goals.push_back(temp);
               g_finalGoals.push_back(temp_global);
           }

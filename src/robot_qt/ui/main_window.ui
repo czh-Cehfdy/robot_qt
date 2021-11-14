@@ -2035,7 +2035,7 @@ QPushButton:pressed{
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="3">
                   <item>
-                   <widget class="QTextBrowser" name="send_Pace_display_send">
+                   <widget class="QTextBrowser" name="goals_display">
                     <property name="minimumSize">
                      <size>
                       <width>300</width>

@@ -51,7 +51,6 @@ bool CQNodeMain::init() {
     chatter_sub=nh.subscribe("chatter",1000,&CQNodeMain::chatter_callback,this);
     cmd_vel_pub=nh.advertise<geometry_msgs::Twist>("cmd_vel",1000);
     loacation_pub = nh.advertise<std_msgs::String>("location", 1000);
-    power_sub=nh.subscribe("power",1000,&CQNodeMain::power_callback,this);
     odom_sub=nh.subscribe("raw_odom",1000,&CQNodeMain::odom_callback,this);
 	start();
 	return true;
@@ -73,7 +72,6 @@ bool CQNodeMain::init(const std::string &master_url, const std::string &host_url
     chatter_sub=nh.subscribe("chatter",1000,&CQNodeMain::chatter_callback,this);
     cmd_vel_pub=nh.advertise<geometry_msgs::Twist>("cmd_vel",1000);
     loacation_pub = nh.advertise<std_msgs::String>("location", 1000);
-    power_sub=nh.subscribe("power",1000,&CQNodeMain::power_callback,this);
     odom_sub=nh.subscribe("raw_odom",1000,&CQNodeMain::odom_callback,this);
 	start();
 	return true;
@@ -120,10 +118,6 @@ QImage CQNodeMain::Mat2QImage(cv::Mat const& src)
   }
 
   return dest;
-}
-void CQNodeMain::power_callback(const std_msgs::Float32 &msg)
-{
-    emit power_vel(msg.data);
 }
 void CQNodeMain::odom_callback(const nav_msgs::Odometry &msg)
 {

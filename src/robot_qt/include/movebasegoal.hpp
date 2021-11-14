@@ -43,13 +43,12 @@ using namespace Eigen;
 class movebasegoal : public QThread {
     Q_OBJECT
 public:
-    movebasegoal(int argc, char** argv);
     movebasegoal(int argc, char** argv, std::string node_name);
     virtual ~movebasegoal();
     bool init();
     bool init(const std::string &master_url, const std::string &host_url);
     void run();
-    void getGoalPoints(const vector<Eigen::VectorXd>& goals);//方便在两个类中调用
+    void getGoalPoints(const vector<Eigen::Vector4d>& goals);//方便在两个类中调用
     bool doStuff(const double& x_set, const double& y_set, const double& z_set, const double& x, const double& y, const double& z, const double& w);
     void doneCB(const actionlib::SimpleClientGoalState& state,
                 const move_base_msgs::MoveBaseResultConstPtr& result);
@@ -64,7 +63,6 @@ public:
              Fatal
      };
     MoveBaseClient* ac_;
-
 Q_SIGNALS:
     void rosShutdown();
     void updateMBMsg(const QString& Msg);
@@ -74,7 +72,7 @@ private:
     char** init_argv;
     std::string init_node_name;
     std::string init_topic_name;
-    vector<Eigen::VectorXd> m_goalPoints;
+    vector<Eigen::Vector4d> m_goalPoints;
 
     double last_x_set; double last_y_set;
     bool success_ = false;

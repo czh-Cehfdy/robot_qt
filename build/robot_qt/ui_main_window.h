@@ -225,7 +225,7 @@ public:
     QSpacerItem *horizontalSpacer_7;
     QVBoxLayout *verticalLayout_21;
     QHBoxLayout *horizontalLayout_19;
-    QTextBrowser *send_Pace_display_send;
+    QTextBrowser *goals_display;
     QHBoxLayout *horizontalLayout_14;
     QSpacerItem *horizontalSpacer_18;
     QPushButton *btn_send_path;
@@ -1550,14 +1550,14 @@ public:
         verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
-        send_Pace_display_send = new QTextBrowser(tab_12);
-        send_Pace_display_send->setObjectName(QStringLiteral("send_Pace_display_send"));
-        send_Pace_display_send->setMinimumSize(QSize(300, 0));
+        goals_display = new QTextBrowser(tab_12);
+        goals_display->setObjectName(QStringLiteral("goals_display"));
+        goals_display->setMinimumSize(QSize(300, 0));
         QFont font2;
         font2.setPointSize(12);
-        send_Pace_display_send->setFont(font2);
+        goals_display->setFont(font2);
 
-        horizontalLayout_19->addWidget(send_Pace_display_send);
+        horizontalLayout_19->addWidget(goals_display);
 
         horizontalLayout_19->setStretch(0, 3);
 

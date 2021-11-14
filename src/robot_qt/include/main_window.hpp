@@ -135,7 +135,7 @@ public:
     vector<Eigen::Vector3d> trueLocation;
     vector<Eigen::Vector3d> compareLngLat;
     vector<Eigen::Vector3d> final_goals;
-    vector<Eigen::VectorXd> g_finalGoals;
+    vector<Eigen::Vector4d> g_finalGoals;
     bool compareLngLat_flag = false;
 
 
