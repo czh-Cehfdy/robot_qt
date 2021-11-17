@@ -26,7 +26,9 @@
 #include "tf/tf.h"
 #include <tf/transform_listener.h>
 #include <geometry_msgs/PoseArray.h>
-
+#include <geometry_msgs/PoseStamped.h>
+#include <nav_msgs/Odometry.h>
+#include <cmath>
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 /*****************************************************************************
 ** Namespaces
@@ -49,9 +51,16 @@ public:
     bool init(const std::string &master_url, const std::string &host_url);
     void run();
     void getGoalPoints(const vector<Eigen::Vector4d>& goals);//方便在两个类中调用
-    bool doStuff(const double& x_set, const double& y_set, const double& z_set, const double& x, const double& y, const double& z, const double& w);
-    void doneCB(const actionlib::SimpleClientGoalState& state,
-                const move_base_msgs::MoveBaseResultConstPtr& result);
+    void goalPub(const size_t& i);
+    size_t m_currentInd = 0;
+    size_t m_lastInd = -1;
+    QString msg;
+    float sum = 0.0;
+    float last_x = 0.0;
+    float last_y = 0.0;
+    float set_dis = 1.0;
+    bool send_last = false;
+    int reset = 0;
     /*********************
     ** Logging
     **********************/
@@ -73,10 +82,14 @@ private:
     std::string init_node_name;
     std::string init_topic_name;
     vector<Eigen::Vector4d> m_goalPoints;
+    ros::Subscriber odom_sub;
+    ros::Publisher goals_pub;
+    bool send_flag = false;
+    int count_first = 0;
 
-    double last_x_set; double last_y_set;
-    bool success_ = false;
-    size_t ind = 0;
+    void odom_callback(const nav_msgs::Odometry &msg);
+
+
 };
 }  // namespace robot_qt
 

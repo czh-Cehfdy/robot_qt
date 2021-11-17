@@ -281,6 +281,7 @@ void CQNode::run() {
       }
 
     while ( ros::ok()) {
+
         ros::spinOnce();
     }
 //	Q_EMIT rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)

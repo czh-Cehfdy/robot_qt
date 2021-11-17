@@ -8,7 +8,7 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/czh/study_code/QT_study/catkin_qt/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH='/home/czh/study_code/QT_study/catkin_qt/devel/lib:/home/czh/study_code/lab1_ws/devel/lib:/home/czh/study_code/Cehfdy_robot_ws/navigation/devel/lib:/home/czh/turtlebot_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/cuda-9.0/lib64'
+export LD_LIBRARY_PATH="/home/czh/study_code/QT_study/catkin_qt/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/czh/study_code/QT_study/catkin_qt/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/czh/study_code/QT_study/catkin_qt/build'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/czh/study_code/QT_study/catkin_qt/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"

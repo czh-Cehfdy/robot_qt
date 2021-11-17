@@ -1303,12 +1303,14 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodi
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseArray.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
+robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseWithCovariance.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/QuaternionStamped.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Transform.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/TransformStamped.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
+robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistWithCovariance.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseAction.h
@@ -1318,6 +1320,7 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodi
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseFeedback.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseGoal.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseResult.h
+robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/nav_msgs/Odometry.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: /opt/ros/melodic/include/ros/assert.h
@@ -4584,12 +4587,14 @@ robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/includ
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseArray.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
+robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseWithCovariance.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/QuaternionStamped.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Transform.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/TransformStamped.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
+robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistWithCovariance.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseAction.h
@@ -4599,6 +4604,7 @@ robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/includ
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseFeedback.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseGoal.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/move_base_msgs/MoveBaseResult.h
+robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/nav_msgs/Odometry.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /opt/ros/melodic/include/ros/assert.h

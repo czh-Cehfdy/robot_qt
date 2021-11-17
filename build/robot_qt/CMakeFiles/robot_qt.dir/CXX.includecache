@@ -193,6 +193,12 @@ tf/transform_listener.h
 -
 geometry_msgs/PoseArray.h
 -
+geometry_msgs/PoseStamped.h
+-
+nav_msgs/Odometry.h
+-
+cmath
+-
 
 /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/include/qnode.hpp
 ros/ros.h

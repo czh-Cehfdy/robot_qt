@@ -79,6 +79,8 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     connect(ui.refreash_topic_btn,SIGNAL(clicked()),this,SLOT(slot_update_ROSTOPIC()));
 
     connect(ui.btn_send_path,SIGNAL(clicked()),this,SLOT(slot_goal_start()));
+    connect(ui.btn_clear_path_ros,SIGNAL(clicked()),this,SLOT(slot_goal_clear()));
+
     connect(ui.btn_clear_path_ros,SIGNAL(clicked()),this,SLOT(slot_goal_output()));
 
 
@@ -1071,28 +1073,30 @@ void MainWindow::slot_movebase_output()
     ui.textEdit_movebaseDisplay->append("<font color=\"#FF0000\">"+Movebase_cmd->readAllStandardError()+"</font>");
     ui.textEdit_movebaseDisplay->append("<font color=\"#FFFFFF\">"+Movebase_cmd->readAllStandardOutput()+"</font>");
 }
-
+void MainWindow::slot_goal_clear()
+{
+    mbgoal.m_currentInd +=1;
+}
 void MainWindow::slot_goal_start()
 {
    QString display_status = "任务开始起动！";
-   ui.goals_display->append("<font color=\"#00FF00\">"+display_status+"</font>");
+   ui.goals_display->append("<font color=\"#0000FF\">"+display_status+"</font>");
    ui.btn_send_path->setDisabled(true);
-   Eigen::Vector4d temp;
+//   Eigen::Vector4d temp;
 
-   temp << 5.36068630219,-4.66322612762,0.951935752241,-0.306297769509;
-   g_finalGoals.push_back(temp);
-   temp << -0.061714887619,-5.57947826385,0.950704406633,0.31009858305;
-   g_finalGoals.push_back(temp);
-   temp << -5.42925262451,-3.74939775467,0.801645173093,0.597800147589;
-   g_finalGoals.push_back(temp);
-   temp << -1.06587934494,0.49413511157,-0.0696341720227,0.997572594896;
-   g_finalGoals.push_back(temp);
-   for(size_t i =0;i<g_finalGoals.size();++i){
-       display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(g_finalGoals[i][0])
-               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3]);
-       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
-   }
-
+//   temp << 5.36068630219,-4.66322612762,0.951935752241,-0.306297769509;
+//   g_finalGoals.push_back(temp);
+//   temp << -0.061714887619,-5.57947826385,0.950704406633,0.31009858305;
+//   g_finalGoals.push_back(temp);
+//   temp << -5.42925262451,-3.74939775467,0.801645173093,0.597800147589;
+//   g_finalGoals.push_back(temp);
+//   temp << -1.06587934494,0.49413511157,-0.0696341720227,0.997572594896;
+//   g_finalGoals.push_back(temp);
+//   for(size_t i =0;i<g_finalGoals.size();++i){
+//       display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(g_finalGoals[i][0])
+//               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3]);
+//       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
+//   }
    mbgoal.getGoalPoints(g_finalGoals);
    mbgoal.init();
 
@@ -1182,20 +1186,48 @@ void MainWindow::slot_save_gps(){
     save_gps_flag = 1;
 }
 void MainWindow::slot_dispaly_gpsdata(){
+    Eigen::Vector3d LngLat;
+    vector<Eigen::Vector3d> displayLngLat;
     ui.textEdit_gps_data->clear();
-    if(save_longitude.empty()||save_latitude.empty())
+    QFile file("DataFile/gps_data_datafile.txt");
+    if(! file.open(QIODevice::ReadOnly|QIODevice::Text)){
+        QString  error_log= "数据库文件读取失败！"+file.errorString();
+        ui.textEdit_gps_data->setText(error_log);
+        return;
+    }
+    else
     {
-        QString gpsData_null = "数据库为空，请存储好采样点后再试！";
-        ui.textEdit_gps_data->append("<font color=\"#EE0000\">" + gpsData_null +
+        ui.textEdit_gps_data->setText("数据库文件读取成功！");
+        file.seek(0);  //重新定位在文件的第0位及开始位置
+        QTextStream stream_gps(&file);
+        while(!stream_gps.atEnd())
+        {
+          QString line=stream_gps.readLine();
+          QStringList strlist=line.split(",");
+          LngLat << strlist[0].toDouble(),strlist[1].toDouble(),0;
+          displayLngLat.push_back(LngLat);
+        }
+        file.close();
+    }
+    for (size_t i = 0; i < displayLngLat.size(); ++i){
+        QString gpsData = "数据库中第"+QString::number(i)+"个点的经纬度坐标为："+QString("%1").arg(displayLngLat[i][0],0, 'f',9)+","+QString("%1").arg(displayLngLat[i][1],0, 'f',9);
+        ui.textEdit_gps_data->append("<font color=\"#4B0082\">" + gpsData +
                            "</font>");
-    }
-    else{
-      for (int i = 0; i < save_longitude.size(); ++i){
-          QString gpsData = "数据库中第"+QString::number(i)+"个点的经纬度坐标为："+QString("%1").arg(save_longitude[i],0, 'f',7)+","+QString("%1").arg(save_latitude[i],0, 'f',7);
-          ui.textEdit_gps_data->append("<font color=\"#4B0082\">" + gpsData +
-                             "</font>");
-          }
-    }
+        }
+
+//    if(save_longitude.empty()||save_latitude.empty())
+//    {
+//        QString gpsData_null = "数据库为空，请存储好采样点后再试！";
+//        ui.textEdit_gps_data->append("<font color=\"#EE0000\">" + gpsData_null +
+//                           "</font>");
+//    }
+//    else{
+//      for (int i = 0; i < save_longitude.size(); ++i){
+//          QString gpsData = "数据库中第"+QString::number(i)+"个点的经纬度坐标为："+QString("%1").arg(save_longitude[i],0, 'f',7)+","+QString("%1").arg(save_latitude[i],0, 'f',7);
+//          ui.textEdit_gps_data->append("<font color=\"#4B0082\">" + gpsData +
+//                             "</font>");
+//          }
+//    }
 
 }
 

@@ -1718,13 +1718,13 @@ QPushButton:pressed{
              </size>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_12">
              <attribute name="title">
               <string>手动规划</string>
              </attribute>
-             <layout class="QHBoxLayout" name="horizontalLayout_29">
+             <layout class="QHBoxLayout" name="horizontalLayout_14">
               <item>
                <widget class="QWidget" name="widget_7" native="true">
                 <layout class="QVBoxLayout" name="verticalLayout_33">
@@ -2033,26 +2033,22 @@ QPushButton:pressed{
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_21">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="3">
-                  <item>
-                   <widget class="QTextBrowser" name="goals_display">
-                    <property name="minimumSize">
-                     <size>
-                      <width>300</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>12</pointsize>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="QTextBrowser" name="goals_display">
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                 <layout class="QHBoxLayout" name="horizontalLayout_19">
                   <item>
                    <spacer name="horizontalSpacer_18">
                     <property name="orientation">
@@ -2150,22 +2146,25 @@ QPushButton:pressed{
              <attribute name="title">
               <string>采集GPS</string>
              </attribute>
-             <layout class="QHBoxLayout" name="horizontalLayout_44">
+             <layout class="QHBoxLayout" name="horizontalLayout_45">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_38"/>
+              </item>
               <item>
                <widget class="QWidget" name="widget_6" native="true">
                 <property name="minimumSize">
                  <size>
-                  <width>430</width>
+                  <width>440</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>430</width>
+                  <width>440</width>
                   <height>16777215</height>
                  </size>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_48">
+                <layout class="QVBoxLayout" name="verticalLayout_42">
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_36">
                    <item>
@@ -2270,13 +2269,13 @@ QPushButton:pressed{
                       <widget class="QLineEdit" name="get_longitude">
                        <property name="minimumSize">
                         <size>
-                         <width>170</width>
+                         <width>165</width>
                          <height>60</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>170</width>
+                         <width>165</width>
                          <height>60</height>
                         </size>
                        </property>
@@ -2314,13 +2313,13 @@ QPushButton:pressed{
                       <widget class="QLineEdit" name="get_latitude">
                        <property name="minimumSize">
                         <size>
-                         <width>170</width>
+                         <width>165</width>
                          <height>60</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>170</width>
+                         <width>165</width>
                          <height>60</height>
                         </size>
                        </property>
@@ -2358,13 +2357,13 @@ QPushButton:pressed{
                       <widget class="QLineEdit" name="get_status">
                        <property name="minimumSize">
                         <size>
-                         <width>70</width>
+                         <width>65</width>
                          <height>60</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>70</width>
+                         <width>65</width>
                          <height>60</height>
                         </size>
                        </property>
@@ -2392,14 +2391,14 @@ QPushButton:pressed{
                     <widget class="QTextEdit" name="textEdit_gpsMsg">
                      <property name="minimumSize">
                       <size>
-                       <width>0</width>
-                       <height>40</height>
+                       <width>340</width>
+                       <height>80</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>16777215</width>
-                       <height>40</height>
+                       <width>340</width>
+                       <height>80</height>
                       </size>
                      </property>
                      <property name="font">
@@ -2487,9 +2486,22 @@ QPushButton:pressed{
                </widget>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_47">
+               <layout class="QVBoxLayout" name="verticalLayout_41">
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_46">
+                 <layout class="QHBoxLayout" name="horizontalLayout_44">
+                  <item>
+                   <spacer name="horizontalSpacer_24">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
                   <item>
                    <widget class="QLabel" name="label_31">
                     <property name="text">
@@ -2498,12 +2510,25 @@ QPushButton:pressed{
                    </widget>
                   </item>
                   <item>
-                   <widget class="QTextEdit" name="textEdit_gps_data"/>
+                   <spacer name="horizontalSpacer_23">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_38">
+                 <widget class="QTextEdit" name="textEdit_gps_data"/>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_29">
                   <item>
                    <spacer name="horizontalSpacer_8">
                     <property name="orientation">

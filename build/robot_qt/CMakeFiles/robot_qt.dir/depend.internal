@@ -1304,12 +1304,14 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o
  /opt/ros/melodic/include/geometry_msgs/Pose.h
  /opt/ros/melodic/include/geometry_msgs/PoseArray.h
  /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
+ /opt/ros/melodic/include/geometry_msgs/PoseWithCovariance.h
  /opt/ros/melodic/include/geometry_msgs/Quaternion.h
  /opt/ros/melodic/include/geometry_msgs/QuaternionStamped.h
  /opt/ros/melodic/include/geometry_msgs/Transform.h
  /opt/ros/melodic/include/geometry_msgs/TransformStamped.h
  /opt/ros/melodic/include/geometry_msgs/Twist.h
  /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
+ /opt/ros/melodic/include/geometry_msgs/TwistWithCovariance.h
  /opt/ros/melodic/include/geometry_msgs/Vector3.h
  /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
  /opt/ros/melodic/include/move_base_msgs/MoveBaseAction.h
@@ -1319,6 +1321,7 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o
  /opt/ros/melodic/include/move_base_msgs/MoveBaseFeedback.h
  /opt/ros/melodic/include/move_base_msgs/MoveBaseGoal.h
  /opt/ros/melodic/include/move_base_msgs/MoveBaseResult.h
+ /opt/ros/melodic/include/nav_msgs/Odometry.h
  /opt/ros/melodic/include/ros/advertise_options.h
  /opt/ros/melodic/include/ros/advertise_service_options.h
  /opt/ros/melodic/include/ros/assert.h
@@ -4585,12 +4588,14 @@ robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o
  /opt/ros/melodic/include/geometry_msgs/Pose.h
  /opt/ros/melodic/include/geometry_msgs/PoseArray.h
  /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
+ /opt/ros/melodic/include/geometry_msgs/PoseWithCovariance.h
  /opt/ros/melodic/include/geometry_msgs/Quaternion.h
  /opt/ros/melodic/include/geometry_msgs/QuaternionStamped.h
  /opt/ros/melodic/include/geometry_msgs/Transform.h
  /opt/ros/melodic/include/geometry_msgs/TransformStamped.h
  /opt/ros/melodic/include/geometry_msgs/Twist.h
  /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
+ /opt/ros/melodic/include/geometry_msgs/TwistWithCovariance.h
  /opt/ros/melodic/include/geometry_msgs/Vector3.h
  /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
  /opt/ros/melodic/include/move_base_msgs/MoveBaseAction.h
@@ -4600,6 +4605,7 @@ robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o
  /opt/ros/melodic/include/move_base_msgs/MoveBaseFeedback.h
  /opt/ros/melodic/include/move_base_msgs/MoveBaseGoal.h
  /opt/ros/melodic/include/move_base_msgs/MoveBaseResult.h
+ /opt/ros/melodic/include/nav_msgs/Odometry.h
  /opt/ros/melodic/include/ros/advertise_options.h
  /opt/ros/melodic/include/ros/advertise_service_options.h
  /opt/ros/melodic/include/ros/assert.h

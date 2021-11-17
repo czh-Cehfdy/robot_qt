@@ -180,6 +180,7 @@ public Q_SLOTS:
     void slot_location_start();
     void slot_movebase_start();
     void slot_goal_start();
+    void slot_goal_clear();
 //    void slot_scoutTeleop_start();
 //    void slot_PCL_start();
 //    void slot_controller_start();
