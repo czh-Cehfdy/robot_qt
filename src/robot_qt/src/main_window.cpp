@@ -1392,13 +1392,13 @@ void MainWindow::DisplaygoalMsg(const QString& msg1,const QString& msg2){
    ui.lineEdit_total->setText(msg2);
 }
 void MainWindow::DisplaystatusMsg(const QString& msg){
-   if(msg == "true"){
-      ui.label_truecardisplay->setPixmap(QPixmap(":/images/Green.png"));
-      ui.label_simdisplay->setPixmap(QPixmap(":/images/Red.png"));
-   }else{
-      ui.label_truecardisplay->setPixmap(QPixmap(":/images/Red.png"));
-      ui.label_simdisplay->setPixmap(QPixmap(":/images/Green.png"));
-   }
+    if(msg == "true"){
+       ui.label_truecardisplay->setPixmap(QPixmap(":/images/Green.png"));
+       ui.label_simdisplay->setPixmap(QPixmap(":/images/Red.png"));
+    }else if(msg == "false"){
+       ui.label_truecardisplay->setPixmap(QPixmap(":/images/Red.png"));
+       ui.label_simdisplay->setPixmap(QPixmap(":/images/Green.png"));
+    }
 }
 void MainWindow::DisplayOdomDisMsg(const QString& msg){
    ui.textEdit_odomDis->append("<font color=\"#4B0082\">" + msg +"</font>");

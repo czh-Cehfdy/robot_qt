@@ -243,14 +243,14 @@ void movebasegoal::getGoalPoints(const vector<Vector7d>& goals){
 void movebasegoal::run() {
     ros::NodeHandle nh;
     //实车用第第一个话题：odometry/imu_incremental 仿真用odom
-    if(istrueCar){
-       QString msgstatus = QString("%0").arg(istrueCar);
-       emit updatestatusMsg(msgstatus);
-       odom_sub=nh.subscribe("odometry/imu_incremental",10,&movebasegoal::odom_callback,this);
-    }else{
-       QString msgstatus = QString("%0").arg(istrueCar);
+    if(!istrueCar){
+       QString msgstatus = "false";
        emit updatestatusMsg(msgstatus);
        odom_sub=nh.subscribe("odom",10,&movebasegoal::odom_callback,this);
+    }else{
+       QString msgstatus = "true";
+       emit updatestatusMsg(msgstatus);
+       odom_sub=nh.subscribe("odometry/imu_incremental",10,&movebasegoal::odom_callback,this);
     }
     goals_pub = nh.advertise<geometry_msgs::PoseStamped>("move_base_simple/goal", 10);
 
