@@ -65,6 +65,9 @@ namespace robot_qt {
 using namespace std;
 /* Eigen是一个高层次的C ++库，有效支持得到的线性代数，矩阵和矢量运算，数值分析及其相关的算法。 */
 using namespace Eigen;
+typedef Matrix<double, 7, 1> Vector7d;
+//typedef vector<Matrix<double, 7, 1>> Vector7d;
+
 /*****************************************************************************
 ** Interface [MainWindow]
 *****************************************************************************/
@@ -104,7 +107,10 @@ public:
     void GetStartPoint(QString longitude,QString latitude);
 
     void DisplayMBMsg(const QString& msg);
-
+    void DisplayOdomMsg(const QString& msg);
+    void DisplaygoalMsg(const QString& msg1,const QString& msg2);
+    void DisplayOdomDisMsg(const QString& msg);
+    void DisplaystatusMsg(const QString& msg);
     void MyDrawNavPoint(QLabel* label);
     void MyDrawMeasureLine(QLabel* label);
 //    void display_map();
@@ -135,10 +141,8 @@ public:
     vector<Eigen::Vector3d> trueLocation;
     vector<Eigen::Vector3d> compareLngLat;
     vector<Eigen::Vector3d> final_goals;
-    vector<Eigen::Vector4d> g_finalGoals;
+    vector<Vector7d> g_finalGoals;
     bool compareLngLat_flag = false;
-
-
     QVector<double> test_longitude;
     QVector<double> test_latitude;
 
@@ -155,7 +159,7 @@ public:
     bool g_gpsAquire = false ;
     //由于是在订阅者回调函数里更新时，通过标志位来执行保存数据，在另一个槽函数里赋值标志位，存在数据滞后一个的问题，故用此变量保存上一次数据
     QString g_longitudeLast, g_latitudeLast;
-
+    bool istrueCar = true;
 
 public Q_SLOTS:
 	/******************************************

@@ -502,6 +502,11 @@ void MainWindow::initconections()
 
     connect(&mbgoal, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&mbgoal, &movebasegoal::updateMBMsg, this,&MainWindow::DisplayMBMsg);
+    connect(&mbgoal, &movebasegoal::updateOdomData, this,&MainWindow::DisplayOdomMsg);
+    connect(&mbgoal, &movebasegoal::updategoalMsg, this,&MainWindow::DisplaygoalMsg);
+    connect(&mbgoal, &movebasegoal::updateOdomDisData, this,&MainWindow::DisplayOdomDisMsg);
+    connect(&mbgoal, &movebasegoal::updatestatusMsg, this,&MainWindow::DisplaystatusMsg);
+
 
     ui.label_PCLImage->installEventFilter(this);
 
@@ -522,6 +527,32 @@ void MainWindow::initconections()
           ui.textEdit_tip->setText("<font color=\"#00ff00\">" + str +
                                    "</font>");
       });
+    connect(ui.btn_changeCarMode, &QPushButton::pressed, this, [=]() {
+          ui.btn_simulation->setDisabled(false);
+          ui.btn_trueCar->setDisabled(false);
+      });
+    connect(ui.btn_simulation, &QPushButton::pressed, this, [=]() {
+          ui.btn_simulation->setDisabled(true);
+          ui.btn_trueCar->setDisabled(true);
+          istrueCar = false;
+          mbgoal.istrueCar= false;
+          if(!istrueCar && !mbgoal.istrueCar){
+             ui.label_simulation_display->setPixmap(QPixmap(":/images/Green.png"));
+             ui.label_truecar_display->setPixmap(QPixmap(":/images/Red.png"));
+          }
+      });
+    connect(ui.btn_trueCar, &QPushButton::pressed, this, [=]() {
+        ui.btn_simulation->setDisabled(true);
+        ui.btn_trueCar->setDisabled(true);
+          istrueCar = true;
+          mbgoal.istrueCar= true;
+          if(istrueCar && mbgoal.istrueCar){
+             ui.label_simulation_display->setPixmap(QPixmap(":/images/Red.png"));
+             ui.label_truecar_display->setPixmap(QPixmap(":/images/Green.png"));
+          }
+      });
+
+
 
 
 
@@ -1079,28 +1110,29 @@ void MainWindow::slot_goal_clear()
 }
 void MainWindow::slot_goal_start()
 {
+   ui.goals_display->clear();
    QString display_status = "任务开始起动！";
    ui.goals_display->append("<font color=\"#0000FF\">"+display_status+"</font>");
-//   ui.btn_send_path->setDisabled(true);
+   Vector7d temp;
+   temp << 5.36068630219,-4.66322612762,0,0,0,0.951935752241,-0.306297769509;
+   g_finalGoals.push_back(temp);
+   temp << -0.061714887619,-5.57947826385,0,0,0,0.950704406633,0.31009858305;
+   g_finalGoals.push_back(temp);
+   temp << -5.42925262451,-3.74939775467,0,0,0,0.801645173093,0.597800147589;
+   g_finalGoals.push_back(temp);
+   temp << -1.06587934494,0.49413511157,0,0,0,-0.0696341720227,0.997572594896;
+   g_finalGoals.push_back(temp);
+   for(size_t i =0;i<g_finalGoals.size();++i){
+       display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0,%1,%2,%3,%4,%5,%6").arg(g_finalGoals[i][0])
+               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3])
+               .arg(g_finalGoals[i][4]).arg(g_finalGoals[i][5]).arg(g_finalGoals[i][6]);
+       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
+   }
+   mbgoal.getGoalPoints(g_finalGoals);
    if(!mbgoal.m_qnodeStart){
      mbgoal.init();
    }
-   mbgoal.getGoalPoints(g_finalGoals);
-//   Eigen::Vector4d temp;
 
-//   temp << 5.36068630219,-4.66322612762,0.951935752241,-0.306297769509;
-//   g_finalGoals.push_back(temp);
-//   temp << -0.061714887619,-5.57947826385,0.950704406633,0.31009858305;
-//   g_finalGoals.push_back(temp);
-//   temp << -5.42925262451,-3.74939775467,0.801645173093,0.597800147589;
-//   g_finalGoals.push_back(temp);
-//   temp << -1.06587934494,0.49413511157,-0.0696341720227,0.997572594896;
-//   g_finalGoals.push_back(temp);
-//   for(size_t i =0;i<g_finalGoals.size();++i){
-//       display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(g_finalGoals[i][0])
-//               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3]);
-//       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
-//   }
 }
 
 void MainWindow::slot_goal_output()
@@ -1351,8 +1383,27 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 
 void MainWindow::DisplayMBMsg(const QString& msg){
    ui.goals_display->append("<font color=\"#4B0082\">" + msg +"</font>");
-
 }
+void MainWindow::DisplayOdomMsg(const QString& msg){
+   ui.textEdit_odomData->append("<font color=\"#4B0082\">" + msg +"</font>");
+}
+void MainWindow::DisplaygoalMsg(const QString& msg1,const QString& msg2){
+   ui.lineEdit_current->setText(msg1);
+   ui.lineEdit_total->setText(msg2);
+}
+void MainWindow::DisplaystatusMsg(const QString& msg){
+   if(msg == "true"){
+      ui.label_truecardisplay->setPixmap(QPixmap(":/images/Green.png"));
+      ui.label_simdisplay->setPixmap(QPixmap(":/images/Red.png"));
+   }else{
+      ui.label_truecardisplay->setPixmap(QPixmap(":/images/Red.png"));
+      ui.label_simdisplay->setPixmap(QPixmap(":/images/Green.png"));
+   }
+}
+void MainWindow::DisplayOdomDisMsg(const QString& msg){
+   ui.textEdit_odomDis->append("<font color=\"#4B0082\">" + msg +"</font>");
+}
+
 /*****************************************************************************
 ** 采集GPS点信息
 *****************************************************************************/
@@ -1594,7 +1645,6 @@ void MainWindow::slot_chooseGoalGPS(){
     QVector<double> goal_longitude;
     QVector<double> goal_latitude;
     vector<Eigen::Vector3d> keyPoint_temp;
-    ui.textEdit->clear();
 //    ui.send_Pace_display->clear();
     QString temp_v = "正在匹配中…………";
     ui.send_Pace_display->append("<font color=\"#4B0082\">" + temp_v + "</font>");
@@ -1640,9 +1690,15 @@ void MainWindow::slot_chooseGoalGPS(){
           getMiddlePoint(keyPoint_temp[i],keyPoint_temp[i+1],_radius,p);
           for (size_t i = 0; i < p.size(); ++i){
               Eigen::Vector3d temp;
-              Eigen::Vector4d temp_global;
-              temp << p[i][0],p[i][1],0;
-              temp_global << p[i][0],p[i][1],0,1;    //x,y,z,w这里可以指定四元素，便于子类中调用发送目标点
+              Vector7d temp_global;
+              //仿真时，这里是正常顺序，当实车时由于是北偏西坐标系，故要旋转90° 即 x=y ,y=-x
+              if(istrueCar){
+                  temp << p[i][1],-p[i][0],0;
+                  temp_global << p[i][1],-p[i][0],0,0,0,0,1;
+              }else{
+                  temp << p[i][0],p[i][1],0;
+                  temp_global << p[i][0],p[i][1],0,0,0,0,1;
+              }
               final_goals.push_back(temp);
               g_finalGoals.push_back(temp_global);
           }

@@ -29,7 +29,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <cmath>
-#include <algorithm>
+//#include <algorithm>
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 /*****************************************************************************
 ** Namespaces
@@ -39,6 +39,7 @@ namespace robot_qt {
 using namespace std;
 /* Eigen是一个高层次的C ++库，有效支持得到的线性代数，矩阵和矢量运算，数值分析及其相关的算法。 */
 using namespace Eigen;
+typedef Matrix<double, 7, 1> Vector7d;
 /*****************************************************************************
 ** Class
 *****************************************************************************/
@@ -51,11 +52,12 @@ public:
     bool init();
     bool init(const std::string &master_url, const std::string &host_url);
     void run();
-    void getGoalPoints(const vector<Eigen::Vector4d>& goals);//方便在两个类中调用
+    void getGoalPoints(const vector<Vector7d>& goals);//方便在两个类中调用
     void goalPub(const size_t& i);
     size_t m_currentInd = 0;
     size_t m_lastInd = -1;
     QString msg;
+    bool istrueCar = true;
     float sum = 0.0;
     float last_x = 0.0;
     float last_y = 0.0;
@@ -77,18 +79,22 @@ public:
 Q_SIGNALS:
     void rosShutdown();
     void updateMBMsg(const QString& Msg);
+    void updateOdomData(const QString& Msg);
+    void updategoalMsg(const QString& Msg1,const QString& Msg2);
+    void updateOdomDisData(const QString& Msg);
+    void updatestatusMsg(const QString& Msg);
 
 private:
     int init_argc;
     char** init_argv;
     std::string init_node_name;
     std::string init_topic_name;
-    vector<Eigen::Vector4d> m_goalPoints;
+    vector<Vector7d> m_goalPoints;
     ros::Subscriber odom_sub;
     ros::Publisher goals_pub;
     bool send_flag = false;
+    bool isdisplayFlag = false;
     int count_first = 0;
-
     void odom_callback(const nav_msgs::Odometry &msg);
 
 
