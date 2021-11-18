@@ -29,6 +29,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <cmath>
+#include <algorithm>
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 /*****************************************************************************
 ** Namespaces
@@ -61,6 +62,7 @@ public:
     float set_dis = 1.0;
     bool send_last = false;
     int reset = 0;
+    bool m_qnodeStart =false;
     /*********************
     ** Logging
     **********************/

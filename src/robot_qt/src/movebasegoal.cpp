@@ -47,7 +47,7 @@ bool movebasegoal::init() {
     }
     msg = "MoveBase节点初始化成功！";
     emit updateMBMsg(msg);
-
+    m_qnodeStart = true ;
     ros::start(); // explicitly needed since our nodehandle is going out of scope.
     start();
     return true;
@@ -63,6 +63,7 @@ bool movebasegoal::init(const std::string &master_url, const std::string &host_u
     }
     msg = "MoveBase节点初始化成功！";
     emit updateMBMsg(msg);
+    m_qnodeStart = true ;
     ros::start(); // explicitly needed since our nodehandle is going out of scope.
     start();
     return true;
@@ -171,22 +172,28 @@ void movebasegoal::goalPub(const size_t& i){
      m_lastInd = i;
 }
 void movebasegoal::getGoalPoints(const vector<Eigen::Vector4d>& goals){
-    m_goalPoints = goals;
-    msg = "成功调用getGoalPoints函数获取新的系列目标点!!!";
-    emit updateMBMsg(msg);
-    if(m_goalPoints.begin()!=m_goalPoints.end())
-    {
-        msg = "已收到所有目标点信息！下面是详细信息：";
+    if (equal(goals.begin(), goals.end(), m_goalPoints)){
+        msg = "两次系列目标点相同，放弃处理，请检查!!!";
         emit updateMBMsg(msg);
-        for(size_t i = 0; i< m_goalPoints.size();++i){
-         msg = "第"+QString::number(i)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(m_goalPoints[i][0])
-                 .arg(m_goalPoints[i][1]).arg(m_goalPoints[i][2]).arg(m_goalPoints[i][3]);
+    }
+    else{
+        m_goalPoints = goals;
+        msg = "成功调用getGoalPoints函数获取新的系列目标点!!!";
         emit updateMBMsg(msg);
-        }
-     }
-    count_first = 0;
-    msg = "此时将count_first = 0";
-    emit updateMBMsg(msg);
+        if(m_goalPoints.begin()!=m_goalPoints.end())
+        {
+            msg = "已收到所有目标点信息！下面是详细信息：";
+            emit updateMBMsg(msg);
+            for(size_t i = 0; i< m_goalPoints.size();++i){
+             msg = "第"+QString::number(i)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(m_goalPoints[i][0])
+                     .arg(m_goalPoints[i][1]).arg(m_goalPoints[i][2]).arg(m_goalPoints[i][3]);
+            emit updateMBMsg(msg);
+            }
+         }
+        count_first = 0;
+        msg = "此时将count_first = 0";
+        emit updateMBMsg(msg);
+    }
 }
 void movebasegoal::run() {
     ros::NodeHandle nh;

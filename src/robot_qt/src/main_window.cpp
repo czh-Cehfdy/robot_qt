@@ -1075,13 +1075,17 @@ void MainWindow::slot_movebase_output()
 }
 void MainWindow::slot_goal_clear()
 {
-    mbgoal.m_currentInd +=1;
+    ui.goals_display->clear();
 }
 void MainWindow::slot_goal_start()
 {
    QString display_status = "任务开始起动！";
    ui.goals_display->append("<font color=\"#0000FF\">"+display_status+"</font>");
-   ui.btn_send_path->setDisabled(true);
+//   ui.btn_send_path->setDisabled(true);
+   if(!mbgoal.m_qnodeStart){
+     mbgoal.init();
+   }
+   mbgoal.getGoalPoints(g_finalGoals);
 //   Eigen::Vector4d temp;
 
 //   temp << 5.36068630219,-4.66322612762,0.951935752241,-0.306297769509;
@@ -1097,9 +1101,6 @@ void MainWindow::slot_goal_start()
 //               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3]);
 //       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
 //   }
-   mbgoal.getGoalPoints(g_finalGoals);
-   mbgoal.init();
-
 }
 
 void MainWindow::slot_goal_output()

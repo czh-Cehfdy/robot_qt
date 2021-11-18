@@ -199,6 +199,8 @@ nav_msgs/Odometry.h
 -
 cmath
 -
+algorithm
+-
 
 /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/include/qnode.hpp
 ros/ros.h

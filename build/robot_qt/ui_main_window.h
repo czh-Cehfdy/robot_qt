@@ -2422,7 +2422,7 @@ public:
         tabWidget->setCurrentIndex(0);
         tab_manager->setCurrentIndex(1);
         tabWidget_control->setCurrentIndex(1);
-        tabWidget_4->setCurrentIndex(1);
+        tabWidget_4->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(2);
 
 
