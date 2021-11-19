@@ -1129,6 +1129,26 @@ void MainWindow::slot_goal_start()
                    .arg(g_finalGoals[i][4]).arg(g_finalGoals[i][5]).arg(g_finalGoals[i][6]);
            ui.goals_display->append("<font color=\"#8B008B\">"+display_status+"</font>");
        }
+   }else{
+       if(g_carStartLatitude!=0&&g_carStartLontitude!=0){
+          Vector7d temp;
+          g_locationConverter.Reset(g_carStartLatitude, g_carStartLontitude, 0);
+          g_locationConverter.Forward(31.146732590, 121.421989842, 0, xyz[0], xyz[1], xyz[2]);
+          temp << xyz[1],-xyz[0],0,0,0,0,1;
+          g_finalGoals.push_back(temp);
+          g_locationConverter.Forward(31.146694225, 121.421804557, 0, xyz[0], xyz[1], xyz[2]);
+          temp << xyz[1],-xyz[0],0,0,0,0,1;
+          g_finalGoals.push_back(temp);
+          g_locationConverter.Forward(31.146638170, 121.421649828, 0, xyz[0], xyz[1], xyz[2]);
+          temp << xyz[1],-xyz[0],0,0,0,0,1;
+          g_finalGoals.push_back(temp);
+          g_locationConverter.Forward(31.146597907, 121.421464362, 0, xyz[0], xyz[1], xyz[2]);
+          temp << xyz[1],-xyz[0],0,0,0,0,1;
+          g_finalGoals.push_back(temp);
+       }else{
+          display_status = "起点坐标有问题，请检查后再尝试！";
+          ui.goals_display->append("<font color=\"#FF0000\">"+display_status+"</font>");
+       }
    }
    if(g_finalGoals.size()==0){
        display_status = "目标点容器为空，请填充目标点后再试！";
