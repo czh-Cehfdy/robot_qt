@@ -5,8 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/libGeographiccc.dir/src/Geocentric.cpp.o"
   "CMakeFiles/libGeographiccc.dir/src/Math.cpp.o"
   "CMakeFiles/libGeographiccc.dir/libGeographiccc_autogen/mocs_compilation.cpp.o"
-  "/home/czh/study_code/QT_study/catkin_qt/devel/lib/liblibGeographiccc.pdb"
-  "/home/czh/study_code/QT_study/catkin_qt/devel/lib/liblibGeographiccc.so"
+  "../../../devel/lib/liblibGeographiccc.pdb"
+  "../../../devel/lib/liblibGeographiccc.so"
 )
 
 # Per-language clean rules from dependency scanning.

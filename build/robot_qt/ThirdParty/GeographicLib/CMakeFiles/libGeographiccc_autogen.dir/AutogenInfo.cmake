@@ -23,7 +23,7 @@ set(AM_MOC_OPTIONS "")
 set(AM_MOC_RELAXED_MODE "FALSE")
 set(AM_MOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE")
 set(AM_MOC_DEPEND_FILTERS "")
-set(AM_MOC_PREDEFS_CMD "/usr/bin/c++;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp")
+set(AM_MOC_PREDEFS_CMD "/usr/bin/g++;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp")
 # UIC settings
 set(AM_UIC_SKIP "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/libGeographiccc_autogen/mocs_compilation.cpp")
 set(AM_UIC_TARGET_OPTIONS "")

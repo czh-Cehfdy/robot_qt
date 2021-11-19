@@ -2607,6 +2607,14 @@ QPushButton:pressed{
                         <height>25</height>
                        </size>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>13</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(193, 125, 17);</string>
+                      </property>
                      </widget>
                     </item>
                     <item>
@@ -2629,6 +2637,14 @@ QPushButton:pressed{
                         <width>40</width>
                         <height>25</height>
                        </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>13</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(245, 121, 0);</string>
                       </property>
                      </widget>
                     </item>

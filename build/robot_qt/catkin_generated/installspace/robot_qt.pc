@@ -1,4 +1,4 @@
-prefix=/home/czh/study_code/QT_study/catkin_qt/install
+prefix=/usr/local
 
 Name: robot_qt
 Description: Description of robot_qt

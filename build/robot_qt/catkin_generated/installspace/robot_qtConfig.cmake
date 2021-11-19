@@ -68,13 +68,13 @@ set(robot_qt_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(robot_qt_SOURCE_PREFIX /home/czh/study_code/QT_study/catkin_qt/src/robot_qt)
-  set(robot_qt_DEVEL_PREFIX /home/czh/study_code/QT_study/catkin_qt/devel)
+  set(robot_qt_DEVEL_PREFIX /home/czh/study_code/QT_study/catkin_qt/build/devel)
   set(robot_qt_INSTALL_PREFIX "")
   set(robot_qt_PREFIX ${robot_qt_DEVEL_PREFIX})
 else()
   set(robot_qt_SOURCE_PREFIX "")
   set(robot_qt_DEVEL_PREFIX "")
-  set(robot_qt_INSTALL_PREFIX /home/czh/study_code/QT_study/catkin_qt/install)
+  set(robot_qt_INSTALL_PREFIX /usr/local)
   set(robot_qt_PREFIX ${robot_qt_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/czh/study_code/QT_study/catkin_qt/install/lib;/home/czh/study_code/lab1_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /usr/local/lib;/home/czh/study_code/lab1_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

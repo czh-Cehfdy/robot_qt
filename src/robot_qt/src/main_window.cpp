@@ -1110,29 +1110,37 @@ void MainWindow::slot_goal_clear()
 }
 void MainWindow::slot_goal_start()
 {
+   QString display_status;
    ui.goals_display->clear();
-   QString display_status = "任务开始起动！";
-   ui.goals_display->append("<font color=\"#0000FF\">"+display_status+"</font>");
-   Vector7d temp;
-   temp << 5.36068630219,-4.66322612762,0,0,0,0.951935752241,-0.306297769509;
-   g_finalGoals.push_back(temp);
-   temp << -0.061714887619,-5.57947826385,0,0,0,0.950704406633,0.31009858305;
-   g_finalGoals.push_back(temp);
-   temp << -5.42925262451,-3.74939775467,0,0,0,0.801645173093,0.597800147589;
-   g_finalGoals.push_back(temp);
-   temp << -1.06587934494,0.49413511157,0,0,0,-0.0696341720227,0.997572594896;
-   g_finalGoals.push_back(temp);
-   for(size_t i =0;i<g_finalGoals.size();++i){
-       display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0,%1,%2,%3,%4,%5,%6").arg(g_finalGoals[i][0])
-               .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3])
-               .arg(g_finalGoals[i][4]).arg(g_finalGoals[i][5]).arg(g_finalGoals[i][6]);
-       ui.goals_display->append("<font color=\"#000000\">"+display_status+"</font>");
-   }
-   mbgoal.getGoalPoints(g_finalGoals);
-   if(!mbgoal.m_qnodeStart){
-     mbgoal.init();
-   }
 
+   if(!istrueCar){
+       Vector7d temp;
+       temp << 5.36068630219,-4.66322612762,0,0,0,0.951935752241,-0.306297769509;
+       g_finalGoals.push_back(temp);
+       temp << -0.061714887619,-5.57947826385,0,0,0,0.950704406633,0.31009858305;
+       g_finalGoals.push_back(temp);
+       temp << -5.42925262451,-3.74939775467,0,0,0,0.801645173093,0.597800147589;
+       g_finalGoals.push_back(temp);
+       temp << -1.06587934494,0.49413511157,0,0,0,-0.0696341720227,0.997572594896;
+       g_finalGoals.push_back(temp);
+       for(size_t i =0;i<g_finalGoals.size();++i){
+           display_status = "第"+QString::number(i+1)+"个目标点信息为："+QString("%0,%1,%2,%3,%4,%5,%6").arg(g_finalGoals[i][0])
+                   .arg(g_finalGoals[i][1]).arg(g_finalGoals[i][2]).arg(g_finalGoals[i][3])
+                   .arg(g_finalGoals[i][4]).arg(g_finalGoals[i][5]).arg(g_finalGoals[i][6]);
+           ui.goals_display->append("<font color=\"#8B008B\">"+display_status+"</font>");
+       }
+   }
+   if(g_finalGoals.size()==0){
+       display_status = "目标点容器为空，请填充目标点后再试！";
+       ui.goals_display->append("<font color=\"#FF0000\">"+display_status+"</font>");
+   }else{
+       display_status = "任务开始起动！";
+       ui.goals_display->append("<font color=\"#228B22\">"+display_status+"</font>");
+       mbgoal.getGoalPoints(g_finalGoals);
+       if(!mbgoal.m_qnodeStart){
+         mbgoal.init();
+       }
+   }
 }
 
 void MainWindow::slot_goal_output()
@@ -1385,7 +1393,14 @@ void MainWindow::DisplayMBMsg(const QString& msg){
    ui.goals_display->append("<font color=\"#4B0082\">" + msg +"</font>");
 }
 void MainWindow::DisplayOdomMsg(const QString& msg){
-   ui.textEdit_odomData->append("<font color=\"#4B0082\">" + msg +"</font>");
+   if(msg=="当前小车位姿信息如下-----------------------------------------------------------------------------------"){
+      ui.textEdit_odomData->append("<font color=\"#0000CD\">" + msg +"</font>");
+   }else if(msg=="odom信息："||msg=="四元数信息："){
+      ui.textEdit_odomData->append("<font color=\"#CD8500\">" + msg +"</font>");
+   }else{
+      ui.textEdit_odomData->append("<font color=\"#B23AEE\">" + msg +"</font>");
+   }
+
 }
 void MainWindow::DisplaygoalMsg(const QString& msg1,const QString& msg2){
    ui.lineEdit_current->setText(msg1);
@@ -1401,7 +1416,13 @@ void MainWindow::DisplaystatusMsg(const QString& msg){
     }
 }
 void MainWindow::DisplayOdomDisMsg(const QString& msg){
-   ui.textEdit_odomDis->append("<font color=\"#4B0082\">" + msg +"</font>");
+   if(msg == "当前最后一个目标点，当前距离小于0.5米，已经清空标志位和数据！"){
+     ui.textEdit_odomDis->append("<font color=\"#32CD32\">" + msg +"</font>");
+   }else if(msg == "目标点均已经发送完毕，不再显示距离！"){
+     ui.textEdit_odomDis->append("<font color=\"#228B22\">" + msg +"</font>");
+   }else{
+     ui.textEdit_odomDis->append("<font color=\"#4B0082\">" + msg +"</font>");
+   }
 }
 
 /*****************************************************************************
@@ -2262,7 +2283,12 @@ bool MainWindow::out_of_china(double lng,double lat)
 *************************************************/
 void robot_qt::MainWindow::on_btn_loadmap_clicked()
 {
-    g_mapView->load(QUrl("file:///home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/map_tcp.html"));
+    if(istrueCar){
+       g_mapView->load(QUrl("file:///home/lab307/catkin_qt/src/robot_qt/src/map_tcp.html"));
+    }else{
+       g_mapView->load(QUrl("file:///home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/map_tcp.html"));
+    }
+
 }
 
 

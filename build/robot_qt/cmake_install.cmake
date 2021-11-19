@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/czh/study_code/QT_study/catkin_qt/install")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -59,12 +59,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_qt/robot_qt"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_qt" TYPE EXECUTABLE FILES "/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_qt" TYPE EXECUTABLE FILES "/home/czh/study_code/QT_study/catkin_qt/build/devel/lib/robot_qt/robot_qt")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_qt/robot_qt" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_qt/robot_qt")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_qt/robot_qt"
-         OLD_RPATH "/opt/ros/melodic/lib:/home/czh/study_code/QT_study/catkin_qt/devel/lib:"
+         OLD_RPATH "/opt/ros/melodic/lib:/home/czh/study_code/QT_study/catkin_qt/build/devel/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/robot_qt/robot_qt")

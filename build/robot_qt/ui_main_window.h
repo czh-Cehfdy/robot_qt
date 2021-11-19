@@ -1911,6 +1911,10 @@ public:
         lineEdit_current->setObjectName(QStringLiteral("lineEdit_current"));
         lineEdit_current->setMinimumSize(QSize(45, 25));
         lineEdit_current->setMaximumSize(QSize(40, 25));
+        QFont font5;
+        font5.setPointSize(13);
+        lineEdit_current->setFont(font5);
+        lineEdit_current->setStyleSheet(QStringLiteral("color: rgb(193, 125, 17);"));
 
         horizontalLayout_50->addWidget(lineEdit_current);
 
@@ -1923,6 +1927,8 @@ public:
         lineEdit_total->setObjectName(QStringLiteral("lineEdit_total"));
         lineEdit_total->setMinimumSize(QSize(40, 25));
         lineEdit_total->setMaximumSize(QSize(40, 25));
+        lineEdit_total->setFont(font5);
+        lineEdit_total->setStyleSheet(QStringLiteral("color: rgb(245, 121, 0);"));
 
         horizontalLayout_50->addWidget(lineEdit_total);
 
@@ -2078,9 +2084,9 @@ public:
         get_status->setObjectName(QStringLiteral("get_status"));
         get_status->setMinimumSize(QSize(65, 60));
         get_status->setMaximumSize(QSize(65, 60));
-        QFont font5;
-        font5.setPointSize(20);
-        get_status->setFont(font5);
+        QFont font6;
+        font6.setPointSize(20);
+        get_status->setFont(font6);
 
         verticalLayout_45->addWidget(get_status);
 
@@ -2101,9 +2107,7 @@ public:
         textEdit_gpsMsg->setObjectName(QStringLiteral("textEdit_gpsMsg"));
         textEdit_gpsMsg->setMinimumSize(QSize(340, 80));
         textEdit_gpsMsg->setMaximumSize(QSize(340, 80));
-        QFont font6;
-        font6.setPointSize(13);
-        textEdit_gpsMsg->setFont(font6);
+        textEdit_gpsMsg->setFont(font5);
 
         horizontalLayout_37->addWidget(textEdit_gpsMsg);
 
@@ -2577,7 +2581,7 @@ public:
         textEdit_obstacle->setObjectName(QStringLiteral("textEdit_obstacle"));
         textEdit_obstacle->setMinimumSize(QSize(0, 80));
         textEdit_obstacle->setMaximumSize(QSize(16777215, 80));
-        textEdit_obstacle->setFont(font5);
+        textEdit_obstacle->setFont(font6);
 
         verticalLayout_35->addWidget(textEdit_obstacle);
 
@@ -2688,7 +2692,7 @@ public:
         textEdit_tip->setObjectName(QStringLiteral("textEdit_tip"));
         textEdit_tip->setMinimumSize(QSize(0, 0));
         textEdit_tip->setMaximumSize(QSize(16777215, 300));
-        textEdit_tip->setFont(font5);
+        textEdit_tip->setFont(font6);
 
         verticalLayout_31->addWidget(textEdit_tip);
 
@@ -2696,7 +2700,7 @@ public:
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setMinimumSize(QSize(0, 50));
         label_18->setMaximumSize(QSize(16777215, 50));
-        label_18->setFont(font5);
+        label_18->setFont(font6);
 
         verticalLayout_31->addWidget(label_18);
 

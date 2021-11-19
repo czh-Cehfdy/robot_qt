@@ -23,7 +23,7 @@ set(AM_MOC_OPTIONS "")
 set(AM_MOC_RELAXED_MODE "FALSE")
 set(AM_MOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE")
 set(AM_MOC_DEPEND_FILTERS "")
-set(AM_MOC_PREDEFS_CMD "/usr/bin/c++;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp")
+set(AM_MOC_PREDEFS_CMD "/usr/bin/g++;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp")
 # UIC settings
 set(AM_UIC_SKIP "/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp;/home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ui_main_window.h;/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/ui/main_window.ui")
 set(AM_UIC_TARGET_OPTIONS "")

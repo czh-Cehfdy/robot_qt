@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/czh/study_code/QT_study/catkin_qt/install/setup.sh
+    local-name: /usr/local/setup.sh

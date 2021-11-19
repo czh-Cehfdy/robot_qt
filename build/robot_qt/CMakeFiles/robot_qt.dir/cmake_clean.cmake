@@ -30,8 +30,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o"
   "CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o"
   "CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o"
-  "/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt.pdb"
-  "/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt"
+  "../devel/lib/robot_qt/robot_qt.pdb"
+  "../devel/lib/robot_qt/robot_qt"
 )
 
 # Per-language clean rules from dependency scanning.

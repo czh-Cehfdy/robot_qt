@@ -70,9 +70,16 @@ bool movebasegoal::init(const std::string &master_url, const std::string &host_u
 }
 void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
 {
-    QString msggoal1 = QString::number(m_currentInd+1);
-    QString msggoal2 = QString::number(m_goalPoints.size());
-    emit updategoalMsg(msggoal1,msggoal2);
+    if(m_goalPoints.size()!=0){
+        QString msggoal1 = QString::number(m_currentInd+1);
+        QString msggoal2 = QString::number(m_goalPoints.size());
+        emit updategoalMsg(msggoal1,msggoal2);
+    }else{
+        QString msggoal1 = QString::number(m_currentInd);
+        QString msggoal2 = QString::number(m_goalPoints.size());
+        emit updategoalMsg(msggoal1,msggoal2);
+    }
+
     if (m_currentInd > m_goalPoints.size()-1) {
         QString msg = "所有总共"+QString::number(m_currentInd)+"个目标点均已成功发送！";
         emit updateMBMsg(msg);
@@ -95,20 +102,22 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
     auto ory = msg.pose.pose.orientation.y;
     auto orz = msg.pose.pose.orientation.z;
     auto orw = msg.pose.pose.orientation.w;
-    QString odommsg = "当前小车位姿信息如下------------------------------------------------------";
+    QString odommsg = "当前小车位姿信息如下-----------------------------------------------------------------------------------";
     emit updateOdomData(odommsg);
     odommsg = "odom信息：";
     emit updateOdomData(odommsg);
     odommsg = QString("x=%0      ,      y=%1").arg(x, 0, 'f',10).arg(y, 0, 'f',10);
     emit updateOdomData(odommsg);
-    odommsg = QString("四元数信息：x=%0,y=%1,z=%2,w=%3").arg(orx, 0, 'f',11).arg(ory, 0, 'f',11).arg(orz, 0, 'f',11).arg(orw, 0, 'f',11);
+    odommsg = "四元数信息：";
+    emit updateOdomData(odommsg);
+    odommsg = QString("x=%0,y=%1,z=%2,w=%3").arg(orx, 0, 'f',11).arg(ory, 0, 'f',11).arg(orz, 0, 'f',11).arg(orw, 0, 'f',11);
     emit updateOdomData(odommsg);
     auto dis = sqrt(pow(m_goalPoints[m_currentInd][0]-x,2)+pow(m_goalPoints[m_currentInd][1]-y,2));
     auto dis_delt = sqrt(pow(last_x-x,2)+pow(last_y-y,2));
     sum += dis_delt;
     if(m_lastInd==m_currentInd){
         isdisplayFlag =false;
-        QString odomdis = QString("当前距离目标点距离：x=%0").arg(dis);
+        QString odomdis = QString("当前距离第%0个目标点距离：distance = %1").arg(m_currentInd+1).arg(dis);
         emit updateOdomDisData(odomdis);
       if(dis < set_dis)
       {

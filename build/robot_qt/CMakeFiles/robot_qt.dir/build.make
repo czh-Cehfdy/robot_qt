@@ -244,15 +244,15 @@ robot_qt/include/moc_CCtrlDashBoard.cpp: /home/czh/study_code/QT_study/catkin_qt
 robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp > CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp > CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp -o CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/CCtrlDashBoard.cpp -o CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o.requires:
 
@@ -268,15 +268,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o.provides.build: robot_
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/main.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/main.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/main.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp > CMakeFiles/robot_qt.dir/src/main.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp > CMakeFiles/robot_qt.dir/src/main.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/main.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp -o CMakeFiles/robot_qt.dir/src/main.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main.cpp -o CMakeFiles/robot_qt.dir/src/main.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o.requires:
 
@@ -292,15 +292,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o.provides.build: robot_qt/CMakeFi
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/main_window.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/main_window.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/main_window.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp > CMakeFiles/robot_qt.dir/src/main_window.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp > CMakeFiles/robot_qt.dir/src/main_window.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/main_window.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp -o CMakeFiles/robot_qt.dir/src/main_window.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/main_window.cpp -o CMakeFiles/robot_qt.dir/src/main_window.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o.requires:
 
@@ -316,15 +316,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o.provides.build: robot_qt/
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp > CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp > CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp -o CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/movebasegoal.cpp -o CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o.requires:
 
@@ -340,15 +340,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o.provides.build: robot_qt
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/qnode.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/qnode.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/qnode.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp > CMakeFiles/robot_qt.dir/src/qnode.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp > CMakeFiles/robot_qt.dir/src/qnode.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/qnode.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp -o CMakeFiles/robot_qt.dir/src/qnode.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode.cpp -o CMakeFiles/robot_qt.dir/src/qnode.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o.requires:
 
@@ -364,15 +364,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o.provides.build: robot_qt/CMakeF
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/qnode_main.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp > CMakeFiles/robot_qt.dir/src/qnode_main.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp > CMakeFiles/robot_qt.dir/src/qnode_main.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/qnode_main.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp -o CMakeFiles/robot_qt.dir/src/qnode_main.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qnode_main.cpp -o CMakeFiles/robot_qt.dir/src/qnode_main.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o.requires:
 
@@ -388,15 +388,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o.provides.build: robot_qt/C
 robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/qrviz.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/src/qrviz.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/src/qrviz.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp > CMakeFiles/robot_qt.dir/src/qrviz.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp > CMakeFiles/robot_qt.dir/src/qrviz.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/src/qrviz.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp -o CMakeFiles/robot_qt.dir/src/qrviz.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/qrviz.cpp -o CMakeFiles/robot_qt.dir/src/qrviz.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o.requires:
 
@@ -412,15 +412,15 @@ robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o.provides.build: robot_qt/CMakeF
 robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o: robot_qt/qrc_images.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/qrc_images.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/qrc_images.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/qrc_images.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp > CMakeFiles/robot_qt.dir/qrc_images.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp > CMakeFiles/robot_qt.dir/qrc_images.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/qrc_images.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp -o CMakeFiles/robot_qt.dir/qrc_images.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp -o CMakeFiles/robot_qt.dir/qrc_images.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o.requires:
 
@@ -436,15 +436,15 @@ robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o.provides.build: robot_qt/CMake
 robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o: robot_qt/qrc_picture.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/qrc_picture.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/qrc_picture.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/qrc_picture.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp > CMakeFiles/robot_qt.dir/qrc_picture.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp > CMakeFiles/robot_qt.dir/qrc_picture.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/qrc_picture.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp -o CMakeFiles/robot_qt.dir/qrc_picture.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_picture.cpp -o CMakeFiles/robot_qt.dir/qrc_picture.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o.requires:
 
@@ -460,15 +460,15 @@ robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o.provides.build: robot_qt/CMak
 robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o: robot_qt/qrc_qt.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/qrc_qt.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/qrc_qt.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/qrc_qt.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp > CMakeFiles/robot_qt.dir/qrc_qt.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp > CMakeFiles/robot_qt.dir/qrc_qt.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/qrc_qt.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp -o CMakeFiles/robot_qt.dir/qrc_qt.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_qt.cpp -o CMakeFiles/robot_qt.dir/qrc_qt.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o.requires:
 
@@ -484,15 +484,15 @@ robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o.provides.build: robot_qt/CMakeFile
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: robot_qt/include/moc_main_window.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp > CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp > CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp -o CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_main_window.cpp -o CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o.requires:
 
@@ -508,15 +508,15 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o.provides.build: r
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o: robot_qt/include/moc_movebasegoal.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp > CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp > CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp -o CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_movebasegoal.cpp -o CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o.requires:
 
@@ -532,15 +532,15 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o.provides.build: 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o: robot_qt/include/moc_qnode.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp > CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp > CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp -o CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode.cpp -o CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o.requires:
 
@@ -556,15 +556,15 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o.provides.build: robot_q
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o: robot_qt/include/moc_qnode_main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp > CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp > CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp -o CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qnode_main.cpp -o CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o.requires:
 
@@ -580,15 +580,15 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o.provides.build: ro
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o: robot_qt/include/moc_qrviz.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp > CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp > CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp -o CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_qrviz.cpp -o CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o.requires:
 
@@ -604,15 +604,15 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o.provides.build: robot_q
 robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o: robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp > CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp > CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp -o CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/include/moc_Config.cpp -o CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o.requires:
 
@@ -628,15 +628,15 @@ robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o: robot_qt/include/moc_CCtrlDashBoard.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp > CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp > CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp -o CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/include/moc_CCtrlDashBoard.cpp -o CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o.requires:
 
@@ -652,15 +652,15 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o.provides.build
 robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o: robot_qt/CMakeFiles/robot_qt.dir/flags.make
 robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o: robot_qt/robot_qt_autogen/mocs_compilation.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o -c /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp
 
 robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.i"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp > CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.i
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp > CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.i
 
 robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.s"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp -o CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.s
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/robot_qt_autogen/mocs_compilation.cpp -o CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.s
 
 robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o.requires:
 
@@ -697,96 +697,96 @@ robot_qt_OBJECTS = \
 # External object files for target robot_qt
 robot_qt_EXTERNAL_OBJECTS =
 
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/build.make
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Multimedia.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5WebEngineWidgets.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Charts.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librviz.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libOgreOverlay.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libOgreMain.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libGL.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libGLU.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libinteractive_markers.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/liblaser_geometry.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libresource_retriever.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libtf.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libtf2_ros.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libactionlib.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libtf2.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/liburdf.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole_bridge.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libcv_bridge.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libimage_transport.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libmessage_filters.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libclass_loader.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/libPocoFoundation.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libdl.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libroscpp.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libroslib.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librospack.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libpython2.7.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librostime.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libcpp_common.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /home/czh/study_code/QT_study/catkin_qt/devel/lib/liblibGeographiccc.so
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5WebEngineCore.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5WebChannel.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Positioning.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Quick.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Qml.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5PrintSupport.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5
-/home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable /home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt"
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/CCtrlDashBoard.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/movebasegoal.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/qnode.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/qnode_main.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/src/qrviz.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/qrc_images.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/qrc_picture.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/qrc_qt.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_movebasegoal.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_qnode_main.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_qrviz.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/ThirdParty/GeographicLib/include/moc_Config.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/include/moc_CCtrlDashBoard.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/robot_qt_autogen/mocs_compilation.cpp.o
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/build.make
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Multimedia.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5WebEngineWidgets.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Charts.so.5.9.5
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librviz.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libOgreMain.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libGL.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libGLU.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libinteractive_markers.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/liblaser_geometry.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libresource_retriever.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libtf.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libtf2_ros.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libactionlib.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libtf2.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/liburdf.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole_bridge.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libcv_bridge.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libimage_transport.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libmessage_filters.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libclass_loader.so
+devel/lib/robot_qt/robot_qt: /usr/lib/libPocoFoundation.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libdl.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libroscpp.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libxmlrpcpp.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libroslib.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librospack.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libroscpp_serialization.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/librostime.so
+devel/lib/robot_qt/robot_qt: /opt/ros/melodic/lib/libcpp_common.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_system.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libpthread.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+devel/lib/robot_qt/robot_qt: devel/lib/liblibGeographiccc.so
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5WebEngineCore.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5WebChannel.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Positioning.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Quick.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Qml.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5PrintSupport.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5
+devel/lib/robot_qt/robot_qt: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5
+devel/lib/robot_qt/robot_qt: robot_qt/CMakeFiles/robot_qt.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable ../devel/lib/robot_qt/robot_qt"
 	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot_qt.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-robot_qt/CMakeFiles/robot_qt.dir/build: /home/czh/study_code/QT_study/catkin_qt/devel/lib/robot_qt/robot_qt
+robot_qt/CMakeFiles/robot_qt.dir/build: devel/lib/robot_qt/robot_qt
 
 .PHONY : robot_qt/CMakeFiles/robot_qt.dir/build
 
