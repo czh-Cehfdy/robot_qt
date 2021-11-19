@@ -61,7 +61,7 @@ public:
     float sum = 0.0;
     float last_x = 0.0;
     float last_y = 0.0;
-    float set_dis = 1.0;
+    float set_dis = 1.2;
     bool send_last = false;
     int reset = 0;
     bool m_qnodeStart =false;
@@ -96,8 +96,6 @@ private:
     bool isdisplayFlag = false;
     int count_first = 0;
     void odom_callback(const nav_msgs::Odometry &msg);
-
-
 };
 }  // namespace robot_qt
 

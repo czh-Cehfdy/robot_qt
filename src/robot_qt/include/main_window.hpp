@@ -160,6 +160,7 @@ public:
     //由于是在订阅者回调函数里更新时，通过标志位来执行保存数据，在另一个槽函数里赋值标志位，存在数据滞后一个的问题，故用此变量保存上一次数据
     QString g_longitudeLast, g_latitudeLast;
     bool istrueCar = true;
+    const int _radius = 15;
 
 public Q_SLOTS:
 	/******************************************

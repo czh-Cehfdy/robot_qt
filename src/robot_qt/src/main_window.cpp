@@ -1129,7 +1129,8 @@ void MainWindow::slot_goal_start()
                    .arg(g_finalGoals[i][4]).arg(g_finalGoals[i][5]).arg(g_finalGoals[i][6]);
            ui.goals_display->append("<font color=\"#8B008B\">"+display_status+"</font>");
        }
-   }else{
+   }
+   /*else{
        if(g_carStartLatitude!=0&&g_carStartLontitude!=0){
           Vector7d temp;
           g_locationConverter.Reset(g_carStartLatitude, g_carStartLontitude, 0);
@@ -1149,7 +1150,7 @@ void MainWindow::slot_goal_start()
           display_status = "起点坐标有问题，请检查后再尝试！";
           ui.goals_display->append("<font color=\"#FF0000\">"+display_status+"</font>");
        }
-   }
+   }*/
    if(g_finalGoals.size()==0){
        display_status = "目标点容器为空，请填充目标点后再试！";
        ui.goals_display->append("<font color=\"#FF0000\">"+display_status+"</font>");
@@ -1602,7 +1603,7 @@ void MainWindow::compareDis(Eigen::Vector3d &p,bool isBigScale){
      * 搜索两关键点中的中间点 -->isBigScale = false 需要判断距离，这时要精确
     */
     if(!isBigScale){
-        if(*min < 3){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
+        if(*min < 4){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
             //找到最小值的索引
             auto positionmin = std::distance(std::begin(temp_vector),min);
             g_locationConverter.Forward(compareLngLat[positionmin][1], compareLngLat[positionmin][0], 0, xyz[0], xyz[1], xyz[2]);
@@ -1673,8 +1674,6 @@ void MainWindow::getMiddlePoint(Eigen::Vector3d s1,Eigen::Vector3d e1,const int&
         waypoint << endPointLocation[0], endPointLocation[1], 0;
         trueLocation_return.push_back(waypoint);
     }
-
-
     p = trueLocation_return;
 }
 /*****************************************************************************
@@ -1726,7 +1725,7 @@ void MainWindow::slot_chooseGoalGPS(){
        //循环结束后，获取到了所有核心关键点（一定是数据库中有的点）[[0,0,0],[],[]……]
        //接下来计算中间关键点
       for (size_t i = 0; i < keyPoint_temp.size()-1; ++i){
-          const int _radius = 20;
+
           vector<Eigen::Vector3d> p;
           getMiddlePoint(keyPoint_temp[i],keyPoint_temp[i+1],_radius,p);
           for (size_t i = 0; i < p.size(); ++i){
