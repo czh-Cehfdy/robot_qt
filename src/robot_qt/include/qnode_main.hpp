@@ -69,7 +69,6 @@ public:
 	void log( const LogLevel &level, const std::string &msg);
 
 Q_SIGNALS:
-	void loggingUpdated();
     void rosShutdown();
     void speed_vel(float,float);
     void power_vel(float);

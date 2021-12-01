@@ -42,6 +42,7 @@ QT_CHARTS_USE_NAMESPACE
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebChannel>
 #include <QMessageBox>
+#include <QStandardItemModel>  //QTableView使用
 #include <QJSValue>
 #include <functional>
 #include <QVariant>
@@ -108,6 +109,7 @@ public:
 
     void DisplayMBMsg(const QString& msg);
     void DisplayOdomMsg(const QString& msg);
+    void DisplayDisMsg(const QString& msg);
     void DisplaygoalMsg(const QString& msg1,const QString& msg2);
     void DisplayOdomDisMsg(const QString& msg);
     void DisplaystatusMsg(const QString& msg);
@@ -173,7 +175,6 @@ public Q_SLOTS:
     /******************************************
     ** Manual connections
     *******************************************/
-    void updateLoggingView(); // no idea why this can't connect automatically
     void slot_linera_value_change(int);
     void slot_raw_value_change(int);
     void slot_pushbtn_click();
@@ -181,24 +182,23 @@ public Q_SLOTS:
     void slot_quick_output();
     void slot_rosShutdown();   //设置机器人在线、离线
 
-    void slot_Qudong_start();
-    void slot_location_start();
-    void slot_movebase_start();
-    void slot_goal_start();
-    void slot_goal_clear();
-//    void slot_scoutTeleop_start();
-//    void slot_PCL_start();
-//    void slot_controller_start();
-//    void slot_planning_start();
-//    void slot_carstart_start();
+    void slot_node1_start();
+    void slot_node2_start();
+    void slot_node3_start();
+    void slot_node4_start();
+    void slot_node5_start();
+    void slot_node6_start();
 
-    void slot_Qudong_output();
-    void slot_location_output();
-    void slot_movebase_output();
+    void slot_goal_start();  //发送最终导航目标点更新子线程
+    void slot_goal_clear();
+
+    void slot_node1_output();
+    void slot_node2_output();
+    void slot_node3_output();
     void slot_goal_output();
-//    void slot_scoutTeleopcmd_output();
-//    void slot_PCLcmd_output();
-//    void slot_controllercmd_output();
+    void slot_node4_output();
+    void slot_node5_output();
+    void slot_node6_output();
 //    void slot_planningcmd_output();
 //    void slot_carstartcmd_output();
 
@@ -315,11 +315,19 @@ private:
     CCtrlDashBoard* speed_x_dashBoard;
     CCtrlDashBoard* speed_y_dashBoard;
     QProcess *laser_cmd;
-    QProcess *Qudong_cmd = nullptr;
-    QProcess *Location_cmd = nullptr;
-    QProcess *Movebase_cmd = nullptr;
+
+    QProcess *node1_cmd = nullptr;
+    QProcess *node2_cmd = nullptr;
+    QProcess *node3_cmd = nullptr;
+    QProcess *node4_cmd = nullptr;
+    QProcess *node5_cmd = nullptr;
+    QProcess *node6_cmd = nullptr;
     QProcess *goal_cmd = nullptr;
     QProcess *cmd;
+
+    QStandardItemModel *standItemModel;
+
+
     // mouse point
     QPoint point;
     // measure point

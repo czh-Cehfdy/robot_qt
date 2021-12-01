@@ -54,12 +54,6 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
     QObject::connect(&qnode_main, SIGNAL(rosShutdown()), this, SLOT(close()));
 
-	/*********************
-	** Logging
-	**********************/
-    ui.view_logging->setModel(qnode_main.loggingModel());
-    QObject::connect(&qnode_main, SIGNAL(loggingUpdated()), this, SLOT(updateLoggingView()));
-
     /*********************
     ** Auto Start 打开软件时自动连接master
     **********************/
@@ -73,10 +67,8 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 
     connect(ui.laser_btn,SIGNAL(clicked()),this,SLOT(()));
 
-    connect(ui.btn_QudongStart,SIGNAL(clicked()),this,SLOT(slot_Qudong_start()));
-    connect(ui.btn_LocationStart,SIGNAL(clicked()),this,SLOT(slot_location_start()));
-    connect(ui.btn_MoveBaseStart,SIGNAL(clicked()),this,SLOT(slot_movebase_start()));
-    connect(ui.refreash_topic_btn,SIGNAL(clicked()),this,SLOT(slot_update_ROSTOPIC()));
+
+
 
     connect(ui.btn_send_path,SIGNAL(clicked()),this,SLOT(slot_goal_start()));
     connect(ui.btn_clear_path_ros,SIGNAL(clicked()),this,SLOT(slot_goal_clear()));
@@ -145,16 +137,38 @@ void MainWindow::initChart(){
 }
 void MainWindow::initTopicList()
 {
-    ui.topic_listWidget->clear();
-//    ui.topic_listWidget->addItem(QString("%1   (%2)").arg("Name","Type"));
-    ui.topic_listWidget->addItem(QString("%1").arg("Name"));
-    ui.topic_listWidget->setMinimumWidth(400);  //设置列宽
+    ui.tableView_topic->clearSpans();
+    //添加QTableView代码
+    standItemModel = new QStandardItemModel();
+    //添加表头
+    standItemModel->setColumnCount(3);
+    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("序号"));   //设置表头内容
+    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("话题"));
+    standItemModel->setHeaderData(2,Qt::Horizontal,QStringLiteral("类型"));
 
     QMap<QString,QString> topic_list= rostopic_list.get_topic_list();
-    for(QMap<QString,QString>::iterator iter=topic_list.begin();iter!=topic_list.end();iter++)
-    {
-       ui.topic_listWidget->addItem(QString("%1").arg(iter.key())); //,iter.value()
+    QMap<QString,QString>::iterator iter = topic_list.begin(),iter_end = topic_list.end();
+    int i = 0;
+    for (;iter != iter_end; iter++,i++){
+        QStandardItem *standItem1 = new QStandardItem(tr("%1").arg(i+1));
+        QStandardItem *standItem2 = new QStandardItem(tr("%1").arg(iter.key()));
+        QStandardItem *standItem3 = new QStandardItem(tr("%1").arg(iter.value()));
+        standItemModel->setItem(i,0,standItem1);                                //表格第i行，第0列添加一项内容
+        standItemModel->item(i,0)->setForeground(QBrush(QColor(255,0,0)));      //设置字符颜色
+        standItemModel->item(i,0)->setTextAlignment(Qt::AlignCenter);           //设置表格内容居中
+        standItemModel->setItem(i,1,standItem2);                                //表格第i行，第1列添加一项内容
+        standItemModel->item(i,1)->setForeground(QBrush(QColor(139,35,35)));      //设置字符颜色
+        standItemModel->item(i,1)->setTextAlignment(Qt::AlignLeft);           //设置表格内容居中
+        standItemModel->setItem(i,2,standItem3);                                //表格第i行，第1列添加一项内容
+        standItemModel->item(i,2)->setForeground(QBrush(QColor(160,32,240)));      //设置字符颜色
+        standItemModel->item(i,2)->setTextAlignment(Qt::AlignLeft);           //设置表格内容居中
+
     }
+
+
+
+//       ui.topic_listWidget->addItem(QString("%1，%2").arg(iter.key()).arg(iter.value())); //,iter.value()
+    ui.tableView_topic->setModel(standItemModel);    //挂载表格模型
 }
 
 /*************************************************
@@ -421,6 +435,16 @@ void MainWindow::initMap()
 
 void MainWindow::initconections()
 {
+    //远程节点开启槽函数：
+    connect(ui.btn_node1,SIGNAL(clicked()),this,SLOT(slot_node1_start()));
+    connect(ui.btn_node2,SIGNAL(clicked()),this,SLOT(slot_node2_start()));
+    connect(ui.btn_node3,SIGNAL(clicked()),this,SLOT(slot_node3_start()));
+    connect(ui.btn_node4,SIGNAL(clicked()),this,SLOT(slot_node4_start()));
+    connect(ui.btn_node5,SIGNAL(clicked()),this,SLOT(slot_node5_start()));
+    connect(ui.btn_node6,SIGNAL(clicked()),this,SLOT(slot_node6_start()));
+    //话题更新槽函数：
+    connect(ui.refreash_topic_btn,SIGNAL(clicked()),this,SLOT(slot_update_ROSTOPIC()));
+
     //单目相机部分：
     connect(ui.btn_DiaplayRawImage, &QPushButton::pressed, this, [=]() {
           qnode_raw_image.init();
@@ -502,6 +526,7 @@ void MainWindow::initconections()
 
     connect(&mbgoal, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&mbgoal, &movebasegoal::updateMBMsg, this,&MainWindow::DisplayMBMsg);
+    connect(&mbgoal, &movebasegoal::updateDisMsg, this,&MainWindow::DisplayDisMsg);
     connect(&mbgoal, &movebasegoal::updateOdomData, this,&MainWindow::DisplayOdomMsg);
     connect(&mbgoal, &movebasegoal::updategoalMsg, this,&MainWindow::DisplaygoalMsg);
     connect(&mbgoal, &movebasegoal::updateOdomDisData, this,&MainWindow::DisplayOdomDisMsg);
@@ -1058,52 +1083,91 @@ void MainWindow::slot_rosShutdown()
     ui.line_edit_topic->setReadOnly(false);
 }
 /*****************************************************************************
+** cmd执行终端命令操作函数
+*****************************************************************************/
+void MainWindow::slot_node1_start()
+{
+    node1_cmd=new QProcess;
+    node1_cmd->start("bash");
+    node1_cmd->write(ui.textEdit_node1_cmd->toPlainText().toLocal8Bit()+"\n");
+    connect(node1_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_node1_output()));
+    connect(node1_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_node1_output()));
+}
+void MainWindow::slot_node1_output()
+{
+    ui.textEdit_node1Display->append("<font color=\"#FF0000\">"+node1_cmd->readAllStandardError()+"</font>");
+    ui.textEdit_node1Display->append("<font color=\"#FFFFFF\">"+node1_cmd->readAllStandardOutput()+"</font>");
+}
+void MainWindow::slot_node2_start()
+{
+    node2_cmd=new QProcess;
+    node2_cmd->start("bash");
+    node2_cmd->write(ui.textEdit_node2_cmd->toPlainText().toLocal8Bit()+"\n");
+    connect(node2_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_node2_output()));
+    connect(node2_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_node2_output()));
+}
+void MainWindow::slot_node2_output()
+{
+    ui.textEdit_node2Display->append("<font color=\"#FF0000\">"+node2_cmd->readAllStandardError()+"</font>");
+    ui.textEdit_node2Display->append("<font color=\"#FFFFFF\">"+node2_cmd->readAllStandardOutput()+"</font>");
+}
+void MainWindow::slot_node3_start()
+{
+    node3_cmd=new QProcess;
+    node3_cmd->start("bash");
+    node3_cmd->write(ui.textEdit_node3_cmd->toPlainText().toLocal8Bit()+"\n");
+    connect(node3_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_node3_output()));
+    connect(node3_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_node3_output()));
+}
+void MainWindow::slot_node3_output()
+{
+    ui.textEdit_node3Display->append("<font color=\"#FF0000\">"+node3_cmd->readAllStandardError()+"</font>");
+    ui.textEdit_node3Display->append("<font color=\"#FFFFFF\">"+node3_cmd->readAllStandardOutput()+"</font>");
+}
+void MainWindow::slot_node4_start()
+{
+    node4_cmd=new QProcess;
+    node4_cmd->start("bash");
+    node4_cmd->write(ui.textEdit_node4_cmd->toPlainText().toLocal8Bit()+"\n");
+    connect(node4_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_node4_output()));
+    connect(node4_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_node4_output()));
+}
+void MainWindow::slot_node4_output()
+{
+    ui.textEdit_node4Display->append("<font color=\"#FF0000\">"+node4_cmd->readAllStandardError()+"</font>");
+    ui.textEdit_node4Display->append("<font color=\"#FFFFFF\">"+node4_cmd->readAllStandardOutput()+"</font>");
+}
+void MainWindow::slot_node5_start()
+{
+    node5_cmd=new QProcess;
+    node5_cmd->start("bash");
+    node5_cmd->write(ui.textEdit_node5_cmd->toPlainText().toLocal8Bit()+"\n");
+    connect(node5_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_node5_output()));
+    connect(node5_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_node5_output()));
+}
+void MainWindow::slot_node5_output()
+{
+    ui.textEdit_node5Display->append("<font color=\"#FF0000\">"+node5_cmd->readAllStandardError()+"</font>");
+    ui.textEdit_node5Display->append("<font color=\"#FFFFFF\">"+node5_cmd->readAllStandardOutput()+"</font>");
+}
+void MainWindow::slot_node6_start()
+{
+    node6_cmd=new QProcess;
+    node6_cmd->start("bash");
+    node6_cmd->write(ui.textEdit_node6_cmd->toPlainText().toLocal8Bit()+"\n");
+    connect(node6_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_node6_output()));
+    connect(node6_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_node6_output()));
+}
+void MainWindow::slot_node6_output()
+{
+    ui.textEdit_node6Display->append("<font color=\"#FF0000\">"+node6_cmd->readAllStandardError()+"</font>");
+    ui.textEdit_node6Display->append("<font color=\"#FFFFFF\">"+node6_cmd->readAllStandardOutput()+"</font>");
+}
+
+/*****************************************************************************
 ** cmd执行终端操作
 *****************************************************************************/
-void MainWindow::slot_Qudong_start()
-{
-    Qudong_cmd=new QProcess;
-    Qudong_cmd->start("bash");
-    Qudong_cmd->write(ui.textEdit_qudong_cmd->toPlainText().toLocal8Bit()+"\n");
-    connect(Qudong_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_Qudong_output()));
-    connect(Qudong_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_Qudong_output()));
-}
-void MainWindow::slot_Qudong_output()
-{
-    ui.textEdit_QudongDisplay->append("<font color=\"#FF0000\">"+Qudong_cmd->readAllStandardError()+"</font>");
-    ui.textEdit_QudongDisplay->append("<font color=\"#FFFFFF\">"+Qudong_cmd->readAllStandardOutput()+"</font>");
-}
 
-void MainWindow::slot_location_start()
-{
-    Location_cmd=new QProcess;
-    Location_cmd->start("bash");
-    Location_cmd->write(ui.textEdit_location_cmd->toPlainText().toLocal8Bit()+"\n");
-    connect(Location_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_location_output()));
-    connect(Location_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_location_output()));
-
-}
-
-void MainWindow::slot_location_output()
-{
-    ui.textEdit_locationDisplay->append("<font color=\"#FF0000\">"+Location_cmd->readAllStandardError()+"</font>");
-    ui.textEdit_locationDisplay->append("<font color=\"#FFFFFF\">"+Location_cmd->readAllStandardOutput()+"</font>");
-}
-
-void MainWindow::slot_movebase_start()
-{
-    Movebase_cmd=new QProcess;
-    Movebase_cmd->start("bash");
-    Movebase_cmd->write(ui.textEdit_Movebase_cmd->toPlainText().toLocal8Bit()+"\n");
-    connect(Movebase_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_movebase_output()));
-    connect(Movebase_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_movebase_output()));
-
-}
-void MainWindow::slot_movebase_output()
-{
-    ui.textEdit_movebaseDisplay->append("<font color=\"#FF0000\">"+Movebase_cmd->readAllStandardError()+"</font>");
-    ui.textEdit_movebaseDisplay->append("<font color=\"#FFFFFF\">"+Movebase_cmd->readAllStandardOutput()+"</font>");
-}
 void MainWindow::slot_goal_clear()
 {
     ui.goals_display->clear();
@@ -1130,7 +1194,7 @@ void MainWindow::slot_goal_start()
            ui.goals_display->append("<font color=\"#8B008B\">"+display_status+"</font>");
        }
    }
-   /*else{
+   else{
        if(g_carStartLatitude!=0&&g_carStartLontitude!=0){
           Vector7d temp;
           g_locationConverter.Reset(g_carStartLatitude, g_carStartLontitude, 0);
@@ -1150,7 +1214,7 @@ void MainWindow::slot_goal_start()
           display_status = "起点坐标有问题，请检查后再尝试！";
           ui.goals_display->append("<font color=\"#FF0000\">"+display_status+"</font>");
        }
-   }*/
+   }
    if(g_finalGoals.size()==0){
        display_status = "目标点容器为空，请填充目标点后再试！";
        ui.goals_display->append("<font color=\"#FF0000\">"+display_status+"</font>");
@@ -1295,23 +1359,35 @@ void MainWindow::slot_dispaly_gpsdata(){
 
 
 MainWindow::~MainWindow() {
-    if(Qudong_cmd){
-//        Qudong_cmd->close();
-        delete Qudong_cmd;
-        Qudong_cmd = nullptr;
-//        Qudong_cmd->waitForFinished();
+    if(node1_cmd){
+        node1_cmd->close();
+        delete node1_cmd;
+        node1_cmd = nullptr;
     }
-    if(Location_cmd){
-        Location_cmd->close();
-        delete Location_cmd;
-        Location_cmd = nullptr;
-//        Location_cmd->waitForFinished();
+    if(node2_cmd){
+        node2_cmd->close();
+        delete node2_cmd;
+        node2_cmd = nullptr;
     }
-    if(Movebase_cmd){
-        Movebase_cmd->close();
-        delete Movebase_cmd;
-        Movebase_cmd = nullptr;
-//        Movebase_cmd->waitForFinished();
+    if(node3_cmd){
+        node3_cmd->close();
+        delete node3_cmd;
+        node3_cmd = nullptr;
+    }
+    if(node4_cmd){
+        node4_cmd->close();
+        delete node4_cmd;
+        node4_cmd = nullptr;
+    }
+    if(node5_cmd){
+        node5_cmd->close();
+        delete node5_cmd;
+        node5_cmd = nullptr;
+    }
+    if(node6_cmd){
+        node6_cmd->close();
+        delete node6_cmd;
+        node6_cmd = nullptr;
     }
 }
 
@@ -1413,6 +1489,10 @@ void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacl
 void MainWindow::DisplayMBMsg(const QString& msg){
    ui.goals_display->append("<font color=\"#4B0082\">" + msg +"</font>");
 }
+void MainWindow::DisplayDisMsg(const QString& msg){
+   ui.textEdit_dis->append("<font color=\"#4B0082\">" + msg +"</font>");
+}
+
 void MainWindow::DisplayOdomMsg(const QString& msg){
    if(msg=="当前小车位姿信息如下-----------------------------------------------------------------------------------"){
       ui.textEdit_odomData->append("<font color=\"#0000CD\">" + msg +"</font>");
@@ -2175,19 +2255,6 @@ void MainWindow::on_checkbox_use_environment_stateChanged(int state) {
 }
 
 /*****************************************************************************
-** Implemenation [Slots][manually connected]
-*****************************************************************************/
-
-/**
- * This function is signalled by the underlying model. When the model changes,
- * this will drop the cursor down to the last line in the QListview to ensure
- * the user can always see the latest log message.
- */
-void MainWindow::updateLoggingView() {
-        ui.view_logging->scrollToBottom();
-}
-
-/*****************************************************************************
 ** Implementation [Menu]
 *****************************************************************************/
 
@@ -2302,11 +2369,14 @@ bool MainWindow::out_of_china(double lng,double lat)
 *************************************************/
 void robot_qt::MainWindow::on_btn_loadmap_clicked()
 {
-    if(istrueCar){
-       g_mapView->load(QUrl("file:///home/lab307/catkin_qt/src/robot_qt/src/map_tcp.html"));
-    }else{
-       g_mapView->load(QUrl("file:///home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/map_tcp.html"));
-    }
+    g_mapView->load(QUrl("file:///home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/map_tcp.html"));
+//    if(istrueCar){
+//       g_mapView->load(QUrl("file:///home/lab307/catkin_qt/src/robot_qt/src/map_tcp.html"));
+//    }else{
+//       g_mapView->load(QUrl("file:///home/czh/study_code/QT_study/catkin_qt/src/robot_qt/src/map_tcp.html"));
+
+
+//    }
 
 }
 

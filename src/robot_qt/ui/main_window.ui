@@ -1050,7 +1050,7 @@ QPushButton:pressed{
          <locale language="English" country="Australia"/>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <property name="tabBarAutoHide">
          <bool>false</bool>
@@ -1075,7 +1075,7 @@ QPushButton:pressed{
              </size>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_10">
              <attribute name="title">
@@ -1085,11 +1085,11 @@ QPushButton:pressed{
               <item row="0" column="0">
                <widget class="QGroupBox" name="groupBox_7">
                 <property name="title">
-                 <string>重定位节点开启</string>
+                 <string>节点开启</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout">
                  <item>
-                  <widget class="QTextEdit" name="textEdit_locationDisplay">
+                  <widget class="QTextEdit" name="textEdit_node1Display">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1110,7 +1110,7 @@ QPushButton:pressed{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_8">
                    <item>
-                    <widget class="QTextEdit" name="textEdit_location_cmd">
+                    <widget class="QTextEdit" name="textEdit_node1_cmd">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1126,9 +1126,9 @@ QPushButton:pressed{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_LocationStart">
+                    <widget class="QPushButton" name="btn_node1">
                      <property name="text">
-                      <string>打开重定位</string>
+                      <string>打开</string>
                      </property>
                     </widget>
                    </item>
@@ -1140,11 +1140,11 @@ QPushButton:pressed{
               <item row="0" column="1">
                <widget class="QGroupBox" name="groupBox_8">
                 <property name="title">
-                 <string>运动节点开启</string>
+                 <string>节点开启</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <item>
-                  <widget class="QTextEdit" name="textEdit_movebaseDisplay">
+                  <widget class="QTextEdit" name="textEdit_node2Display">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1165,7 +1165,7 @@ QPushButton:pressed{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_9">
                    <item>
-                    <widget class="QTextEdit" name="textEdit_Movebase_cmd">
+                    <widget class="QTextEdit" name="textEdit_node2_cmd">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1181,9 +1181,9 @@ QPushButton:pressed{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_MoveBaseStart">
+                    <widget class="QPushButton" name="btn_node2">
                      <property name="text">
-                      <string>打开运动控制</string>
+                      <string>打开</string>
                      </property>
                     </widget>
                    </item>
@@ -1195,11 +1195,11 @@ QPushButton:pressed{
               <item row="0" column="2" colspan="2">
                <widget class="QGroupBox" name="groupBox_6">
                 <property name="title">
-                 <string>驱动节点开启</string>
+                 <string>节点开启</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
-                  <widget class="QTextEdit" name="textEdit_QudongDisplay">
+                  <widget class="QTextEdit" name="textEdit_node3Display">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1220,7 +1220,7 @@ QPushButton:pressed{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_17">
                    <item>
-                    <widget class="QTextEdit" name="textEdit_qudong_cmd">
+                    <widget class="QTextEdit" name="textEdit_node3_cmd">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1236,9 +1236,9 @@ QPushButton:pressed{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_QudongStart">
+                    <widget class="QPushButton" name="btn_node3">
                      <property name="text">
-                      <string>打开驱动</string>
+                      <string>打开</string>
                      </property>
                     </widget>
                    </item>
@@ -1262,11 +1262,11 @@ QPushButton:pressed{
                  </size>
                 </property>
                 <property name="title">
-                 <string>GroupBox</string>
+                 <string>节点开启</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
-                  <widget class="QTextEdit" name="textEdit_RslidarDisplay_4">
+                  <widget class="QTextEdit" name="textEdit_node4Display">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1287,7 +1287,7 @@ QPushButton:pressed{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_18">
                    <item>
-                    <widget class="QTextEdit" name="textEdit_lasersdk_cmd_4">
+                    <widget class="QTextEdit" name="textEdit_node4_cmd">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1303,7 +1303,7 @@ QPushButton:pressed{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_laserStart_4">
+                    <widget class="QPushButton" name="btn_node4">
                      <property name="text">
                       <string>打开</string>
                      </property>
@@ -1329,11 +1329,11 @@ QPushButton:pressed{
                  </size>
                 </property>
                 <property name="title">
-                 <string>GroupBox</string>
+                 <string>节点开启</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_12">
                  <item>
-                  <widget class="QTextEdit" name="textEdit_RslidarDisplay_5">
+                  <widget class="QTextEdit" name="textEdit_node5Display">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1354,7 +1354,7 @@ QPushButton:pressed{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_20">
                    <item>
-                    <widget class="QTextEdit" name="textEdit_lasersdk_cmd_5">
+                    <widget class="QTextEdit" name="textEdit_node5_cmd">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1370,7 +1370,7 @@ QPushButton:pressed{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_laserStart_5">
+                    <widget class="QPushButton" name="btn_node5">
                      <property name="text">
                       <string>打开</string>
                      </property>
@@ -1396,11 +1396,11 @@ QPushButton:pressed{
                  </size>
                 </property>
                 <property name="title">
-                 <string>GroupBox</string>
+                 <string>节点开启</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_23">
                  <item>
-                  <widget class="QTextEdit" name="textEdit_RslidarDisplay_6">
+                  <widget class="QTextEdit" name="textEdit_node6Display">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1421,7 +1421,7 @@ QPushButton:pressed{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_21">
                    <item>
-                    <widget class="QTextEdit" name="textEdit_lasersdk_cmd_6">
+                    <widget class="QTextEdit" name="textEdit_node6_cmd">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -1437,7 +1437,7 @@ QPushButton:pressed{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_laserStart_6">
+                    <widget class="QPushButton" name="btn_node6">
                      <property name="text">
                       <string>打开</string>
                      </property>
@@ -1456,119 +1456,85 @@ QPushButton:pressed{
              </attribute>
              <layout class="QHBoxLayout" name="horizontalLayout_23">
               <item>
-               <widget class="QGroupBox" name="groupBox_12">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="title">
-                 <string>日志回显输出</string>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_2">
+               <widget class="QWidget" name="widget_14" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_27">
                  <item>
-                  <widget class="QListView" name="view_logging">
-                   <property name="maximumSize">
-                    <size>
-                     <width>1000000</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
+                  <widget class="QWidget" name="widget_13" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_22">
+                    <item>
+                     <widget class="QLabel" name="label_29">
+                      <property name="minimumSize">
+                       <size>
+                        <width>150</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>150</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>21</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>话题列表：</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_12">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>693</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="refreash_topic_btn">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>120</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>ArrowCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="text">
+                       <string>刷新</string>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>:/images/refreash.png</normaloff>:/images/refreash.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableView" name="tableView_topic"/>
                  </item>
                 </layout>
                </widget>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_27">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_22">
-                  <item>
-                   <widget class="QLabel" name="label_29">
-                    <property name="minimumSize">
-                     <size>
-                      <width>150</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>150</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>21</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>话题列表：</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_12">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>378</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="refreash_topic_btn">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>120</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="cursor">
-                     <cursorShape>ArrowCursor</cursorShape>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>刷新</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>:/images/refreash.png</normaloff>:/images/refreash.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QListWidget" name="topic_listWidget">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>10000</width>
-                    <height>10000</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
               </item>
              </layout>
             </widget>
@@ -2656,6 +2622,22 @@ QPushButton:pressed{
                      </widget>
                     </item>
                    </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="textEdit_dis">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>120</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>120</height>
+                    </size>
+                   </property>
                   </widget>
                  </item>
                  <item>

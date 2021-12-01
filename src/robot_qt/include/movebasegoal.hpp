@@ -29,6 +29,8 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <cmath>
+#include <math.h>
+#include <QVector>
 //#include <algorithm>
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 /*****************************************************************************
@@ -57,7 +59,8 @@ public:
     size_t m_currentInd = 0;
     size_t m_lastInd = -1;
     QString msg;
-    bool istrueCar = true;
+    vector<double> Disjudge;
+    bool istrueCar = false;
     float sum = 0.0;
     float last_x = 0.0;
     float last_y = 0.0;
@@ -79,6 +82,7 @@ public:
 Q_SIGNALS:
     void rosShutdown();
     void updateMBMsg(const QString& Msg);
+    void updateDisMsg(const QString& Msg);
     void updateOdomData(const QString& Msg);
     void updategoalMsg(const QString& Msg1,const QString& Msg2);
     void updateOdomDisData(const QString& Msg);

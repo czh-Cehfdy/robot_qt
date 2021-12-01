@@ -231,6 +231,10 @@ void movebasegoal::getGoalPoints(const vector<Vector7d>& goals){
 //        }
 //     }
 //    else{
+        vector<Vector7d>().swap(m_goalPoints);
+        vector<double>().swap(Disjudge);
+        m_goalPoints.clear();
+        Disjudge.clear();
         m_goalPoints = goals;
         msg = "成功调用getGoalPoints函数获取新的系列目标点!!!";
         emit updateMBMsg(msg);
@@ -239,9 +243,26 @@ void movebasegoal::getGoalPoints(const vector<Vector7d>& goals){
             msg = "已收到所有目标点信息！下面是详细信息：";
             emit updateMBMsg(msg);
             for(size_t i = 0; i< m_goalPoints.size();++i){
-             msg = "第"+QString::number(i)+"个目标点信息为："+QString("%0，%1,%2,%3").arg(m_goalPoints[i][0])
-                     .arg(m_goalPoints[i][1]).arg(m_goalPoints[i][2]).arg(m_goalPoints[i][3]);
+             msg = "第"+QString::number(i)+"个目标点信息为："+QString("%0，%1").arg(m_goalPoints[i][0])
+                     .arg(m_goalPoints[i][1]);
             emit updateMBMsg(msg);
+            }
+         }
+        if(goals.begin()!=goals.end())
+        {
+            for(size_t i = 0; i< goals.size();++i){
+                if(i==0){
+                    double dis = sqrt(pow(goals[i][0]-0.0,2)+pow(goals[i][1]-0.0,2));
+                    Disjudge.push_back(dis);
+                    QString msg1 = QString("Dis(%0，%1)距离为：").arg(i+1).arg(0)+QString("%0").arg(dis);
+                    emit updateDisMsg(msg1);
+                }
+                else{
+                    double dis = sqrt(pow(goals[i][0]-goals[i-1][0],2)+pow(goals[i][1]-goals[i-1][1],2));
+                    Disjudge.push_back(dis);
+                    QString msg1 = QString("Dis(%0，%1)距离为：").arg(i+1).arg(i)+QString("%0").arg(dis);
+                    emit updateDisMsg(msg1);
+                }
             }
          }
         count_first = 0;
@@ -259,7 +280,7 @@ void movebasegoal::run() {
     }else{
        QString msgstatus = "true";
        emit updatestatusMsg(msgstatus);
-       odom_sub=nh.subscribe("odometry/imu_incremental",10,&movebasegoal::odom_callback,this);
+       odom_sub=nh.subscribe("odometry/imu",10,&movebasegoal::odom_callback,this);
     }
     goals_pub = nh.advertise<geometry_msgs::PoseStamped>("move_base_simple/goal", 10);
 

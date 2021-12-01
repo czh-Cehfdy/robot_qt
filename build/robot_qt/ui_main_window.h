@@ -22,8 +22,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -32,6 +30,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QTreeWidget>
@@ -146,51 +145,50 @@ public:
     QGridLayout *gridLayout;
     QGroupBox *groupBox_7;
     QVBoxLayout *verticalLayout;
-    QTextEdit *textEdit_locationDisplay;
+    QTextEdit *textEdit_node1Display;
     QHBoxLayout *horizontalLayout_8;
-    QTextEdit *textEdit_location_cmd;
-    QPushButton *btn_LocationStart;
+    QTextEdit *textEdit_node1_cmd;
+    QPushButton *btn_node1;
     QGroupBox *groupBox_8;
     QVBoxLayout *verticalLayout_9;
-    QTextEdit *textEdit_movebaseDisplay;
+    QTextEdit *textEdit_node2Display;
     QHBoxLayout *horizontalLayout_9;
-    QTextEdit *textEdit_Movebase_cmd;
-    QPushButton *btn_MoveBaseStart;
+    QTextEdit *textEdit_node2_cmd;
+    QPushButton *btn_node2;
     QGroupBox *groupBox_6;
     QVBoxLayout *verticalLayout_10;
-    QTextEdit *textEdit_QudongDisplay;
+    QTextEdit *textEdit_node3Display;
     QHBoxLayout *horizontalLayout_17;
-    QTextEdit *textEdit_qudong_cmd;
-    QPushButton *btn_QudongStart;
+    QTextEdit *textEdit_node3_cmd;
+    QPushButton *btn_node3;
     QGroupBox *groupBox_9;
     QVBoxLayout *verticalLayout_11;
-    QTextEdit *textEdit_RslidarDisplay_4;
+    QTextEdit *textEdit_node4Display;
     QHBoxLayout *horizontalLayout_18;
-    QTextEdit *textEdit_lasersdk_cmd_4;
-    QPushButton *btn_laserStart_4;
+    QTextEdit *textEdit_node4_cmd;
+    QPushButton *btn_node4;
     QGroupBox *groupBox_10;
     QVBoxLayout *verticalLayout_12;
-    QTextEdit *textEdit_RslidarDisplay_5;
+    QTextEdit *textEdit_node5Display;
     QHBoxLayout *horizontalLayout_20;
-    QTextEdit *textEdit_lasersdk_cmd_5;
-    QPushButton *btn_laserStart_5;
+    QTextEdit *textEdit_node5_cmd;
+    QPushButton *btn_node5;
     QGroupBox *groupBox_11;
     QVBoxLayout *verticalLayout_23;
-    QTextEdit *textEdit_RslidarDisplay_6;
+    QTextEdit *textEdit_node6Display;
     QHBoxLayout *horizontalLayout_21;
-    QTextEdit *textEdit_lasersdk_cmd_6;
-    QPushButton *btn_laserStart_6;
+    QTextEdit *textEdit_node6_cmd;
+    QPushButton *btn_node6;
     QWidget *tab_11;
     QHBoxLayout *horizontalLayout_23;
-    QGroupBox *groupBox_12;
-    QVBoxLayout *verticalLayout_2;
-    QListView *view_logging;
+    QWidget *widget_14;
     QVBoxLayout *verticalLayout_27;
+    QWidget *widget_13;
     QHBoxLayout *horizontalLayout_22;
     QLabel *label_29;
     QSpacerItem *horizontalSpacer_12;
     QPushButton *refreash_topic_btn;
-    QListWidget *topic_listWidget;
+    QTableView *tableView_topic;
     QWidget *tab_map;
     QVBoxLayout *verticalLayout_22;
     QLabel *label_map;
@@ -274,6 +272,7 @@ public:
     QLabel *label_36;
     QLineEdit *lineEdit_total;
     QLabel *label_37;
+    QTextEdit *textEdit_dis;
     QHBoxLayout *horizontalLayout_51;
     QLabel *label_38;
     QSpacerItem *horizontalSpacer_29;
@@ -982,27 +981,27 @@ public:
         groupBox_7->setObjectName(QStringLiteral("groupBox_7"));
         verticalLayout = new QVBoxLayout(groupBox_7);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        textEdit_locationDisplay = new QTextEdit(groupBox_7);
-        textEdit_locationDisplay->setObjectName(QStringLiteral("textEdit_locationDisplay"));
-        textEdit_locationDisplay->setMinimumSize(QSize(0, 0));
-        textEdit_locationDisplay->setMaximumSize(QSize(16777215, 16777215));
-        textEdit_locationDisplay->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
+        textEdit_node1Display = new QTextEdit(groupBox_7);
+        textEdit_node1Display->setObjectName(QStringLiteral("textEdit_node1Display"));
+        textEdit_node1Display->setMinimumSize(QSize(0, 0));
+        textEdit_node1Display->setMaximumSize(QSize(16777215, 16777215));
+        textEdit_node1Display->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
 
-        verticalLayout->addWidget(textEdit_locationDisplay);
+        verticalLayout->addWidget(textEdit_node1Display);
 
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        textEdit_location_cmd = new QTextEdit(groupBox_7);
-        textEdit_location_cmd->setObjectName(QStringLiteral("textEdit_location_cmd"));
-        textEdit_location_cmd->setMinimumSize(QSize(0, 0));
-        textEdit_location_cmd->setMaximumSize(QSize(16777215, 60));
+        textEdit_node1_cmd = new QTextEdit(groupBox_7);
+        textEdit_node1_cmd->setObjectName(QStringLiteral("textEdit_node1_cmd"));
+        textEdit_node1_cmd->setMinimumSize(QSize(0, 0));
+        textEdit_node1_cmd->setMaximumSize(QSize(16777215, 60));
 
-        horizontalLayout_8->addWidget(textEdit_location_cmd);
+        horizontalLayout_8->addWidget(textEdit_node1_cmd);
 
-        btn_LocationStart = new QPushButton(groupBox_7);
-        btn_LocationStart->setObjectName(QStringLiteral("btn_LocationStart"));
+        btn_node1 = new QPushButton(groupBox_7);
+        btn_node1->setObjectName(QStringLiteral("btn_node1"));
 
-        horizontalLayout_8->addWidget(btn_LocationStart);
+        horizontalLayout_8->addWidget(btn_node1);
 
 
         verticalLayout->addLayout(horizontalLayout_8);
@@ -1014,27 +1013,27 @@ public:
         groupBox_8->setObjectName(QStringLiteral("groupBox_8"));
         verticalLayout_9 = new QVBoxLayout(groupBox_8);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        textEdit_movebaseDisplay = new QTextEdit(groupBox_8);
-        textEdit_movebaseDisplay->setObjectName(QStringLiteral("textEdit_movebaseDisplay"));
-        textEdit_movebaseDisplay->setMinimumSize(QSize(0, 0));
-        textEdit_movebaseDisplay->setMaximumSize(QSize(16777215, 16777215));
-        textEdit_movebaseDisplay->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
+        textEdit_node2Display = new QTextEdit(groupBox_8);
+        textEdit_node2Display->setObjectName(QStringLiteral("textEdit_node2Display"));
+        textEdit_node2Display->setMinimumSize(QSize(0, 0));
+        textEdit_node2Display->setMaximumSize(QSize(16777215, 16777215));
+        textEdit_node2Display->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
 
-        verticalLayout_9->addWidget(textEdit_movebaseDisplay);
+        verticalLayout_9->addWidget(textEdit_node2Display);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        textEdit_Movebase_cmd = new QTextEdit(groupBox_8);
-        textEdit_Movebase_cmd->setObjectName(QStringLiteral("textEdit_Movebase_cmd"));
-        textEdit_Movebase_cmd->setMinimumSize(QSize(0, 0));
-        textEdit_Movebase_cmd->setMaximumSize(QSize(16777215, 60));
+        textEdit_node2_cmd = new QTextEdit(groupBox_8);
+        textEdit_node2_cmd->setObjectName(QStringLiteral("textEdit_node2_cmd"));
+        textEdit_node2_cmd->setMinimumSize(QSize(0, 0));
+        textEdit_node2_cmd->setMaximumSize(QSize(16777215, 60));
 
-        horizontalLayout_9->addWidget(textEdit_Movebase_cmd);
+        horizontalLayout_9->addWidget(textEdit_node2_cmd);
 
-        btn_MoveBaseStart = new QPushButton(groupBox_8);
-        btn_MoveBaseStart->setObjectName(QStringLiteral("btn_MoveBaseStart"));
+        btn_node2 = new QPushButton(groupBox_8);
+        btn_node2->setObjectName(QStringLiteral("btn_node2"));
 
-        horizontalLayout_9->addWidget(btn_MoveBaseStart);
+        horizontalLayout_9->addWidget(btn_node2);
 
 
         verticalLayout_9->addLayout(horizontalLayout_9);
@@ -1046,27 +1045,27 @@ public:
         groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
         verticalLayout_10 = new QVBoxLayout(groupBox_6);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        textEdit_QudongDisplay = new QTextEdit(groupBox_6);
-        textEdit_QudongDisplay->setObjectName(QStringLiteral("textEdit_QudongDisplay"));
-        textEdit_QudongDisplay->setMinimumSize(QSize(0, 0));
-        textEdit_QudongDisplay->setMaximumSize(QSize(16777215, 16777215));
-        textEdit_QudongDisplay->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
+        textEdit_node3Display = new QTextEdit(groupBox_6);
+        textEdit_node3Display->setObjectName(QStringLiteral("textEdit_node3Display"));
+        textEdit_node3Display->setMinimumSize(QSize(0, 0));
+        textEdit_node3Display->setMaximumSize(QSize(16777215, 16777215));
+        textEdit_node3Display->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
 
-        verticalLayout_10->addWidget(textEdit_QudongDisplay);
+        verticalLayout_10->addWidget(textEdit_node3Display);
 
         horizontalLayout_17 = new QHBoxLayout();
         horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
-        textEdit_qudong_cmd = new QTextEdit(groupBox_6);
-        textEdit_qudong_cmd->setObjectName(QStringLiteral("textEdit_qudong_cmd"));
-        textEdit_qudong_cmd->setMinimumSize(QSize(0, 0));
-        textEdit_qudong_cmd->setMaximumSize(QSize(16777215, 60));
+        textEdit_node3_cmd = new QTextEdit(groupBox_6);
+        textEdit_node3_cmd->setObjectName(QStringLiteral("textEdit_node3_cmd"));
+        textEdit_node3_cmd->setMinimumSize(QSize(0, 0));
+        textEdit_node3_cmd->setMaximumSize(QSize(16777215, 60));
 
-        horizontalLayout_17->addWidget(textEdit_qudong_cmd);
+        horizontalLayout_17->addWidget(textEdit_node3_cmd);
 
-        btn_QudongStart = new QPushButton(groupBox_6);
-        btn_QudongStart->setObjectName(QStringLiteral("btn_QudongStart"));
+        btn_node3 = new QPushButton(groupBox_6);
+        btn_node3->setObjectName(QStringLiteral("btn_node3"));
 
-        horizontalLayout_17->addWidget(btn_QudongStart);
+        horizontalLayout_17->addWidget(btn_node3);
 
 
         verticalLayout_10->addLayout(horizontalLayout_17);
@@ -1080,27 +1079,27 @@ public:
         groupBox_9->setMaximumSize(QSize(500, 16777215));
         verticalLayout_11 = new QVBoxLayout(groupBox_9);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        textEdit_RslidarDisplay_4 = new QTextEdit(groupBox_9);
-        textEdit_RslidarDisplay_4->setObjectName(QStringLiteral("textEdit_RslidarDisplay_4"));
-        textEdit_RslidarDisplay_4->setMinimumSize(QSize(0, 0));
-        textEdit_RslidarDisplay_4->setMaximumSize(QSize(16777215, 16777215));
-        textEdit_RslidarDisplay_4->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
+        textEdit_node4Display = new QTextEdit(groupBox_9);
+        textEdit_node4Display->setObjectName(QStringLiteral("textEdit_node4Display"));
+        textEdit_node4Display->setMinimumSize(QSize(0, 0));
+        textEdit_node4Display->setMaximumSize(QSize(16777215, 16777215));
+        textEdit_node4Display->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
 
-        verticalLayout_11->addWidget(textEdit_RslidarDisplay_4);
+        verticalLayout_11->addWidget(textEdit_node4Display);
 
         horizontalLayout_18 = new QHBoxLayout();
         horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
-        textEdit_lasersdk_cmd_4 = new QTextEdit(groupBox_9);
-        textEdit_lasersdk_cmd_4->setObjectName(QStringLiteral("textEdit_lasersdk_cmd_4"));
-        textEdit_lasersdk_cmd_4->setMinimumSize(QSize(0, 0));
-        textEdit_lasersdk_cmd_4->setMaximumSize(QSize(16777215, 60));
+        textEdit_node4_cmd = new QTextEdit(groupBox_9);
+        textEdit_node4_cmd->setObjectName(QStringLiteral("textEdit_node4_cmd"));
+        textEdit_node4_cmd->setMinimumSize(QSize(0, 0));
+        textEdit_node4_cmd->setMaximumSize(QSize(16777215, 60));
 
-        horizontalLayout_18->addWidget(textEdit_lasersdk_cmd_4);
+        horizontalLayout_18->addWidget(textEdit_node4_cmd);
 
-        btn_laserStart_4 = new QPushButton(groupBox_9);
-        btn_laserStart_4->setObjectName(QStringLiteral("btn_laserStart_4"));
+        btn_node4 = new QPushButton(groupBox_9);
+        btn_node4->setObjectName(QStringLiteral("btn_node4"));
 
-        horizontalLayout_18->addWidget(btn_laserStart_4);
+        horizontalLayout_18->addWidget(btn_node4);
 
 
         verticalLayout_11->addLayout(horizontalLayout_18);
@@ -1114,27 +1113,27 @@ public:
         groupBox_10->setMaximumSize(QSize(500, 16777215));
         verticalLayout_12 = new QVBoxLayout(groupBox_10);
         verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
-        textEdit_RslidarDisplay_5 = new QTextEdit(groupBox_10);
-        textEdit_RslidarDisplay_5->setObjectName(QStringLiteral("textEdit_RslidarDisplay_5"));
-        textEdit_RslidarDisplay_5->setMinimumSize(QSize(0, 0));
-        textEdit_RslidarDisplay_5->setMaximumSize(QSize(16777215, 16777215));
-        textEdit_RslidarDisplay_5->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
+        textEdit_node5Display = new QTextEdit(groupBox_10);
+        textEdit_node5Display->setObjectName(QStringLiteral("textEdit_node5Display"));
+        textEdit_node5Display->setMinimumSize(QSize(0, 0));
+        textEdit_node5Display->setMaximumSize(QSize(16777215, 16777215));
+        textEdit_node5Display->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
 
-        verticalLayout_12->addWidget(textEdit_RslidarDisplay_5);
+        verticalLayout_12->addWidget(textEdit_node5Display);
 
         horizontalLayout_20 = new QHBoxLayout();
         horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
-        textEdit_lasersdk_cmd_5 = new QTextEdit(groupBox_10);
-        textEdit_lasersdk_cmd_5->setObjectName(QStringLiteral("textEdit_lasersdk_cmd_5"));
-        textEdit_lasersdk_cmd_5->setMinimumSize(QSize(0, 0));
-        textEdit_lasersdk_cmd_5->setMaximumSize(QSize(16777215, 60));
+        textEdit_node5_cmd = new QTextEdit(groupBox_10);
+        textEdit_node5_cmd->setObjectName(QStringLiteral("textEdit_node5_cmd"));
+        textEdit_node5_cmd->setMinimumSize(QSize(0, 0));
+        textEdit_node5_cmd->setMaximumSize(QSize(16777215, 60));
 
-        horizontalLayout_20->addWidget(textEdit_lasersdk_cmd_5);
+        horizontalLayout_20->addWidget(textEdit_node5_cmd);
 
-        btn_laserStart_5 = new QPushButton(groupBox_10);
-        btn_laserStart_5->setObjectName(QStringLiteral("btn_laserStart_5"));
+        btn_node5 = new QPushButton(groupBox_10);
+        btn_node5->setObjectName(QStringLiteral("btn_node5"));
 
-        horizontalLayout_20->addWidget(btn_laserStart_5);
+        horizontalLayout_20->addWidget(btn_node5);
 
 
         verticalLayout_12->addLayout(horizontalLayout_20);
@@ -1148,27 +1147,27 @@ public:
         groupBox_11->setMaximumSize(QSize(500, 16777215));
         verticalLayout_23 = new QVBoxLayout(groupBox_11);
         verticalLayout_23->setObjectName(QStringLiteral("verticalLayout_23"));
-        textEdit_RslidarDisplay_6 = new QTextEdit(groupBox_11);
-        textEdit_RslidarDisplay_6->setObjectName(QStringLiteral("textEdit_RslidarDisplay_6"));
-        textEdit_RslidarDisplay_6->setMinimumSize(QSize(0, 0));
-        textEdit_RslidarDisplay_6->setMaximumSize(QSize(16777215, 16777215));
-        textEdit_RslidarDisplay_6->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
+        textEdit_node6Display = new QTextEdit(groupBox_11);
+        textEdit_node6Display->setObjectName(QStringLiteral("textEdit_node6Display"));
+        textEdit_node6Display->setMinimumSize(QSize(0, 0));
+        textEdit_node6Display->setMaximumSize(QSize(16777215, 16777215));
+        textEdit_node6Display->setStyleSheet(QStringLiteral("background:rgb(0, 0, 0)"));
 
-        verticalLayout_23->addWidget(textEdit_RslidarDisplay_6);
+        verticalLayout_23->addWidget(textEdit_node6Display);
 
         horizontalLayout_21 = new QHBoxLayout();
         horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
-        textEdit_lasersdk_cmd_6 = new QTextEdit(groupBox_11);
-        textEdit_lasersdk_cmd_6->setObjectName(QStringLiteral("textEdit_lasersdk_cmd_6"));
-        textEdit_lasersdk_cmd_6->setMinimumSize(QSize(0, 0));
-        textEdit_lasersdk_cmd_6->setMaximumSize(QSize(16777215, 60));
+        textEdit_node6_cmd = new QTextEdit(groupBox_11);
+        textEdit_node6_cmd->setObjectName(QStringLiteral("textEdit_node6_cmd"));
+        textEdit_node6_cmd->setMinimumSize(QSize(0, 0));
+        textEdit_node6_cmd->setMaximumSize(QSize(16777215, 60));
 
-        horizontalLayout_21->addWidget(textEdit_lasersdk_cmd_6);
+        horizontalLayout_21->addWidget(textEdit_node6_cmd);
 
-        btn_laserStart_6 = new QPushButton(groupBox_11);
-        btn_laserStart_6->setObjectName(QStringLiteral("btn_laserStart_6"));
+        btn_node6 = new QPushButton(groupBox_11);
+        btn_node6->setObjectName(QStringLiteral("btn_node6"));
 
-        horizontalLayout_21->addWidget(btn_laserStart_6);
+        horizontalLayout_21->addWidget(btn_node6);
 
 
         verticalLayout_23->addLayout(horizontalLayout_21);
@@ -1181,29 +1180,15 @@ public:
         tab_11->setObjectName(QStringLiteral("tab_11"));
         horizontalLayout_23 = new QHBoxLayout(tab_11);
         horizontalLayout_23->setObjectName(QStringLiteral("horizontalLayout_23"));
-        groupBox_12 = new QGroupBox(tab_11);
-        groupBox_12->setObjectName(QStringLiteral("groupBox_12"));
-        QSizePolicy sizePolicy2(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(groupBox_12->sizePolicy().hasHeightForWidth());
-        groupBox_12->setSizePolicy(sizePolicy2);
-        verticalLayout_2 = new QVBoxLayout(groupBox_12);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        view_logging = new QListView(groupBox_12);
-        view_logging->setObjectName(QStringLiteral("view_logging"));
-        view_logging->setMaximumSize(QSize(1000000, 16777215));
-
-        verticalLayout_2->addWidget(view_logging);
-
-
-        horizontalLayout_23->addWidget(groupBox_12);
-
-        verticalLayout_27 = new QVBoxLayout();
+        widget_14 = new QWidget(tab_11);
+        widget_14->setObjectName(QStringLiteral("widget_14"));
+        verticalLayout_27 = new QVBoxLayout(widget_14);
         verticalLayout_27->setObjectName(QStringLiteral("verticalLayout_27"));
-        horizontalLayout_22 = new QHBoxLayout();
+        widget_13 = new QWidget(widget_14);
+        widget_13->setObjectName(QStringLiteral("widget_13"));
+        horizontalLayout_22 = new QHBoxLayout(widget_13);
         horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
-        label_29 = new QLabel(tab_11);
+        label_29 = new QLabel(widget_13);
         label_29->setObjectName(QStringLiteral("label_29"));
         label_29->setMinimumSize(QSize(150, 0));
         label_29->setMaximumSize(QSize(150, 30));
@@ -1213,11 +1198,11 @@ public:
 
         horizontalLayout_22->addWidget(label_29);
 
-        horizontalSpacer_12 = new QSpacerItem(378, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_12 = new QSpacerItem(693, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_22->addItem(horizontalSpacer_12);
 
-        refreash_topic_btn = new QPushButton(tab_11);
+        refreash_topic_btn = new QPushButton(widget_13);
         refreash_topic_btn->setObjectName(QStringLiteral("refreash_topic_btn"));
         refreash_topic_btn->setMinimumSize(QSize(0, 0));
         refreash_topic_btn->setMaximumSize(QSize(120, 40));
@@ -1230,17 +1215,15 @@ public:
         horizontalLayout_22->addWidget(refreash_topic_btn);
 
 
-        verticalLayout_27->addLayout(horizontalLayout_22);
+        verticalLayout_27->addWidget(widget_13);
 
-        topic_listWidget = new QListWidget(tab_11);
-        topic_listWidget->setObjectName(QStringLiteral("topic_listWidget"));
-        topic_listWidget->setMinimumSize(QSize(0, 0));
-        topic_listWidget->setMaximumSize(QSize(10000, 10000));
+        tableView_topic = new QTableView(widget_14);
+        tableView_topic->setObjectName(QStringLiteral("tableView_topic"));
 
-        verticalLayout_27->addWidget(topic_listWidget);
+        verticalLayout_27->addWidget(tableView_topic);
 
 
-        horizontalLayout_23->addLayout(verticalLayout_27);
+        horizontalLayout_23->addWidget(widget_14);
 
         tabWidget_control->addTab(tab_11, QString());
 
@@ -1939,6 +1922,13 @@ public:
 
 
         verticalLayout_46->addWidget(widget_11);
+
+        textEdit_dis = new QTextEdit(widget_10);
+        textEdit_dis->setObjectName(QStringLiteral("textEdit_dis"));
+        textEdit_dis->setMinimumSize(QSize(0, 120));
+        textEdit_dis->setMaximumSize(QSize(16777215, 120));
+
+        verticalLayout_46->addWidget(textEdit_dis);
 
         horizontalLayout_51 = new QHBoxLayout();
         horizontalLayout_51->setObjectName(QStringLiteral("horizontalLayout_51"));
@@ -2753,8 +2743,8 @@ public:
         QObject::connect(action_Quit, SIGNAL(triggered()), MainWindowDesign, SLOT(close()));
 
         tabWidget->setCurrentIndex(0);
-        tab_manager->setCurrentIndex(1);
-        tabWidget_control->setCurrentIndex(0);
+        tab_manager->setCurrentIndex(0);
+        tabWidget_control->setCurrentIndex(1);
         tabWidget_4->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(2);
 
@@ -2847,20 +2837,19 @@ public:
         label_8->setText(QApplication::translate("MainWindowDesign", "\346\234\272\345\231\250\344\272\272\347\212\266\346\200\201\357\274\232", Q_NULLPTR));
         label_statue_text->setText(QApplication::translate("MainWindowDesign", "\347\246\273\347\272\277", Q_NULLPTR));
         label_robot_staue_img->setText(QString());
-        groupBox_7->setTitle(QApplication::translate("MainWindowDesign", "\351\207\215\345\256\232\344\275\215\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
-        btn_LocationStart->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200\351\207\215\345\256\232\344\275\215", Q_NULLPTR));
-        groupBox_8->setTitle(QApplication::translate("MainWindowDesign", "\350\277\220\345\212\250\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
-        btn_MoveBaseStart->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200\350\277\220\345\212\250\346\216\247\345\210\266", Q_NULLPTR));
-        groupBox_6->setTitle(QApplication::translate("MainWindowDesign", "\351\251\261\345\212\250\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
-        btn_QudongStart->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200\351\251\261\345\212\250", Q_NULLPTR));
-        groupBox_9->setTitle(QApplication::translate("MainWindowDesign", "GroupBox", Q_NULLPTR));
-        btn_laserStart_4->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
-        groupBox_10->setTitle(QApplication::translate("MainWindowDesign", "GroupBox", Q_NULLPTR));
-        btn_laserStart_5->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
-        groupBox_11->setTitle(QApplication::translate("MainWindowDesign", "GroupBox", Q_NULLPTR));
-        btn_laserStart_6->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
+        groupBox_7->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
+        btn_node1->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
+        groupBox_8->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
+        btn_node2->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
+        groupBox_6->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
+        btn_node3->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
+        groupBox_9->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
+        btn_node4->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
+        groupBox_10->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
+        btn_node5->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
+        groupBox_11->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
+        btn_node6->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
         tabWidget_control->setTabText(tabWidget_control->indexOf(tab_10), QApplication::translate("MainWindowDesign", "\350\277\234\347\250\213\346\216\247\345\210\266\345\215\225\345\205\203", Q_NULLPTR));
-        groupBox_12->setTitle(QApplication::translate("MainWindowDesign", "\346\227\245\345\277\227\345\233\236\346\230\276\350\276\223\345\207\272", Q_NULLPTR));
         label_29->setText(QApplication::translate("MainWindowDesign", "\350\257\235\351\242\230\345\210\227\350\241\250\357\274\232", Q_NULLPTR));
         refreash_topic_btn->setText(QApplication::translate("MainWindowDesign", "\345\210\267\346\226\260", Q_NULLPTR));
         tabWidget_control->setTabText(tabWidget_control->indexOf(tab_11), QApplication::translate("MainWindowDesign", "\346\266\210\346\201\257\345\233\236\346\230\276\345\215\225\345\205\203", Q_NULLPTR));

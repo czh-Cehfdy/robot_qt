@@ -145,6 +145,8 @@ QtWebChannel
 -
 QMessageBox
 -
+QStandardItemModel
+-
 QJSValue
 -
 functional
@@ -198,6 +200,10 @@ geometry_msgs/PoseStamped.h
 nav_msgs/Odometry.h
 -
 cmath
+-
+math.h
+-
+QVector
 -
 
 /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/include/qnode.hpp
@@ -6738,6 +6744,10 @@ qpen.h
 qpixmap.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
+qstandarditemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstandarditemmodel.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QSurfaceFormat
 qsurfaceformat.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qsurfaceformat.h
@@ -9220,14 +9230,6 @@ qlayout.h
 qlineedit.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView
-qlistview.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListWidget
-qlistwidget.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistwidget.h
-
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 qmainwindow.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
@@ -9271,6 +9273,10 @@ qstatusbar.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget
 qtabwidget.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
+qtableview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextBrowser
 qtextbrowser.h
@@ -10739,10 +10745,6 @@ QtWidgets/QLabel
 -
 QtWidgets/QLineEdit
 -
-QtWidgets/QListView
--
-QtWidgets/QListWidget
--
 QtWidgets/QMainWindow
 -
 QtWidgets/QMenu
@@ -10758,6 +10760,8 @@ QtWidgets/QSpacerItem
 QtWidgets/QStatusBar
 -
 QtWidgets/QTabWidget
+-
+QtWidgets/QTableView
 -
 QtWidgets/QTextBrowser
 -
