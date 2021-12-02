@@ -141,34 +141,27 @@ void MainWindow::initTopicList()
     //添加QTableView代码
     standItemModel = new QStandardItemModel();
     //添加表头
-    standItemModel->setColumnCount(3);
-    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("序号"));   //设置表头内容
-    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("话题"));
-    standItemModel->setHeaderData(2,Qt::Horizontal,QStringLiteral("类型"));
+    standItemModel->setColumnCount(2);
+    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("话题"));   //设置表头内容
+    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("类型"));
 
     QMap<QString,QString> topic_list= rostopic_list.get_topic_list();
     QMap<QString,QString>::iterator iter = topic_list.begin(),iter_end = topic_list.end();
     int i = 0;
     for (;iter != iter_end; iter++,i++){
-        QStandardItem *standItem1 = new QStandardItem(tr("%1").arg(i+1));
-        QStandardItem *standItem2 = new QStandardItem(tr("%1").arg(iter.key()));
-        QStandardItem *standItem3 = new QStandardItem(tr("%1").arg(iter.value()));
-        standItemModel->setItem(i,0,standItem1);                                //表格第i行，第0列添加一项内容
-        standItemModel->item(i,0)->setForeground(QBrush(QColor(255,0,0)));      //设置字符颜色
-        standItemModel->item(i,0)->setTextAlignment(Qt::AlignCenter);           //设置表格内容居中
+        QStandardItem *standItem1 = new QStandardItem(tr("%1").arg(iter.key()));
+        QStandardItem *standItem2 = new QStandardItem(tr("%1").arg(iter.value()));
+        standItemModel->setItem(i,0,standItem1);                                //表格第i行，第1列添加一项内容
+        standItemModel->item(i,0)->setForeground(QBrush(QColor(139,35,35)));      //设置字符颜色
+        standItemModel->item(i,0)->setTextAlignment(Qt::AlignLeft);           //设置表格内容靠左
         standItemModel->setItem(i,1,standItem2);                                //表格第i行，第1列添加一项内容
-        standItemModel->item(i,1)->setForeground(QBrush(QColor(139,35,35)));      //设置字符颜色
-        standItemModel->item(i,1)->setTextAlignment(Qt::AlignLeft);           //设置表格内容居中
-        standItemModel->setItem(i,2,standItem3);                                //表格第i行，第1列添加一项内容
-        standItemModel->item(i,2)->setForeground(QBrush(QColor(160,32,240)));      //设置字符颜色
-        standItemModel->item(i,2)->setTextAlignment(Qt::AlignLeft);           //设置表格内容居中
+        standItemModel->item(i,1)->setForeground(QBrush(QColor(160,32,240)));      //设置字符颜色
+        standItemModel->item(i,1)->setTextAlignment(Qt::AlignLeft);           //设置表格内容靠左
 
     }
-
-
-
-//       ui.topic_listWidget->addItem(QString("%1，%2").arg(iter.key()).arg(iter.value())); //,iter.value()
     ui.tableView_topic->setModel(standItemModel);    //挂载表格模型
+    ui.tableView_topic->setColumnWidth(0, 480);
+    ui.tableView_topic->setColumnWidth(1, 480);
 }
 
 /*************************************************
@@ -1164,6 +1157,35 @@ void MainWindow::slot_node6_output()
     ui.textEdit_node6Display->append("<font color=\"#FFFFFF\">"+node6_cmd->readAllStandardOutput()+"</font>");
 }
 
+
+void MainWindow::slot_update_ROSTOPIC()
+{
+    ui.tableView_topic->clearSpans();
+    //添加QTableView代码
+    standItemModel = new QStandardItemModel();
+    //添加表头
+    standItemModel->setColumnCount(2);
+    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("话题"));   //设置表头内容
+    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("类型"));
+
+    QMap<QString,QString> topic_list= rostopic_list.get_topic_list();
+    QMap<QString,QString>::iterator iter = topic_list.begin(),iter_end = topic_list.end();
+    int i = 0;
+    for (;iter != iter_end; iter++,i++){
+        QStandardItem *standItem1 = new QStandardItem(tr("%1").arg(iter.key()));
+        QStandardItem *standItem2 = new QStandardItem(tr("%1").arg(iter.value()));
+        standItemModel->setItem(i,0,standItem1);                                //表格第i行，第1列添加一项内容
+        standItemModel->item(i,0)->setForeground(QBrush(QColor(139,35,35)));      //设置字符颜色
+        standItemModel->item(i,0)->setTextAlignment(Qt::AlignLeft);           //设置表格内容靠左
+        standItemModel->setItem(i,1,standItem2);                                //表格第i行，第1列添加一项内容
+        standItemModel->item(i,1)->setForeground(QBrush(QColor(160,32,240)));      //设置字符颜色
+        standItemModel->item(i,1)->setTextAlignment(Qt::AlignLeft);           //设置表格内容靠左
+
+    }
+    ui.tableView_topic->setModel(standItemModel);    //挂载表格模型
+    ui.tableView_topic->setColumnWidth(0, 480);
+    ui.tableView_topic->setColumnWidth(1, 440);
+}
 /*****************************************************************************
 ** cmd执行终端操作
 *****************************************************************************/

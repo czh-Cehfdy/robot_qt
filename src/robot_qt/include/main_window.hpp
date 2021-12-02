@@ -188,6 +188,7 @@ public Q_SLOTS:
     void slot_node4_start();
     void slot_node5_start();
     void slot_node6_start();
+    void slot_update_ROSTOPIC();
 
     void slot_goal_start();  //发送最终导航目标点更新子线程
     void slot_goal_clear();

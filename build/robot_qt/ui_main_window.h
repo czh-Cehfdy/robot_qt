@@ -141,6 +141,17 @@ public:
     QWidget *tab_status;
     QVBoxLayout *verticalLayout_26;
     QTabWidget *tabWidget_control;
+    QWidget *tab_18;
+    QVBoxLayout *verticalLayout_27;
+    QTabWidget *tabWidget_3;
+    QWidget *tab_16;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_22;
+    QLabel *label_29;
+    QSpacerItem *horizontalSpacer_12;
+    QPushButton *refreash_topic_btn;
+    QTableView *tableView_topic;
+    QWidget *tab_17;
     QWidget *tab_10;
     QGridLayout *gridLayout;
     QGroupBox *groupBox_7;
@@ -179,16 +190,6 @@ public:
     QHBoxLayout *horizontalLayout_21;
     QTextEdit *textEdit_node6_cmd;
     QPushButton *btn_node6;
-    QWidget *tab_11;
-    QHBoxLayout *horizontalLayout_23;
-    QWidget *widget_14;
-    QVBoxLayout *verticalLayout_27;
-    QWidget *widget_13;
-    QHBoxLayout *horizontalLayout_22;
-    QLabel *label_29;
-    QSpacerItem *horizontalSpacer_12;
-    QPushButton *refreash_topic_btn;
-    QTableView *tableView_topic;
     QWidget *tab_map;
     QVBoxLayout *verticalLayout_22;
     QLabel *label_map;
@@ -973,6 +974,60 @@ public:
         tabWidget_control->setObjectName(QStringLiteral("tabWidget_control"));
         tabWidget_control->setMinimumSize(QSize(0, 0));
         tabWidget_control->setMaximumSize(QSize(16777215, 10000000));
+        tab_18 = new QWidget();
+        tab_18->setObjectName(QStringLiteral("tab_18"));
+        verticalLayout_27 = new QVBoxLayout(tab_18);
+        verticalLayout_27->setObjectName(QStringLiteral("verticalLayout_27"));
+        tabWidget_3 = new QTabWidget(tab_18);
+        tabWidget_3->setObjectName(QStringLiteral("tabWidget_3"));
+        tab_16 = new QWidget();
+        tab_16->setObjectName(QStringLiteral("tab_16"));
+        verticalLayout_2 = new QVBoxLayout(tab_16);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        horizontalLayout_22 = new QHBoxLayout();
+        horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
+        label_29 = new QLabel(tab_16);
+        label_29->setObjectName(QStringLiteral("label_29"));
+        label_29->setMinimumSize(QSize(150, 0));
+        label_29->setMaximumSize(QSize(150, 30));
+        QFont font1;
+        font1.setPointSize(18);
+        label_29->setFont(font1);
+
+        horizontalLayout_22->addWidget(label_29);
+
+        horizontalSpacer_12 = new QSpacerItem(428, 18, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_22->addItem(horizontalSpacer_12);
+
+        refreash_topic_btn = new QPushButton(tab_16);
+        refreash_topic_btn->setObjectName(QStringLiteral("refreash_topic_btn"));
+        refreash_topic_btn->setMinimumSize(QSize(0, 0));
+        refreash_topic_btn->setMaximumSize(QSize(120, 40));
+        refreash_topic_btn->setCursor(QCursor(Qt::ArrowCursor));
+        refreash_topic_btn->setStyleSheet(QStringLiteral(""));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/images/refreash.png"), QSize(), QIcon::Normal, QIcon::Off);
+        refreash_topic_btn->setIcon(icon1);
+
+        horizontalLayout_22->addWidget(refreash_topic_btn);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_22);
+
+        tableView_topic = new QTableView(tab_16);
+        tableView_topic->setObjectName(QStringLiteral("tableView_topic"));
+
+        verticalLayout_2->addWidget(tableView_topic);
+
+        tabWidget_3->addTab(tab_16, QString());
+        tab_17 = new QWidget();
+        tab_17->setObjectName(QStringLiteral("tab_17"));
+        tabWidget_3->addTab(tab_17, QString());
+
+        verticalLayout_27->addWidget(tabWidget_3);
+
+        tabWidget_control->addTab(tab_18, QString());
         tab_10 = new QWidget();
         tab_10->setObjectName(QStringLiteral("tab_10"));
         gridLayout = new QGridLayout(tab_10);
@@ -1176,56 +1231,6 @@ public:
         gridLayout->addWidget(groupBox_11, 1, 3, 1, 1);
 
         tabWidget_control->addTab(tab_10, QString());
-        tab_11 = new QWidget();
-        tab_11->setObjectName(QStringLiteral("tab_11"));
-        horizontalLayout_23 = new QHBoxLayout(tab_11);
-        horizontalLayout_23->setObjectName(QStringLiteral("horizontalLayout_23"));
-        widget_14 = new QWidget(tab_11);
-        widget_14->setObjectName(QStringLiteral("widget_14"));
-        verticalLayout_27 = new QVBoxLayout(widget_14);
-        verticalLayout_27->setObjectName(QStringLiteral("verticalLayout_27"));
-        widget_13 = new QWidget(widget_14);
-        widget_13->setObjectName(QStringLiteral("widget_13"));
-        horizontalLayout_22 = new QHBoxLayout(widget_13);
-        horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
-        label_29 = new QLabel(widget_13);
-        label_29->setObjectName(QStringLiteral("label_29"));
-        label_29->setMinimumSize(QSize(150, 0));
-        label_29->setMaximumSize(QSize(150, 30));
-        QFont font1;
-        font1.setPointSize(21);
-        label_29->setFont(font1);
-
-        horizontalLayout_22->addWidget(label_29);
-
-        horizontalSpacer_12 = new QSpacerItem(693, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_22->addItem(horizontalSpacer_12);
-
-        refreash_topic_btn = new QPushButton(widget_13);
-        refreash_topic_btn->setObjectName(QStringLiteral("refreash_topic_btn"));
-        refreash_topic_btn->setMinimumSize(QSize(0, 0));
-        refreash_topic_btn->setMaximumSize(QSize(120, 40));
-        refreash_topic_btn->setCursor(QCursor(Qt::ArrowCursor));
-        refreash_topic_btn->setStyleSheet(QStringLiteral(""));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/images/refreash.png"), QSize(), QIcon::Normal, QIcon::Off);
-        refreash_topic_btn->setIcon(icon1);
-
-        horizontalLayout_22->addWidget(refreash_topic_btn);
-
-
-        verticalLayout_27->addWidget(widget_13);
-
-        tableView_topic = new QTableView(widget_14);
-        tableView_topic->setObjectName(QStringLiteral("tableView_topic"));
-
-        verticalLayout_27->addWidget(tableView_topic);
-
-
-        horizontalLayout_23->addWidget(widget_14);
-
-        tabWidget_control->addTab(tab_11, QString());
 
         verticalLayout_26->addWidget(tabWidget_control);
 
@@ -2445,7 +2450,9 @@ public:
 
         label_7 = new QLabel(tab_5);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setFont(font1);
+        QFont font8;
+        font8.setPointSize(21);
+        label_7->setFont(font8);
 
         horizontalLayout_24->addWidget(label_7);
 
@@ -2523,9 +2530,7 @@ public:
 
         label_22 = new QLabel(widget);
         label_22->setObjectName(QStringLiteral("label_22"));
-        QFont font8;
-        font8.setPointSize(18);
-        label_22->setFont(font8);
+        label_22->setFont(font1);
         label_22->setStyleSheet(QStringLiteral("color: rgb(32, 74, 135);"));
 
         verticalLayout_36->addWidget(label_22);
@@ -2608,7 +2613,7 @@ public:
         verticalLayout_34->setObjectName(QStringLiteral("verticalLayout_34"));
         label_9 = new QLabel(tab_5);
         label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setFont(font1);
+        label_9->setFont(font8);
 
         verticalLayout_34->addWidget(label_9);
 
@@ -2744,7 +2749,8 @@ public:
 
         tabWidget->setCurrentIndex(0);
         tab_manager->setCurrentIndex(0);
-        tabWidget_control->setCurrentIndex(1);
+        tabWidget_control->setCurrentIndex(0);
+        tabWidget_3->setCurrentIndex(1);
         tabWidget_4->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(2);
 
@@ -2837,6 +2843,11 @@ public:
         label_8->setText(QApplication::translate("MainWindowDesign", "\346\234\272\345\231\250\344\272\272\347\212\266\346\200\201\357\274\232", Q_NULLPTR));
         label_statue_text->setText(QApplication::translate("MainWindowDesign", "\347\246\273\347\272\277", Q_NULLPTR));
         label_robot_staue_img->setText(QString());
+        label_29->setText(QApplication::translate("MainWindowDesign", "\350\257\235\351\242\230\345\210\227\350\241\250\357\274\232", Q_NULLPTR));
+        refreash_topic_btn->setText(QApplication::translate("MainWindowDesign", "\345\210\267\346\226\260", Q_NULLPTR));
+        tabWidget_3->setTabText(tabWidget_3->indexOf(tab_16), QApplication::translate("MainWindowDesign", "\350\257\235\351\242\230\344\277\241\346\201\257", Q_NULLPTR));
+        tabWidget_3->setTabText(tabWidget_3->indexOf(tab_17), QApplication::translate("MainWindowDesign", "\345\205\266\345\256\203", Q_NULLPTR));
+        tabWidget_control->setTabText(tabWidget_control->indexOf(tab_18), QApplication::translate("MainWindowDesign", "\346\266\210\346\201\257\345\233\236\346\230\276\345\215\225\345\205\203", Q_NULLPTR));
         groupBox_7->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
         btn_node1->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
         groupBox_8->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
@@ -2850,9 +2861,6 @@ public:
         groupBox_11->setTitle(QApplication::translate("MainWindowDesign", "\350\212\202\347\202\271\345\274\200\345\220\257", Q_NULLPTR));
         btn_node6->setText(QApplication::translate("MainWindowDesign", "\346\211\223\345\274\200", Q_NULLPTR));
         tabWidget_control->setTabText(tabWidget_control->indexOf(tab_10), QApplication::translate("MainWindowDesign", "\350\277\234\347\250\213\346\216\247\345\210\266\345\215\225\345\205\203", Q_NULLPTR));
-        label_29->setText(QApplication::translate("MainWindowDesign", "\350\257\235\351\242\230\345\210\227\350\241\250\357\274\232", Q_NULLPTR));
-        refreash_topic_btn->setText(QApplication::translate("MainWindowDesign", "\345\210\267\346\226\260", Q_NULLPTR));
-        tabWidget_control->setTabText(tabWidget_control->indexOf(tab_11), QApplication::translate("MainWindowDesign", "\346\266\210\346\201\257\345\233\236\346\230\276\345\215\225\345\205\203", Q_NULLPTR));
         tab_manager->setTabText(tab_manager->indexOf(tab_status), QApplication::translate("MainWindowDesign", "\351\200\232\344\277\241\350\277\236\346\216\245", Q_NULLPTR));
         label_map->setText(QString());
         label_11->setText(QString());
