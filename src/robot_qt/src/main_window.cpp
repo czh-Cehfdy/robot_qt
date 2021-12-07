@@ -65,11 +65,6 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
         on_button_connect_clicked();
     });
 
-    connect(ui.laser_btn,SIGNAL(clicked()),this,SLOT(()));
-
-
-
-
     connect(ui.btn_send_path,SIGNAL(clicked()),this,SLOT(slot_goal_start()));
     connect(ui.btn_clear_path_ros,SIGNAL(clicked()),this,SLOT(slot_goal_clear()));
 
@@ -101,9 +96,9 @@ void MainWindow::initVector(){
     connect(ui.pushButton_i,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));   //多个按钮链接同一个槽函数
     connect(ui.pushButton_j,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
     connect(ui.pushButton_l,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
-    connect(ui.pushButton_n,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
+    connect(ui.pushButton_back,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
     connect(ui.pushButton_m,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
-    connect(ui.pushButton_br,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
+    connect(ui.pushButton_backr,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
     connect(ui.pushButton_u,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
     connect(ui.pushButton_o,SIGNAL(clicked()),this,SLOT(slot_pushbtn_click()));
 }
@@ -114,8 +109,11 @@ void MainWindow::initUis()
     ui.btn_quit->setIcon(QIcon(":/images/quit.jpeg"));
     ui.groupBox_scout->setEnabled(false);
     ui.tab_manager->setCurrentIndex(0);
-    ui.tabWidget->setCurrentIndex(0);
     ui.btn_quit->setEnabled(false);
+
+    m_timerCurrentTime = new QTimer;
+    m_timerCurrentTime->setInterval(100);
+    m_timerCurrentTime->start();
 }
 void MainWindow::initChart(){
     //创建图表、构建系列
@@ -336,7 +334,6 @@ void MainWindow::initMap()
       });
 
     connect(ui.btn_chooseGPS,SIGNAL(clicked()),this,SLOT(slot_chooseGoalGPS()));
-    connect(ui.btn_test,SIGNAL(clicked()),this,SLOT(slot_testgpsdata()));
 
     connect(ui.btn_loadmap,&QPushButton::clicked, [&](){
         ui.btn_changeMode->setDisabled(false);
@@ -568,6 +565,11 @@ void MainWindow::initconections()
              ui.label_simulation_display->setPixmap(QPixmap(":/images/Red.png"));
              ui.label_truecar_display->setPixmap(QPixmap(":/images/Green.png"));
           }
+      });
+
+    connect(m_timerCurrentTime, &QTimer::timeout,this, [=]() {
+        ui.label_time->setText(
+            QDateTime::currentDateTime().toString("yyyy-MM-dd  hh:mm:ss  "));
       });
 
 
@@ -1069,11 +1071,10 @@ void MainWindow::slot_rosShutdown()
 {
     ui.label_robot_staue_img->setPixmap(QPixmap::fromImage(QImage(":/images/offline.png")));
     ui.label_statue_text->setStyleSheet("color:red;");
-    ui.label_statue_text->setText("离线");
+    ui.label_statue_text->setText("Offline");
     ui.btn_connect->setEnabled(true);
     ui.line_edit_master->setReadOnly(false);
     ui.line_edit_host->setReadOnly(false);
-    ui.line_edit_topic->setReadOnly(false);
 }
 /*****************************************************************************
 ** cmd执行终端命令操作函数
@@ -1256,22 +1257,6 @@ void MainWindow::slot_goal_output()
     ui.send_Pace_display->clear();
 }
 
-void MainWindow::slot_quick_cmd_clicked()
-{
-    laser_cmd=new QProcess;
-    laser_cmd->start("bash");
-    laser_cmd->write(ui.textEdit_laser_cmd->toPlainText().toLocal8Bit()+'\n');
-    connect(laser_cmd,SIGNAL(readyReadStandardError()),this,SLOT(slot_quick_output()));
-    connect(laser_cmd,SIGNAL(readyReadStandardOutput()),this,SLOT(slot_quick_output()));
-
-}
-void MainWindow::slot_quick_output()
-{
-    ui.textEdit_quick_output->append("<font color=\"#FF0000\">"+laser_cmd->readAllStandardError()+"</font>");
-    ui.textEdit_quick_output->append("<font color=\"#FFFFFF\">"+laser_cmd->readAllStandardOutput()+"</font>");
-}
-
-
 void MainWindow::slot_roscore()
 {
     cmd->start("bash");
@@ -1289,7 +1274,7 @@ void MainWindow::slot_pushbtn_click()
   QPushButton* btn=qobject_cast<QPushButton*> (sender());  //进行类型转换，可以知道是哪一个按钮发送过来的
   qDebug()<<btn->text();
   char k=btn->text().toStdString()[0];
-  bool is_all=ui.checkBox_is_all->isChecked();
+  bool is_all=ui.checkBox_use_all->isChecked();
   float linear=ui.label_linera->text().toFloat()*0.01;   //厘米
   float angular=ui.label_raw->text().toFloat()*0.01;
 
@@ -1863,7 +1848,7 @@ void MainWindow::slot_testgpsdata()
     m_xyz[2] = 0;
     if(test_longitude.empty()||test_latitude.empty())
     {
-        ui.textEdit_test->setText("要测试的数据为空，请存储好测试点后再试！");
+
     }
     else{
       //开始匹配
@@ -2202,7 +2187,6 @@ void MainWindow::on_button_connect_clicked()
             ui.label_statue_text->setStyleSheet("color:red;");
             ui.label_statue_text->setText("离线");
             ui.tab_manager->setTabEnabled(1,false); //左边显示功能栏
-            ui.tabWidget->setTabEnabled(1,false); //右边显示功能栏
             ui.treeWidget->setEnabled(false);  //因为其他地方需要获取rviz对象，如果没有连接上master,需要将其设置为不可用，防止被意外调用
             ui.groupBox_scout->setEnabled(false);
             return ;
@@ -2229,8 +2213,6 @@ void MainWindow::on_button_connect_clicked()
             ui.label_statue_text->setStyleSheet("color:red;");
             ui.label_statue_text->setText("离线");
             ui.tab_manager->setTabEnabled(1,false);
-            ui.tabWidget->setTabEnabled(1,false);
-            ui.groupBox->setEnabled(false);
             ui.groupBox_scout->setEnabled(false);
             return ;
         }
@@ -2239,7 +2221,6 @@ void MainWindow::on_button_connect_clicked()
             ui.btn_connect->setEnabled(false);
 			ui.line_edit_master->setReadOnly(true);
 			ui.line_edit_host->setReadOnly(true);
-			ui.line_edit_topic->setReadOnly(true);
             ui.treeWidget->setEnabled(true);     //连接上了master
             myrviz =new qrviz(ui.Layout_rviz);   //初始化rviz，通过传入rviz的布局，进行联系
             myrviz_ObstaclesDisplay = new qrviz(ui.verticalLayout_rviz_obs);
@@ -2247,13 +2228,12 @@ void MainWindow::on_button_connect_clicked()
 		}
 	}
     ui.tab_manager->setTabEnabled(1,true);
-    ui.tabWidget->setTabEnabled(1,true);
     ui.groupBox_scout->setEnabled(true);
     ui.btn_connect->setEnabled(false);
     ui.btn_quit->setEnabled(true);
     ui.label_robot_staue_img->setPixmap(QPixmap::fromImage(QImage(":/images/online.png")));
     ui.label_statue_text->setStyleSheet("color:green;");
-    ui.label_statue_text->setText("在线");
+    ui.label_statue_text->setText("Online");
     //显示话题列表
     initTopicList();
     ui.btn_loadmap->setDisabled(false);
@@ -2273,7 +2253,6 @@ void MainWindow::on_checkbox_use_environment_stateChanged(int state) {
 	}
 	ui.line_edit_master->setEnabled(enabled);
 	ui.line_edit_host->setEnabled(enabled);
-	//ui.line_edit_topic->setEnabled(enabled);
 }
 
 /*****************************************************************************
@@ -2297,7 +2276,6 @@ void MainWindow::ReadSettings() {
     //QString topic_name = settings.value("topic_name", QString("/chatter")).toString();
     ui.line_edit_master->setText(master_url);
     ui.line_edit_host->setText(host_url);
-    //ui.line_edit_topic->setText(topic_name);
     bool remember = settings.value("remember_settings", false).toBool();
     ui.checkbox_remember_settings->setChecked(remember);
     bool checked = settings.value("use_environment_variables", false).toBool();
@@ -2305,7 +2283,6 @@ void MainWindow::ReadSettings() {
     if ( checked ) {
     	ui.line_edit_master->setEnabled(false);
     	ui.line_edit_host->setEnabled(false);
-    	//ui.line_edit_topic->setEnabled(false);
     }
 }
 
@@ -2313,7 +2290,6 @@ void MainWindow::WriteSettings() {
     QSettings settings("Qt-Ros Package", "robot_qt");
     settings.setValue("master_url",ui.line_edit_master->text());
     settings.setValue("host_url",ui.line_edit_host->text());
-    //settings.setValue("topic_name",ui.line_edit_topic->text());
     settings.setValue("use_environment_variables",QVariant(ui.checkbox_use_environment->isChecked()));
     settings.setValue("geometry", saveGeometry());
     settings.setValue("windowState", saveState());

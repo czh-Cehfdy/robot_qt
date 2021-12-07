@@ -173,6 +173,8 @@ Eigen/Eigen
 -
 QPaintEvent
 /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/include/QPaintEvent
+QTimer
+-
 
 /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/include/movebasegoal.hpp
 ros/ros.h
@@ -4940,6 +4942,10 @@ qstringlistmodel.h
 qthread.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
+qtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl
 qurl.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
@@ -9246,6 +9252,10 @@ qmenubar.h
 qmessagebox.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QProgressBar
+qprogressbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressbar.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
 qpushbutton.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
@@ -10750,6 +10760,8 @@ QtWidgets/QMainWindow
 QtWidgets/QMenu
 -
 QtWidgets/QMenuBar
+-
+QtWidgets/QProgressBar
 -
 QtWidgets/QPushButton
 -

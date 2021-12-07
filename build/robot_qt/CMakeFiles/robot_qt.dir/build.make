@@ -149,6 +149,22 @@ robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/re
 robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/quit.jpeg
 robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/Green.png
 robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/Red.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/down.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/down_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/down_left.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/down_left_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/down_right.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/down_right_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/up.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/up_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/up_left.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/up_left_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/up_right.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/up_right_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/left.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/left_2.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/right.png
+robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images/right_2.png
 robot_qt/qrc_images.cpp: /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images.qrc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qrc_images.cpp"
 	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/lib/qt5/bin/rcc --name images --output /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/qrc_images.cpp /home/czh/study_code/QT_study/catkin_qt/src/robot_qt/resources/images.qrc

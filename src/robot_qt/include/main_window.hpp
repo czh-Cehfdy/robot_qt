@@ -56,7 +56,7 @@ QT_CHARTS_USE_NAMESPACE
 #include "LocalCartesian.hpp"
 #include <Eigen/Eigen>
 #include "QPaintEvent"
-
+#include <QTimer>
 /*****************************************************************************
 ** Namespace
 *****************************************************************************/
@@ -178,8 +178,6 @@ public Q_SLOTS:
     void slot_linera_value_change(int);
     void slot_raw_value_change(int);
     void slot_pushbtn_click();
-    void slot_quick_cmd_clicked();
-    void slot_quick_output();
     void slot_rosShutdown();   //设置机器人在线、离线
 
     void slot_node1_start();
@@ -346,6 +344,7 @@ private:
     QChart* pChart;
     QScatterSeries *series1;
     QLineSeries* pLineSeries;
+    QTimer *m_timerCurrentTime;
 
 };
 

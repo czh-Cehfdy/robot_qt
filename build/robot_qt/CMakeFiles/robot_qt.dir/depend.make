@@ -695,6 +695,7 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringListModel
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
+robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVector
@@ -1129,6 +1130,7 @@ robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
+robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QProgressBar
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollerProperties
 robot_qt/CMakeFiles/robot_qt.dir/include/moc_main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider
@@ -2810,6 +2812,7 @@ robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/q
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringListModel
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
+robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVector
@@ -3244,6 +3247,7 @@ robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/q
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
+robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QProgressBar
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollerProperties
 robot_qt/CMakeFiles/robot_qt.dir/src/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider
@@ -3982,6 +3986,7 @@ robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linu
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringListModel
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread
+robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVector
@@ -4416,6 +4421,7 @@ robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linu
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
+robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QProgressBar
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollerProperties
 robot_qt/CMakeFiles/robot_qt.dir/src/main_window.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider

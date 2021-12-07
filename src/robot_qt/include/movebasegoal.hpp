@@ -68,6 +68,7 @@ public:
     bool send_last = false;
     int reset = 0;
     bool m_qnodeStart =false;
+    int odom_count = 0;
     /*********************
     ** Logging
     **********************/
