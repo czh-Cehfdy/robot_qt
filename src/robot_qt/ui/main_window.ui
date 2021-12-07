@@ -1376,7 +1376,7 @@ QProgressBar::chunk
                          <string> Refresh</string>
                         </property>
                         <property name="icon">
-                         <iconset resource="../../../../../../test_qt/src/Ros_Qt5_Gui_App/resources/images.qrc">
+                         <iconset>
                           <normaloff>:/images/refreash.png</normaloff>:/images/refreash.png</iconset>
                         </property>
                        </widget>
@@ -2220,13 +2220,13 @@ QPushButton:pressed{
                     <widget class="QLabel" name="label_14">
                      <property name="minimumSize">
                       <size>
-                       <width>170</width>
+                       <width>100</width>
                        <height>50</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>170</width>
+                       <width>100</width>
                        <height>50</height>
                       </size>
                      </property>
@@ -2239,13 +2239,13 @@ QPushButton:pressed{
                     <widget class="QTextEdit" name="ST_GPS_display">
                      <property name="minimumSize">
                       <size>
-                       <width>450</width>
+                       <width>660</width>
                        <height>60</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>450</width>
+                       <width>660</width>
                        <height>60</height>
                       </size>
                      </property>
@@ -4526,7 +4526,6 @@ QPushButton:pressed{
  <resources>
   <include location="../resources/images.qrc"/>
   <include location="../resources/picture.qrc"/>
-  <include location="../../../../../../test_qt/src/Ros_Qt5_Gui_App/resources/images.qrc"/>
  </resources>
  <connections>
   <connection>

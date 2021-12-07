@@ -140,8 +140,8 @@ void MainWindow::initTopicList()
     standItemModel = new QStandardItemModel();
     //添加表头
     standItemModel->setColumnCount(2);
-    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("话题"));   //设置表头内容
-    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("类型"));
+    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("Topic"));   //设置表头内容
+    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("Type"));
 
     QMap<QString,QString> topic_list= rostopic_list.get_topic_list();
     QMap<QString,QString>::iterator iter = topic_list.begin(),iter_end = topic_list.end();
@@ -1166,8 +1166,8 @@ void MainWindow::slot_update_ROSTOPIC()
     standItemModel = new QStandardItemModel();
     //添加表头
     standItemModel->setColumnCount(2);
-    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("话题"));   //设置表头内容
-    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("类型"));
+    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("Topic"));   //设置表头内容
+    standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("Type"));
 
     QMap<QString,QString> topic_list= rostopic_list.get_topic_list();
     QMap<QString,QString>::iterator iter = topic_list.begin(),iter_end = topic_list.end();
@@ -1185,7 +1185,7 @@ void MainWindow::slot_update_ROSTOPIC()
     }
     ui.tableView_topic->setModel(standItemModel);    //挂载表格模型
     ui.tableView_topic->setColumnWidth(0, 480);
-    ui.tableView_topic->setColumnWidth(1, 440);
+    ui.tableView_topic->setColumnWidth(1, 480);
 }
 /*****************************************************************************
 ** cmd执行终端操作

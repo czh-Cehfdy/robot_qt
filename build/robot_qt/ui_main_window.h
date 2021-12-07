@@ -1602,15 +1602,15 @@ public:
         horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
         label_14 = new QLabel(widget_7);
         label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setMinimumSize(QSize(170, 50));
-        label_14->setMaximumSize(QSize(170, 50));
+        label_14->setMinimumSize(QSize(100, 50));
+        label_14->setMaximumSize(QSize(100, 50));
 
         horizontalLayout_13->addWidget(label_14);
 
         ST_GPS_display = new QTextEdit(widget_7);
         ST_GPS_display->setObjectName(QStringLiteral("ST_GPS_display"));
-        ST_GPS_display->setMinimumSize(QSize(450, 60));
-        ST_GPS_display->setMaximumSize(QSize(450, 60));
+        ST_GPS_display->setMinimumSize(QSize(660, 60));
+        ST_GPS_display->setMaximumSize(QSize(660, 60));
 
         horizontalLayout_13->addWidget(ST_GPS_display);
 
