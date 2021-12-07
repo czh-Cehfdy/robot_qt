@@ -1,9 +1,9 @@
 -I/opt/ros/melodic/include
--I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
 -I/usr/include/eigen3
 -I/usr/include/OGRE/Overlay
 -I/usr/include/OGRE
 -I/usr/include
+-I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
 -I/usr/include/opencv
 -I/home/czh/study_code/QT_study/catkin_qt/src/robot_qt/./ThirdParty/GeographicLib/include
 -I/home/czh/study_code/QT_study/catkin_qt/src/robot_qt

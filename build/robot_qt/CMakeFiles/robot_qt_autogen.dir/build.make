@@ -55,7 +55,7 @@ include robot_qt/CMakeFiles/robot_qt_autogen.dir/progress.make
 
 robot_qt/CMakeFiles/robot_qt_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target robot_qt"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/cmake -E cmake_autogen /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt_autogen.dir ""
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt && /usr/bin/cmake -E cmake_autogen /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/CMakeFiles/robot_qt_autogen.dir Build
 
 robot_qt_autogen: robot_qt/CMakeFiles/robot_qt_autogen
 robot_qt_autogen: robot_qt/CMakeFiles/robot_qt_autogen.dir/build.make

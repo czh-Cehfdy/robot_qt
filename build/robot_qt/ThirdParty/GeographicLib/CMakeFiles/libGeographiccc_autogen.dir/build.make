@@ -55,7 +55,7 @@ include robot_qt/ThirdParty/GeographicLib/CMakeFiles/libGeographiccc_autogen.dir
 
 robot_qt/ThirdParty/GeographicLib/CMakeFiles/libGeographiccc_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/czh/study_code/QT_study/catkin_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target libGeographiccc"
-	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib && /usr/bin/cmake -E cmake_autogen /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/CMakeFiles/libGeographiccc_autogen.dir ""
+	cd /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib && /usr/bin/cmake -E cmake_autogen /home/czh/study_code/QT_study/catkin_qt/build/robot_qt/ThirdParty/GeographicLib/CMakeFiles/libGeographiccc_autogen.dir Build
 
 libGeographiccc_autogen: robot_qt/ThirdParty/GeographicLib/CMakeFiles/libGeographiccc_autogen
 libGeographiccc_autogen: robot_qt/ThirdParty/GeographicLib/CMakeFiles/libGeographiccc_autogen.dir/build.make
