@@ -1781,13 +1781,13 @@ QProgressBar::chunk
             <property name="minimumSize">
              <size>
               <width>900</width>
-              <height>400</height>
+              <height>350</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>400</height>
+              <height>350</height>
              </size>
             </property>
             <property name="text">
@@ -2204,7 +2204,7 @@ QPushButton:pressed{
              </size>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_12">
              <attribute name="title">
@@ -2595,6 +2595,18 @@ QPushButton:pressed{
                   </item>
                   <item>
                    <widget class="QPushButton" name="btn_send_path">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>120</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
@@ -2613,7 +2625,7 @@ QPushButton:pressed{
 }</string>
                     </property>
                     <property name="text">
-                     <string>下发轨迹</string>
+                     <string>Send Goals</string>
                     </property>
                    </widget>
                   </item>
@@ -2632,6 +2644,18 @@ QPushButton:pressed{
                   </item>
                   <item>
                    <widget class="QPushButton" name="btn_clear_path_ros">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>120</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
@@ -2650,7 +2674,7 @@ QPushButton:pressed{
 }</string>
                     </property>
                     <property name="text">
-                     <string>清除显示</string>
+                     <string>Clear Display</string>
                     </property>
                    </widget>
                   </item>
@@ -2709,7 +2733,7 @@ QPushButton:pressed{
                          </font>
                         </property>
                         <property name="text">
-                         <string>实车</string>
+                         <string>Real Car</string>
                         </property>
                        </widget>
                       </item>
@@ -2749,7 +2773,7 @@ QPushButton:pressed{
                          </font>
                         </property>
                         <property name="text">
-                         <string>仿真</string>
+                         <string>Simulation</string>
                         </property>
                        </widget>
                       </item>
@@ -2801,7 +2825,7 @@ QPushButton:pressed{
                    <item>
                     <widget class="QLabel" name="label_34">
                      <property name="text">
-                      <string>位姿信息实时回显：</string>
+                      <string>Pose Msg：</string>
                      </property>
                     </widget>
                    </item>
@@ -2833,13 +2857,13 @@ QPushButton:pressed{
                   <widget class="QWidget" name="widget_11" native="true">
                    <property name="minimumSize">
                     <size>
-                     <width>350</width>
+                     <width>380</width>
                      <height>40</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>350</width>
+                     <width>380</width>
                      <height>40</height>
                     </size>
                    </property>
@@ -2847,7 +2871,7 @@ QPushButton:pressed{
                     <item>
                      <widget class="QLabel" name="label_35">
                       <property name="text">
-                       <string>当前是第</string>
+                       <string>Current is the</string>
                       </property>
                      </widget>
                     </item>
@@ -2881,7 +2905,7 @@ QPushButton:pressed{
                     <item>
                      <widget class="QLabel" name="label_36">
                       <property name="text">
-                       <string>个目标点，共</string>
+                       <string>goal        Total goals is </string>
                       </property>
                      </widget>
                     </item>
@@ -2912,13 +2936,6 @@ QPushButton:pressed{
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QLabel" name="label_37">
-                      <property name="text">
-                       <string>个目标点</string>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -2943,7 +2960,7 @@ QPushButton:pressed{
                    <item>
                     <widget class="QLabel" name="label_38">
                      <property name="text">
-                      <string>距离信息：</string>
+                      <string>Distance Msg：</string>
                      </property>
                     </widget>
                    </item>
@@ -2974,89 +2991,36 @@ QPushButton:pressed{
              <attribute name="title">
               <string>GPS Acquisition</string>
              </attribute>
-             <layout class="QHBoxLayout" name="horizontalLayout_45">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_38"/>
-              </item>
+             <layout class="QHBoxLayout" name="horizontalLayout_38">
               <item>
                <widget class="QWidget" name="widget_6" native="true">
                 <property name="minimumSize">
                  <size>
-                  <width>440</width>
+                  <width>500</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>440</width>
+                  <width>500</width>
                   <height>16777215</height>
                  </size>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_42">
+                <layout class="QVBoxLayout" name="verticalLayout_25">
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_36">
+                  <layout class="QHBoxLayout" name="horizontalLayout_60">
                    <item>
-                    <widget class="QPushButton" name="btn_display_gps">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>120</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
+                    <widget class="QLabel" name="label_49">
                      <property name="styleSheet">
-                      <string notr="true">QPushButton { 
-    color: rgb(1, 84, 161) ;
-    font-size:17px;
-    width:60px;
-	height:30px;
-    border:none;
-}
-QPushButton:hover{
-     color: rgb(1, 84, 161) ;
-     font-size:19px;
-}
-QPushButton:pressed{
-	color: rgb(255, 26, 68) ;
-	background-color: rgb(170, 255, 0);
-}</string>
+                      <string notr="true">color: rgb(98, 77, 244);</string>
                      </property>
                      <property name="text">
-                      <string>显示经纬度</string>
+                      <string>GPS Acquisition</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_close">
-                     <property name="styleSheet">
-                      <string notr="true">QPushButton { 
-    color: rgb(1, 84, 161) ;
-    font-size:17px;
-    width:60px;
-	height:30px;
-    border:none;
-}
-QPushButton:hover{
-     color: rgb(1, 84, 161) ;
-     font-size:19px;
-}
-QPushButton:pressed{
-	color: rgb(255, 26, 68) ;
-	background-color: rgb(170, 255, 0);
-}</string>
-                     </property>
-                     <property name="text">
-                      <string>停止</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_21">
+                    <spacer name="horizontalSpacer_39">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -3071,224 +3035,293 @@ QPushButton:pressed{
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_40">
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_43">
-                     <item>
-                      <widget class="QLabel" name="label_27">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>当前经度</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="get_longitude">
-                       <property name="minimumSize">
-                        <size>
-                         <width>165</width>
-                         <height>60</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>165</width>
-                         <height>60</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>DejaVu Serif 13</family>
-                         <pointsize>16</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_44">
-                     <item>
-                      <widget class="QLabel" name="label_30">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>当前纬度</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="get_latitude">
-                       <property name="minimumSize">
-                        <size>
-                         <width>165</width>
-                         <height>60</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>165</width>
-                         <height>60</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>DejaVu Serif 13</family>
-                         <pointsize>16</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_45">
-                     <item>
-                      <widget class="QLabel" name="label_12">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>25</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>解的状态</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="get_status">
-                       <property name="minimumSize">
-                        <size>
-                         <width>65</width>
-                         <height>60</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>65</width>
-                         <height>60</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>DejaVu Serif 13</family>
-                         <pointsize>20</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_37">
-                   <item>
-                    <widget class="QLabel" name="label_32">
-                     <property name="text">
-                      <string>消息提示框</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QTextEdit" name="textEdit_gpsMsg">
-                     <property name="minimumSize">
-                      <size>
-                       <width>340</width>
-                       <height>80</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>340</width>
-                       <height>80</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>DejaVu Serif 13</family>
-                       <pointsize>13</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_39">
-                   <item>
-                    <spacer name="horizontalSpacer_14">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="btn_savegps">
-                     <property name="minimumSize">
-                      <size>
-                       <width>180</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>180</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>DejaVu Serif 13</family>
-                       <pointsize>-1</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QPushButton { 
+                  <widget class="QFrame" name="frame_10">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_32">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_36">
+                      <item>
+                       <widget class="QPushButton" name="btn_display_gps">
+                        <property name="minimumSize">
+                         <size>
+                          <width>120</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>120</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton { 
+    color: rgb(1, 84, 161) ;
+    font-size:17px;
+    width:60px;
+	height:30px;
+    border:none;
+}
+QPushButton:hover{
+     color: rgb(1, 84, 161) ;
+     font-size:19px;
+}
+QPushButton:pressed{
+	color: rgb(255, 26, 68) ;
+	background-color: rgb(170, 255, 0);
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Display GPS</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="btn_close">
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton { 
+    color: rgb(1, 84, 161) ;
+    font-size:17px;
+    width:60px;
+	height:30px;
+    border:none;
+}
+QPushButton:hover{
+     color: rgb(1, 84, 161) ;
+     font-size:19px;
+}
+QPushButton:pressed{
+	color: rgb(255, 26, 68) ;
+	background-color: rgb(170, 255, 0);
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Stop</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_21">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_39">
+                      <item>
+                       <layout class="QVBoxLayout" name="verticalLayout_24">
+                        <item>
+                         <widget class="QLabel" name="label_27">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Current Longtitude</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="get_longitude">
+                          <property name="minimumSize">
+                           <size>
+                            <width>180</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>180</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>DejaVu Serif 13</family>
+                            <pointsize>16</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QVBoxLayout" name="verticalLayout_44">
+                        <item>
+                         <widget class="QLabel" name="label_30">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Current Latitude</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="get_latitude">
+                          <property name="minimumSize">
+                           <size>
+                            <width>180</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>180</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>DejaVu Serif 13</family>
+                            <pointsize>16</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QVBoxLayout" name="verticalLayout_45">
+                        <item>
+                         <widget class="QLabel" name="label_12">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Status</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="get_status">
+                          <property name="minimumSize">
+                           <size>
+                            <width>80</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>80</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>DejaVu Serif 13</family>
+                            <pointsize>20</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_37">
+                      <item>
+                       <widget class="QLabel" name="label_32">
+                        <property name="text">
+                         <string>Msg</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QTextEdit" name="textEdit_gpsMsg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>230</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>230</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>DejaVu Serif 13</family>
+                          <pointsize>13</pointsize>
+                          <weight>75</weight>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="btn_savegps">
+                        <property name="minimumSize">
+                         <size>
+                          <width>190</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>190</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>DejaVu Serif 13</family>
+                          <pointsize>-1</pointsize>
+                          <weight>75</weight>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton { 
     color: rgb(1, 84, 161) ;
     font-size:19px;
     width:60px;
@@ -3304,14 +3337,31 @@ QPushButton:pressed{
 	color: rgb(255, 26, 68) ;
 	background-color: rgb(170, 255, 0);
 }</string>
+                        </property>
+                        <property name="text">
+                         <string>Save to Database</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_61">
+                   <item>
+                    <widget class="QLabel" name="label_50">
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(98, 77, 244);</string>
                      </property>
                      <property name="text">
-                      <string>保存至数据库</string>
+                      <string>Accuracy of GPS</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_15">
+                    <spacer name="horizontalSpacer_38">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -3324,6 +3374,189 @@ QPushButton:pressed{
                     </spacer>
                    </item>
                   </layout>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_9">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_27">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_40">
+                      <item>
+                       <spacer name="horizontalSpacer_13">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_47">
+                        <property name="text">
+                         <string>Longtitude</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_35">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_48">
+                        <property name="text">
+                         <string>Latitude</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_22">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_45">
+                      <item>
+                       <widget class="QLabel" name="label_44">
+                        <property name="text">
+                         <string>GPS one</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="lineEdit_1Lon"/>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="lineEdit_1Lat"/>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_57">
+                      <item>
+                       <widget class="QLabel" name="label_45">
+                        <property name="text">
+                         <string>GPS two</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="lineEdit_2Lon"/>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="lineEdit_2Lat"/>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_59">
+                      <item>
+                       <spacer name="horizontalSpacer_37">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="btn_gpsMeasure">
+                        <property name="minimumSize">
+                         <size>
+                          <width>150</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>150</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton { 
+    color: rgb(1, 84, 161) ;
+    font-size:19px;
+    width:60px;
+	height:30px;
+	background-color: rgb(248, 218, 179);
+}
+QPushButton:hover{
+     color: rgb(1, 84, 161) ;
+     font-size:22px;
+}
+QPushButton:pressed{
+	color: rgb(255, 26, 68) ;
+	background-color: rgb(170, 255, 0);
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Measure</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_36">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_58">
+                        <item>
+                         <widget class="QLabel" name="label_46">
+                          <property name="text">
+                           <string>Distance</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="lineEdit_gpsDis"/>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
                  </item>
                 </layout>
                </widget>
@@ -3348,7 +3581,7 @@ QPushButton:pressed{
                   <item>
                    <widget class="QLabel" name="label_31">
                     <property name="text">
-                     <string>GPS点采集数据库</string>
+                     <string>Database of GPS</string>
                     </property>
                    </widget>
                   </item>
@@ -3389,13 +3622,13 @@ QPushButton:pressed{
                    <widget class="QPushButton" name="btn_display_data">
                     <property name="minimumSize">
                      <size>
-                      <width>150</width>
+                      <width>250</width>
                       <height>0</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>150</width>
+                      <width>250</width>
                       <height>16777215</height>
                      </size>
                     </property>
@@ -3417,7 +3650,7 @@ QPushButton:pressed{
 }</string>
                     </property>
                     <property name="text">
-                     <string>显示数据库信息</string>
+                     <string>Display Database Msg</string>
                     </property>
                    </widget>
                   </item>

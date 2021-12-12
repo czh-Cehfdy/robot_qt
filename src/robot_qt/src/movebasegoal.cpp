@@ -83,18 +83,18 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
         }
 
         if (m_currentInd > m_goalPoints.size()-1) {
-            QString msg = "所有总共"+QString::number(m_currentInd)+"个目标点均已成功发送！";
+            QString msg = "A total of "+QString::number(m_currentInd)+" target points have been sent";
             emit updateMBMsg(msg);
             m_lastInd = -1;
             m_currentInd = 0;
-            msg = "此时 m_lastInd = -1; m_currentInd = 0";
+            msg = "Now m_lastInd = -1; m_currentInd = 0";
             emit updateMBMsg(msg);
         }
         if(count_first==0){
-            QString msg = "我获取了新的系列目标点，此时count_first==0";
+            QString msg = "Get New Target Goals，Current count_first == 0";
             emit updateMBMsg(msg);
             send_flag =true;
-            msg = "send_flag =true 准备发送第"+QString::number(m_currentInd)+"个目标点";
+            msg = "send_flag =true，Ready to send target point "+QString::number(m_currentInd);
             emit updateMBMsg(msg);
         }
         count_first +=1;
@@ -104,13 +104,13 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
         auto ory = msg.pose.pose.orientation.y;
         auto orz = msg.pose.pose.orientation.z;
         auto orw = msg.pose.pose.orientation.w;
-        QString odommsg = "当前小车位姿信息如下-----------------------------------------------------------------------------------";
+        QString odommsg = "Current Pose Msgs--------------------------------------------------------------------------";
         emit updateOdomData(odommsg);
-        odommsg = "odom信息：";
+        odommsg = "Odom Msg:";
         emit updateOdomData(odommsg);
         odommsg = QString("x=%0      ,      y=%1").arg(x, 0, 'f',10).arg(y, 0, 'f',10);
         emit updateOdomData(odommsg);
-        odommsg = "四元数信息：";
+        odommsg = "Quaternion Msgs:";
         emit updateOdomData(odommsg);
         odommsg = QString("x=%0,y=%1,z=%2,w=%3").arg(orx, 0, 'f',11).arg(ory, 0, 'f',11).arg(orz, 0, 'f',11).arg(orw, 0, 'f',11);
         emit updateOdomData(odommsg);
@@ -119,14 +119,14 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
         sum += dis_delt;
         if(m_lastInd==m_currentInd){
             isdisplayFlag =false;
-            QString odomdis = QString("当前距离第%0个目标点距离：distance = %1").arg(m_currentInd+1).arg(dis);
+            QString odomdis = QString("The current distance to the %0th target point is : %1").arg(m_currentInd+1).arg(dis);
             emit updateOdomDisData(odomdis);
           if(dis < set_dis)
           {
               if (m_currentInd != m_goalPoints.size()-1) {
-                  QString msg = "此时距离目标点仅剩:"+QString("%0").arg(dis)+"m，开始发下一个目标点";
+                  QString msg = "The distance to the target point is only "+QString("%0").arg(dis)+"m， ready to send the next target point";
                   emit updateMBMsg(msg);
-                  odomdis = "此时距离目标点仅剩:"+QString("%0").arg(dis);
+                  odomdis = "The distance to the target point is only:"+QString("%0").arg(dis);
                   emit updateOdomDisData(odomdis);
                   m_currentInd += 1;
                   send_flag =true;
@@ -137,7 +137,7 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
                       m_goalPoints[m_currentInd][5] = msg.pose.pose.orientation.z;
                       m_goalPoints[m_currentInd][6] = msg.pose.pose.orientation.w;
                       send_flag =true;
-                      QString msg = "当前是最后一个点！！！此时 m_lastInd = -1; m_currentInd = 0，把终点姿态发一下";
+                      QString msg = "The current is the last target point！！！Now m_lastInd = -1; m_currentInd = 0，Send Terminal Pose";
                       emit updateMBMsg(msg);
                       send_last = true;
                   }
@@ -149,7 +149,7 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
                       m_lastInd = -1;
                       m_goalPoints.clear();
                       if(m_currentInd==0&&m_lastInd == -1&&m_goalPoints.size()==0){
-                          QString odomdis = "当前最后一个目标点，当前距离小于0.5米，已经清空标志位和数据！";
+                          QString odomdis = "Now is the last target point, the current distance is less than 0.5 meters, the flag bits and data have been cleared!";
                           emit updateOdomDisData(odomdis);
                       }
 
@@ -160,7 +160,7 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
         }
         else{
             if(!isdisplayFlag){
-                QString odomdis = "目标点均已经发送完毕，不再显示距离！";
+                QString odomdis = "Target points have been sent, no longer display distance!";
                 emit updateOdomDisData(odomdis);
                 isdisplayFlag = true;
             }
@@ -172,13 +172,13 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
         if(sum < 0.2){
             if(reset==0){
                 send_flag =true;
-                QString msg = "好像刚发的目标点小车还没运行，重新发一次…send_flag为"+QString("%0").arg(send_flag);
+                QString msg = "It seems that the target point car just sent is not running yet, send again…………send_flag is"+QString("%0").arg(send_flag);
                 emit updateMBMsg(msg);
             }
             reset +=1;
             if(reset==5){
                 send_flag =true;
-                QString msg = "好像刚发的目标点小车还没运行，已经连续3次，请检查！再最后重新发一次…";
+                QString msg = "It seems that the target point car just sent has not run, it has been 3 times in a row, please check! Send it again for the last time...";
                 emit updateMBMsg(msg);
             }
         }
@@ -190,7 +190,7 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
 }
 void movebasegoal::goalPub(const size_t& i){
      geometry_msgs::PoseStamped goal;
-     msg = "进入第"+QString::number(i)+"个目标点发送函数…";
+     msg = "Enter the "+QString::number(i)+"th target point send function...";
      emit updateMBMsg(msg);
      //发送目标点
      goal.header.frame_id = "map";
@@ -206,48 +206,30 @@ void movebasegoal::goalPub(const size_t& i){
      goal.pose.orientation.y = m_goalPoints[i][4];
      goal.pose.orientation.z = m_goalPoints[i][5];
      goal.pose.orientation.w = m_goalPoints[i][6];
-     msg = "第"+QString::number(i)+"个目标点信息格式已打包完毕…";
+     msg = "The "+QString::number(i)+"th target point information format has been packaged...";
      emit updateMBMsg(msg);
 
-     msg = "正准备发送第"+QString::number(i)+"个目标点…";
+     msg = "Preparing to send the "+QString::number(i)+"th target point";
      emit updateMBMsg(msg);
      goals_pub.publish(goal);
-     msg = "成功发送第"+QString::number(i)+"个目标点!!!";
+     msg = "The "+QString::number(i)+"th target point was sent successfully";
      emit updateMBMsg(msg);
      m_lastInd = i;
 }
 void movebasegoal::getGoalPoints(const vector<Vector7d>& goals){
-//    if (goals.size()==m_goalPoints.size()){
-//        msg = "goals.size()==m_goalPoints.size()";
-//        emit updateMBMsg(msg);
-//        size_t count = 0;
-//        for(size_t i = 0; i < goals.size();++i){
-//            if(goals[i][0]==m_goalPoints[i][0]&&goals[i][1]==m_goalPoints[i][1]&&goals[i][2]==m_goalPoints[i][2]&&goals[i][3]==m_goalPoints[i][3]&&
-//               goals[i][4]==m_goalPoints[i][4]&&goals[i][5]==m_goalPoints[i][5]&&goals[i][6]==m_goalPoints[i][6]){
-//               count+=1;
-//            }
-//            }
-//        if(count == goals.size()){
-//            msg = "两次系列目标点相同，放弃处理，请检查!!!";
-//            emit updateMBMsg(msg);
-//            count = 0;
-//            return;
-//        }
-//     }
-//    else{
         vector<Vector7d>().swap(m_goalPoints);
         vector<double>().swap(Disjudge);
         m_goalPoints.clear();
         Disjudge.clear();
         m_goalPoints = goals;
-        msg = "成功调用getGoalPoints函数获取新的系列目标点!!!";
+        msg = "Successfully call getGoalPoints to get a new set of target points!!!";
         emit updateMBMsg(msg);
         if(m_goalPoints.begin()!=m_goalPoints.end())
         {
-            msg = "已收到所有目标点信息！下面是详细信息：";
+            msg = "All target points have been received! Here are the details:";
             emit updateMBMsg(msg);
             for(size_t i = 0; i< m_goalPoints.size();++i){
-             msg = "第"+QString::number(i)+"个目标点信息为："+QString("%0，%1").arg(m_goalPoints[i][0])
+             msg = "The information of the "+QString::number(i)+"th target point is："+QString("%0，%1").arg(m_goalPoints[i][0])
                      .arg(m_goalPoints[i][1]);
             emit updateMBMsg(msg);
             }
@@ -258,19 +240,19 @@ void movebasegoal::getGoalPoints(const vector<Vector7d>& goals){
                 if(i==0){
                     double dis = sqrt(pow(goals[i][0]-0.0,2)+pow(goals[i][1]-0.0,2));
                     Disjudge.push_back(dis);
-                    QString msg1 = QString("Dis(%0，%1)距离为：").arg(i+1).arg(0)+QString("%0").arg(dis);
+                    QString msg1 = QString("Distance (%0，%1)is：").arg(i+1).arg(0)+QString("%0").arg(dis);
                     emit updateDisMsg(msg1);
                 }
                 else{
                     double dis = sqrt(pow(goals[i][0]-goals[i-1][0],2)+pow(goals[i][1]-goals[i-1][1],2));
                     Disjudge.push_back(dis);
-                    QString msg1 = QString("Dis(%0，%1)距离为：").arg(i+1).arg(i)+QString("%0").arg(dis);
+                    QString msg1 = QString("Distance (%0，%1)is：").arg(i+1).arg(i)+QString("%0").arg(dis);
                     emit updateDisMsg(msg1);
                 }
             }
          }
         count_first = 0;
-        msg = "此时将count_first = 0";
+        msg = "Now count_first = 0";
         emit updateMBMsg(msg);
 // }
 }
@@ -290,7 +272,7 @@ void movebasegoal::run() {
 
     while ( ros::ok()) {
         if(send_flag){
-           QString msg = "现在开始进行发送目标点前的准备工作，当前是第"+QString::number(m_currentInd)+"个目标点…";
+           QString msg = "It is time to start the preparation before sending the target point, currently is the "+QString::number(m_currentInd)+"th target point";
            emit updateMBMsg(msg);
            goalPub(m_currentInd);
            send_flag = false;

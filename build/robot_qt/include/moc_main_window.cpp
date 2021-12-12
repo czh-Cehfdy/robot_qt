@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_robot_qt__MainWindow_t {
-    QByteArrayData data[54];
-    char stringdata0[1006];
+    QByteArrayData data[55];
+    char stringdata0[1023];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -84,7 +84,8 @@ QT_MOC_LITERAL(49, 912, 13), // "slot_save_gps"
 QT_MOC_LITERAL(50, 926, 20), // "slot_dispaly_gpsdata"
 QT_MOC_LITERAL(51, 947, 18), // "slot_chooseGoalGPS"
 QT_MOC_LITERAL(52, 966, 16), // "slot_testgpsdata"
-QT_MOC_LITERAL(53, 983, 22) // "on_btn_loadmap_clicked"
+QT_MOC_LITERAL(53, 983, 16), // "slot_measure_gps"
+QT_MOC_LITERAL(54, 1000, 22) // "on_btn_loadmap_clicked"
 
     },
     "robot_qt::MainWindow\0on_actionAbout_triggered\0"
@@ -113,7 +114,8 @@ QT_MOC_LITERAL(53, 983, 22) // "on_btn_loadmap_clicked"
     "slot_display_PCL2_obs\0slot_display_PCL2_2_obs\0"
     "slot_interact\0slot_start_tip\0slot_save_gps\0"
     "slot_dispaly_gpsdata\0slot_chooseGoalGPS\0"
-    "slot_testgpsdata\0on_btn_loadmap_clicked"
+    "slot_testgpsdata\0slot_measure_gps\0"
+    "on_btn_loadmap_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -123,7 +125,7 @@ static const uint qt_meta_data_robot_qt__MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      49,   14, // methods
+      50,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -131,55 +133,56 @@ static const uint qt_meta_data_robot_qt__MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  259,    2, 0x0a /* Public */,
-       3,    0,  260,    2, 0x0a /* Public */,
-       4,    1,  261,    2, 0x0a /* Public */,
-       6,    1,  264,    2, 0x0a /* Public */,
-       7,    1,  267,    2, 0x0a /* Public */,
-       8,    0,  270,    2, 0x0a /* Public */,
-       9,    0,  271,    2, 0x0a /* Public */,
-      10,    0,  272,    2, 0x0a /* Public */,
-      11,    0,  273,    2, 0x0a /* Public */,
-      12,    0,  274,    2, 0x0a /* Public */,
-      13,    0,  275,    2, 0x0a /* Public */,
-      14,    0,  276,    2, 0x0a /* Public */,
-      15,    0,  277,    2, 0x0a /* Public */,
-      16,    0,  278,    2, 0x0a /* Public */,
-      17,    0,  279,    2, 0x0a /* Public */,
-      18,    0,  280,    2, 0x0a /* Public */,
-      19,    0,  281,    2, 0x0a /* Public */,
-      20,    0,  282,    2, 0x0a /* Public */,
-      21,    0,  283,    2, 0x0a /* Public */,
-      22,    0,  284,    2, 0x0a /* Public */,
-      23,    0,  285,    2, 0x0a /* Public */,
-      24,    0,  286,    2, 0x0a /* Public */,
-      25,    0,  287,    2, 0x0a /* Public */,
-      26,    0,  288,    2, 0x0a /* Public */,
-      27,    0,  289,    2, 0x0a /* Public */,
-      28,    2,  290,    2, 0x0a /* Public */,
-      31,    1,  295,    2, 0x0a /* Public */,
-      32,    1,  298,    2, 0x0a /* Public */,
-      33,    1,  301,    2, 0x0a /* Public */,
-      34,    1,  304,    2, 0x0a /* Public */,
-      35,    1,  307,    2, 0x0a /* Public */,
-      36,    1,  310,    2, 0x0a /* Public */,
-      37,    1,  313,    2, 0x0a /* Public */,
-      38,    1,  316,    2, 0x0a /* Public */,
-      39,    1,  319,    2, 0x0a /* Public */,
-      40,    1,  322,    2, 0x0a /* Public */,
-      41,    1,  325,    2, 0x0a /* Public */,
-      42,    1,  328,    2, 0x0a /* Public */,
-      43,    1,  331,    2, 0x0a /* Public */,
-      44,    1,  334,    2, 0x0a /* Public */,
-      45,    1,  337,    2, 0x0a /* Public */,
-      46,    1,  340,    2, 0x0a /* Public */,
-      47,    0,  343,    2, 0x0a /* Public */,
-      48,    1,  344,    2, 0x0a /* Public */,
-      49,    0,  347,    2, 0x0a /* Public */,
-      50,    0,  348,    2, 0x0a /* Public */,
-      51,    0,  349,    2, 0x0a /* Public */,
-      52,    0,  350,    2, 0x0a /* Public */,
-      53,    0,  351,    2, 0x08 /* Private */,
+       1,    0,  264,    2, 0x0a /* Public */,
+       3,    0,  265,    2, 0x0a /* Public */,
+       4,    1,  266,    2, 0x0a /* Public */,
+       6,    1,  269,    2, 0x0a /* Public */,
+       7,    1,  272,    2, 0x0a /* Public */,
+       8,    0,  275,    2, 0x0a /* Public */,
+       9,    0,  276,    2, 0x0a /* Public */,
+      10,    0,  277,    2, 0x0a /* Public */,
+      11,    0,  278,    2, 0x0a /* Public */,
+      12,    0,  279,    2, 0x0a /* Public */,
+      13,    0,  280,    2, 0x0a /* Public */,
+      14,    0,  281,    2, 0x0a /* Public */,
+      15,    0,  282,    2, 0x0a /* Public */,
+      16,    0,  283,    2, 0x0a /* Public */,
+      17,    0,  284,    2, 0x0a /* Public */,
+      18,    0,  285,    2, 0x0a /* Public */,
+      19,    0,  286,    2, 0x0a /* Public */,
+      20,    0,  287,    2, 0x0a /* Public */,
+      21,    0,  288,    2, 0x0a /* Public */,
+      22,    0,  289,    2, 0x0a /* Public */,
+      23,    0,  290,    2, 0x0a /* Public */,
+      24,    0,  291,    2, 0x0a /* Public */,
+      25,    0,  292,    2, 0x0a /* Public */,
+      26,    0,  293,    2, 0x0a /* Public */,
+      27,    0,  294,    2, 0x0a /* Public */,
+      28,    2,  295,    2, 0x0a /* Public */,
+      31,    1,  300,    2, 0x0a /* Public */,
+      32,    1,  303,    2, 0x0a /* Public */,
+      33,    1,  306,    2, 0x0a /* Public */,
+      34,    1,  309,    2, 0x0a /* Public */,
+      35,    1,  312,    2, 0x0a /* Public */,
+      36,    1,  315,    2, 0x0a /* Public */,
+      37,    1,  318,    2, 0x0a /* Public */,
+      38,    1,  321,    2, 0x0a /* Public */,
+      39,    1,  324,    2, 0x0a /* Public */,
+      40,    1,  327,    2, 0x0a /* Public */,
+      41,    1,  330,    2, 0x0a /* Public */,
+      42,    1,  333,    2, 0x0a /* Public */,
+      43,    1,  336,    2, 0x0a /* Public */,
+      44,    1,  339,    2, 0x0a /* Public */,
+      45,    1,  342,    2, 0x0a /* Public */,
+      46,    1,  345,    2, 0x0a /* Public */,
+      47,    0,  348,    2, 0x0a /* Public */,
+      48,    1,  349,    2, 0x0a /* Public */,
+      49,    0,  352,    2, 0x0a /* Public */,
+      50,    0,  353,    2, 0x0a /* Public */,
+      51,    0,  354,    2, 0x0a /* Public */,
+      52,    0,  355,    2, 0x0a /* Public */,
+      53,    0,  356,    2, 0x0a /* Public */,
+      54,    0,  357,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -226,6 +229,7 @@ static const uint qt_meta_data_robot_qt__MainWindow[] = {
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -289,7 +293,8 @@ void robot_qt::MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 45: _t->slot_dispaly_gpsdata(); break;
         case 46: _t->slot_chooseGoalGPS(); break;
         case 47: _t->slot_testgpsdata(); break;
-        case 48: _t->on_btn_loadmap_clicked(); break;
+        case 48: _t->slot_measure_gps(); break;
+        case 49: _t->on_btn_loadmap_clicked(); break;
         default: ;
         }
     }
@@ -320,13 +325,13 @@ int robot_qt::MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 49)
+        if (_id < 50)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 49;
+        _id -= 50;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 49)
+        if (_id < 50)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 49;
+        _id -= 50;
     }
     return _id;
 }

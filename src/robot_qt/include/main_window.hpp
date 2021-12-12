@@ -150,6 +150,7 @@ public:
 
     GeographicLib::LocalCartesian g_locationConverter;
     GeographicLib::LocalCartesian test_g_locationConverter;
+    GeographicLib::LocalCartesian gpsMeasure_locationConverter;
 
     
     int count_gps = 0 ;
@@ -234,6 +235,7 @@ public Q_SLOTS:
     void slot_dispaly_gpsdata();
     void slot_chooseGoalGPS();
     void slot_testgpsdata();
+    void slot_measure_gps();
 
 private slots:
     void on_btn_loadmap_clicked();
