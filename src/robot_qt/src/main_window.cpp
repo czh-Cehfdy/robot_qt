@@ -342,7 +342,7 @@ void MainWindow::initMap()
         ui.btn_changeMode->setDisabled(false);
         ui.btn_loadmap->setDisabled(true);
         ui.label_11->setStyleSheet("color:rgb(78, 154, 6)");
-        ui.label_11->setText("已成功加载地图！");
+        ui.label_11->setText("Load Map Success！");
         ui.tabWidget_4->setVisible(true);
 
         ui.btn_changeMode->setVisible(true);
@@ -571,18 +571,11 @@ void MainWindow::initconections()
       });
 
     connect(m_timerCurrentTime, &QTimer::timeout,this, [=]() {
-        ui.label_time->setText(
-            QDateTime::currentDateTime().toString("yyyy-MM-dd  hh:mm:ss  "));
-      });
-
-
-
-
-
-
-
-
+        QLocale locale = QLocale::English;
+        ui.label_time->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd  hh:mm:ss   ")+QString(locale.toString(QDateTime::currentDateTime(),QString("dddd"))));
+    });
 }
+
 void MainWindow::initRviz()
 {
     //rviz里信号与槽

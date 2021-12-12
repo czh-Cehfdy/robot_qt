@@ -977,8 +977,8 @@ public:
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         label_time = new QLabel(frame_7);
         label_time->setObjectName(QStringLiteral("label_time"));
-        label_time->setMinimumSize(QSize(260, 0));
-        label_time->setMaximumSize(QSize(260, 16777215));
+        label_time->setMinimumSize(QSize(380, 0));
+        label_time->setMaximumSize(QSize(380, 16777215));
         label_time->setFont(font);
         label_time->setStyleSheet(QLatin1String("color: rgb(98, 77, 244);\n"
 "background-color: rgb(252, 250, 218);"));
@@ -3031,9 +3031,9 @@ public:
         retranslateUi(MainWindowDesign);
         QObject::connect(action_Quit, SIGNAL(triggered()), MainWindowDesign, SLOT(close()));
 
-        tab_manager->setCurrentIndex(1);
+        tab_manager->setCurrentIndex(5);
         tabWidget_control->setCurrentIndex(0);
-        tabWidget_4->setCurrentIndex(2);
+        tabWidget_4->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(2);
 
 
@@ -3226,8 +3226,8 @@ public:
         label_sonar_display->setText(QString());
         label_18->setText(QApplication::translate("MainWindowDesign", "\351\242\204\350\255\246\346\217\220\347\244\272", Q_NULLPTR));
         tab_manager->setTabText(tab_manager->indexOf(tab_5), QApplication::translate("MainWindowDesign", "Pre-Warning", Q_NULLPTR));
-        tab_manager->setTabText(tab_manager->indexOf(tab_15), QApplication::translate("MainWindowDesign", "\351\241\265", Q_NULLPTR));
-        menu_File->setTitle(QApplication::translate("MainWindowDesign", "\347\247\273\345\212\250\346\234\272\345\231\250\344\272\272\345\217\257\350\247\206\345\214\226\346\216\247\345\210\266\347\273\210\347\253\257", Q_NULLPTR));
+        tab_manager->setTabText(tab_manager->indexOf(tab_15), QApplication::translate("MainWindowDesign", "Other", Q_NULLPTR));
+        menu_File->setTitle(QApplication::translate("MainWindowDesign", "Mobile Robot Visualization System", Q_NULLPTR));
     } // retranslateUi
 
 };

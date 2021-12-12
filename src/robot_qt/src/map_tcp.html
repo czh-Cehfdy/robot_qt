@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>户外移动机器人</title>
+    <title>Robot Navigation System</title>
     <style>
         html,
         body,
@@ -27,7 +27,7 @@
     <!-- <p>起点和终点经纬度为： <input type="text" id="np"></p> -->
     <div id="container"></div>
     <div class="info" id="text">
-        户外移动机器人
+        Robot Navigation System
     </div>
 
     <!-- <div class="input-card" style="width:28rem">
@@ -442,10 +442,7 @@
                 return path
             }
         }
-
         console.log(lineArr);
-
-    
         function clearAll() {
             map.clearMap();
             g_modeProject = false ;
@@ -458,7 +455,6 @@
             lineArr = [];
             log.success("清除始末位置标签,请重新选取始末位置");
         }
-
         // 给按钮绑定事件
         // document.getElementById("Tcp_connect").onclick = connect;
         // document.getElementById("draw_route").onclick = draw_route;
@@ -466,8 +462,6 @@
         // document.getElementById("globalNav").onclick = globalNav;
         // document.getElementById("clearAll").onclick = clearAll;
         // document.getElementById("read_txt").onclick = display_location;
-
     </script>
 </body>
-
 </html>
