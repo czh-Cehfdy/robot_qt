@@ -77,9 +77,9 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
             QString msggoal2 = QString::number(m_goalPoints.size());
             emit updategoalMsg(msggoal1,msggoal2);
         }else{
-            QString msggoal1 = QString::number(m_currentInd);
-            QString msggoal2 = QString::number(m_goalPoints.size());
-            emit updategoalMsg(msggoal1,msggoal2);
+//            QString msggoal1 = QString::number(m_currentInd);
+//            QString msggoal2 = QString::number(m_goalPoints.size());
+//            emit updategoalMsg(msggoal1,msggoal2);
         }
 
         if (m_currentInd > m_goalPoints.size()-1) {
@@ -147,12 +147,12 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
                   if(m_currentInd == m_goalPoints.size()-1){
                       m_currentInd = 0;
                       m_lastInd = -1;
+//                      vector<Vector7d>().swap(m_goalPoints);
                       m_goalPoints.clear();
                       if(m_currentInd==0&&m_lastInd == -1&&m_goalPoints.size()==0){
                           QString odomdis = "Now is the last target point, the current distance is less than 0.5 meters, the flag bits and data have been cleared!";
                           emit updateOdomDisData(odomdis);
                       }
-
                   }
               }
 
@@ -219,9 +219,10 @@ void movebasegoal::goalPub(const size_t& i){
 void movebasegoal::getGoalPoints(const vector<Vector7d>& goals){
         vector<Vector7d>().swap(m_goalPoints);
         vector<double>().swap(Disjudge);
-        m_goalPoints.clear();
-        Disjudge.clear();
-        m_goalPoints = goals;
+        vector<Vector7d> m_temp;
+        m_temp = goals;
+        m_goalPoints = m_temp;
+
         msg = "Successfully call getGoalPoints to get a new set of target points!!!";
         emit updateMBMsg(msg);
         if(m_goalPoints.begin()!=m_goalPoints.end())
