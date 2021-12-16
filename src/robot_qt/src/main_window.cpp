@@ -1695,7 +1695,7 @@ void MainWindow::compareDis(Eigen::Vector3d &p,bool isBigScale){
      * 全局第一遍搜索核心关键点 -->isBigScale = true 这是不用判断距离，只要取最小值即可
      * 搜索两关键点中的中间点 -->isBigScale = false 需要判断距离，这时要精确
     */
-    if(!isBigScale){
+    if(!isBigScale){   //仿真
         if(*min < 4){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
             //找到最小值的索引
             auto positionmin = std::distance(std::begin(temp_vector),min);
@@ -1705,8 +1705,8 @@ void MainWindow::compareDis(Eigen::Vector3d &p,bool isBigScale){
         else{
             p = p;  //没找到的话就获取的是自己，将自己作为点返回
         }
-    }else{
-        if(*min < 4){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
+    }else{   //实车
+        if(*min < 8){ //只有最近的点的距离小于2米，才把它作为真点保存，否则放弃掉，以它为真点
             //找到最小值的索引
             auto positionmin = std::distance(std::begin(temp_vector),min);
             g_locationConverter.Forward(compareLngLat[positionmin][1], compareLngLat[positionmin][0], 0, xyz[0], xyz[1], xyz[2]);
@@ -1716,10 +1716,6 @@ void MainWindow::compareDis(Eigen::Vector3d &p,bool isBigScale){
             p = p;  //没找到的话就获取的是自己，将自己作为点返回
         }
     }
-
-
-
-
 }
 
 double MainWindow::getDistance(double x1, double y1, double x2, double y2){

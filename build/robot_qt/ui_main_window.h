@@ -977,8 +977,8 @@ public:
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         label_time = new QLabel(frame_7);
         label_time->setObjectName(QStringLiteral("label_time"));
-        label_time->setMinimumSize(QSize(380, 0));
-        label_time->setMaximumSize(QSize(380, 16777215));
+        label_time->setMinimumSize(QSize(400, 0));
+        label_time->setMaximumSize(QSize(400, 16777215));
         label_time->setFont(font);
         label_time->setStyleSheet(QLatin1String("color: rgb(98, 77, 244);\n"
 "background-color: rgb(252, 250, 218);"));
@@ -3031,9 +3031,9 @@ public:
         retranslateUi(MainWindowDesign);
         QObject::connect(action_Quit, SIGNAL(triggered()), MainWindowDesign, SLOT(close()));
 
-        tab_manager->setCurrentIndex(5);
+        tab_manager->setCurrentIndex(0);
         tabWidget_control->setCurrentIndex(0);
-        tabWidget_4->setCurrentIndex(1);
+        tabWidget_4->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(2);
 
 

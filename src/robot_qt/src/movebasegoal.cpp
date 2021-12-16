@@ -134,6 +134,8 @@ void movebasegoal::odom_callback(const nav_msgs::Odometry &msg)
               }
               else{
                   if(send_last == false){
+                      m_goalPoints[m_currentInd][3] = msg.pose.pose.orientation.x;
+                      m_goalPoints[m_currentInd][4] = msg.pose.pose.orientation.y;
                       m_goalPoints[m_currentInd][5] = msg.pose.pose.orientation.z;
                       m_goalPoints[m_currentInd][6] = msg.pose.pose.orientation.w;
                       send_flag =true;
