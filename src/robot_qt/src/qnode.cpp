@@ -74,19 +74,29 @@ bool CQNode::init(const std::string &master_url, const std::string &host_url) {
 }
 
 void CQNode::RawImageCallback(const sensor_msgs::ImageConstPtr& msg) {
+//  cv_bridge::CvImagePtr cv_ptr;
+//  try {
+//    cv_ptr = cv_bridge::toCvCopy(msg, "rgb8");
+//  } catch (cv_bridge::Exception& e) {
+//    ROS_ERROR("cv_bridge exception:%s", e.what());
+//    return;
+//  }
+
+//  cv::Mat img;
+//  img = cv_ptr->image;
+//  ROS_ERROR("yuanshi tuxiang");
+//  qRawImage = QImage(img.data, img.cols, img.rows, QImage::Format_RGB888);
+//  emit updateImage(qRawImage);
   cv_bridge::CvImagePtr cv_ptr;
   try {
-    cv_ptr = cv_bridge::toCvCopy(msg, "rgb8");
+    cv_ptr = cv_bridge::toCvCopy(msg,msg->encoding);
   } catch (cv_bridge::Exception& e) {
     ROS_ERROR("cv_bridge exception:%s", e.what());
     return;
   }
-
-  cv::Mat img;
-  img = cv_ptr->image;
-  ROS_ERROR("yuanshi tuxiang");
-  qRawImage = QImage(img.data, img.cols, img.rows, QImage::Format_RGB888);
-  emit updateImage(qRawImage);
+  mask = cv_ptr->image;
+  QImage im=Mat2QImage(mask);
+  emit updateImage(im);
 }
 void CQNode::FusionImageCallback(const sensor_msgs::ImageConstPtr& msg) {
   cv_bridge::CvImagePtr cv_ptr;
@@ -136,11 +146,6 @@ void CQNode::MapStartPoint_Callback(const sensor_msgs::NavSatFix &msg) {
     throw;   //接收了异常之后继续往外抛
   }
 }
-
-
-
-
-
 
 void CQNode::points_callback(const std_msgs::String &msg)
 {
@@ -197,6 +202,19 @@ void CQNode::obstacle_callback(const geometry_msgs::Twist &msg)
     obstacle_state = QString("%1").arg(msg.linear.y);  //有障碍物是1.0，没有障碍物是0.0
     emit updateObstacleState(obstacle_range,obstacle_state);
 }
+
+//void CQNode::points_callback(const std_msgs::String &msg)
+//{
+//    QString qstr;
+//    qstr = QString::fromStdString(msg.data);
+//    if(judge_count==1){
+//        emit updatepoints(qstr);
+//    }
+//    else {
+
+//    }
+//    judge_count +=1;
+//}
 
 QImage CQNode::Mat2QImage(cv::Mat const& src)
 {

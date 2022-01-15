@@ -88,8 +88,6 @@ public:
 	void closeEvent(QCloseEvent *event); // Overloaded function
 	void showNoMasterMessage();
     void DisplayRawImage(const QImage& image);
-    void DisplayPCLImage(const QImage& image);
-    void DisplayFusionImage(const QImage& image);
     //超声波
     void DisplaySonar1Distance(const QString& Dis1);
     void DisplaySonar2Distance(const QString& Dis2);
@@ -103,8 +101,6 @@ public:
     //gps_distance
     static double distanceGPS(const double& longitude1,const double& latitude1,const double& longitude2,const double& latitude2);
     void paintEvent(vector<Eigen::Vector3d> p);
-    void mousePressEvent(QMouseEvent* event);
-//    bool eventFilter(QObject *obj, QEvent *event);
     void GetStartPoint(QString longitude,QString latitude);
 
     void DisplayMBMsg(const QString& msg);
@@ -303,10 +299,7 @@ private:
 	Ui::MainWindowDesign ui;
     CQNodeMain qnode_main;
     CQNode qnode_getStartPoint;
-    CQNode qnode_raw_image;
-    CQNode qnode_fusion_image;
-    CQNode qnode_pcl_image;
-    CQNode qnode_points;
+    CQNode qnode_zed;
     CQNode qnode_sonar;
     CQNode qnode_obstacle;
     CQNode rostopic_list;

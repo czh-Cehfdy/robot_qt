@@ -42,8 +42,8 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_49">
     <item>
-     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0" columnstretch="5">
-      <item row="0" column="0" rowspan="2">
+     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0" columnstretch="5,0">
+      <item row="0" column="0">
        <widget class="QTabWidget" name="tab_manager">
         <property name="minimumSize">
          <size>
@@ -64,7 +64,7 @@
          <locale language="English" country="Australia"/>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <property name="tabBarAutoHide">
          <bool>false</bool>
@@ -3848,189 +3848,7 @@ QPushButton:pressed{
          <attribute name="title">
           <string>Camera</string>
          </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_14">
-          <item>
-           <widget class="QTabWidget" name="tabWidget_2">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777000</height>
-             </size>
-            </property>
-            <property name="currentIndex">
-             <number>2</number>
-            </property>
-            <widget class="QWidget" name="tab_7">
-             <attribute name="title">
-              <string>原始图像显示</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_17">
-              <item>
-               <widget class="QLabel" name="label_RawImage">
-                <property name="minimumSize">
-                 <size>
-                  <width>320</width>
-                  <height>180</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>1280</width>
-                  <height>720</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border:1px solid black</string>
-                </property>
-                <property name="text">
-                 <string>                                                                     暂无信号输入，无原始图像显示，请点击原始图像显示按钮连接信号！</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_DiaplayRawImage">
-                <property name="minimumSize">
-                 <size>
-                  <width>120</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>120</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>原始图像显示</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QWidget" name="tab_8">
-             <attribute name="title">
-              <string>点云图像显示</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_16">
-              <item>
-               <widget class="QLabel" name="label_PCLImage">
-                <property name="minimumSize">
-                 <size>
-                  <width>320</width>
-                  <height>180</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>1280</width>
-                  <height>720</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border:1px solid black</string>
-                </property>
-                <property name="text">
-                 <string>                                                               暂无信号输入，无点云图像显示，请点击点云图像显示按钮连接信号！</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_DisplayPCLImage">
-                <property name="minimumSize">
-                 <size>
-                  <width>120</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>120</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>点云图像显示</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QWidget" name="tab_9">
-             <attribute name="title">
-              <string>融合图像显示</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_13">
-              <item>
-               <widget class="QLabel" name="label_FusioImage">
-                <property name="minimumSize">
-                 <size>
-                  <width>320</width>
-                  <height>180</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>1280</width>
-                  <height>720</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border:1px solid black</string>
-                </property>
-                <property name="text">
-                 <string>                                                                   暂无信号输入，无融合图像显示，请点击融合图像显示按钮连接信号！</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_DisplayFusionImage">
-                <property name="minimumSize">
-                 <size>
-                  <width>120</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>120</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>融合图像显示</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QTextEdit" name="info_textEdit">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(50, 3, 3);</string>
-            </property>
-           </widget>
-          </item>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
           <item>
            <widget class="QFrame" name="frame_4">
             <property name="frameShape">
@@ -4039,103 +3857,84 @@ QPushButton:pressed{
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_15">
+            <layout class="QVBoxLayout" name="verticalLayout_14">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_15">
-               <item>
-                <widget class="QLabel" name="label_16">
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(52, 101, 164);</string>
-                 </property>
-                 <property name="text">
-                  <string>距离测量栏</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_6">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>120</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="enable_mouse_pushButton">
-                 <property name="text">
-                  <string>Enable  Mouse</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="measure_checkBox">
-                 <property name="text">
-                  <string>开始测量</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_5">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_41">
-                 <property name="text">
-                  <string>Width：</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="measure_width_lineEdit"/>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_42">
-                 <property name="text">
-                  <string>Height：</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="measure_height_lineEdit"/>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_43">
-                 <property name="text">
-                  <string>Distance：</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="measure_distance_lineEdit"/>
-               </item>
-              </layout>
+              <widget class="QLabel" name="label_zed">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget_13" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>1600000</width>
+              <height>50</height>
+             </size>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_15">
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>372</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_openCamera">
+               <property name="text">
+                <string>open</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>371</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_closeCamera">
+               <property name="text">
+                <string>close</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>372</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </widget>

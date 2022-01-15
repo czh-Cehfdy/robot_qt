@@ -340,36 +340,17 @@ public:
     QLabel *label_13;
     QTreeWidget *treeWidget;
     QWidget *tab_4;
-    QVBoxLayout *verticalLayout_14;
-    QTabWidget *tabWidget_2;
-    QWidget *tab_7;
-    QVBoxLayout *verticalLayout_17;
-    QLabel *label_RawImage;
-    QPushButton *btn_DiaplayRawImage;
-    QWidget *tab_8;
-    QVBoxLayout *verticalLayout_16;
-    QLabel *label_PCLImage;
-    QPushButton *btn_DisplayPCLImage;
-    QWidget *tab_9;
     QVBoxLayout *verticalLayout_13;
-    QLabel *label_FusioImage;
-    QPushButton *btn_DisplayFusionImage;
-    QTextEdit *info_textEdit;
     QFrame *frame_4;
-    QVBoxLayout *verticalLayout_15;
+    QVBoxLayout *verticalLayout_14;
+    QLabel *label_zed;
+    QWidget *widget_13;
     QHBoxLayout *horizontalLayout_15;
-    QLabel *label_16;
-    QSpacerItem *horizontalSpacer_6;
-    QPushButton *enable_mouse_pushButton;
     QSpacerItem *horizontalSpacer_2;
-    QCheckBox *measure_checkBox;
+    QPushButton *btn_openCamera;
     QSpacerItem *horizontalSpacer_5;
-    QLabel *label_41;
-    QLineEdit *measure_width_lineEdit;
-    QLabel *label_42;
-    QLineEdit *measure_height_lineEdit;
-    QLabel *label_43;
-    QLineEdit *measure_distance_lineEdit;
+    QPushButton *btn_closeCamera;
+    QSpacerItem *horizontalSpacer_6;
     QWidget *tab_5;
     QHBoxLayout *horizontalLayout_27;
     QVBoxLayout *verticalLayout_40;
@@ -2559,154 +2540,52 @@ public:
         tab_manager->addTab(tab_RVIZ, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
-        verticalLayout_14 = new QVBoxLayout(tab_4);
-        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        tabWidget_2 = new QTabWidget(tab_4);
-        tabWidget_2->setObjectName(QStringLiteral("tabWidget_2"));
-        tabWidget_2->setMinimumSize(QSize(0, 0));
-        tabWidget_2->setMaximumSize(QSize(16777215, 16777000));
-        tab_7 = new QWidget();
-        tab_7->setObjectName(QStringLiteral("tab_7"));
-        verticalLayout_17 = new QVBoxLayout(tab_7);
-        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
-        label_RawImage = new QLabel(tab_7);
-        label_RawImage->setObjectName(QStringLiteral("label_RawImage"));
-        label_RawImage->setMinimumSize(QSize(320, 180));
-        label_RawImage->setMaximumSize(QSize(1280, 720));
-        label_RawImage->setStyleSheet(QStringLiteral("border:1px solid black"));
-
-        verticalLayout_17->addWidget(label_RawImage);
-
-        btn_DiaplayRawImage = new QPushButton(tab_7);
-        btn_DiaplayRawImage->setObjectName(QStringLiteral("btn_DiaplayRawImage"));
-        btn_DiaplayRawImage->setMinimumSize(QSize(120, 0));
-        btn_DiaplayRawImage->setMaximumSize(QSize(120, 16777215));
-
-        verticalLayout_17->addWidget(btn_DiaplayRawImage);
-
-        tabWidget_2->addTab(tab_7, QString());
-        tab_8 = new QWidget();
-        tab_8->setObjectName(QStringLiteral("tab_8"));
-        verticalLayout_16 = new QVBoxLayout(tab_8);
-        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
-        label_PCLImage = new QLabel(tab_8);
-        label_PCLImage->setObjectName(QStringLiteral("label_PCLImage"));
-        label_PCLImage->setMinimumSize(QSize(320, 180));
-        label_PCLImage->setMaximumSize(QSize(1280, 720));
-        label_PCLImage->setStyleSheet(QStringLiteral("border:1px solid black"));
-
-        verticalLayout_16->addWidget(label_PCLImage);
-
-        btn_DisplayPCLImage = new QPushButton(tab_8);
-        btn_DisplayPCLImage->setObjectName(QStringLiteral("btn_DisplayPCLImage"));
-        btn_DisplayPCLImage->setMinimumSize(QSize(120, 0));
-        btn_DisplayPCLImage->setMaximumSize(QSize(120, 16777215));
-
-        verticalLayout_16->addWidget(btn_DisplayPCLImage);
-
-        tabWidget_2->addTab(tab_8, QString());
-        tab_9 = new QWidget();
-        tab_9->setObjectName(QStringLiteral("tab_9"));
-        verticalLayout_13 = new QVBoxLayout(tab_9);
+        verticalLayout_13 = new QVBoxLayout(tab_4);
         verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
-        label_FusioImage = new QLabel(tab_9);
-        label_FusioImage->setObjectName(QStringLiteral("label_FusioImage"));
-        label_FusioImage->setMinimumSize(QSize(320, 180));
-        label_FusioImage->setMaximumSize(QSize(1280, 720));
-        label_FusioImage->setStyleSheet(QStringLiteral("border:1px solid black"));
-
-        verticalLayout_13->addWidget(label_FusioImage);
-
-        btn_DisplayFusionImage = new QPushButton(tab_9);
-        btn_DisplayFusionImage->setObjectName(QStringLiteral("btn_DisplayFusionImage"));
-        btn_DisplayFusionImage->setMinimumSize(QSize(120, 0));
-        btn_DisplayFusionImage->setMaximumSize(QSize(120, 16777215));
-
-        verticalLayout_13->addWidget(btn_DisplayFusionImage);
-
-        tabWidget_2->addTab(tab_9, QString());
-
-        verticalLayout_14->addWidget(tabWidget_2);
-
-        info_textEdit = new QTextEdit(tab_4);
-        info_textEdit->setObjectName(QStringLiteral("info_textEdit"));
-        info_textEdit->setMinimumSize(QSize(0, 40));
-        info_textEdit->setMaximumSize(QSize(16777215, 40));
-        info_textEdit->setStyleSheet(QStringLiteral("background-color: rgb(50, 3, 3);"));
-
-        verticalLayout_14->addWidget(info_textEdit);
-
         frame_4 = new QFrame(tab_4);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
-        verticalLayout_15 = new QVBoxLayout(frame_4);
-        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
-        horizontalLayout_15 = new QHBoxLayout();
+        verticalLayout_14 = new QVBoxLayout(frame_4);
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        label_zed = new QLabel(frame_4);
+        label_zed->setObjectName(QStringLiteral("label_zed"));
+
+        verticalLayout_14->addWidget(label_zed);
+
+
+        verticalLayout_13->addWidget(frame_4);
+
+        widget_13 = new QWidget(tab_4);
+        widget_13->setObjectName(QStringLiteral("widget_13"));
+        widget_13->setMinimumSize(QSize(0, 30));
+        widget_13->setMaximumSize(QSize(1600000, 50));
+        horizontalLayout_15 = new QHBoxLayout(widget_13);
         horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
-        label_16 = new QLabel(frame_4);
-        label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setStyleSheet(QStringLiteral("color: rgb(52, 101, 164);"));
-
-        horizontalLayout_15->addWidget(label_16);
-
-        horizontalSpacer_6 = new QSpacerItem(120, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_15->addItem(horizontalSpacer_6);
-
-        enable_mouse_pushButton = new QPushButton(frame_4);
-        enable_mouse_pushButton->setObjectName(QStringLiteral("enable_mouse_pushButton"));
-
-        horizontalLayout_15->addWidget(enable_mouse_pushButton);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(372, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_15->addItem(horizontalSpacer_2);
 
-        measure_checkBox = new QCheckBox(frame_4);
-        measure_checkBox->setObjectName(QStringLiteral("measure_checkBox"));
+        btn_openCamera = new QPushButton(widget_13);
+        btn_openCamera->setObjectName(QStringLiteral("btn_openCamera"));
 
-        horizontalLayout_15->addWidget(measure_checkBox);
+        horizontalLayout_15->addWidget(btn_openCamera);
 
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_5 = new QSpacerItem(371, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_15->addItem(horizontalSpacer_5);
 
-        label_41 = new QLabel(frame_4);
-        label_41->setObjectName(QStringLiteral("label_41"));
+        btn_closeCamera = new QPushButton(widget_13);
+        btn_closeCamera->setObjectName(QStringLiteral("btn_closeCamera"));
 
-        horizontalLayout_15->addWidget(label_41);
+        horizontalLayout_15->addWidget(btn_closeCamera);
 
-        measure_width_lineEdit = new QLineEdit(frame_4);
-        measure_width_lineEdit->setObjectName(QStringLiteral("measure_width_lineEdit"));
+        horizontalSpacer_6 = new QSpacerItem(372, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_15->addWidget(measure_width_lineEdit);
-
-        label_42 = new QLabel(frame_4);
-        label_42->setObjectName(QStringLiteral("label_42"));
-
-        horizontalLayout_15->addWidget(label_42);
-
-        measure_height_lineEdit = new QLineEdit(frame_4);
-        measure_height_lineEdit->setObjectName(QStringLiteral("measure_height_lineEdit"));
-
-        horizontalLayout_15->addWidget(measure_height_lineEdit);
-
-        label_43 = new QLabel(frame_4);
-        label_43->setObjectName(QStringLiteral("label_43"));
-
-        horizontalLayout_15->addWidget(label_43);
-
-        measure_distance_lineEdit = new QLineEdit(frame_4);
-        measure_distance_lineEdit->setObjectName(QStringLiteral("measure_distance_lineEdit"));
-
-        horizontalLayout_15->addWidget(measure_distance_lineEdit);
+        horizontalLayout_15->addItem(horizontalSpacer_6);
 
 
-        verticalLayout_15->addLayout(horizontalLayout_15);
-
-
-        verticalLayout_14->addWidget(frame_4);
+        verticalLayout_13->addWidget(widget_13);
 
         tab_manager->addTab(tab_4, QString());
         tab_5 = new QWidget();
@@ -3003,7 +2882,7 @@ public:
 
         tab_manager->addTab(tab_15, QString());
 
-        gridLayout_2->addWidget(tab_manager, 0, 0, 2, 1);
+        gridLayout_2->addWidget(tab_manager, 0, 0, 1, 1);
 
         gridLayout_2->setColumnStretch(0, 5);
 
@@ -3031,10 +2910,9 @@ public:
         retranslateUi(MainWindowDesign);
         QObject::connect(action_Quit, SIGNAL(triggered()), MainWindowDesign, SLOT(close()));
 
-        tab_manager->setCurrentIndex(0);
+        tab_manager->setCurrentIndex(3);
         tabWidget_control->setCurrentIndex(0);
         tabWidget_4->setCurrentIndex(0);
-        tabWidget_2->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindowDesign);
@@ -3193,21 +3071,9 @@ public:
         label_15->setText(QString());
         label_13->setText(QApplication::translate("MainWindowDesign", "Display", Q_NULLPTR));
         tab_manager->setTabText(tab_manager->indexOf(tab_RVIZ), QApplication::translate("MainWindowDesign", "Rviz", Q_NULLPTR));
-        label_RawImage->setText(QApplication::translate("MainWindowDesign", "                                                                     \346\232\202\346\227\240\344\277\241\345\217\267\350\276\223\345\205\245\357\274\214\346\227\240\345\216\237\345\247\213\345\233\276\345\203\217\346\230\276\347\244\272\357\274\214\350\257\267\347\202\271\345\207\273\345\216\237\345\247\213\345\233\276\345\203\217\346\230\276\347\244\272\346\214\211\351\222\256\350\277\236\346\216\245\344\277\241\345\217\267\357\274\201", Q_NULLPTR));
-        btn_DiaplayRawImage->setText(QApplication::translate("MainWindowDesign", "\345\216\237\345\247\213\345\233\276\345\203\217\346\230\276\347\244\272", Q_NULLPTR));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindowDesign", "\345\216\237\345\247\213\345\233\276\345\203\217\346\230\276\347\244\272", Q_NULLPTR));
-        label_PCLImage->setText(QApplication::translate("MainWindowDesign", "                                                               \346\232\202\346\227\240\344\277\241\345\217\267\350\276\223\345\205\245\357\274\214\346\227\240\347\202\271\344\272\221\345\233\276\345\203\217\346\230\276\347\244\272\357\274\214\350\257\267\347\202\271\345\207\273\347\202\271\344\272\221\345\233\276\345\203\217\346\230\276\347\244\272\346\214\211\351\222\256\350\277\236\346\216\245\344\277\241\345\217\267\357\274\201", Q_NULLPTR));
-        btn_DisplayPCLImage->setText(QApplication::translate("MainWindowDesign", "\347\202\271\344\272\221\345\233\276\345\203\217\346\230\276\347\244\272", Q_NULLPTR));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_8), QApplication::translate("MainWindowDesign", "\347\202\271\344\272\221\345\233\276\345\203\217\346\230\276\347\244\272", Q_NULLPTR));
-        label_FusioImage->setText(QApplication::translate("MainWindowDesign", "                                                                   \346\232\202\346\227\240\344\277\241\345\217\267\350\276\223\345\205\245\357\274\214\346\227\240\350\236\215\345\220\210\345\233\276\345\203\217\346\230\276\347\244\272\357\274\214\350\257\267\347\202\271\345\207\273\350\236\215\345\220\210\345\233\276\345\203\217\346\230\276\347\244\272\346\214\211\351\222\256\350\277\236\346\216\245\344\277\241\345\217\267\357\274\201", Q_NULLPTR));
-        btn_DisplayFusionImage->setText(QApplication::translate("MainWindowDesign", "\350\236\215\345\220\210\345\233\276\345\203\217\346\230\276\347\244\272", Q_NULLPTR));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_9), QApplication::translate("MainWindowDesign", "\350\236\215\345\220\210\345\233\276\345\203\217\346\230\276\347\244\272", Q_NULLPTR));
-        label_16->setText(QApplication::translate("MainWindowDesign", "\350\267\235\347\246\273\346\265\213\351\207\217\346\240\217", Q_NULLPTR));
-        enable_mouse_pushButton->setText(QApplication::translate("MainWindowDesign", "Enable  Mouse", Q_NULLPTR));
-        measure_checkBox->setText(QApplication::translate("MainWindowDesign", "\345\274\200\345\247\213\346\265\213\351\207\217", Q_NULLPTR));
-        label_41->setText(QApplication::translate("MainWindowDesign", "Width\357\274\232", Q_NULLPTR));
-        label_42->setText(QApplication::translate("MainWindowDesign", "Height\357\274\232", Q_NULLPTR));
-        label_43->setText(QApplication::translate("MainWindowDesign", "Distance\357\274\232", Q_NULLPTR));
+        label_zed->setText(QApplication::translate("MainWindowDesign", "TextLabel", Q_NULLPTR));
+        btn_openCamera->setText(QApplication::translate("MainWindowDesign", "open", Q_NULLPTR));
+        btn_closeCamera->setText(QApplication::translate("MainWindowDesign", "close", Q_NULLPTR));
         tab_manager->setTabText(tab_manager->indexOf(tab_4), QApplication::translate("MainWindowDesign", "Camera", Q_NULLPTR));
         btn_interact->setText(QApplication::translate("MainWindowDesign", "interact", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindowDesign", "       \351\232\234\347\242\215\347\211\251\351\242\204\350\255\246\346\217\220\347\244\272", Q_NULLPTR));

@@ -35,10 +35,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     : QMainWindow(parent),
     qnode_main(argc,argv),
     qnode_getStartPoint(argc, argv, "qnode_SP", "fix", 3),
-    qnode_raw_image(argc, argv, "qnode_raw_image", "camera/image", 0),
-    qnode_fusion_image(argc, argv, "qnode_fusion_image", "fusion/image", 2),
-    qnode_pcl_image(argc, argv, "qnode_mask", "fusion/mask", 1),
-    qnode_points(argc, argv, "qnode_Points", "points/location", 4),
+    qnode_zed(argc, argv, "qnode_zed_image", "zed/zed_node/rgb/image_rect_color", 0),
     qnode_sonar(argc, argv, "qnode_Sonar", "sonar_pub", 5),
     qnode_obstacle(argc, argv, "qnode_Obstacle", "isObstacle_cloud", 6),
     rostopic_list(argc,argv),
@@ -79,15 +76,12 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     ui.tabWidget_control->setCurrentIndex(0);
     connect(ui.btn_interact,SIGNAL(clicked()),this,SLOT(slot_interact));
 
-    connect(ui.checkBox_tip,SIGNAL(stateChanged(int)),this,SLOT(slot_start_tip(int)));   //障碍物预警check_box
-
-
-
     initMap();
     initconections();
     initRviz();
     initRviz_obstacles();
     initChart();
+    qDebug()<< 2303/2304<<","<<2303%2304;
 }
 //初始化速度控制相关槽函数
 void MainWindow::initVector(){
@@ -438,76 +432,22 @@ void MainWindow::initconections()
     //话题更新槽函数：
     connect(ui.refreash_topic_btn,SIGNAL(clicked()),this,SLOT(slot_update_ROSTOPIC()));
 
-    //单目相机部分：
-    connect(ui.btn_DiaplayRawImage, &QPushButton::pressed, this, [=]() {
-          qnode_raw_image.init();
-          ui.btn_DiaplayRawImage->setDisabled(true);
-          QString str = "成功订阅单目原始图像并显示。";
-          ui.info_textEdit->append("<font color=\"#00ff00\">" + str +
-                                   "</font>");
+    //zed：
+
+    connect(ui.btn_openCamera, &QPushButton::pressed, this, [=]() {
+          qnode_zed.init();
       });
 
-    connect(ui.btn_DisplayPCLImage, &QPushButton::pressed, this, [=]() {
-          qnode_pcl_image.init();
-          ui.btn_DisplayPCLImage->setDisabled(true);
-          QString str = "成功订阅单目点云图像并显示。";
-          ui.info_textEdit->append("<font color=\"#00ff00\">" + str +
-                                   "</font>");
-      });
 
-    connect(ui.btn_DisplayFusionImage, &QPushButton::pressed, this, [=]() {
-          qnode_fusion_image.init();
-          ui.btn_DisplayFusionImage->setDisabled(true);
-          QString str = "成功订阅单目融合图像并显示。";
-          ui.info_textEdit->append("<font color=\"#00ff00\">" + str +
-                                   "</font>");
-      });
-
-    //显示图像
-//    connect(ui.btn_displaypoints, &QPushButton::pressed, this, [=]() {
-//          qnode_points.init();
-//          ui.btn_displaypoints->setDisabled(true);
-//      });
-
-
-
-    connect(ui.enable_mouse_pushButton, &QPushButton::pressed, this, [=]() {
-        if (!ui.measure_checkBox->isEnabled()) {
-          ui.measure_checkBox->setDisabled(false);
-          ui.enable_mouse_pushButton->setText("Disable Mouse");
-
-          QString str = "允许鼠标响应选点操作。";
-          ui.info_textEdit->setText("<font color=\"#00ff00\">" + str +
-                                    "</font>");
-        } else {
-          ui.measure_checkBox->setDisabled(true);
-          ui.enable_mouse_pushButton->setText("Enable  Mouse");
-
-          ui.measure_width_lineEdit->clear();
-          ui.measure_height_lineEdit->clear();
-          ui.measure_distance_lineEdit->clear();
-          QString str = "禁用鼠标选点操作";
-          ui.info_textEdit->append("<font color=\"#ff0000\">" + str +
-                                   "</font>");  // green
-        }
-      });
 
 
     //信号更新主界面
-    connect(&qnode_raw_image, SIGNAL(rosShutdown()), this, SLOT(close()));
-    connect(&qnode_raw_image, &CQNode::updateImage, this,&MainWindow::DisplayRawImage);
-
-    connect(&qnode_pcl_image, SIGNAL(rosShutdown()), this, SLOT(close()));
-    connect(&qnode_pcl_image, &CQNode::updatePCLImage, this,&MainWindow::DisplayPCLImage);
-
-    connect(&qnode_fusion_image, SIGNAL(rosShutdown()), this, SLOT(close()));
-    connect(&qnode_fusion_image, &CQNode::updateImage, this,&MainWindow::DisplayFusionImage);
+    connect(&qnode_zed, SIGNAL(rosShutdown()), this, SLOT(close()));
+    connect(&qnode_zed, &CQNode::updateImage, this,&MainWindow::DisplayRawImage);
 
     connect(&qnode_getStartPoint, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&qnode_getStartPoint, &CQNode::update_StartPoint, this,&MainWindow::GetStartPoint);
 
-//    connect(&qnode_points, SIGNAL(rosShutdown()), this, SLOT(close()));
-//    connect(&qnode_points, &CQNode::updatepoints, this,&MainWindow::DisplayPoints);
     //超声波
     connect(&qnode_sonar, SIGNAL(rosShutdown()), this, SLOT(close()));
     connect(&qnode_sonar, &CQNode::updateSonar1Distance, this,&MainWindow::DisplaySonar1Distance);
@@ -524,9 +464,6 @@ void MainWindow::initconections()
     connect(&mbgoal, &movebasegoal::updategoalMsg, this,&MainWindow::DisplaygoalMsg);
     connect(&mbgoal, &movebasegoal::updateOdomDisData, this,&MainWindow::DisplayOdomDisMsg);
     connect(&mbgoal, &movebasegoal::updatestatusMsg, this,&MainWindow::DisplaystatusMsg);
-
-
-    ui.label_PCLImage->installEventFilter(this);
 
     //超声波按钮连接：
     connect(ui.btn_sonar_startmeasure, &QPushButton::pressed, this, [=]() {
@@ -1418,15 +1355,9 @@ void MainWindow::GetStartPoint(QString longitude,QString latitude) {
 ** 单目图像
 *****************************************************************************/
 void MainWindow::DisplayRawImage(const QImage& image) {
-  ui.label_RawImage->setPixmap(QPixmap::fromImage(image));
+  ui.label_zed->setPixmap(QPixmap::fromImage(image));
 }
-void MainWindow::DisplayPCLImage(const QImage& image) {
-  ui.label_PCLImage->setPixmap(QPixmap::fromImage(image));
-}
-void MainWindow::DisplayFusionImage(const QImage& image) {
-  ROS_ERROR("gengxinle  ------------------------");
-  ui.label_FusioImage->setPixmap(QPixmap::fromImage(image));
-}
+
 /*****************************************************************************
 ** 超声波
 *****************************************************************************/
@@ -1921,134 +1852,6 @@ double MainWindow::distanceGPS(const double& longitude1,const double& latitude1,
                            * cos(latitude2) * sb2 * sb2));
    return distance;  //单位为m
 }
-/*****************************************************************************
-** mousePressEvent
-*****************************************************************************/
-
-
-void MainWindow::mousePressEvent(QMouseEvent* event)
-{
-//    QMessageBox::information(this, "提示", QString("点击了该Label"));
-    point = event->globalPos();
-    point = ui.label_FusioImage->mapFromGlobal(point);  //转至控件label的坐标相对位置
-    if (ui.measure_checkBox->isChecked()) {
-      if (p1.x == 0 && p1.y == 0) {
-        QString str_1 = "请拾取第一个点！";
-        ui.info_textEdit->append("<font color=\"0000FF\">" + str_1 +
-                                 "</font>");
-        p1 = SearchNearestPoint(qnode_pcl_image.mask,point.x(), point.y());
-        // rp1.x = qnode_mask.mask.at<cv::Vec3f>(p1)[0];
-        // rp1.y = qnode_mask.mask.at<cv::Vec3f>(p1)[1];
-        // rp1.z = qnode_mask.mask.at<cv::Vec3f>(p1)[2];
-        rp1 = qnode_pcl_image.mask.at<cv::Vec3f>(p1);
-
-        // p1.x = point.x();
-        // p1.y = point.y();
-
-        // show on the linetext
-        QString str_2 = "第一个点信息---   x为："+QString("%1").arg(p1.x)+"y为："+QString("%1").arg(p1.y)+"3D坐标中：x为："
-                +QString("%1").arg(rp1.x)+"y为："+QString("%1").arg(rp1.y)+"z为："+QString("%1").arg(rp1.z)
-                ;
-        ui.info_textEdit->append("<font color=\"#00ff00\">" + str_2 +
-                                 "</font>");
-      } else {
-        QString str_1 = "请拾取第二个点！";
-        ui.info_textEdit->append("<font color=\"0000FF\">" + str_1 +
-                                 "</font>");
-        p2 = SearchNearestPoint(qnode_pcl_image.mask, point.x(), point.y());
-        rp2 = qnode_pcl_image.mask.at<cv::Vec3f>(p2);
-
-        // p2.x = point.x();
-        // p2.y = point.y();
-
-        QString str_2 = "第二个点信息---   x为："+QString("%1").arg(p2.x)+"y为："+QString("%1").arg(p2.y)+"3D坐标中：x为："
-                +QString("%1").arg(rp2.x)+"y为："+QString("%1").arg(rp2.y)+"z为："+QString("%1").arg(rp2.z)
-                ;
-        ui.info_textEdit->append("<font color=\"#00ff00\">" + str_2 +
-                                 "</font>");
-//        if (fabs(rp1.x - rp2.x) > 1) {
-//          // qDebug() << "the two points in x direction is over 1m, check it !";
-//          str_2 = "两点在x方向上的距离超过1m,检查选点精度!!!";
-//          ui.info_textEdit->append("<font color=\"#ff0000\">" + str_2 +
-//                                    "</font>");  // red
-//        } else {
-          float w = fabs(rp2.y - rp1.y);
-          float h = fabs(rp2.z - rp1.z);
-          float distance_point = sqrt(w*w + h*h);
-          float distance = (rp1.x + rp2.x) / 2;
-
-          QString str = QString("%1").arg(w);
-          ui.measure_width_lineEdit->setText(str);
-          str = QString("%1").arg(h);
-          ui.measure_height_lineEdit->setText(str);
-          str = QString("%1").arg(distance_point);
-          ui.measure_distance_lineEdit->setText(str);
-//        }
-        update();
-
-        // p1.x = p2.x = p1.y = p2.y = 0;
-      }
-    }
-}
-
-bool MainWindow::CheckZero(cv::Mat& img, int x, int y) {
-  if (img.at<cv::Vec3f>(y, x)[0] == 0.0 && img.at<cv::Vec3f>(y, x)[1] == 0.0 &&
-      img.at<cv::Vec3f>(y, x)[2] == 0)
-    return true;
-  return false;
-}
-
-bool MainWindow::CheckCord(cv::Mat& img, int x, int y) {
-  if (x < 0 || x > img.cols || y < 0 || y > img.rows) return false;
-  return true;
-}
-
-cv::Point2i MainWindow::SearchNearestPoint(cv::Mat& img, int x, int y) {
-  cv::Point2i res(0, 0);
-  for (int radius = 1; radius < 20; ++radius) {
-    for (int i = x - radius; i <= x + radius; ++i) {
-      if (i == x - radius || i == x + radius) {
-        for (int j = y - radius; j < y + radius; ++j) {
-          if (CheckCord(img, i, j)) {
-            if (!CheckZero(img, i, j)) {
-              res.x = i;
-              res.y = j;
-
-              return res;
-            }
-          }
-        }
-      } else {
-        int j = y - radius;
-        if (CheckCord(img, i, j)) {
-          if (!CheckZero(img, i, j)) {
-            res.x = i;
-            res.y = j;
-
-            return res;
-          }
-        }
-        j = y + radius;
-        if (CheckCord(img, i, j)) {
-          if (!CheckZero(img, i, j)) {
-            res.x = i;
-            res.y = j;
-
-            return res;
-          }
-        }
-      }
-    }
-  }
-  // qDebug() << "did not find point";
-  QString str = "没有找到对应点!!!";
-  ui.info_textEdit->setText("<font color=\"#ff0000\">" + str +
-                            "</font>");  // red
-
-  return res;
-}
-
-
 
 /*****************************************************************************
 ** RVIZ
