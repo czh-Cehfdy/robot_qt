@@ -14,7 +14,7 @@
 #include <ros/network.h>
 #include <string>
 #include <sstream>
-#include "../include/movebasegoal.hpp"
+#include "../include/subgoal.hpp"
 
 
 /*****************************************************************************
