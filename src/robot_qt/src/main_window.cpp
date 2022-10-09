@@ -246,8 +246,6 @@ void MainWindow::initMap()
     //拾取起点终点
     connect(ui.btn_pitch, &QPushButton::clicked, [&]()
     {
-//        ui.btn_getSP->setDisabled(true);
-//        ui.btn_getTP->setDisabled(true);
         ui.btn_pitch->setDisabled(true);
         btn_pitchFlag = 1;
         QString str_pitch = QString("pitch()");
