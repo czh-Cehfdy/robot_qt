@@ -1,5 +1,5 @@
 /**
- * @file /src/movebasegoal.cpp
+ * @file /src/subgoal.cpp
  *
  * @brief Ros communication central!
  *
