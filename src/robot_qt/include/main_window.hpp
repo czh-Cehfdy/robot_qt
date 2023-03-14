@@ -28,7 +28,7 @@ QT_CHARTS_USE_NAMESPACE
 #include "ui_main_window.h"
 #include "qnode.hpp"
 #include "qnode_main.hpp"
-#include "movebasegoal.hpp"
+#include "subgoal.hpp"
 #include "CCtrlDashBoard.h"
 #include <QButtonGroup>
 #include <QLabel>
