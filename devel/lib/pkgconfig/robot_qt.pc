@@ -1,8 +1,0 @@
-prefix=/home/czh/study_code/QT_study/catkin_qt/devel
-
-Name: robot_qt
-Description: Description of robot_qt
-Version: 0.1.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
