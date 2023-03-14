@@ -42,7 +42,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_49">
     <item>
-     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0" columnstretch="5,0">
+     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0" columnstretch="5">
       <item row="0" column="0">
        <widget class="QTabWidget" name="tab_manager">
         <property name="minimumSize">
@@ -64,7 +64,7 @@
          <locale language="English" country="Australia"/>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>4</number>
         </property>
         <property name="tabBarAutoHide">
          <bool>false</bool>
@@ -89,7 +89,7 @@
              </size>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_2">
              <attribute name="title">
@@ -843,7 +843,7 @@ QPushButton:pressed{border-image: url(://images/left_2.png);}</string>
                             </size>
                            </property>
                            <property name="text">
-                            <string>全向模式（k）</string>
+                            <string>Control </string>
                            </property>
                            <property name="shortcut">
                             <string>K</string>
@@ -1402,7 +1402,7 @@ QProgressBar::chunk
               <item row="0" column="0">
                <widget class="QGroupBox" name="groupBox_7">
                 <property name="title">
-                 <string>节点开启</string>
+                 <string>Command start</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout">
                  <item>
@@ -1420,7 +1420,7 @@ QProgressBar::chunk
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 0)</string>
+                    <string notr="true">background:rgb(233, 185, 110)</string>
                    </property>
                   </widget>
                  </item>
@@ -1445,7 +1445,7 @@ QProgressBar::chunk
                    <item>
                     <widget class="QPushButton" name="btn_node1">
                      <property name="text">
-                      <string>打开</string>
+                      <string>open</string>
                      </property>
                     </widget>
                    </item>
@@ -1457,7 +1457,7 @@ QProgressBar::chunk
               <item row="0" column="1">
                <widget class="QGroupBox" name="groupBox_8">
                 <property name="title">
-                 <string>节点开启</string>
+                 <string>Command start</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <item>
@@ -1475,7 +1475,7 @@ QProgressBar::chunk
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 0)</string>
+                    <string notr="true">background:rgb(233, 185, 110)</string>
                    </property>
                   </widget>
                  </item>
@@ -1500,7 +1500,7 @@ QProgressBar::chunk
                    <item>
                     <widget class="QPushButton" name="btn_node2">
                      <property name="text">
-                      <string>打开</string>
+                      <string>open</string>
                      </property>
                     </widget>
                    </item>
@@ -1512,7 +1512,7 @@ QProgressBar::chunk
               <item row="0" column="2" colspan="2">
                <widget class="QGroupBox" name="groupBox_6">
                 <property name="title">
-                 <string>节点开启</string>
+                 <string>Command start</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
@@ -1530,7 +1530,7 @@ QProgressBar::chunk
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 0)</string>
+                    <string notr="true">background:rgb(233, 185, 110)</string>
                    </property>
                   </widget>
                  </item>
@@ -1555,7 +1555,7 @@ QProgressBar::chunk
                    <item>
                     <widget class="QPushButton" name="btn_node3">
                      <property name="text">
-                      <string>打开</string>
+                      <string>open</string>
                      </property>
                     </widget>
                    </item>
@@ -1579,7 +1579,7 @@ QProgressBar::chunk
                  </size>
                 </property>
                 <property name="title">
-                 <string>节点开启</string>
+                 <string>Command start</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
@@ -1597,7 +1597,7 @@ QProgressBar::chunk
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 0)</string>
+                    <string notr="true">background:rgb(233, 185, 110)</string>
                    </property>
                   </widget>
                  </item>
@@ -1622,7 +1622,7 @@ QProgressBar::chunk
                    <item>
                     <widget class="QPushButton" name="btn_node4">
                      <property name="text">
-                      <string>打开</string>
+                      <string>open</string>
                      </property>
                     </widget>
                    </item>
@@ -1646,7 +1646,7 @@ QProgressBar::chunk
                  </size>
                 </property>
                 <property name="title">
-                 <string>节点开启</string>
+                 <string>Command start</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_12">
                  <item>
@@ -1664,7 +1664,7 @@ QProgressBar::chunk
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 0)</string>
+                    <string notr="true">background:rgb(233, 185, 110)</string>
                    </property>
                   </widget>
                  </item>
@@ -1689,7 +1689,7 @@ QProgressBar::chunk
                    <item>
                     <widget class="QPushButton" name="btn_node5">
                      <property name="text">
-                      <string>打开</string>
+                      <string>open</string>
                      </property>
                     </widget>
                    </item>
@@ -1713,7 +1713,7 @@ QProgressBar::chunk
                  </size>
                 </property>
                 <property name="title">
-                 <string>节点开启</string>
+                 <string>Command start</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_23">
                  <item>
@@ -1731,7 +1731,7 @@ QProgressBar::chunk
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 0)</string>
+                    <string notr="true">background:rgb(233, 185, 110)</string>
                    </property>
                   </widget>
                  </item>
@@ -1756,7 +1756,7 @@ QProgressBar::chunk
                    <item>
                     <widget class="QPushButton" name="btn_node6">
                      <property name="text">
-                      <string>打开</string>
+                      <string>open</string>
                      </property>
                     </widget>
                    </item>
@@ -3945,7 +3945,7 @@ QPushButton:pressed{
          <attribute name="title">
           <string>Pre-Warning</string>
          </attribute>
-         <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="3,1">
+         <layout class="QHBoxLayout" name="horizontalLayout_27">
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_40">
             <item>
@@ -3978,7 +3978,7 @@ QPushButton:pressed{
                  </font>
                 </property>
                 <property name="text">
-                 <string>       障碍物预警提示</string>
+                 <string>                                    Obstacle warning</string>
                 </property>
                </widget>
               </item>
@@ -4060,7 +4060,7 @@ QPushButton:pressed{
                            </size>
                           </property>
                           <property name="text">
-                           <string>障碍物预警RVIZ显示</string>
+                           <string>The Rviz display of obstacle warning </string>
                           </property>
                          </widget>
                         </item>
@@ -4070,7 +4070,7 @@ QPushButton:pressed{
                        <widget class="QTreeWidget" name="treeWidget_obstacles">
                         <property name="minimumSize">
                          <size>
-                          <width>200</width>
+                          <width>480</width>
                           <height>0</height>
                          </size>
                         </property>
@@ -4103,7 +4103,7 @@ QPushButton:pressed{
                           <item>
                            <widget class="QCheckBox" name="checkBox_tip">
                             <property name="text">
-                             <string>启动预警</string>
+                             <string>Start Warnning</string>
                             </property>
                            </widget>
                           </item>
@@ -4121,7 +4121,7 @@ QPushButton:pressed{
                              <string notr="true">color: rgb(32, 74, 135);</string>
                             </property>
                             <property name="text">
-                             <string> 障碍物指示灯状态 ：</string>
+                             <string> Obstacle indicator status ：</string>
                             </property>
                            </widget>
                           </item>
@@ -4181,7 +4181,7 @@ QPushButton:pressed{
                              </font>
                             </property>
                             <property name="text">
-                             <string>障碍物预警范围(m)：</string>
+                             <string>Obstacle warning range (m) :</string>
                             </property>
                            </widget>
                           </item>
@@ -4221,25 +4221,29 @@ QPushButton:pressed{
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
-                              <height>20</height>
+                              <height>30</height>
                              </size>
                             </property>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
-                              <height>20</height>
+                              <height>30</height>
                              </size>
                             </property>
                             <property name="font">
                              <font>
                               <family>DejaVu Serif 13</family>
-                              <pointsize>12</pointsize>
+                              <pointsize>20</pointsize>
                               <weight>75</weight>
+                              <italic>false</italic>
                               <bold>true</bold>
                              </font>
                             </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
                             <property name="text">
-                             <string>                          障碍物预警提示信息</string>
+                             <string>       Pre-waming information</string>
                             </property>
                            </widget>
                           </item>
@@ -4260,33 +4264,46 @@ QPushButton:pressed{
            </layout>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_34">
+           <layout class="QVBoxLayout" name="verticalLayout_16">
             <item>
-             <widget class="QLabel" name="label_9">
-              <property name="font">
-               <font>
-                <family>DejaVu Serif 13</family>
-                <pointsize>21</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
+             <widget class="QFrame" name="frame_11">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
               </property>
-              <property name="text">
-               <string>     超声波测距提示</string>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
               </property>
+              <layout class="QVBoxLayout" name="verticalLayout_15">
+               <item>
+                <widget class="QLabel" name="label_9">
+                 <property name="font">
+                  <font>
+                   <family>DejaVu Serif 13</family>
+                   <pointsize>17</pointsize>
+                   <weight>75</weight>
+                   <italic>true</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>      Ultrasonic ranging prompts</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
              <widget class="QFrame" name="frame_5">
               <property name="minimumSize">
                <size>
-                <width>250</width>
+                <width>270</width>
                 <height>850</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>250</width>
+                <width>1000</width>
                 <height>1000</height>
                </size>
               </property>
@@ -4299,8 +4316,16 @@ QPushButton:pressed{
               <layout class="QVBoxLayout" name="verticalLayout_31">
                <item>
                 <widget class="QLabel" name="label_10">
+                 <property name="font">
+                  <font>
+                   <family>DejaVu Serif 13</family>
+                   <pointsize>16</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
-                  <string>超声波距离(cm)：</string>
+                  <string>ultrasonic distance(cm)：</string>
                  </property>
                 </widget>
                </item>
@@ -4337,7 +4362,7 @@ QPushButton:pressed{
                     </size>
                    </property>
                    <property name="text">
-                    <string>开始测量</string>
+                    <string>Start measuring</string>
                    </property>
                   </widget>
                  </item>
@@ -4356,7 +4381,7 @@ QPushButton:pressed{
                     </size>
                    </property>
                    <property name="text">
-                    <string>停止测量</string>
+                    <string>Stop measuring</string>
                    </property>
                   </widget>
                  </item>
@@ -4376,7 +4401,7 @@ QPushButton:pressed{
                   <string notr="true">color: rgb(32, 74, 135);</string>
                  </property>
                  <property name="text">
-                  <string>    垂直探测指示灯状态 ：</string>
+                  <string>Vertical detection indicator status:</string>
                  </property>
                 </widget>
                </item>
@@ -4470,7 +4495,7 @@ QPushButton:pressed{
                   </font>
                  </property>
                  <property name="text">
-                  <string>预警提示</string>
+                  <string>              Pre-waming information</string>
                  </property>
                 </widget>
                </item>
@@ -4503,7 +4528,7 @@ QPushButton:pressed{
      <x>0</x>
      <y>0</y>
      <width>1368</width>
-     <height>28</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
