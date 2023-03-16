@@ -81,7 +81,12 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     initRviz();
     initRviz_obstacles();
     initChart();
-    qDebug()<< 2303/2304<<","<<2303%2304;
+
+    //临时数据
+    ui.lineEdit_sonar1->setText("23");
+    ui.label_sonar_display->setPixmap(QPixmap(":/images/Green.png"));
+    sonar_tip = "探测距离为23cm，正常路面，未发现凹坑！";
+    ui.textEdit_tip->setText("<font color=\"#00FF00\">" + sonar_tip + "</font>");
 }
 //初始化速度控制相关槽函数
 void MainWindow::initVector(){
@@ -479,6 +484,11 @@ void MainWindow::initconections()
           QString str = "成功关闭超声波数据";
           ui.textEdit_tip->setText("<font color=\"#00ff00\">" + str +
                                    "</font>");
+      });
+    //障碍物按钮连接：
+    connect(ui.obs_pushButton, &QPushButton::pressed, this, [=]() {
+          qnode_obstacle.init();
+          ui.obs_pushButton->setDisabled(true);
       });
     connect(ui.btn_changeCarMode, &QPushButton::pressed, this, [=]() {
           ui.btn_simulation->setDisabled(false);
@@ -1412,12 +1422,12 @@ void MainWindow::slot_start_tip(int state)
 }
 
 void MainWindow::DisplayObs(const QString& obstacle_range,const QString& obstacle_state) {
-  ui.lineEdit->setText(obstacle_range);
-
+  ui.lineEdit_range->setText(obstacle_range);
+//  ui.lineEdit_range->setText("11111");
   if(obstacle_state == "1"){
       qDebug()<<"obstacle_state == 1.0"<<endl;
       ui.label_obstacle_display->setPixmap(QPixmap(":/images/Red.png"));
-      obstacle_tip = "前方20米内发现障碍物，发出红色预警！";
+      obstacle_tip = "Obstacles have been detected within 20 meters ahead, and a red alert has been issued！";
       ui.textEdit_obstacle->setText("<font color=\"#ff0000\">" + obstacle_tip + "</font>");
   }else if(obstacle_state == "0"){
       qDebug()<<"obstacle_state == 0.0"<<endl;

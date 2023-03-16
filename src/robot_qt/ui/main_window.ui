@@ -4101,9 +4101,21 @@ QPushButton:pressed{
                         <item>
                          <layout class="QVBoxLayout" name="verticalLayout_36">
                           <item>
-                           <widget class="QCheckBox" name="checkBox_tip">
+                           <widget class="QPushButton" name="obs_pushButton">
+                            <property name="minimumSize">
+                             <size>
+                              <width>200</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>200</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
                             <property name="text">
-                             <string>Start Warnning</string>
+                             <string>Start warning</string>
                             </property>
                            </widget>
                           </item>
@@ -4186,7 +4198,7 @@ QPushButton:pressed{
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="lineEdit"/>
+                           <widget class="QLineEdit" name="lineEdit_range"/>
                           </item>
                          </layout>
                         </item>
@@ -4209,7 +4221,7 @@ QPushButton:pressed{
                             <property name="font">
                              <font>
                               <family>DejaVu Serif 13</family>
-                              <pointsize>20</pointsize>
+                              <pointsize>15</pointsize>
                               <weight>75</weight>
                               <bold>true</bold>
                              </font>
@@ -4342,6 +4354,14 @@ QPushButton:pressed{
                    <width>16777215</width>
                    <height>100</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>DejaVu Serif 13</family>
+                   <pointsize>25</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
                  </property>
                 </widget>
                </item>
